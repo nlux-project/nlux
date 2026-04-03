@@ -1,0 +1,49 @@
+site_name: NLUX
+site_description: Collections Discovery platform voor de Nederlandse Cultureel Erfgoed sector
+site_url: https://nlux-project.github.io/nlux/
+repo_url: https://github.com/nlux-project/nlux
+repo_name: nlux-project/nlux
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: nl
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Schakel naar donker
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Schakel naar licht
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Over NLUX:
+      - Missie en Waarden: NLUX-mission-values.md
+      - Roadmap: NLUX-roadmap.md
+  - Plannen:
+      - Technisch Implementatieplan: NLUX-technical-implementation-plan.md
+      - Businessplan: NLUX-business-plan.md
+      - Marketingplan: NLUX-marketing-plan.md
