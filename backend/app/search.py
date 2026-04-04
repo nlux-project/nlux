@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import json
+from typing import Optional, Tuple, List, Dict, Any
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from .config import settings
@@ -14,8 +17,8 @@ def search_records(
     q: str,
     scope: str,
     page: int = 0,
-    page_length: int | None = None,
-) -> tuple[list[dict], int]:
+    page_length: Optional[int] = None,
+) -> Tuple[List[Dict[str, Any]], int]:
     """
     Returns (items, total_count).
     items: list of full JSON-LD dicts.

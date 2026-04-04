@@ -1,11 +1,13 @@
-from typing import Any
+from __future__ import annotations
+
+from typing import Any, Dict, List, Optional
 from pydantic import BaseModel
 
 
 class SearchResult(BaseModel):
     id: str
     type: str
-    label: str | None
+    label: Optional[str]
 
 
 class SearchResponse(BaseModel):
@@ -14,4 +16,4 @@ class SearchResponse(BaseModel):
     id: str
     type: str = "OrderedCollectionPage"
     totalItems: int
-    orderedItems: list[dict[str, Any]]
+    orderedItems: List[Dict[str, Any]]
