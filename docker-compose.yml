@@ -1,0 +1,39 @@
+services:
+
+  # nlux-backend: FastAPI + SQLite
+  # API available at http://localhost:8000
+  # Docs at http://localhost:8000/docs
+  api:
+    build:
+      context: backend
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:////data/nlux.db
+    volumes:
+      - nlux_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # lux-frontend: React app served by Node.js
+  # UI available at http://localhost:8088
+  frontend:
+    build:
+      context: ../lux-frontend
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8088:8088"
+    environment:
+      - USE_LOCAL_CONFIG_JSON=yes
+    volumes:
+      - ./docker/frontend-config.json:/app/config.json:ro
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  nlux_data:

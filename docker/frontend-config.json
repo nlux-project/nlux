@@ -1,0 +1,18 @@
+[
+  {"key": "APP_PORT",                    "value": "8088"},
+  {"key": "NUM_INSTANCES",               "value": "1"},
+  {"key": "DATA_API_BASE_URL",           "value": "http://localhost:8000/"},
+  {"key": "CMS_API_BASE_URL",            "value": ""},
+  {"key": "LUX_ENVIRONMENT",             "value": "development"},
+  {"key": "MAINTENANCE_MODE",            "value": "false"},
+  {"key": "MAINTENANCE_MESSAGE",         "value": ""},
+  {"key": "CACHE_VIEWER_MODE",           "value": "false"},
+  {"key": "WIKIDATA_IMAGE_PATHNAME",     "value": ""},
+  {"key": "LUX_WIKIDATA_MANIFEST_PREFIX","value": ""},
+  {"key": "LUX_FEEDBACK_URL",            "value": ""},
+  {"key": "BUGHERD_API_KEY",             "value": ""},
+  {"key": "OIDC_AUTHORITY",              "value": ""},
+  {"key": "OIDC_CLIENT_ID",              "value": ""},
+  {"key": "OIDC_REDIRECT_URI",           "value": ""},
+  {"key": "FEATURE_MY_COLLECTIONS",      "value": "false"}
+]
