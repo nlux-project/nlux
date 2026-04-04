@@ -1,0 +1,86 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.nl/data/set/teylers-tekeningen",
+  "type": "Set",
+  "_label": "Teylers Museum – Tekeningen",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Teylers Museum – Tekeningen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TM-TEK",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "accession number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "id": "http://vocab.getty.edu/aat/300025976",
+      "type": "Type",
+      "_label": "collection"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "The drawings collection of Teylers Museum, Haarlem. Contains works on paper including drawings, prints and watercolours from the 16th to the 20th century.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "type": "Type",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language",
+          "_label": "en"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://www.teylersmuseum.nl/nl/collectie/categorie/tekeningen"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum drawings collection page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

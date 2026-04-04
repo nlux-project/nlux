@@ -61,6 +61,19 @@ def health():
 def get_record(uri: str, db: Session = Depends(get_db)):
     # FastAPI path param captures everything; also handle URL-encoded ids
     decoded = unquote(uri)
+
+    # LUX internal collection paths (e.g. results/collections/all) are not
+    # real Linked Art records — return an empty OrderedCollection stub so
+    # the frontend doesn't crash with a 404.
+    if decoded.startswith("results/"):
+        return {
+            "@context": "https://linked.art/ns/v1/linked-art.json",
+            "id": decoded,
+            "type": "OrderedCollection",
+            "totalItems": 0,
+            "orderedItems": [],
+        }
+
     record = db.query(Record).filter(
         (Record.uri == decoded) | (Record.uri == uri)
     ).first()
