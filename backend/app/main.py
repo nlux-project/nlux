@@ -102,10 +102,11 @@ def stats(db: Session = Depends(get_db)):
 @app.get("/api/advanced-search-config")
 def advanced_search_config():
     """
-    Returns minimal config; lux-frontend merges this with its own local defaults
-    so empty dicts are safe — the UI will still work using its built-in config.
+    Return an empty object so the frontend spread leaves its local defaults
+    intact. Returning {"terms": {}, "options": {}} would override them with
+    empty dicts and crash the UI when it tries to access term properties.
     """
-    return {"terms": {}, "options": {}, "stopWords": []}
+    return {}
 
 
 @app.get("/api/facets/{scope}")
