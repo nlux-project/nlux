@@ -5,6 +5,7 @@ from typing import Optional
 from urllib.parse import unquote
 
 from fastapi import FastAPI, Depends, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 from sqlalchemy import text
@@ -16,6 +17,13 @@ from .schemas import SearchResponse
 from .search import search_records
 
 app = FastAPI(title="nlux-backend", version="0.1.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_origins.split(","),
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
 
 # Linked Art types grouped into the scopes lux-frontend expects
 SCOPE_TYPES = {
