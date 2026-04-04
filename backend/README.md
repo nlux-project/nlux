@@ -71,6 +71,11 @@ Variables can be set in a `.env` file in the `backend/` directory.
 | `GET` | `/health` | Liveness check |
 | `GET` | `/data/{uri}` | Retrieve a Linked Art record by URI |
 | `GET` | `/api/search/{scope}` | Full-text search |
+| `GET` | `/api/search-estimate/{scope}` | Fast count estimate for a query |
+| `GET` | `/api/stats` | Record counts per scope (landing page) |
+| `GET` | `/api/advanced-search-config` | Search UI configuration |
+| `GET` | `/api/facets/{scope}` | Faceted search (stub — Phase 1) |
+| `GET` | `/api/related-list/{scope}` | Related entities (stub — Phase 1) |
 
 ### `GET /health`
 
