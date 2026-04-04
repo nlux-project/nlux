@@ -1,0 +1,14 @@
+[
+  {
+    "key": "APP_PORT",
+    "value": 8080
+  },
+  {
+    "key": "LUX_ENVIRONMENT",
+    "value": "development"
+  },
+  {
+    "key": "MAINTENANCE_MODE",
+    "value": false
+  }
+]
