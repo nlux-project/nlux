@@ -1,0 +1,32 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:////data/nlux.db
+    volumes:
+      - nlux_data:/data
+
+  # Uncomment for PostgreSQL (prod-like) environment:
+  # api:
+  #   build: .
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - DATABASE_URL=postgresql://nlux:nlux@db:5432/nlux
+  #   depends_on:
+  #     - db
+  #
+  # db:
+  #   image: postgres:16-alpine
+  #   environment:
+  #     - POSTGRES_USER=nlux
+  #     - POSTGRES_PASSWORD=nlux
+  #     - POSTGRES_DB=nlux
+  #   volumes:
+  #     - pg_data:/var/lib/postgresql/data
+
+volumes:
+  nlux_data:
+  # pg_data:

@@ -1,7 +1,7 @@
 # NLUX Technical Implementation Plan
 
-**Version:** 0.1.0-draft  
-**Date:** 2026-04-03  
+**Version:** 0.2.0-draft  
+**Date:** 2026-04-04  
 **Status:** Draft
 
 ---
@@ -38,21 +38,30 @@ NLUX will fork or extend each component, applying minimal Dutch-specific customi
 
 ---
 
-## 4. Architecture Decision: MarkLogic vs Open Alternative
+## 4. Architecture Decision: Backend — Decision Record
 
-LUX uses MarkLogic as its backend, which is a commercial product. This is the single largest technical risk for NLUX. Two paths exist:
+LUX uses MarkLogic as its backend, which is a commercial product. After evaluation, **MarkLogic has been ruled out** for NLUX (see [nlux-project/nlux#10](https://github.com/nlux-project/nlux/issues/10)).
 
-### Option A — Use MarkLogic
-- Pros: full LUX compatibility, least code change.
-- Cons: commercial licensing cost (significant); vendor lock-in.
-- Feasibility: MarkLogic offers a free Developer tier and has open-sourced some components. A community/non-profit licence may be negotiable.
+### Decision (2026-04-04): `nlux-backend`
 
-### Option B — Replace MarkLogic with an open stack
-- Candidates: MarkLogic → OpenSearch/Elasticsearch + a triplestore (Apache Jena Fuseki, Oxigraph) + a SPARQL-to-JSON translation layer.
-- Pros: fully open stack; no licence cost.
-- Cons: significant engineering effort; risks LUX compatibility at the API layer.
+MarkLogic was found to be too complex and overengineered for NLUX's Phase 0 needs. NLUX will use a purpose-built open-source backend:
 
-**Recommendation for v0.x:** Start with Option A (MarkLogic Developer / free tier or negotiated licence) to prove compatibility and get a working demo quickly. Plan an Option B migration track in parallel for long-term sustainability.
+**`nlux-backend`** — a simplified Python/FastAPI service that:
+- Implements the LUX middletier REST API contract (compatible with `lux-frontend` and `lux-middletier`)
+- Stores and serves Linked Art JSON-LD records
+- Uses **SQLite** in development and **PostgreSQL** in production
+- Is fully containerised with Docker
+
+### Rejected options
+
+| Option | Reason rejected |
+|--------|----------------|
+| MarkLogic Developer licence | Too complex; commercial vendor lock-in; overengineered for initial scope |
+| OpenSearch + triplestore | Significant engineering effort deferred to Phase 2+ |
+
+### Future
+
+An OpenSearch evaluation track remains open for Phase 2 if PostgreSQL full-text search proves insufficient at scale.
 
 ---
 
@@ -76,11 +85,27 @@ LUX uses MarkLogic as its backend, which is a commercial product. This is the si
 
 ### 5.3 Backend
 
-- **Phase 1**: Deploy LUX backend unchanged on MarkLogic (Developer licence or hosted ML Cloud).
-- **Phase 2**: Evaluate OpenSearch as a backend:
-  - Ingest Linked.art JSON-LD into OpenSearch with a custom index mapping.
-  - Implement LUX REST API compatibility layer (Python / FastAPI).
-  - Run both backends in parallel and compare search quality.
+**`nlux-backend`** (repository: [nlux-project/nlux-backend](https://github.com/nlux-project/nlux-backend)) is NLUX's custom backend, replacing `lux-marklogic`.
+
+**Phase 0 (current):** Core API — record retrieval, full-text search, health endpoint.
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /health` | Liveness check |
+| `GET /data/{uri}` | Retrieve a Linked Art record by URI |
+| `GET /api/search/{scope}` | Full-text search with pagination |
+
+**Stack:**
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | FastAPI (Python 3.12) |
+| ORM | SQLAlchemy 2 |
+| Database (dev) | SQLite with FTS5 |
+| Database (prod) | PostgreSQL with `tsvector` |
+| Container | Docker / Docker Compose |
+
+**Phase 2:** Evaluate OpenSearch as a search backend if PostgreSQL FTS proves insufficient at scale.
 
 ### 5.4 Frontend
 
@@ -135,8 +160,8 @@ To stay compatible with LUX:
 |-------|-----------|
 | Data model | Linked.art (JSON-LD, CIDOC-CRM) |
 | Data pipeline | Python 3.11+, XSLT 2.0, Apache Jena |
-| Backend (phase 1) | MarkLogic (Developer / hosted) |
-| Backend (phase 2) | OpenSearch 2.x + FastAPI |
+| Backend (phase 0–1) | FastAPI + SQLite / PostgreSQL (`nlux-backend`) |
+| Backend (phase 2+) | OpenSearch evaluation (optional) |
 | Frontend | React 18, TypeScript, LUX frontend fork |
 | Documentation | MkDocs + Material theme |
 | CI/CD | GitHub Actions |
@@ -151,9 +176,10 @@ To stay compatible with LUX:
 ### Phase 0 — Foundation (Months 1–3)
 - [ ] Set up GitHub organisation (e.g. `nlux-project`)
 - [ ] Fork LUX repositories; establish upstream tracking branch
-- [ ] Deploy LUX frontend + backend locally with Docker
+- [x] Build `nlux-backend` (FastAPI + SQLite/PostgreSQL) — replaces MarkLogic (2026-04-04)
+- [ ] Deploy `lux-frontend` + `nlux-backend` locally with Docker
 - [ ] Ingest one Dutch institution's sample data (e.g. Teylers)
-- [ ] Set up NLUX documentation site (this repo)
+- [x] Set up NLUX documentation site (this repo)
 - [ ] Define governance and contribution guidelines
 
 ### Phase 1 — Pilot (Months 4–9)
@@ -183,7 +209,7 @@ To stay compatible with LUX:
 
 | Risk | Likelihood | Mitigation |
 |------|-----------|------------|
-| MarkLogic licence cost | High | Negotiate non-profit licence; plan open-stack alternative |
+| MarkLogic licence cost | Resolved | Replaced by `nlux-backend` (FastAPI/PostgreSQL); MarkLogic not used |
 | LUX upstream divergence | Medium | Upstream tracking branch; active upstream participation |
 | Institution data quality | High | Data cleaning pipeline; incremental onboarding |
 | Funding gaps | Medium | Multiple funding sources; low fixed costs |

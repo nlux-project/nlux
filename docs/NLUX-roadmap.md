@@ -1,7 +1,7 @@
 # NLUX Unified Roadmap
 
-**Version:** 0.1.0-draft  
-**Date:** 2026-04-03  
+**Version:** 0.2.0-draft  
+**Date:** 2026-04-04  
 **Status:** Draft
 
 This document combines milestones from the Technical Implementation Plan, Business Plan, and Marketing Plan into a single timeline. Each milestone is tagged with its domain:
@@ -20,15 +20,16 @@ Goal: establish the project's legal, organisational, and technical foundation.
 | # | Milestone | Domain | Notes |
 |---|-----------|--------|-------|
 | 0.1 | Register GitHub organisation (`nlux-project`) | `[TECH]` | Fork LUX repos; set up upstream tracking branches |
-| 0.2 | Deploy LUX frontend + backend locally (Docker) | `[TECH]` | Validate full stack runs before touching code |
-| 0.3 | Ingest Teylers Museum sample data | `[TECH]` | First real Dutch dataset in a LUX instance |
+| 0.2 | Build `nlux-backend` (FastAPI/SQLite/PostgreSQL) | `[TECH]` | Replaces MarkLogic; compatible with lux-frontend API — **done 2026-04-04** |
+| 0.3 | Deploy `lux-frontend` + `nlux-backend` locally (Docker) | `[TECH]` | Validate full stack runs end-to-end |
+| 0.4b | Ingest Teylers Museum sample data into `nlux-backend` | `[TECH]` | First real Dutch dataset via `load_data.py` |
 | 0.4 | Set up NLUX documentation site (this MkDocs repo) | `[TECH]` | Published to GitHub Pages |
 | 0.5 | Define contribution guidelines and code of conduct | `[TECH]` `[LEGAL]` | Contributor Covenant; CONTRIBUTING.md |
 | 0.6 | Incorporate Stichting NLUX with notary | `[LEGAL]` `[BIZ]` | Required before grant applications |
 | 0.7 | Appoint initial board (3 members minimum) | `[LEGAL]` `[BIZ]` | Recruit 2 external board members |
 | 0.8 | Open private conversations with Teylers and Boerhaave | `[BIZ]` `[MKT]` | No commitment required; gauge interest |
 | 0.9 | Register domain (`nlux.nl` or `nlux-project.org`) | `[MKT]` | DNS, basic landing page |
-| 0.10 | Agree on MarkLogic strategy (Developer licence vs open stack) | `[TECH]` `[BIZ]` | Gate for infrastructure decisions |
+| 0.10 | ~~Agree on MarkLogic strategy~~ → decided: `nlux-backend` | `[TECH]` `[BIZ]` | MarkLogic ruled out; FastAPI/PostgreSQL backend built — **done 2026-04-04** |
 
 **Phase 0 exit criteria:** Stichting incorporated; LUX running locally with Dutch sample data; at least 2 institutions in conversation.
 
@@ -113,10 +114,12 @@ Goal: sustainable operation, community growth, cross-institutional entity linkin
               └── 1.4 Staging environment
                     └── 2.1 Production infrastructure
 
-0.10 MarkLogic strategy agreed
-  └── 1.4 Staging environment
-        └── 2.4 OpenSearch evaluation
-              └── 3.4 OpenSearch migration
+0.2 nlux-backend built (FastAPI/SQLite/PostgreSQL)
+  └── 0.3 Deploy lux-frontend + nlux-backend locally
+        └── 0.4b Ingest Teylers sample data
+              └── 1.4 Staging environment
+                    └── 2.4 OpenSearch evaluation (optional)
+                          └── 3.4 OpenSearch migration (optional)
 ```
 
 ---
@@ -128,7 +131,7 @@ Goal: sustainable operation, community growth, cross-institutional entity linkin
 | 0 | Stichting setup delayed (notary availability) | Start process immediately; use template statuten |
 | 1 | Institutions not ready to sign an MOU | Lower barrier: informal letter of intent first |
 | 2 | Grant application rejected | Multiple parallel applications; NDE + Creative Industries |
-| 2 | MarkLogic cost unacceptable | Developer licence for demo; OpenSearch track ready by Phase 2 |
+| 2 | nlux-backend search quality at scale | Evaluate OpenSearch as Phase 2 backend if PostgreSQL FTS insufficient |
 | 3 | Single founder burnout | Recruit board and contributors before Phase 3 begins |
 
 ---
