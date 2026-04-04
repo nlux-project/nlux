@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PORT=${PORT:-8080}
+PORT=${PORT:-8000}
 IMAGE=${DOCKER_IMAGE:-nlux-backend}
 CONTAINER=${DOCKER_CONTAINER_NAME:-nlux-backend}
 HOST_CONFIG_JSON=$(pwd)/docker/config.json
@@ -26,7 +26,7 @@ fi
 function run_i {
   #docker run --platform=linux/amd64 -it --name $CONTAINER \
   docker run -it --name $CONTAINER \
-    -p ${PORT}:8080 \
+    -p ${PORT}:8000 \
     ${ENVS} \
     ${VOLUMES} \
     $IMAGE /bin/bash
@@ -35,7 +35,7 @@ function run_i {
 function run {
   #docker run --platform=linux/amd64 -d --name $CONTAINER \
   docker run -d --name $CONTAINER \
-  -p ${PORT}:8080 \
+  -p ${PORT}:8000 \
   ${ENVS} \
   ${VOLUMES} \
   $IMAGE
