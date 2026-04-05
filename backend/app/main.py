@@ -4,7 +4,7 @@ import json
 from typing import Optional
 from urllib.parse import unquote
 
-from fastapi import FastAPI, Depends, HTTPException, Query
+from fastapi import FastAPI, Depends, HTTPException, Query, Response
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import func
 from sqlalchemy.orm import Session
@@ -55,6 +55,28 @@ def startup():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/data/results/persons")
+def list_persons(
+    page: int = Query(0, ge=0),
+    pageLength: int = Query(20, alias="pageLength", ge=1),
+    db: Session = Depends(get_db),
+):
+    """Return an OrderedCollectionPage of all Person records."""
+    q = db.query(Record).filter(Record.type == "Person")
+    total = q.count()
+    items = q.offset(page * pageLength).limit(pageLength).all()
+    return {
+        "@context": "https://linked.art/ns/v1/linked-art.json",
+        "id": f"/data/results/persons?page={page}&pageLength={pageLength}",
+        "type": "OrderedCollectionPage",
+        "totalItems": total,
+        "orderedItems": [
+            {"id": r.uri, "type": r.type, "_label": r.label}
+            for r in items
+        ],
+    }
 
 
 @app.get("/data/{uri:path}")
@@ -112,6 +134,19 @@ def stats(db: Session = Depends(get_db)):
     return {"estimates": {"searchScopes": counts}}
 
 
+@app.get("/api/translate/{scope}")
+def translate(
+    scope: str,
+    q: str = Query(..., description="Simple search query string"),
+):
+    """
+    Translate a simple search string into a LUX advanced query JSON string.
+    The frontend uses this when switching from simple to advanced search.
+    """
+    query = json.dumps({"_scope": scope, "text": q})
+    return Response(content=query, media_type="application/json")
+
+
 @app.get("/api/advanced-search-config")
 def advanced_search_config():
     """
@@ -123,9 +158,21 @@ def advanced_search_config():
 
 
 @app.get("/api/facets/{scope}")
-def facets(scope: str, db: Session = Depends(get_db)):
-    """Stub — returns empty facets. Full facet aggregation can be added in Phase 1."""
-    return {"orderedItems": []}
+def facets(
+    scope: str,
+    q: Optional[str] = Query(None),
+    page: int = Query(1, ge=1),
+    db: Session = Depends(get_db),
+):
+    """Stub — returns empty facets with required id field for frontend pagination."""
+    id_str = f"/api/facets/{scope}?q={q or ''}&page={page}"
+    return {
+        "id": id_str,
+        "type": "OrderedCollectionPage",
+        "orderedItems": [],
+        "totalItems": 0,
+        "partOf": [{"id": id_str, "type": "OrderedCollection", "totalItems": 0}],
+    }
 
 
 @app.get("/api/related-list/{scope}")

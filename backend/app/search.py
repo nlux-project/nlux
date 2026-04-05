@@ -12,6 +12,20 @@ def _is_sqlite(db: Session) -> bool:
     return "sqlite" in settings.database_url
 
 
+def _extract_query_text(q: str) -> str:
+    """
+    The frontend passes q as a JSON object e.g. {"text":"marcus"}.
+    Extract the plain text value so it can be used in FTS queries.
+    """
+    try:
+        parsed = json.loads(q)
+        if isinstance(parsed, dict) and "text" in parsed:
+            return parsed["text"]
+    except (json.JSONDecodeError, TypeError):
+        pass
+    return q
+
+
 def search_records(
     db: Session,
     q: str,
@@ -23,6 +37,7 @@ def search_records(
     Returns (items, total_count).
     items: list of full JSON-LD dicts.
     """
+    q = _extract_query_text(q)
     if page_length is None:
         page_length = settings.page_length_default
     page_length = min(page_length, settings.page_length_max)
