@@ -1,0 +1,1404 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Collections Discovery platform voor de Nederlandse Cultureel Erfgoed sector">
+      
+      
+      
+        <link rel="canonical" href="https://nlux-project.github.io/nlux/NLUX-technical-implementation-plan/">
+      
+      
+        <link rel="prev" href="../NLUX-roadmap/">
+      
+      
+        <link rel="next" href="../NLUX-business-plan/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Technisch Implementatieplan - NLUX</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nlux-technical-implementation-plan" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="NLUX" class="md-header__button md-logo" aria-label="NLUX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NLUX
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Technisch Implementatieplan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Schakel naar donker"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Schakel naar donker" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Schakel naar licht"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Schakel naar licht" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nlux-project/nlux" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nlux-project/nlux
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../NLUX-mission-values/" class="md-tabs__link">
+          
+  
+  
+  Over NLUX
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Plannen
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="NLUX" class="md-nav__button md-logo" aria-label="NLUX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NLUX
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nlux-project/nlux" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nlux-project/nlux
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Over NLUX
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Over NLUX
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NLUX-mission-values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missie en Waarden
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NLUX-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plannen
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plannen
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technisch Implementatieplan
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technisch Implementatieplan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lux-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LUX Architecture Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-goals-and-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Goals and Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-architecture-decision-backend-decision-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Architecture Decision: Backend — Decision Record
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Architecture Decision: Backend — Decision Record">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decision-2026-04-04-nlux-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision (2026-04-04): nlux-backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejected-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-component-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Component Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Component Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Data Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-data-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Data Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Frontend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-devops-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 DevOps &amp; CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-lux-upstream-compatibility-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. LUX Upstream Compatibility Strategy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-governance-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Data Governance &amp; Standards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-technology-stack-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Technology Stack Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-phased-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Phased Roadmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Phased Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-0-foundation-months-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 0 — Foundation (Months 1–3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-pilot-months-49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 — Pilot (Months 4–9)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-production-months-1018" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 — Production (Months 10–18)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-growth-18-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 — Growth (18+ Months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-risks-and-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Risks and Mitigations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-open-source-licensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Open Source &amp; Licensing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NLUX-business-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Businessplan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NLUX-marketing-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marketingplan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/nlux-project/nlux/edit/main/docs/NLUX-technical-implementation-plan.md" title="Wijzig deze pagina" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="nlux-technical-implementation-plan">NLUX Technical Implementation Plan<a class="headerlink" href="#nlux-technical-implementation-plan" title="Permanent link">&para;</a></h1>
+<p><strong>Version:</strong> 0.2.0-draft<br />
+<strong>Date:</strong> 2026-04-04<br />
+<strong>Status:</strong> Draft</p>
+<hr />
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>NLUX (Nederlandse Linked Data Uitwisseling / NL Collections Discovery) is a collections discovery platform for the Dutch Cultural Heritage sector. It is built on top of Yale University's <a href="https://lux.collections.yale.edu/">LUX: Yale Collections Discovery</a> platform and reuses as much of LUX's codebase, tooling, and architecture as possible. NLUX must remain 100% compatible with Project LUX — i.e., any LUX dataset should work in NLUX without modification, and vice versa.</p>
+<hr />
+<h2 id="2-lux-architecture-overview">2. LUX Architecture Overview<a class="headerlink" href="#2-lux-architecture-overview" title="Permanent link">&para;</a></h2>
+<p>Understanding the upstream LUX platform is the prerequisite for NLUX. LUX consists of:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data pipeline</td>
+<td>Python, XSLT, shell</td>
+<td><a href="https://github.com/project-lux/lux-data">project-lux/lux-data</a></td>
+</tr>
+<tr>
+<td>Backend search</td>
+<td>MarkLogic (NoSQL XML/JSON)</td>
+<td><a href="https://github.com/project-lux/lux-backend">project-lux/lux-backend</a></td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>React / TypeScript</td>
+<td><a href="https://github.com/project-lux/lux-frontend">project-lux/lux-frontend</a></td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>MkDocs / Linked.art</td>
+<td><a href="https://github.com/project-lux/documentation">project-lux/documentation</a></td>
+</tr>
+<tr>
+<td>Data model</td>
+<td>Linked.art (CIDOC-CRM)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>NLUX will fork or extend each component, applying minimal Dutch-specific customisations.</p>
+<hr />
+<h2 id="3-goals-and-constraints">3. Goals and Constraints<a class="headerlink" href="#3-goals-and-constraints" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>100% LUX compatibility</strong>: data model stays Linked.art / CIDOC-CRM; APIs remain LUX-compatible.</li>
+<li><strong>Minimal customisation</strong>: prefer configuration over code changes; maintain a thin diff from upstream.</li>
+<li><strong>Open source</strong>: all NLUX-specific code is published under an OSI-approved licence (Apache 2.0 recommended).</li>
+<li><strong>Dutch Cultural Heritage focus</strong>: initial target institutions include Teylers Museum, Museum Boerhaave, Huis van Hilde, RMO Leiden.</li>
+<li><strong>Low cost</strong>: avoid or minimise proprietary/commercial dependencies (especially MarkLogic licensing).</li>
+</ul>
+<hr />
+<h2 id="4-architecture-decision-backend-decision-record">4. Architecture Decision: Backend — Decision Record<a class="headerlink" href="#4-architecture-decision-backend-decision-record" title="Permanent link">&para;</a></h2>
+<p>LUX uses MarkLogic as its backend, which is a commercial product. After evaluation, <strong>MarkLogic has been ruled out</strong> for NLUX (see <a href="https://github.com/nlux-project/nlux/issues/10">nlux-project/nlux#10</a>).</p>
+<h3 id="decision-2026-04-04-nlux-backend">Decision (2026-04-04): <code>nlux-backend</code><a class="headerlink" href="#decision-2026-04-04-nlux-backend" title="Permanent link">&para;</a></h3>
+<p>MarkLogic was found to be too complex and overengineered for NLUX's Phase 0 needs. NLUX will use a purpose-built open-source backend:</p>
+<p><strong><code>nlux-backend</code></strong> — a simplified Python/FastAPI service that:
+- Implements the LUX middletier REST API contract (compatible with <code>lux-frontend</code> and <code>lux-middletier</code>)
+- Stores and serves Linked Art JSON-LD records
+- Uses <strong>SQLite</strong> in development and <strong>PostgreSQL</strong> in production
+- Is fully containerised with Docker</p>
+<h3 id="rejected-options">Rejected options<a class="headerlink" href="#rejected-options" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Reason rejected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MarkLogic Developer licence</td>
+<td>Too complex; commercial vendor lock-in; overengineered for initial scope</td>
+</tr>
+<tr>
+<td>OpenSearch + triplestore</td>
+<td>Significant engineering effort deferred to Phase 2+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future">Future<a class="headerlink" href="#future" title="Permanent link">&para;</a></h3>
+<p>An OpenSearch evaluation track remains open for Phase 2 if PostgreSQL full-text search proves insufficient at scale.</p>
+<hr />
+<h2 id="5-component-plan">5. Component Plan<a class="headerlink" href="#5-component-plan" title="Permanent link">&para;</a></h2>
+<h3 id="51-data-model">5.1 Data Model<a class="headerlink" href="#51-data-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Adopt Linked.art in full, as documented at <a href="https://project-lux.github.io/documentation">project-lux.github.io/documentation</a>.</li>
+<li>Extend with Dutch-specific vocabularies where needed (e.g. RKDartists, NTA authority files, AAT Dutch labels), always as additions that do not break the core Linked.art shape.</li>
+<li>Use the NLUX documentation site (this MkDocs repo) to document Dutch extensions.</li>
+</ul>
+<h3 id="52-data-pipeline">5.2 Data Pipeline<a class="headerlink" href="#52-data-pipeline" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fork <code>project-lux/lux-data</code>.</li>
+<li>Add Dutch institution connectors:</li>
+<li>RijksmuseuM API (already JSON-LD / Linked.art friendly)</li>
+<li>Adlib / Axiell EMu XML exports (Teylers, RMO, etc.)</li>
+<li>OAI-PMH endpoints</li>
+<li>Transformation tooling: Python + XSLT (as upstream); consider adding a <a href="https://github.com/linked-art/cogs">CoGS</a> pipeline step.</li>
+<li>Output: Linked.art JSON-LD blobs, identical in shape to LUX production data.</li>
+</ul>
+<h3 id="53-backend">5.3 Backend<a class="headerlink" href="#53-backend" title="Permanent link">&para;</a></h3>
+<p><strong><code>nlux-backend</code></strong> (repository: <a href="https://github.com/nlux-project/nlux-backend">nlux-project/nlux-backend</a>) is NLUX's custom backend, replacing <code>lux-marklogic</code>.</p>
+<p><strong>Phase 0 (current):</strong> Core API — record retrieval, full-text search, health endpoint.</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /health</code></td>
+<td>Liveness check</td>
+</tr>
+<tr>
+<td><code>GET /data/{uri}</code></td>
+<td>Retrieve a Linked Art record by URI</td>
+</tr>
+<tr>
+<td><code>GET /api/search/{scope}</code></td>
+<td>Full-text search with pagination</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Stack:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework</td>
+<td>FastAPI (Python 3.12)</td>
+</tr>
+<tr>
+<td>ORM</td>
+<td>SQLAlchemy 2</td>
+</tr>
+<tr>
+<td>Database (dev)</td>
+<td>SQLite with FTS5</td>
+</tr>
+<tr>
+<td>Database (prod)</td>
+<td>PostgreSQL with <code>tsvector</code></td>
+</tr>
+<tr>
+<td>Container</td>
+<td>Docker / Docker Compose</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Phase 2:</strong> Evaluate OpenSearch as a search backend if PostgreSQL FTS proves insufficient at scale.</p>
+<h3 id="54-frontend">5.4 Frontend<a class="headerlink" href="#54-frontend" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fork <code>project-lux/lux-frontend</code>.</li>
+<li>Dutch-language translations (i18n): add <code>nl</code> locale using LUX's existing i18n mechanism.</li>
+<li>Branding: configure theme colours, logo, and institution list via environment variables / config (no code changes).</li>
+<li>Host: static build deployed to GitHub Pages (initial) → CDN (production).</li>
+</ul>
+<h3 id="55-infrastructure">5.5 Infrastructure<a class="headerlink" href="#55-infrastructure" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Platform</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Development</td>
+<td>Local Docker Compose</td>
+<td>Free</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td>GitHub Actions CI + GitHub Pages</td>
+<td>Free</td>
+</tr>
+<tr>
+<td>Production (v1)</td>
+<td>A cloud provider (Hetzner, AWS, or SURF)</td>
+<td>€50–300/mo estimated</td>
+</tr>
+<tr>
+<td>MarkLogic (if Option A)</td>
+<td>MarkLogic Developer (local) or ML Cloud</td>
+<td>Free–$500+/mo</td>
+</tr>
+</tbody>
+</table>
+<p>SURF Research Cloud or SURF hosted services are a strong candidate for Dutch academic/cultural heritage projects — explore eligibility.</p>
+<h3 id="56-devops-cicd">5.6 DevOps &amp; CI/CD<a class="headerlink" href="#56-devops-cicd" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Git monorepo or multi-repo (mirror LUX's structure).</li>
+<li>GitHub Actions for CI: lint, test, build, deploy.</li>
+<li>Docker Compose for local development of all services.</li>
+<li>Semantic versioning; release notes per component tied to LUX upstream tags.</li>
+</ul>
+<hr />
+<h2 id="6-lux-upstream-compatibility-strategy">6. LUX Upstream Compatibility Strategy<a class="headerlink" href="#6-lux-upstream-compatibility-strategy" title="Permanent link">&para;</a></h2>
+<p>To stay compatible with LUX:</p>
+<ol>
+<li>Track LUX upstream releases with a dedicated branch (e.g. <code>upstream/main</code>).</li>
+<li>Apply NLUX patches as a thin layer via git cherry-pick or patch files.</li>
+<li>Run LUX's own test suite against NLUX builds in CI.</li>
+<li>Participate in the LUX open source community (issues, PRs) where problems affect both.</li>
+</ol>
+<hr />
+<h2 id="7-data-governance-standards">7. Data Governance &amp; Standards<a class="headerlink" href="#7-data-governance-standards" title="Permanent link">&para;</a></h2>
+<ul>
+<li>All data published as Linked.art JSON-LD, licenced CC0 or CC-BY where institutions permit.</li>
+<li>Personal data (provenance, collector names): follow AVG/GDPR; no personal data in public endpoints without consent.</li>
+<li>Authority files: align with Wikidata, AAT, RKD, NTA, and VIAF for entity reconciliation.</li>
+<li>Persistent identifiers: use ARK or Handle URIs for NLUX-minted records; institutions retain their own PIDs.</li>
+</ul>
+<hr />
+<h2 id="8-technology-stack-summary">8. Technology Stack Summary<a class="headerlink" href="#8-technology-stack-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data model</td>
+<td>Linked.art (JSON-LD, CIDOC-CRM)</td>
+</tr>
+<tr>
+<td>Data pipeline</td>
+<td>Python 3.11+, XSLT 2.0, Apache Jena</td>
+</tr>
+<tr>
+<td>Backend (phase 0–1)</td>
+<td>FastAPI + SQLite / PostgreSQL (<code>nlux-backend</code>)</td>
+</tr>
+<tr>
+<td>Backend (phase 2+)</td>
+<td>OpenSearch evaluation (optional)</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>React 18, TypeScript, LUX frontend fork</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>MkDocs + Material theme</td>
+</tr>
+<tr>
+<td>CI/CD</td>
+<td>GitHub Actions</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>Docker / Docker Compose</td>
+</tr>
+<tr>
+<td>Hosting</td>
+<td>GitHub Pages (static), SURF or Hetzner (backend)</td>
+</tr>
+<tr>
+<td>Licence</td>
+<td>Apache 2.0 (code), CC0/CC-BY (data)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-phased-roadmap">9. Phased Roadmap<a class="headerlink" href="#9-phased-roadmap" title="Permanent link">&para;</a></h2>
+<h3 id="phase-0-foundation-months-13">Phase 0 — Foundation (Months 1–3)<a class="headerlink" href="#phase-0-foundation-months-13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Set up GitHub organisation (e.g. <code>nlux-project</code>)</li>
+<li>[ ] Fork LUX repositories; establish upstream tracking branch</li>
+<li>[x] Build <code>nlux-backend</code> (FastAPI + SQLite/PostgreSQL) — replaces MarkLogic (2026-04-04)</li>
+<li>[ ] Deploy <code>lux-frontend</code> + <code>nlux-backend</code> locally with Docker</li>
+<li>[ ] Ingest one Dutch institution's sample data (e.g. Teylers)</li>
+<li>[x] Set up NLUX documentation site (this repo)</li>
+<li>[ ] Define governance and contribution guidelines</li>
+</ul>
+<h3 id="phase-1-pilot-months-49">Phase 1 — Pilot (Months 4–9)<a class="headerlink" href="#phase-1-pilot-months-49" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Dutch i18n for the frontend</li>
+<li>[ ] Minimal branding customisation</li>
+<li>[ ] Data pipeline for 2–3 pilot institutions</li>
+<li>[ ] Staging environment (GitHub Pages frontend + hosted backend)</li>
+<li>[ ] Demo for pilot institutions; collect feedback</li>
+<li>[ ] Apply for first funding round (NWO, Creative Industries Fund NL, or EU)</li>
+</ul>
+<h3 id="phase-2-production-months-1018">Phase 2 — Production (Months 10–18)<a class="headerlink" href="#phase-2-production-months-1018" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Production infrastructure (SURF or Hetzner)</li>
+<li>[ ] Onboard pilot institutions formally (MOUs / data agreements)</li>
+<li>[ ] OpenSearch backend evaluation</li>
+<li>[ ] Public launch</li>
+<li>[ ] Submit to Dutch Open Science / GLAM networks</li>
+</ul>
+<h3 id="phase-3-growth-18-months">Phase 3 — Growth (18+ Months)<a class="headerlink" href="#phase-3-growth-18-months" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Additional institutions</li>
+<li>[ ] Federated search / cross-institutional entity linking</li>
+<li>[ ] API for third-party applications</li>
+<li>[ ] Community governance (steering group, working groups)</li>
+</ul>
+<hr />
+<h2 id="10-risks-and-mitigations">10. Risks and Mitigations<a class="headerlink" href="#10-risks-and-mitigations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MarkLogic licence cost</td>
+<td>Resolved</td>
+<td>Replaced by <code>nlux-backend</code> (FastAPI/PostgreSQL); MarkLogic not used</td>
+</tr>
+<tr>
+<td>LUX upstream divergence</td>
+<td>Medium</td>
+<td>Upstream tracking branch; active upstream participation</td>
+</tr>
+<tr>
+<td>Institution data quality</td>
+<td>High</td>
+<td>Data cleaning pipeline; incremental onboarding</td>
+</tr>
+<tr>
+<td>Funding gaps</td>
+<td>Medium</td>
+<td>Multiple funding sources; low fixed costs</td>
+</tr>
+<tr>
+<td>GDPR compliance</td>
+<td>Medium</td>
+<td>Legal review per institution; lean on existing policies</td>
+</tr>
+<tr>
+<td>Single maintainer dependency</td>
+<td>High</td>
+<td>Document everything; recruit volunteer contributors early</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-open-source-licensing">11. Open Source &amp; Licensing<a class="headerlink" href="#11-open-source-licensing" title="Permanent link">&para;</a></h2>
+<ul>
+<li>NLUX code: <strong>Apache License 2.0</strong></li>
+<li>LUX upstream code: check each repo's licence (currently varies; some are Apache 2.0)</li>
+<li>Data contributed by institutions: institution defines licence; NLUX recommends CC0 or CC-BY</li>
+<li>Documentation: <strong>CC-BY 4.0</strong></li>
+</ul>
+<p>All forks and NLUX-specific code will be published under the <code>nlux-project</code> GitHub organisation.</p>
+<hr />
+<p><em>End of Technical Implementation Plan v0.1.0-draft</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
