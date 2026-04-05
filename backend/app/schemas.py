@@ -17,3 +17,4 @@ class SearchResponse(BaseModel):
     type: str = "OrderedCollectionPage"
     totalItems: int
     orderedItems: List[Dict[str, Any]]
+    partOf: List[Dict[str, Any]] = []

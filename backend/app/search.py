@@ -7,6 +7,16 @@ from sqlalchemy.orm import Session
 from .config import settings
 from .models import Record
 
+SCOPE_TYPES: Dict[str, List[str]] = {
+    "item": ["HumanMadeObject", "DigitalObject"],
+    "work": ["LinguisticObject", "VisualItem", "InformationObject"],
+    "set": ["Set"],
+    "agent": ["Person", "Group", "Actor"],
+    "place": ["Place"],
+    "concept": ["Type", "Material", "Language", "MeasurementUnit", "Currency", "Concept"],
+    "event": ["Activity", "Period", "Event", "Move", "Acquisition"],
+}
+
 
 def _is_sqlite(db: Session) -> bool:
     return "sqlite" in settings.database_url
@@ -49,52 +59,85 @@ def search_records(
     return _pg_search(db, q, scope, offset, page_length)
 
 
-def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):
-    # Use SQLite FTS5 virtual table if available, else LIKE fallback
-    try:
-        count_sql = text(
-            "SELECT COUNT(*) FROM records_fts WHERE records_fts MATCH :q"
-        )
-        total = db.execute(count_sql, {"q": q}).scalar() or 0
+def _type_placeholders(types: List[str]) -> Tuple[str, Dict]:
+    """Build an IN clause placeholder string and params dict for a list of types."""
+    params = {f"t{i}": t for i, t in enumerate(types)}
+    clause = ", ".join(f":t{i}" for i in range(len(types)))
+    return clause, params
 
-        rows_sql = text(
-            """
-            SELECT r.data FROM records r
-            JOIN records_fts fts ON fts.rowid = r.rowid
-            WHERE records_fts MATCH :q
-            LIMIT :limit OFFSET :offset
-            """
-        )
-        rows = db.execute(rows_sql, {"q": q, "limit": limit, "offset": offset}).fetchall()
+
+def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):
+    types = SCOPE_TYPES.get(scope, [])
+    type_clause, type_params = _type_placeholders(types) if types else ("", {})
+
+    try:
+        if types:
+            count_sql = text(
+                f"SELECT COUNT(*) FROM records r "
+                f"JOIN records_fts fts ON fts.rowid = r.rowid "
+                f"WHERE records_fts MATCH :q AND r.type IN ({type_clause})"
+            )
+            total = db.execute(count_sql, {"q": q, **type_params}).scalar() or 0
+
+            rows_sql = text(
+                f"SELECT r.data FROM records r "
+                f"JOIN records_fts fts ON fts.rowid = r.rowid "
+                f"WHERE records_fts MATCH :q AND r.type IN ({type_clause}) "
+                f"LIMIT :limit OFFSET :offset"
+            )
+            rows = db.execute(rows_sql, {"q": q, **type_params, "limit": limit, "offset": offset}).fetchall()
+        else:
+            count_sql = text("SELECT COUNT(*) FROM records_fts WHERE records_fts MATCH :q")
+            total = db.execute(count_sql, {"q": q}).scalar() or 0
+            rows_sql = text(
+                "SELECT r.data FROM records r "
+                "JOIN records_fts fts ON fts.rowid = r.rowid "
+                "WHERE records_fts MATCH :q LIMIT :limit OFFSET :offset"
+            )
+            rows = db.execute(rows_sql, {"q": q, "limit": limit, "offset": offset}).fetchall()
     except Exception:
         # Fallback to LIKE if FTS table not created yet
         like = f"%{q}%"
-        total = db.query(Record).filter(Record.search_text.like(like)).count()
-        rows = (
-            db.query(Record.data)
-            .filter(Record.search_text.like(like))
-            .offset(offset)
-            .limit(limit)
-            .all()
-        )
+        query = db.query(Record).filter(Record.search_text.like(like))
+        if types:
+            query = query.filter(Record.type.in_(types))
+        total = query.count()
+        rows = [(r.data,) for r in query.offset(offset).limit(limit).all()]
 
     items = [json.loads(row[0]) for row in rows]
     return items, total
 
 
 def _pg_search(db: Session, q: str, scope: str, offset: int, limit: int):
-    sql_count = text(
-        "SELECT COUNT(*) FROM records WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q)"
-    )
-    total = db.execute(sql_count, {"q": q}).scalar() or 0
+    types = SCOPE_TYPES.get(scope, [])
+    type_clause, type_params = _type_placeholders(types) if types else ("", {})
 
-    sql_rows = text(
-        """
-        SELECT data FROM records
-        WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q)
-        LIMIT :limit OFFSET :offset
-        """
-    )
-    rows = db.execute(sql_rows, {"q": q, "limit": limit, "offset": offset}).fetchall()
+    if types:
+        sql_count = text(
+            f"SELECT COUNT(*) FROM records "
+            f"WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q) "
+            f"AND type IN ({type_clause})"
+        )
+        total = db.execute(sql_count, {"q": q, **type_params}).scalar() or 0
+
+        sql_rows = text(
+            f"SELECT data FROM records "
+            f"WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q) "
+            f"AND type IN ({type_clause}) "
+            f"LIMIT :limit OFFSET :offset"
+        )
+        rows = db.execute(sql_rows, {"q": q, **type_params, "limit": limit, "offset": offset}).fetchall()
+    else:
+        sql_count = text(
+            "SELECT COUNT(*) FROM records WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q)"
+        )
+        total = db.execute(sql_count, {"q": q}).scalar() or 0
+        sql_rows = text(
+            "SELECT data FROM records "
+            "WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q) "
+            "LIMIT :limit OFFSET :offset"
+        )
+        rows = db.execute(sql_rows, {"q": q, "limit": limit, "offset": offset}).fetchall()
+
     items = [json.loads(row[0]) for row in rows]
     return items, total

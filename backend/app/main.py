@@ -135,10 +135,12 @@ def search(
     db: Session = Depends(get_db),
 ):
     items, total = search_records(db, q, scope, page, pageLength)
+    collection_id = f"/api/search/{scope}?q={q}"
     return SearchResponse(
-        id=f"/api/search/{scope}?q={q}&page={page}",
+        id=f"{collection_id}&page={page}",
         totalItems=total,
         orderedItems=items,
+        partOf=[{"id": collection_id, "type": "OrderedCollection", "totalItems": total}],
     )
 
 
