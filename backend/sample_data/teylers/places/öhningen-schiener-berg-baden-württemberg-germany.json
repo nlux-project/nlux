@@ -1,0 +1,52 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/place/öhningen-schiener-berg-baden-württemberg-germany",
+  "type": "Place",
+  "_label": "Öhningen, Schiener Berg, Baden-Württemberg, Germany",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Öhningen, Schiener Berg, Baden-Württemberg, Germany",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Referenced in Teylers Museum record: https://teylers.adlibhosting.com/ais6/Details/museum/7008516",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "source record"
+        }
+      ],
+      "subject_of": [
+        {
+          "type": "LinguisticObject",
+          "digitally_carried_by": [
+            {
+              "type": "DigitalObject",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300264578",
+                  "_label": "web page"
+                }
+              ],
+              "access_point": [
+                {
+                  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7008516"
+                }
+              ],
+              "format": "text/html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

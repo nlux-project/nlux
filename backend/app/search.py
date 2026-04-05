@@ -41,7 +41,8 @@ def search_records(
     if page_length is None:
         page_length = settings.page_length_default
     page_length = min(page_length, settings.page_length_max)
-    offset = page * page_length
+    # Frontend uses 1-based page numbers; convert to 0-based offset
+    offset = max(page - 1, 0) * page_length
 
     if _is_sqlite(db):
         return _sqlite_search(db, q, scope, offset, page_length)

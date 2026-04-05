@@ -1,0 +1,116 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/place/dordrecht",
+  "type": "Place",
+  "_label": "Dordrecht",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Dordrecht",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Referenced in Teylers Museum record: https://teylers.adlibhosting.com/ais6/Details/museum/7041992",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "source record"
+        }
+      ],
+      "subject_of": [
+        {
+          "type": "LinguisticObject",
+          "digitally_carried_by": [
+            {
+              "type": "DigitalObject",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300264578",
+                  "_label": "web page"
+                }
+              ],
+              "access_point": [
+                {
+                  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7041992"
+                }
+              ],
+              "format": "text/html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Referenced in Teylers Museum record: https://teylers.adlibhosting.com/ais6/Details/museum/7042014",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "source record"
+        }
+      ],
+      "subject_of": [
+        {
+          "type": "LinguisticObject",
+          "digitally_carried_by": [
+            {
+              "type": "DigitalObject",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300264578",
+                  "_label": "web page"
+                }
+              ],
+              "access_point": [
+                {
+                  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7042014"
+                }
+              ],
+              "format": "text/html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Referenced in Teylers Museum record: https://teylers.adlibhosting.com/ais6/details/museum/7060045",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "source record"
+        }
+      ],
+      "subject_of": [
+        {
+          "type": "LinguisticObject",
+          "digitally_carried_by": [
+            {
+              "type": "DigitalObject",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300264578",
+                  "_label": "web page"
+                }
+              ],
+              "access_point": [
+                {
+                  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7060045"
+                }
+              ],
+              "format": "text/html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

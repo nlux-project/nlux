@@ -79,6 +79,28 @@ def list_persons(
     }
 
 
+@app.get("/data/results/places")
+def list_places(
+    page: int = Query(0, ge=0),
+    pageLength: int = Query(20, alias="pageLength", ge=1),
+    db: Session = Depends(get_db),
+):
+    """Return an OrderedCollectionPage of all Place records."""
+    q = db.query(Record).filter(Record.type == "Place")
+    total = q.count()
+    items = q.offset(page * pageLength).limit(pageLength).all()
+    return {
+        "@context": "https://linked.art/ns/v1/linked-art.json",
+        "id": f"/data/results/places?page={page}&pageLength={pageLength}",
+        "type": "OrderedCollectionPage",
+        "totalItems": total,
+        "orderedItems": [
+            {"id": r.uri, "type": r.type, "_label": r.label}
+            for r in items
+        ],
+    }
+
+
 @app.get("/data/{uri:path}")
 def get_record(uri: str, db: Session = Depends(get_db)):
     # FastAPI path param captures everything; also handle URL-encoded ids
