@@ -1,0 +1,151 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V09654",
+  "type": "HumanMadeObject",
+  "_label": "Anti proton lens (magnetische hoorn) volgens S. van der Meer, Cern Genève, 1975-2000",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Anti proton lens (magnetische hoorn) volgens S. van der Meer, Cern Genève, 1975-2000",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09654",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Rijksmuseum Boerhaave",
+              "id": "https://mmb-web.adlibhosting.com/nlux/group/rijksmuseum-boerhaave"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Anti proton lens",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object type"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "part": [
+      {
+        "type": "Production",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300386171",
+            "_label": "making"
+          }
+        ],
+        "carried_out_by": [
+          {
+            "type": "Group",
+            "_label": "Cern",
+            "id": "https://mmb-web.adlibhosting.com/nlux/group/cern"
+          }
+        ],
+        "took_place_at": [
+          {
+            "type": "Place",
+            "_label": "Genève",
+            "id": "https://mmb-web.adlibhosting.com/nlux/place/genève"
+          }
+        ]
+      },
+      {
+        "type": "Production",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300404387",
+            "_label": "designing"
+          }
+        ],
+        "carried_out_by": [
+          {
+            "type": "Person",
+            "_label": "Simon van der Meer",
+            "id": "https://mmb-web.adlibhosting.com/nlux/person/simon-van-der-meer"
+          }
+        ]
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1975-01-01",
+      "end_of_the_end": "2000-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1975 - 2000"
+        }
+      ]
+    }
+  },
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Voorwerpen\\9600\\v09654.jpg&width=150&height=150&imageformat=jpg"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V09654"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksmuseum Boerhaave catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V03102",
+  "type": "HumanMadeObject",
+  "_label": "Astrolabium, onbekend, 1449-1451",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Astrolabium, onbekend, 1449-1451",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V03102",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Rijksmuseum Boerhaave",
+              "id": "https://mmb-web.adlibhosting.com/nlux/group/rijksmuseum-boerhaave"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Astrolabium",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object type"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "classified_as": [
+      {
+        "id": "http://vocab.getty.edu/aat/300386171",
+        "_label": "making"
+      }
+    ],
+    "carried_out_by": [
+      {
+        "type": "Group",
+        "_label": "Onbekend",
+        "id": "https://mmb-web.adlibhosting.com/nlux/group/onbekend"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1449-01-01",
+      "end_of_the_end": "1451-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1449 - 1451"
+        }
+      ]
+    }
+  },
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Website\\Voorwerpen\\0-9999\\3102.JPG&width=150&height=150&imageformat=jpg"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V03102"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksmuseum Boerhaave catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

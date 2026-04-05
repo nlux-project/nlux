@@ -16,4 +16,7 @@ echo "==> Loading places..."
 echo "==> Loading groups..."
 "$SCRIPT_DIR/load_groups_to_docker.sh"
 
+echo "==> Loading Boerhaave objects..."
+"$SCRIPT_DIR/load_boerhaave_to_docker.sh"
+
 echo "All done."

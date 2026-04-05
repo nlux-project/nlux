@@ -1,0 +1,96 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V12233",
+  "type": "HumanMadeObject",
+  "_label": "Kooldraadlamp, volgens Edison, 1879-1885",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Kooldraadlamp, volgens Edison, 1879-1885",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V12233",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Rijksmuseum Boerhaave",
+              "id": "https://mmb-web.adlibhosting.com/nlux/group/rijksmuseum-boerhaave"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Gloeilamp met hoekspiegel",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object type"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Website\\Voorwerpen\\10000\\12233.JPG&width=150&height=150&imageformat=jpg"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V12233"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksmuseum Boerhaave catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

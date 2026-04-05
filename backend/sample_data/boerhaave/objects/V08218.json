@@ -1,0 +1,151 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V08218",
+  "type": "HumanMadeObject",
+  "_label": "Oudste telefoon van Nederland toestel I, volgens Graham Bell, J.W. Giltay Delft, 1876-1878",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Oudste telefoon van Nederland toestel I, volgens Graham Bell, J.W. Giltay Delft, 1876-1878",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V08218",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Rijksmuseum Boerhaave",
+              "id": "https://mmb-web.adlibhosting.com/nlux/group/rijksmuseum-boerhaave"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Telefoontoestel",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object type"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "part": [
+      {
+        "type": "Production",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300386171",
+            "_label": "making"
+          }
+        ],
+        "carried_out_by": [
+          {
+            "type": "Person",
+            "_label": "J.W. Giltay",
+            "id": "https://mmb-web.adlibhosting.com/nlux/person/jw-giltay"
+          }
+        ],
+        "took_place_at": [
+          {
+            "type": "Place",
+            "_label": "Delft",
+            "id": "https://mmb-web.adlibhosting.com/nlux/place/delft"
+          }
+        ]
+      },
+      {
+        "type": "Production",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300404387",
+            "_label": "designing"
+          }
+        ],
+        "carried_out_by": [
+          {
+            "type": "Person",
+            "_label": "Alexander Graham Bell",
+            "id": "https://mmb-web.adlibhosting.com/nlux/person/alexander-graham-bell"
+          }
+        ]
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1876-01-01",
+      "end_of_the_end": "1878-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1876 - 1878"
+        }
+      ]
+    }
+  },
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=voorwerpen\\8200\\V08218-TH.JPG&width=150&height=150&imageformat=jpg"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V08218"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksmuseum Boerhaave catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

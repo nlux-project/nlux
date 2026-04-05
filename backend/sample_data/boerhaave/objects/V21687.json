@@ -1,0 +1,96 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V21687",
+  "type": "HumanMadeObject",
+  "_label": "Nat preparaat limulus rotundicauda (degenkrab), Jan van der Hoeven, 1800-1875",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Nat preparaat limulus rotundicauda (degenkrab), Jan van der Hoeven, 1800-1875",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V21687",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Rijksmuseum Boerhaave",
+              "id": "https://mmb-web.adlibhosting.com/nlux/group/rijksmuseum-boerhaave"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Vloeistofpreparaat limulus rotundicauda (degenkrab)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object type"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Website\\Voorwerpen\\20000\\21687.JPG&width=150&height=150&imageformat=jpg"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V21687"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksmuseum Boerhaave catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

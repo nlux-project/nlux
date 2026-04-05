@@ -1,0 +1,130 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V23890",
+  "type": "HumanMadeObject",
+  "_label": "Standaard metre, Etienne Lenoir Parijs, 1795",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Standaard metre, Etienne Lenoir Parijs, 1795",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V23890",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Rijksmuseum Boerhaave",
+              "id": "https://mmb-web.adlibhosting.com/nlux/group/rijksmuseum-boerhaave"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Standaardmeter",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object type"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "classified_as": [
+      {
+        "id": "http://vocab.getty.edu/aat/300386171",
+        "_label": "making"
+      }
+    ],
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Etienne Lenoir",
+        "id": "https://mmb-web.adlibhosting.com/nlux/person/etienne-lenoir"
+      }
+    ],
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Parijs",
+        "id": "https://mmb-web.adlibhosting.com/nlux/place/parijs"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1795-01-01",
+      "end_of_the_end": "1795-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1795 - 1795"
+        }
+      ]
+    }
+  },
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Website\\Voorwerpen\\20000\\V23890.JPG&width=150&height=150&imageformat=jpg"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/museum/V23890"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksmuseum Boerhaave catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
