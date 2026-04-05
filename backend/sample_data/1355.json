@@ -1,0 +1,91 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/document/300001354",
+  "type": "LinguisticObject",
+  "_label": "Encyclopédie, ou Dictionnaire raisonné des sciences, des arts et des métiers",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Encyclopédie, ou Dictionnaire raisonné des sciences, des arts et des métiers",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1355",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "The complete first edition of the **Encyclopédie, ou Dictionnaire raisonné des sciences, des arts et des métiers**, edited by **Denis Diderot** (Langres, 1713 – Paris, 1784) and initially co-edited by **Jean le Rond d'Alembert** (Paris, 1717 – Paris, 1783), published in Paris and Amsterdam, 1751–1780. The complete first edition comprises **35 folio volumes**: 17 text volumes + 11 plates volumes + 4 supplement text volumes + 1 supplement plates volume + 2 analytical index volumes (*Table analytique*). Contains 71,818 articles and 3,129 plates, with more than 130 contributors. The work was condemned by the Parlement de Paris (1759) and placed on the Catholic Church's *Index Librorum Prohibitorum* by Pope Clement XIII (1759), forcing the completion of the text volumes in secret. Acquired by Teylers **in 1780** — four years before the museum's formal opening in 1784, making it one of the earliest documented acquisitions in the collection. Designated one of Teylers' **50 Topstukken** and central to the 2026 Teylers exhibition **\"Gevaarlijke Boeken.\"**",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/document/300001354"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

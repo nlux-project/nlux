@@ -1,0 +1,155 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/33105",
+  "type": "HumanMadeObject",
+  "_label": "De Ambassadeur van Labberlotten",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De Ambassadeur van Labberlotten",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "T 029",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "penseel in waterverf"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Cornelis Troost (1697–1750), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1717-01-01",
+      "end_of_the_end": "1750-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "circa 1717 – voor 1750; undated"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "penseel in kleur; potlood"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A gouache on paper (272 x 360 mm) by **Cornelis Troost** (Amsterdam, 1696 – Amsterdam, 1750), dated **1742**, depicting a crowd assembled before the inn **'t Bokje** in the **Haarlemmerhout** to witness an elaborate prank orchestrated by writer-satirist **Jacob Campo Weyerman** (1677–1747) and associates in 1739: a figure exposes painted buttocks arranged to mimic a face in a first-floor window, with blackened trumpeters and mock-ceremonial fanfare, parodying public fascination with the Moroccan ambassador. This is one of at least four treatments Troost made of this subject. Acquired by Teylers in **1780 for 100 guilders** — a considerable sum for a drawing at the time. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Paper: 272 x 360 mm; Mount: 419 x 534 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "C.Troost fc; T 68; Teyler; Troost T.29",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/33105"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "De Ambassadeur van Labberlotten"
+    }
+  ]
+}

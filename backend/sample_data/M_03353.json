@@ -1,0 +1,119 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7031667",
+  "type": "HumanMadeObject",
+  "_label": "Topje van de Mont Blanc",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Topje van de Mont Blanc",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "M 03353",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "graniet (monster)"
+    }
+  ],
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1787-01-01",
+        "end_of_the_end": "1787-12-31",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1787"
+          }
+        ]
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "M 03353 is one of the most historically significant geological specimens in any museum collection in the world: a fragment of rock chipped from the highest ice-free exposed rock outcrop at the summit of Mont Blanc on 3 August 1787, by the Genevan scientist Horace-Bénédict de Saussure (1740–1799) during his ascent. The rock outcrop from which it was taken, the Rocher de la Tournette, stands at approximately 4,677 metres on the summit ridge of Mont Blanc. The specimen weighs 147.7 grams and shows an irregular shape consistent with having been chipped from an exposed rock face.\n\nThe specimen is a **biotite granite** — specifically a leucocratic monzogranite — the dominant rock type forming the Mont Blanc massif. The granite consists of quartz, potassium feldspar (sometimes large white rectangular crystals), plagioclase, and black biotite mica, with the biotite partially replaced by greenish chlorite as a metamorphic alteration product. Both catalog images confirm this: one shows the fresh broken surface with a granitic speckled texture in grey-pink tones; the other shows the rougher, slightly more weathered outer surface with visible greenish chlorite patches and a museum label reading \"W47 / M3353.\"\n\nDe Saussure's ascent (3 August 1787) was the third overall ascent of Mont Blanc and the second by a scientist. It was a major scientific expedition: he brought 18 guides, scientific instruments including barometers, thermometers, a hygrometer, a magnetometer, a cyanometer (to measure sky blueness), and an electrometer. At the summit he made 17 hours of observations, measured barometric pressure to calculate summit altitude (arriving at 4,775 m — within 30 m of the modern value of 4,805.59 m), and collected rock samples. His findings were published in his multi-volume *Voyages dans les Alpes* (1779–1796).\n\nThe specimen was acquired by Teylers Museum in 1802, purchased by director Martinus van Marum from de Saussure's son Nicolas-Théodore de Saussure, three years after Horace-Bénédict's death. It is displayed in the Oval Room alongside the Exchaquet maquette (M 12369).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Collectie Teylers Museum"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7031667"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

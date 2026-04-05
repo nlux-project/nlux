@@ -1,0 +1,183 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/40",
+  "type": "HumanMadeObject",
+  "_label": "Portret Jacques de la Faille (gest. 1615)",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Portret Jacques de la Faille (gest. 1615)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "N 039",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "perkament"
+    },
+    {
+      "type": "Material",
+      "_label": "geprepareerd"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 45.0,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "_label": "height"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379097",
+        "_label": "mm"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 33.0,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "_label": "width"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379097",
+        "_label": "mm"
+      }
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Hendrick Goltzius (1558-1617), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1580-01-01",
+      "end_of_the_end": "1580-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1580"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "metaalstift"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A small **silverpoint** (*metaalstift*) portrait drawing on prepared parchment (vellum), 45 × 33 mm, by **Hendrick Goltzius** (1558–1617). It depicts **Jacques de la Faille** (c.1548–1615), a wealthy Antwerp merchant and Colonel of the Antwerp Civic Guard, and was made as a **preparatory study** (*tafelette*) for the engraved portrait New Hollstein 216, published in Haarlem by Harmen Adolfsz. in 1580, on the occasion of de la Faille's marriage to Josina Hamels. The inscription on the drawing itself reads *\"voor de prent\"* (for the print), explicitly confirming its preparatory function. De la Faille later fled Spanish-controlled Antwerp for Haarlem in 1584. The finished engraving is held in the Rijksmuseum, Philadelphia, Princeton, the Art Institute of Chicago, and Musea Brugge. The Teylers drawing belongs to a group of nearly one hundred surviving Goltzius *silverpoint tafeletten* — the largest such surviving group anywhere in the world.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"Jacques de la Faille ± 1580 voor de prent\"; \"verdraghen(?) [..]\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "portret (Faille, Jacques de la); man; portret (man)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/40"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Portret Jacques de la Faille (gest. 1615)"
+    }
+  ]
+}

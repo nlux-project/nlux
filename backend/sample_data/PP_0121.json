@@ -1,0 +1,176 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/39224",
+  "type": "HumanMadeObject",
+  "_label": "Portret van Adriaen Blyenburg",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Portret van Adriaen Blyenburg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "PP 0121",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "grafiek"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Samuel van Hoogstraten (1627-1678), graveur"
+      }
+    ],
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "gravure"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is an etching by Samuel van Hoogstraten (1627–1678), depicting Adriaen van Blyenburg half-length, facing forward, holding a parchment roll. It exists in 2 states; Teylers holds state 2 (the final published version with text). The Rijksmuseum holds an impression of the same state (RP-P-OB-12.792). Plate dimensions match almost exactly: Teylers 201×149mm vs Rijksmuseum 200×147mm.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Portret van Adriaen Blyenburg, ten halve lijve van voren gezien. In zijn handen een rol perkament. Staat 2 van 2.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "plaatrand: 201×149 mm, papier: 209×154 mm, opzet: 463×314 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "FOL 124 / \"Dit's BLYENBURG, die... Vrijheijt heeft geplant.\" (6 lines) / S.V.Hoogstraten. / N. 1589 Ol. 1639 / Zie van der An",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "medicus",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Panpoeticon Batavum"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/39224"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

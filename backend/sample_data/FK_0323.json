@@ -1,0 +1,159 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000376",
+  "type": "HumanMadeObject",
+  "_label": "Zevenvoets-Spiegeltelescoop",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Zevenvoets-Spiegeltelescoop",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 0323",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "telescoop"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1790-01-01",
+      "end_of_the_end": "1790-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1790"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A **seven-foot Newtonian reflecting telescope** built by **William Herschel** (1738–1822) at his workshop in Slough, England, and acquired by Teylers Museum director **Martinus van Marum** in 1790 after visiting Herschel's observatory in person and observing nebulae through his instruments. Van Marum purchased the instrument for the small observatory on the roof of the Teylers Oval Room.\n\nThe telescope features an **octagonal mahogany tube** of approximately 7-foot (2.1 m) focal length, a **speculum metal primary mirror** (~155 mm / 6⅛ inch aperture), a diagonal secondary mirror directing light to a perpendicular eyepiece (confirming Newtonian design), mounted on a mahogany altazimuth stand with brass fittings. Herschel made hundreds of such instruments commercially — by 1795 he claimed to have made over 200 seven-foot mirrors alone. This telescope is a smaller sibling of the instrument Herschel used to **discover Uranus on 13 March 1781**.\n\nA second listed maker, **Frédéric Guillaume Fries**, was a Swiss-born instrument maker previously working in London whom van Marum recruited to Haarlem in 1790, introducing him to Teylers' Second Society in November of that year. His specific role in this instrument (maintenance, assembly, or adaptation) is not established.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "None",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Not recorded",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "None",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Optics"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000376"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

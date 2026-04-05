@@ -1,0 +1,144 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/document/300000067",
+  "type": "LinguisticObject",
+  "_label": "De adfinium vocabulorum Differentia. Accedunt opuscula nondum edita...",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De adfinium vocabulorum Differentia. Accedunt opuscula nondum edita...",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "68",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "created_by": {
+    "type": "Creation",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Ammonius"
+      }
+    ]
+  },
+  "used_for": [
+    {
+      "type": "Activity",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300054686",
+          "_label": "publishing"
+        }
+      ],
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "J. Luzac, Lugduni Batavorum"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1739-01-01",
+        "end_of_the_end": "1739-12-31",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1739"
+          }
+        ]
+      }
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Griekse en Latijnse schrijvers"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is the first critical edition of Ammonius's *De adfinium vocabulorum Differentia* (On the Differences of Synonymous Expressions), an ancient Greek grammatical treatise distinguishing near-synonyms. Edited by the young Lodewijk Caspar Valckenaer (1715–1785), who was only 24 at the time, and published by Jean Luzac in Leiden in 1739. The edition includes four previously unpublished ancient grammatical texts and three books of Valckenaer's own scholarly commentary. It was a landmark publication that launched Valckenaer's career as one of the greatest Dutch classical philologists.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Quarto, 6 + XXIX + 263 pp",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435452",
+          "_label": "physical description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/document/300000067"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

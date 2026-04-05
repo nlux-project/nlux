@@ -1,0 +1,144 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/document/300003162",
+  "type": "LinguisticObject",
+  "_label": "Natuurkundige Uitspanningen, behelzende eenige waarneemingen over sommige zee-planten en zee-insecten, benevens derzelver zaadhuisjes en eyernesten",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Natuurkundige Uitspanningen, behelzende eenige waarneemingen over sommige zee-planten en zee-insecten, benevens derzelver zaadhuisjes en eyernesten",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "3163",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "created_by": {
+    "type": "Creation",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "J. Baster"
+      }
+    ]
+  },
+  "used_for": [
+    {
+      "type": "Activity",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300054686",
+          "_label": "publishing"
+        }
+      ],
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "J. Bosch, Haarlem"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1759-01-01",
+        "end_of_the_end": "1765-12-31",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1759-1765"
+          }
+        ]
+      }
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Biology, marine biology, oceanography"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a two-part quarto volume containing Job Baster's *Natuurkundige Uitspanningen, behelzende eenige waarneemingen over sommige zee-planten en zee-insecten, benevens derzelver zaadhuisjes en eyernesten* (\"Natural Recreations, containing some observations on certain sea-plants and sea-insects, together with their seed-vessels and egg-nests\"). Published by J. Bosch in Haarlem between 1759 and 1765, the work comprises Part I (169 pp, 16 plates) and Part II (167 pp, 13 plates), bound together as one volume. The 29 plates are hand-colored copperplate engravings depicting marine organisms — hydropolyps, corallines, mollusks, their eggs, and larvae. This is a foundational work in Dutch marine biology and one of the earliest systematic illustrated studies of invertebrate marine life from the North Sea and Oosterschelde.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "4° (quarto); Part I: 169 pp, 16 plates; Part II: 167 pp, 13 plates; two parts bound as one",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435452",
+          "_label": "physical description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/document/300003162"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

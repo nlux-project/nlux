@@ -1,0 +1,163 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/4000002",
+  "type": "HumanMadeObject",
+  "_label": "Standaardmaatlat",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Standaardmaatlat",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 0002",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "mahonie"
+    },
+    {
+      "type": "Material",
+      "_label": "messing"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Benjamin Ayres, Amsterdam"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1750-01-01",
+      "end_of_the_end": "1774-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "c. 1750 – c. 1774"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a standard measuring ruler (standaardmaatlat) made by Benjamin Ayres (active 1731–c. 1775), an English-born instrument maker established in Amsterdam. The ruler is a conversion tool comparing multiple concurrent European measurement systems — English, French, Rhineland, Amsterdam, and Holland measures — in mahogany with brass fittings. Made for or by appointment to the Prince of Orange and the Admiralty of Amsterdam, it represents the chaotic state of European metrology before the adoption of the metric system.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Op de eene zijde: de Egnelse en de Amsgterdamsche voet in 8 delen en de Fransche, Rhijnlandsche, Amsterdamsche en Hollandsche palm in 12 delen. Op de andere zijde: 2/3 yard en de Amsterdamsche el in 8 delen. Koperen maat: (div.) voeten in 8 deelen en palm in 12 d",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "standaard: 727×127 mm; doos: 763×146×32 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"Gemaakt door Benjn Ayres Instrument-maaker van zijn Doorl. Hooghd de Prinse van Orange en Nassau &c. &c. &c. en van het Edle Mogend Collegie ter Admiralitijt.\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/4000002"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

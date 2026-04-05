@@ -1,0 +1,177 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/40353",
+  "type": "HumanMadeObject",
+  "_label": "Zonder titel (Geboeide handen)",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Zonder titel (Geboeide handen)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KT 2016 092",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "pen in inkt"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Andy Warhol (1928-1987), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1953-01-01",
+      "end_of_the_end": "1953-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "ca. 1953 / ongedateerd; bron: documentatie Daniel Blau"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Potlood, pen in Oostindische inkt, witte dekverf"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A drawing on paper (304 x 353 mm) by **Andy Warhol** (Pittsburgh, 1928 – New York, 1987), dated c. 1953, depicting two hands from different people bound together with handcuffs. Executed in pencil, pen in Indian ink, and white opaque paint. The work belongs to a group of approximately 300 drawings discovered in **2011** in Warhol's estate flat files by Munich dealer **Daniel Blau** — all from Warhol's 1950s commercial illustration years, many drawn after source photographs in *LIFE* magazine. Acquired by Teylers in 2016 with support from the VriendenLoterij. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De handen van twee verschillende mensen aan elkaar geboeid met handboeien",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Paper: 304 x 353 mm; Mount: 425 x 600 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "The estate of Andy Warhol",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "© Pictoright Amsterdam"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/40353"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Zonder titel (Geboeide handen)"
+    }
+  ]
+}

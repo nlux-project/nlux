@@ -1,0 +1,153 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7042014",
+  "type": "HumanMadeObject",
+  "_label": "Inname van Breda op de Spanjaarden met behulp van een turfschip door Charles de Héraugnières",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Inname van Breda op de Spanjaarden met behulp van een turfschip door Charles de Héraugnières",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 00294",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Silver"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Holland (Republic, province); Gerard van Bylaer (±1540–1617)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1590-01-01",
+      "end_of_the_end": "1590-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1590"
+        }
+      ]
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Dordrecht"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a silver triumph medal commemorating one of the most celebrated military exploits in Dutch history — the **Capture of Breda on 4 March 1590** using the \"Turfschip van Breda\" (Peat Ship of Breda), often compared to the **Trojan Horse**. Approximately 68–75 Dutch and English soldiers under **Charles de Héraugière** hid inside a peat barge, sailed unchecked past Spanish guards into the castle, and captured it at dawn. The medal was struck by order of the States-General just **16 days** after the event (resolution of 20 March 1590), with dies engraved by **Gerard van Bylaer** at the Dordrecht mint. It comes from the personal collection of **Pieter Teyler van der Hulst** — the museum's founder — demonstrating his active interest in Dutch historical medals.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "38.5 mm, 13.7205 g",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "INVICTI ANIMI PR... / BREDA A SERVITUTE HISPANA VINDICATA...",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Pieter Teyler van der Hulst collection (1702–1778), acquired 8 April 1778",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7042014"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

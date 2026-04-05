@@ -1,0 +1,108 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7006968",
+  "type": "HumanMadeObject",
+  "_label": "Ostromia voorheen Archaeopteryx, Haarlems exemplaar",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Ostromia voorheen Archaeopteryx, Haarlems exemplaar",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "F 06928",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "fossiel van oervogel"
+    }
+  ],
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "took_place_at": [
+        {
+          "type": "Place",
+          "_label": "Europe, Germany, Bavaria, Riedenburg, Jachenhausen"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is one of the most important fossils in any museum worldwide — the so-called **\"Haarlem Archaeopteryx,\"** described by Teylers' own Collection Manager as **\"the Mona Lisa of the museum's fossil collection.\"** Found in 1855 near Jachenhausen, Bavaria, it was the **chronologically first Archaeopteryx specimen ever discovered** — predating the famous London specimen by six years — but was misidentified as a pterosaur (*Pterodactylus crassipes*) by Hermann von Meyer in 1857. It remained misidentified for over a century until **John Ostrom** recognized feather impressions during a visit to Teylers in September 1970. In **2017**, it was reclassified again: Foth & Rauhut demonstrated it is not *Archaeopteryx* at all, but a new genus — **Ostromia crassipes** — the first anchiornithid dinosaur found outside China. In May 2024, the fossil was secretly transported to the Diamond Light Source synchrotron in the UK for cutting-edge X-ray analysis.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7006968"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

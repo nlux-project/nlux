@@ -1,0 +1,171 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/41634",
+  "type": "HumanMadeObject",
+  "_label": "Rode paradijsvogel",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Rode paradijsvogel",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KT 2022 190",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Perkament (vellum)"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Pauline Rifer de Courcelles (1781-1851), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1811-01-01",
+      "end_of_the_end": "1811-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1811"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Waterverf, gouache, zwart krijt"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A large watercolor and gouache on parchment (575 x 430 mm) by **Pauline Rifer de Courcelles** (Paris, 1781 – 1851), also known professionally as **Madame Knip**, dated 1811, depicting a male **Red Bird-of-Paradise** (*Paradisaea rubra* Daudin, 1800) perched on a branch. Made at the peak of the artist's career — the same year as her celebrated publication *Les Pigeons* (with Coenraad Jacob Temminck). Purchased at **Christie's Paris, 22 November 2022, lot 1** (hammer price €80,000; total with buyer's premium €100,800), with support from a named foundation (see credit line discrepancy below). Designated one of Teylers' **50 Topstukken**.\n\n**Family connection:** Pauline Rifer de Courcelles was the stepmother of **Henriëtte Ronner-Knip** (1821–1909), the cat painter whose work is also in the Teylers Topstukken collection (KS 135).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Rode paradijsvogel zittend op een tak, driekwart naar links",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "575 x 430 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"Pauline / De Courcelles / fem. [?] Knip / 1811\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/41634"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Rode paradijsvogel"
+    }
+  ]
+}

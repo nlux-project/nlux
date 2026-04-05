@@ -1,0 +1,123 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/4001296",
+  "type": "HumanMadeObject",
+  "_label": "Model van een ultracentrifuge voor het verrijken van uranium, naar Kistemaker",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Model van een ultracentrifuge voor het verrijken van uranium, naar Kistemaker",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 1973.01",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Kunststof (plastic)"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "F.O.M. Laboratorium"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1957-01-01",
+      "end_of_the_end": "1957-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1957"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a plastic scale model of an **ultracentrifuge for uranium enrichment**, made at the **FOM Laboratory for Mass Spectrography** (later AMOLF) in Amsterdam in 1957. It represents the foundational technology of the **Dutch ultracentrifuge program**, which led to the establishment of **URENCO** — one of the world's largest commercial uranium enrichment companies — via the Treaty of Almelo (1970) with the UK and Germany. The model was designed by **Jacob Kistemaker** (1917–2010), the physicist who founded the Dutch enrichment program and who was simultaneously **conservator (curator) of Teylers' Natuurkundig Kabinet** (Physics Cabinet). The technology descended from this program was infamously stolen by **A.Q. Khan** in 1972–1975 and proliferated to Pakistan, Iran, Libya, and North Korea.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Mechanics"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/4001296"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/35956",
+  "type": "HumanMadeObject",
+  "_label": "Interieur van boerenherberg",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Interieur van boerenherberg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "P 078",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Adriaen van Ostade (1610–1684), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1673-01-01",
+      "end_of_the_end": "1673-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1673"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "pen in bruin, penseel in waterverf, penseel in dekverf, pen in goud"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A large-format finished drawing on paper (251 x 410 mm) by **Adriaen van Ostade** (Haarlem, 1610 – Haarlem, 1685), dated **1673**, depicting a tavern interior with peasants drinking and dancing: drinkers at a table (left), a dancing couple (center), furniture (right), and musicians near a fireplace (background). Executed in pen in brown, watercolor wash, opaque paint, and pen in gold — the gold framing lines being a distinctive feature of Van Ostade's autonomous presentation drawings. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Paper: 251 x 410 mm; Mount: 425 x 600 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Av Ostade.1673",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/35956"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Interieur van boerenherberg"
+    }
+  ]
+}

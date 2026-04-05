@@ -1,0 +1,131 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/4000083",
+  "type": "HumanMadeObject",
+  "_label": "Cycloïdebaan met verstelbare rechte helling en cycloïde slinger",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Cycloïdebaan met verstelbare rechte helling en cycloïde slinger",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 0073",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Mahogany"
+    },
+    {
+      "type": "Material",
+      "_label": "boxwood"
+    },
+    {
+      "type": "Material",
+      "_label": "brass"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "J. Kampman, Adam Steitz Amsterdam"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1750-01-01",
+      "end_of_the_end": "1774-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1750–1774"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is an 18th-century physics demonstration instrument that embodies two of the most elegant discoveries in the history of mathematics: the **brachistochrone** (curve of fastest descent) and the **tautochrone** (curve of equal-time descent) — both of which turn out to be the same curve: the **cycloid**. The apparatus has an adjustable straight incline (to compare against a cycloidal track) and a cycloidal pendulum (demonstrating that a weight swings in equal time regardless of amplitude). It was built by **J. Kampman** in the workshop of **Adam Steitz** in Amsterdam, following the instrument designs of **Willem Jacob 's Gravesande** (1688–1742), the foremost promoter of Newtonian physics on the European continent. The instrument connects three giants of 17th-century science: **Christiaan Huygens** (who discovered the tautochrone property in 1673), **Johann Bernoulli** (who posed the brachistochrone challenge in 1696), and **Isaac Newton** (who solved it in a single evening). It is part of a coordinated suite of 's Gravesande-style mechanics apparatus at Teylers, all from the Kampman/Steitz workshop.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Mechanics"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/4000083"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

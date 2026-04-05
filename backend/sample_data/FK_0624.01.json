@@ -1,0 +1,117 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000713",
+  "type": "HumanMadeObject",
+  "_label": "Eerste generatie elektrische gloeilampen, in houten rek",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Eerste generatie elektrische gloeilampen, in houten rek",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 0624.01",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Gloeilampen"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1881-01-01",
+      "end_of_the_end": "1882-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1881–1882"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A collection of **first-generation carbon-filament incandescent electric lamps** displayed in a three-tiered mahogany rack (445 × 265 mm), acquired almost entirely at the **First International Exposition of Electricity, Paris, August–November 1881**, with a small number of Siemens lamps added in 1882. The ~20 bulbs represent the five principal competing manufacturers of the era: Thomas A. Edison, Joseph Wilson Swan, St. George Lane Fox-Pitt, Hiram Stevens Maxim, and Siemens & Halske (Berlin).\n\nLamps were purchased and subsequently tested by Teylers Museum's curator of the Physical Cabinet, **Elisa van der Ven** (1833–1909), who measured light output, temperature, and electrical resistance and published his findings in **1882** — the **first published scientific study of incandescent lamps in the Netherlands**. In 1883 Van der Ven used the lamps to propose electric lighting for the new Lecture Hall, a proposal rejected by museum leadership.\n\nAt the 1881 exposition, a testing committee (including William Crookes) ranked lamp efficiency: 1st Edison, 2nd Lane-Fox, 3rd Swan, 4th Maxim. The rack assembles exactly these five competing systems.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Electric; light"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000713"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

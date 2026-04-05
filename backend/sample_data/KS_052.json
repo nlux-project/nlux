@@ -1,0 +1,175 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/13",
+  "type": "HumanMadeObject",
+  "_label": "De aanslag door Jean Jauregui op Prins Willem I, Antwerpen 18 maart 1582",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De aanslag door Jean Jauregui op Prins Willem I, Antwerpen 18 maart 1582",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KS 052",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "schilderij"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "doek"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 98.1,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "_label": "height"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379098",
+        "_label": "cm"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 120.1,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "_label": "width"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379098",
+        "_label": "cm"
+      }
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Nicolaas Pieneman (1809-1860), kunstschilder en lithograaf"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1838-01-01",
+      "end_of_the_end": "1838-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1838"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "olieverf op doek"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Oil painting on canvas (98.1 × 120.1 cm, signed and dated 1838) by Dutch painter **Nicolaas Pieneman** (1809–1860). The painting depicts the immediate aftermath of the assassination attempt on William I, Prince of Orange (\"William the Silent\") by **Juan de Jáuregui** in Antwerp on 18 March 1582. The scene shows the wounded Willem I in a chair, his wife Charlotte of Bourbon attending him, the dead body of Jáuregui on the floor, and the young **Prince Maurits** (age 14–15) directing soldiers to examine the assassin's corpse. A 19th-century Dutch nationalist history painting acquired by Teylers in or around 1838 — the year the museum's First Painting Gallery opened. A steel engraving after this painting was made by Johann Wilhelm Kaiser (I) in 1853–54 for the *Vereeniging ter Bevordering van Beeldende Kunsten* (Teylers KG 08154).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "N:Pieneman. 1838.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/13"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "De aanslag door Jean Jauregui op Prins Willem I, Antwerpen 18 maart 1582"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000602",
+  "type": "HumanMadeObject",
+  "_label": "Grote Elektriseermachine met Leidse flessen",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Grote Elektriseermachine met Leidse flessen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 0508",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Elektriseermachine"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "John Cuthbertson (instrumentmaker)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1783-01-01",
+      "end_of_the_end": "1791-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1783-1791"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "The **Van Marum Large Electrostatic Generator** — the **largest flat-plate frictional electrostatic machine ever built**, and one of the most important surviving scientific instruments of the 18th century. It remains the centerpiece of the Teylers Museum instrument room. Two coaxial glass discs (1.65 m diameter each) rotate against friction cushions, generating static charge collected by brass combs and stored in a battery of approximately 100 Leyden jars across four complete sets — the largest Leyden jar battery ever assembled. Capable of generating approximately 330,000 V (sparks to 60 cm); combined with the full battery, voltages approaching 720 kV. **Van Marum first observed the smell of ozone using this machine in 1785**, though he did not identify the gas as such.\n\nCommissioned by **Martinus van Marum** (1750–1837), first director of Teylers Museum, from instrument maker **John Cuthbertson** in May 1783. Cuthbertson was paid 3,250 guilders. The wooden support and cabinetwork were designed by architect **Leendert Viervant the Younger** (1752–**1801**). The machine was placed in the newly opened Oval Room on **Christmas Day (eerste kerstdag), 25 December 1784**. The inscription on the machine reads: *J. CUTHBERTSON Fecit Amsterdam MDCCLXXXIV*.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "None",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "J. CUTHBERTSON Fecit Amsterdam MDCCLXXXIV",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "None",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Electricity"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000602"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

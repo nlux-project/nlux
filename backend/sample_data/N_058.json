@@ -1,0 +1,181 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/73",
+  "type": "HumanMadeObject",
+  "_label": "Rechterhand",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Rechterhand",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "N 058",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "pen in inkt"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Hendrick Goltzius (1558-1617), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1588-01-01",
+      "end_of_the_end": "1588-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1588"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Pen in bruin (pen in brown)"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A pen-and-ink drawing (*penwerk*) by **Hendrick Goltzius** (Mühlbracht, 1558 – Haarlem, 1617), dated 1588, depicting his own permanently crippled right hand. As an infant of approximately one year, Goltzius fell into a pan of boiling oil; a meddling neighbour removed the splints and bound only the right hand in cloth, causing the fingers to permanently contract into a claw-like configuration. The drawing belongs to Goltzius's celebrated category of \"pen works\" (*penwerken*) — virtuoso pen-and-ink drawings in which he deliberately reproduced, using a pen, the swelling and tapering burin lines of his engraving technique. The hand is simultaneously a study, a technical demonstration, a trademark, and an indirect **self-portrait**. During his incognito Italian journey (1590–91), the drawing reportedly served as proof of his identity when other artists recognised the famous deformed hand. One of the most celebrated drawings in the entire Teylers collection. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "*(none)*",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Paper: 229 x 328 mm; Mount: 309 x 435 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"HGoltzius. fecit. Anno 1588\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "*(none listed)*",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/73"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Rechterhand"
+    }
+  ]
+}

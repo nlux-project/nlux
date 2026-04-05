@@ -1,0 +1,185 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/4",
+  "type": "HumanMadeObject",
+  "_label": "Interieur van de Nieuwe Kerk te Delft",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Interieur van de Nieuwe Kerk te Delft",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KS 013",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "schilderij"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "doek"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 52.1,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "_label": "height"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379098",
+        "_label": "cm"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 41.4,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "_label": "width"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379098",
+        "_label": "cm"
+      }
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Johannes Jelgerhuis (1770-1836), schilder"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1825-01-01",
+      "end_of_the_end": "1825-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1825"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "olieverf op doek"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Oil painting on canvas (52.1 × 41.4 cm, signed and dated 1825) by Dutch painter and actor **Johannes Rienksz. Jelgerhuis** (1770–1836). The painting depicts the **choir of the Nieuwe Kerk (New Church) in Delft**, looking toward the monumental mausoleum of **Willem I, Prince of Orange** (William the Silent, 1533–1584), designed by **Hendrick de Keyser** (1614–1621) and completed by his son **Pieter de Keyser** in 1623. The painting belongs to the tradition of Dutch topographical church-interior painting stretching from the 17th-century Delft School (Houckgeest, De Witte, Van Vliet) to 19th-century Romanticism. Staffage figures include a man and young boy with a dog. The canvas was painted in the year Jelgerhuis exhibited in Haarlem. The Rijksmuseum holds a related chalk/watercolor drawing dated 1824 (RP-T-00-1820) that appears to be a direct preparatory study for this painting, and a second related work from July 1819 (RP-T-1921-334).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Jelgerhuis / Rz / 1825",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "architectuurstuk, Gotiek, graf, grafmonument, interieur, kerk, kerkinterieur, koor, praalgraf, Willem de Zwijger, Willem I Prins van Oranje, topografie (NL): Delft: Nieuwe Kerk",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/4"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Interieur van de Nieuwe Kerk te Delft"
+    }
+  ]
+}

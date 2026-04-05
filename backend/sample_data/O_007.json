@@ -1,0 +1,155 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/35531",
+  "type": "HumanMadeObject",
+  "_label": "IJsvermaak bij een boerderij",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "IJsvermaak bij een boerderij",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "O 007 (also O+ 007)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "penseel in waterverf"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Hendrick Avercamp (1585–1634), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1605-01-01",
+      "end_of_the_end": "1634-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "ca 1605 – voor 1634; undated"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "potlood, penseel in waterverf, wit gehoogd, pen in zwart"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A drawing on paper (176 x 303 mm) by **Hendrick Avercamp** (Amsterdam, 1585 – Kampen, 1634), dated c. 1605–1634, depicting a winter landscape scene with figures on ice: four figures around a frozen boat (foreground left), kolf players (center), a man with an axe (right bank), a farmhouse (middle left), and a village in the background. Executed in pencil, pen in black, watercolor wash, and white heightening. Monogrammed \"HA.\" Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Paper: 176 x 303 mm; Mount: 405 x 531 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "HA (monogram); hoog 7 d / br. 12 d; f600; f63 - geboden; 40000",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/35531"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "IJsvermaak bij een boerderij"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7060045",
+  "type": "HumanMadeObject",
+  "_label": "Kwart gulden [gouden afslag] uit Holland",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Kwart gulden [gouden afslag] uit Holland",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 10564",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Gold"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Holland; Daniël Drappentier (1643–1714); Mattheus Sonnemans"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1692-01-01",
+      "end_of_the_end": "1692-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1692"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Struck, 12 o'clock orientation"
+      }
+    ],
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Dordrecht"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is an extraordinarily rare **gold striking** of a coin normally produced in silver — a quarter guilder (5 stuivers) of the Province of Holland, dated 1692. Gold strikings (*gouden afslagen*) are off-metal presentation pieces produced in tiny numbers (sometimes just one or two) for dignitaries or mint officials, using the standard silver-coin dies. They are among the rarest and most valuable items in Dutch numismatics; comparable gold strikings have sold at auction for **€180,000–€245,000**. The dies were engraved by **Daniël Drappentier** (1643–1714), Engraver General of Holland, West Friesland, Zeeland, and Utrecht, and the coin was produced at the Dordrecht mint under mint master **Mattheus Sonnemans**. It was bequeathed to Teylers in 1896 by **Adriaan Justus Enschedé** — owner of the famous Joh. Enschedé printing firm, printers of Dutch banknotes since 1814.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "24.1 mm, 6.8943 g",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "MO : NO . ARGENT : COMIT : HOLL : 1692 / 5 S; HAC NITIMVR HANC TVEMVR",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Legaat Adriaan Justus Enschedé, 1896",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7060045"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/3246",
+  "type": "HumanMadeObject",
+  "_label": "Landschap met schaap en koe",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Landschap met schaap en koe",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KG 01153",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "grafiek"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    },
+    {
+      "type": "Material",
+      "_label": "lichtbeige"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Christian Friedrich Boëtius (1706-1782), graveur"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1764-01-01",
+      "end_of_the_end": "1764-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1764"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "ets"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a reproductive engraving by Christian Friedrich Boëtius (1706–1782) after a painting by Karel Dujardin (c. 1626–1678), depicting an Italianate pastoral landscape with a cow lying down and a sheep standing beside it, near a large tree. Made in Dresden in 1764, the print reproduces a painting from the collection of Christian Ludwig von Hagedorn, director of the Dresden Academy. It is listed among Boëtius's best-known works.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "plaatrand: 304×226 mm, papier: 239×251 mm, opzet: 440×330 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "dier: schaap, landschap, dier: koe",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/3246"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Landschap met schaap en koe"
+    }
+  ]
+}

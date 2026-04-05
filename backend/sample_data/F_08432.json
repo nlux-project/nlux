@@ -1,0 +1,106 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7008516",
+  "type": "HumanMadeObject",
+  "_label": "Homo diluvii testis (Zondvloedmens)",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Homo diluvii testis (Zondvloedmens)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "F 08432",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Fossil of giant salamander"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Öhningen, Schiener Berg, Baden-Württemberg, Germany"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is one of the most famous fossils in the history of science — a nearly complete skeleton of a giant salamander (*Andrias scheuchzeri*), approximately 1 meter long, discovered in 1725 near **Öhningen** on Lake Constance, Germany. In 1726, Swiss naturalist **Johann Jakob Scheuchzer** published it as *Homo diluvii testis* (\"Man, witness of the Flood\") — the skeleton of a human who drowned in the biblical Deluge. The fossil remained misidentified for 85 years until **Georges Cuvier** visited Teylers Museum in **1811**, carefully prepared the fossil with a needle, uncovered the forelimbs, and definitively proved it was a giant salamander. This is one of the founding demonstrations of comparative anatomy and a classic case study in how scientific understanding evolves. Purchased by Martinus van Marum in **1802** for 14 Louis d'or, the specimen remains the **lectotype** of *Andrias scheuchzeri* and is displayed in its original showcase.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7008516"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

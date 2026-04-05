@@ -1,0 +1,117 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7040544",
+  "type": "HumanMadeObject",
+  "_label": "Collectie kristalmodellen Haüy",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Collectie kristalmodellen Haüy",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "M 11800",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "kristalmodel"
+    }
+  ],
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "timespan": {
+        "type": "TimeSpan",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "(not specified — inferred 18th century)"
+          }
+        ]
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "M 11800 is a collection of wooden crystal models made in pear wood, commissioned by or under the direction of French abbé René Just Haüy (28 February 1743 – 1 June 1822) to serve as three-dimensional teaching aids accompanying his landmark four-volume publication *Traité de Minéralogie* (1801). Haüy, professor of mineralogy at the Muséum national d'Histoire naturelle in Paris and widely regarded as the founder of modern crystallography, devised the mathematical theory that crystal forms arise from the stacking of fundamental \"integrant molecules\" — a theory he called the law of rational intercepts (later formalised as the law of rational indices). His models demonstrated these crystal forms in tangible, measurable three-dimensional objects, with each model precisely crafted with accurate dihedral angles.\n\nThe models were hand-carved in pear wood by a woodworking family and made available for purchase alongside the *Traité*. Teylers Museum director Martinus van Marum corresponded with Haüy and purchased 597 models between 1802 and 1804, paying for them through correspondence. Van Marum used the models to reorganise the museum's mineral collection according to Haüy's crystallographic system, displaying some in the central showcase of the Oval Room and storing the remainder in five large drawers. The models range from approximately 2.5 to 10 cm in size. Each model bears a label in iron-gall ink, reportedly written by Haüy himself, giving the crystal form name.\n\nAccording to the authoritative study by Wim Saeijs (*Mineralogical Record*, vol. 39 no. 5, 2008), **565 of the original 597 models survive at Teylers**, making this the most complete collection of Haüy crystal models in the world. The Teylers catalog and topstukken page, however, state the number as **550** — an undercounting of 15 specimens.\n\nNo image is currently available in the online catalog for M 11800 (the image request returns a \"not found\" placeholder).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Collectie Teylers Museum"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7040544"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

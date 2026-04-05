@@ -1,0 +1,149 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/32571",
+  "type": "HumanMadeObject",
+  "_label": "Tekenaar voor de Grot van Neptunus in Tivoli",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Tekenaar voor de Grot van Neptunus in Tivoli",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "L 022",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "pen en penseel in inkt"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Claude Lorrain (1604/5-1682), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1640-01-01",
+      "end_of_the_end": "1640-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "ca. 1640"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Pen in bruin, penseel in bruin, gewassen"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A pen-and-wash drawing (170 x 237 mm) by **Claude Lorrain** (Claude Gellée, Chamagne, c. 1604/5 – Rome, 1682), dated c. 1640, depicting a solitary draughtsman seen from behind, seated at the mouth of the Grotto of Neptune at Tivoli, sketching the dramatic rock formations around him. One of the most celebrated drawings in the Teylers collection — it served as the **cover image** of the joint Louvre–Teylers Museum exhibition catalog *Claude Gellée, dit Le Lorrain: le dessinateur face à la nature* (2011). Acquired in 1790 as part of the landmark Odescalchi purchase. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Paper: 170 x 237 mm; Mount: 317 x 438 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Teyler; Claudio; Claude Lorrain; L 22",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/32571"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Tekenaar voor de Grot van Neptunus in Tivoli"
+    }
+  ]
+}

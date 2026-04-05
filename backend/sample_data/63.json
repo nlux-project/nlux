@@ -1,0 +1,160 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/document/300000062",
+  "type": "LinguisticObject",
+  "_label": "Ad Imperatores de Fato & de eo quod nostrae potestatis est...",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Ad Imperatores de Fato & de eo quod nostrae potestatis est...",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "63",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "created_by": {
+    "type": "Creation",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Alexander Aphrodisiensis"
+      }
+    ]
+  },
+  "used_for": [
+    {
+      "type": "Activity",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300054686",
+          "_label": "publishing"
+        }
+      ],
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "Th. Roycroft, London"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1658-01-01",
+        "end_of_the_end": "1658-12-31",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1658"
+          }
+        ]
+      }
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Griekse en Latijnse schrijvers"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a bilingual Greek-and-Latin edition of two ancient philosophical texts on fate, determinism, and free will, printed by Thomas Roycroft in London in 1658. It combines Alexander of Aphrodisias's *De Fato* (On Fate, addressed to the emperors Septimius Severus and Caracalla, c. 198–209 AD) with Ammonius Hermiae's commentary on the second section of Aristotle's *De Interpretatione* (c. 5th century AD). The volume is in duodecimo format with a parchment binding.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "12° (duodecimo)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435452",
+          "_label": "physical description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Aristoteles",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "related persons"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/document/300000062"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

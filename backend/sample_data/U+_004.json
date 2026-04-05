@@ -1,0 +1,197 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/42",
+  "type": "HumanMadeObject",
+  "_label": "Heilige Hieronymus in de woestijn",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Heilige Hieronymus in de woestijn",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "U+ 004",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    },
+    {
+      "type": "Material",
+      "_label": "blauwgrijs"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 497.0,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "_label": "height"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379097",
+        "_label": "mm"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 349.0,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "_label": "width"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379097",
+        "_label": "mm"
+      }
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Not stated"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "black chalk; white and light yellow heightening; red chalk accents; brown pen; brown pen border line"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A large-format drawing on blue-grey paper (497 × 349 mm) attributed to **Peter Paul Rubens** (1577–1640), made as a copy after **Tiziano Vecellio (Titian)** (c.1488–1576). Subject: **Saint Jerome in the Wilderness** (*Heilige Hieronymus in de woestijn*). The drawing is in mixed media: black chalk, white and light yellow heightening, red chalk accents, brown pen (worked up), with a brown pen border line. The inscription on the sheet reads *\"PP Rubbens St Hironimus\"* — a later collector's attribution annotation, not an autograph signature. Additional inscribed numbers (113, C T 98, 899) are old inventory/sale marks from previous collections. Titian painted Saint Jerome in at least four distinct versions (c.1531, Louvre; c.1552, Brera; c.1575, Escorial; Thyssen-Bornemisza). Rubens studied Titian's works intensively during his Italian sojourn (1600–1608) and at the Spanish court in Madrid (1628–29), where he had direct access to Titian's Saint Jerome at the Escorial.\n\nThe catalog bibliography includes two Van Dyck titles specifically concerning Van Dyck's Saint Jerome paintings — indicating a live attribution debate that the record itself entirely conceals.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Not stated",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "113; C T 98; 899; \"PP Rubbens St Hironimus\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Not stated",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/42"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Heilige Hieronymus in de woestijn"
+    }
+  ]
+}

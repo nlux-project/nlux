@@ -1,0 +1,155 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/36121",
+  "type": "HumanMadeObject",
+  "_label": "Christus en de discipelen",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Christus en de discipelen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "O 047",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "pen en penseel in inkt"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Rembrandt (1606–1669), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1634-01-01",
+      "end_of_the_end": "1634-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1634; gedateerd"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "pen in bruin, penseel in grijs, penseel in bruin, zwart krijt, rood krijt, groen krijt, wit gehoogd, pen in zwart"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A large drawing on paper (357 x 478 mm) by **Rembrandt Harmenszoon van Rijn** (Leiden, 1606 – Amsterdam, 1669), inscribed and dated **\"Rembrandt f 1634\"**, depicting ten disciples arranged in a circle around Christ in the **Garden of Gethsemane** on the night before his arrest (Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46). Christ's illuminated head and gesture suggest he is speaking; two disciples sleep, one yawns prominently. A strip of paper was removed from the right edge \"in antiquity,\" accounting for the absence of the eleventh or twelfth disciple. Executed in pen in brown and black ink, brush in grey and brown wash, black, red and green chalk, and white heightening. Catalogued as **Benesch 89** in the standard catalogue raisonné. One of Rembrandt's largest and most technically elaborate drawings. Acquired by Teylers at auction in **1796 for 60 guilders**. Exhibited at the Louvre's major exhibition *Rembrandt et la figure du Christ* (2011). Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Paper: 357 x 478 mm; Mount: 472 x 601 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Rembrandt f 1634",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/36121"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Christus en de discipelen"
+    }
+  ]
+}

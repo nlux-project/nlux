@@ -1,0 +1,117 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7017115",
+  "type": "HumanMadeObject",
+  "_label": "Lügensteine van Beringer",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Lügensteine van Beringer",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "F 16390",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Fossil, imitated"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1725-01-01",
+      "end_of_the_end": "1725-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "ca. 1725"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "F 16390 is one of the infamous **Lügensteine** (German: \"lying stones\"; Dutch: \"liegstenen\") — deliberately carved limestone forgeries designed to deceive the German palaeontologist Johann Bartholomeus Adam Beringer (1667–1740), Dean of the Faculty of Medicine at the University of Würzburg. The stones were carved and planted in a hillside near Würzburg around 1725 by two colleagues who resented Beringer's arrogance: **J. Ignaz Roderick** (Professor of Geography, Algebra and Analysis at the University of Würzburg) and **Johann Georg von Eckhart** (Privy Counsellor and University Librarian). The stones depicted various organisms including insects, birds, plants, snails, worms, astronomical objects (suns, moons, comets), and Hebrew letters.\n\nThe catalog image shows a single carved pale-grey limestone slab (approximately 10–15 cm across) bearing a relief carving of what appears to be a crab or spider-like organism in the centre, with a small museum label attached in the lower right corner. The stone is irregular in outline, typical of the Lügensteine format, and the carving is in a three-dimensional raised relief style distinct from genuine fossilised impressions.\n\nBeringer's hired diggers (three local boys from Eivelstadt) delivered him approximately 2,000 such stones between May 1725 and November 1725. He published an illustrated monograph on his \"findings,\" titled *Lithographiae Wirceburgensis* (Würzburg: Philipp Wilhelm Fuggart, 1726), with detailed engravings of the stones. Shortly after publication he discovered the hoax, took legal action against Roderick and von Eckhart, and won his case on 13 April 1726. Both perpetrators were removed from their university positions; Roderick was banished from Würzburg. Despite this, Beringer's professional reputation never fully recovered. He died in 1740.\n\nThe Teylers Museum holds at least six Lügensteine. The stones represent one of the most celebrated cases of scientific fraud in history and are significant objects for the history of palaeontology and scientific methodology.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Collectie Teylers Museum"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7017115"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

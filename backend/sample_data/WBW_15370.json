@@ -1,0 +1,97 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/document/300015369",
+  "type": "HumanMadeObject",
+  "_label": "Jardin de la Malmaison",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Jardin de la Malmaison",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "WBW 15370",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "One of the most celebrated botanical publications of the nineteenth century. *Jardin de la Malmaison* documents the exotic plant collection assembled by **Empress Joséphine de Beauharnais** at Château de Malmaison, west of Paris. Text by **Étienne Pierre Ventenat** (1757–1808), French botanist and former director of the Sainte-Geneviève library, engaged directly by Joséphine. Illustrated by **Pierre-Joseph Redouté** (1759–1840), the pre-eminent botanical illustrator of the era, later appointed official flower painter to the Empress.\n\nPublished in Paris by Imprimerie de Crapelet, issued in **20 fascicles of 6 plates each**, April 1803 – November 1805. Title pages carry Republican calendar dates An XI–XII (1803–1804), but the complete work extended to November 1805. Large folio (c.520 × 338 mm), two volumes bound as one. Contains **120 color-printed stipple-engraved plates** after Redouté watercolors, executed *à la poupée* (colors applied directly to the copperplate) and finished by hand by ~15 engravers. Only approximately **200 copies** were printed, most distributed as imperial presentation gifts to European monarchs and dignitaries. Ventenat described species new to science; the Malmaison gardens contained ~200 plant species flowering in France for the first time, including 46 Australian species.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/document/300015369"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Jardin de la Malmaison"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/2563",
+  "type": "HumanMadeObject",
+  "_label": "Adam en Eva",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Adam en Eva",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KG 00492",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Albrecht Dürer (1471-1528), graveur"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1504-01-01",
+      "end_of_the_end": "1504-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1504"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Copper engraving"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A copper engraving by **Albrecht Dürer** (Nuremberg, 1471 – Nuremberg, 1528), dated 1504, depicting Adam and Eve in the Garden of Eden. Bartsch 1, Meder 1 — the most prestigious numbering in both major Dürer catalogues. One of the foundational works of Northern Renaissance art, the engraving is the first known depiction of Adam and Eve that prioritized **ideal classical beauty** over the narrative of sin. Dürer modelled Adam on the Apollo Belvedere and Eve on the Medici Venus, deploying contrapposto to demonstrate perfect human proportions. More preparatory drawings survive for this print than for any other Dürer engraving. The four animals in the scene — cat, rabbit, ox, and elk — represent the four **humoral temperaments** in pre-lapsarian harmony.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"ALBERT/ DURER/ NORICUS/ FACIEBAT/ AD [monogram] 1504\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "? FvH",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/2563"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Adam en Eva"
+    }
+  ]
+}

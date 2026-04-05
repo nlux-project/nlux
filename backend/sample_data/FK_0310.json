@@ -1,0 +1,149 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000361",
+  "type": "HumanMadeObject",
+  "_label": "Heliostat, naar Klinkerfues",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Heliostat, naar Klinkerfues",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 0310",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Heliostat"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Meyerstein, Göttingen"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1865-01-01",
+      "end_of_the_end": "1865-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1865"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A **heliostat** (*zonnevolger*) built on the design of German astronomer **Wilhelm Klinkerfues** (1827–1884) of the Göttingen Observatory, manufactured by Göttingen precision instrument maker **Meyerstein**, dated 1865. A heliostat is an instrument equipped with a clock-driven mirror that continuously rotates to compensate for the Earth's rotation, reflecting a steady beam of sunlight in a fixed direction — used in spectroscopy, photometry, and optical experiments requiring a stable light source.\n\nKlinkerfues, professor of astronomy and director of the Göttingen Observatory from 1868, designed a distinctive heliostat type and published the design in *Astronomische Nachrichten*. The designation \"naar Klinkerfues\" (after Klinkerfues) in the title confirms this instrument implements his published design. Meyerstein was the leading precision instrument workshop in Göttingen in the mid-19th century, supplying the university's physics and astronomy departments.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Not recorded (or repeats title only)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Not recorded",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000361"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/44",
+  "type": "HumanMadeObject",
+  "_label": "Ruiterstandbeeld van Marcus Aurelius",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Ruiterstandbeeld van Marcus Aurelius",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "N 021",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    },
+    {
+      "type": "Material",
+      "_label": "wit"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Hendrick Goltzius (1558-1617), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1590-01-01",
+      "end_of_the_end": "1591-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1590-1591"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "kaderlijn: potlood; rood krijt"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a red chalk drawing by Hendrick Goltzius (1558–1617), depicting the famous equestrian statue of Marcus Aurelius on the Capitoline Hill in Rome. It was made during Goltzius' transformative Italian journey of 1590–1591. The drawing is one of approximately 125 Goltzius sheets held by Teylers Museum — the largest collection of Goltzius drawings in the world. It was acquired in 1790 from the Odescalchi heirs in Rome, as part of a purchase of approximately 1,700 drawings that had passed through the collection of Queen Christina of Sweden.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "411×310 mm; opzet: 622×478 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Marcus Aurelius (emperor), horseman, statue, sculpture, Rome: Campidoglio",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Teylers Museum, aangekocht van de Odescalchi erfgenamen te Rome, 1790",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/44"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Ruiterstandbeeld van Marcus Aurelius"
+    }
+  ]
+}

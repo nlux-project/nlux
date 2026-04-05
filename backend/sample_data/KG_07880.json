@@ -1,0 +1,159 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/10998",
+  "type": "HumanMadeObject",
+  "_label": "Gezicht op de Nieuwe Brouwerskolk te Overveen",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Gezicht op de Nieuwe Brouwerskolk te Overveen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KG 07880",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "grafiek"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    },
+    {
+      "type": "Material",
+      "_label": "blauw"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Antoine Alexandre Joseph Cardon (1739-1822), graveur; Augustijn Claterbos (1750-1828), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1770-01-01",
+      "end_of_the_end": "1822-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "c. 1770-1822"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "ets"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a topographical print depicting the Nieuwe Brouwerskolk (New Brewers' Pool) at Overveen, near Haarlem, engraved by Antoine Alexandre Joseph Cardon (1739–1822) after a drawing by Augustijn Claterbos (1750–1828). It is part of a series of views of Haarlem and environs published by \"de Compagnie\" in Haarlem, c. 1790–1795. This impression is a proof print (proefdruk) on blue paper, making it a particularly rare and special impression.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "beeld: 254×359 mm; plaat: 300×373 mm; papier: 411×552 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"A. Cardon Sculps.\" / \"A. Claterbos delin.\" / \"GEZICHT aan de NIEUWE BROUWERS-KOLK te OVERVEEN\" / \"TE HAERLEM bij de Compagnie\" / \"Proefdruk\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/10998"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Gezicht op de Nieuwe Brouwerskolk te Overveen"
+    }
+  ]
+}

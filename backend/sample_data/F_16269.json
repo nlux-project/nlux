@@ -1,0 +1,125 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7016992",
+  "type": "HumanMadeObject",
+  "_label": "Holenbeer",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Holenbeer",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "F 16269",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "fossiel skelet (fossil skeleton)"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "(none listed)"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "ca. 20,000 jaar geleden (approximately 20,000 years ago)"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "F 16269 is an assembled skeletal mount of the cave bear (*Ursus spelaeus* Rosenmüller, 1794), displayed in the First Fossil Hall of Teylers Museum. As stated on the Teylers topstukken page, this is a **composite skeleton** — bones from multiple individual cave bears found together in Moravian caves were assembled to create a single articulated mount, because the provenance of individual bones to specific individuals could not be determined scientifically. The specimen comes from the Moravia region (now the Czech Republic), near Brno, and dates to approximately 20,000–24,000 years ago (Late Pleistocene, around the Last Glacial Maximum).\n\nThe catalog image shows the fully mounted skeleton on a display stand in the museum's First Fossil Hall, with what appears to be a separate large cave bear skull displayed on a pedestal to its left. The skeleton is large and robustly built, with a characteristic domed skull, prominent sagittal crest, and the large flat grinding teeth associated with the predominantly herbivorous diet now attributed to *Ursus spelaeus*. The animal would have stood approximately 1.7 metres at the shoulder and measured up to 3.5 metres when reared on its hind legs, weighing up to approximately 1,000 kg (males); significantly larger than any living bear species.\n\nCave bears inhabited the mountainous regions of Europe and parts of Asia during the Middle and Late Pleistocene, and became extinct approximately 24,000 years ago — before or at the onset of the Last Glacial Maximum, and well before the arrival of anatomically modern humans in most of central Europe, suggesting that climate change rather than human hunting was the primary extinction driver.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "(none listed)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7016992"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

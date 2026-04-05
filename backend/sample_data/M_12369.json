@@ -1,0 +1,119 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7040126",
+  "type": "HumanMadeObject",
+  "_label": "Maquette Mont Blanc",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Maquette Mont Blanc",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "M 12369",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "maquette"
+    }
+  ],
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1787-01-01",
+        "end_of_the_end": "1787-12-31",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1787"
+          }
+        ]
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "M 12369 is a large, three-dimensional terrain relief model of the Mont Blanc massif, created in 1787 by the Swiss engineer and cartographer Charles-François Exchaquet (6 December 1746 – 1792). The model depicts the Mont Blanc summit and the surrounding Chamonix valley in painted relief at a scale of approximately 1:15,000, measuring approximately 100 × 64 × 35 cm. It is constructed from nine glued wooden blocks carved in Swiss stone pine (arolla pine), shaped with chisels to the correct topography, finished with plaster, and covered with ground quartz to represent the glacial snowfields. It was painted, with snow cover reflecting August conditions (the prime climbing season).\n\nThe catalog image shows the front face of the model as seen from the Chamonix valley side. The high central peak (Mont Blanc summit) is visible at upper right with white-painted glaciers and snow, while the valley and rock faces are rendered in brown-ochre tones. The green-painted base is visible at the lower edge. The model is extraordinarily detailed for its period, made by a man who had personally explored the massif. Exchaquet served as Directeur général des Mines et Fonderies du Haut-Faucigny from his base in Servoz, near Chamonix, from 1780 until his death in 1792.\n\nExchaquet made or commissioned multiple copies of this maquette; as of recent scholarship, five copies were known to have been made, of which two definitive survivals are documented: one at Teylers Museum and one at the Muséum d'histoire naturelle de la Ville de Genève. The Teylers copy was acquired in 1799 — either purchased by director Martinus van Marum for nine guilders, or donated by Amsterdam merchant Govert Lups (sources differ on this point). It is displayed in the Oval Room of Teylers Museum alongside the De Saussure rock specimen (M 03353), with a dotted line tracing the 1787 ascent route.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Collectie Teylers Museum"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7040126"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7041731",
+  "type": "HumanMadeObject",
+  "_label": "Huwelijk van Eleonora, dochter van Eduard, koning van Portugal met keizer Frederik III, in 1452",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Huwelijk van Eleonora, dochter van Eduard, koning van Portugal met keizer Frederik III, in 1452",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 00009",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "penning"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "goud"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Tsjechië, onbekend medailleur"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1650-01-01",
+      "end_of_the_end": "1650-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "c. 1650"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "gegoten?, ongerand"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a rare **gold** example of a \"Judenmedaille\" (Prague Jewish medal) depicting Empress Eleanor of Portugal (1434–1467), wife of Emperor Frederick III. It belongs to a well-documented series of pseudo-medieval cast medals produced in Prague c. 1600–1650 to glorify the Habsburg dynasty's ancestry. The medal features Eleanor enthroned in full imperial regalia on the obverse, with a rose design on the reverse accompanied by Latin verses praising her virtue. Gold examples of this series are described as \"particularly rare\" in the numismatic literature; no other gold example of the Eleanor subject has been identified at auction.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "diameter: 51.2 mm; massa: 16.2642 g",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "LEONORA . FILIA . EDUARDI . REG . PORTUGAL . FRID . III . IMPER . UXOR",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "obverse inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "+ UT . ROSA . FLORES . SPLENDORE . CORUSCO . PRAEFULGET / + SIC . LEONORA . VIRTUTUM . AMATO . CHORO . PRAESTAT",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "reverse inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Aankoop veiling 1880-02-09, Gerardus Theodorus Bom (1814-1884) < Collectie Haijo Tuinhout (1805-1880)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7041731"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

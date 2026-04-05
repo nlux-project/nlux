@@ -1,0 +1,143 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/358",
+  "type": "HumanMadeObject",
+  "_label": "Het Teekencollegie van Haarlem in 1799",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Het Teekencollegie van Haarlem in 1799",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KS 1987 002",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Wybrand Hendriks (1744-1831), schilder"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1799-01-01",
+      "end_of_the_end": "1799-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1799"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Olieverf op paneel"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "An oil painting on panel (63 x 81 cm) by **Wybrand Hendriks** (Amsterdam, 1744 – Haarlem, 1831), dated 1799, depicting a session of the **Haarlemse Teekencollegie** — the private drawing society that Hendriks himself founded in 1796 as successor to the dissolved *Haarlemse Stads Teekenacademie* (1772–1795). Members are shown drawing from plaster casts of classical antiquities (Venus de Medici, Venus Callipyge, Apollo Belvedere, and a Vulcan's forge group). Hendriks appears at far right. Six figures are named in the catalog: van Brussel, Visser Bender, Claterbos, Milatz, van der Willigen, Gerlings. Donated to Teylers in 1987 by Mrs. J.H.M. Staring-de Mol van Otterloo. Exhibited in the major 2023 Teylers retrospective *\"Wybrand Hendriks was hier!\"*. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Panel: 63 x 81 cm; Frame: 77.7 x 96.5 x 6.5 cm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "W. Hendriks Pinxit 1799",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/358"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Het Teekencollegie van Haarlem in 1799"
+    }
+  ]
+}

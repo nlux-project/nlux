@@ -1,0 +1,189 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/29870",
+  "type": "HumanMadeObject",
+  "_label": "Portret van een 104-jarige August Schmidt, borststuk van voren, hoofd iets naar links, met drie onderscheidingen en een platte muts",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Portret van een 104-jarige August Schmidt, borststuk van voren, hoofd iets naar links, met drie onderscheidingen en een platte muts",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KT 1989 096",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    },
+    {
+      "type": "Material",
+      "_label": "wit"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 175.0,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "_label": "height"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379097",
+        "_label": "mm"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 126.0,
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "_label": "width"
+        }
+      ],
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379097",
+        "_label": "mm"
+      }
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Anoniem NL (19de eeuw), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1899-01-01",
+      "end_of_the_end": "1899-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1899"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "zwart krijt"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A small portrait drawing on white paper (175 × 126 mm), in black medium, depicting **August Friedrich Schmidt** (11 February 1795, Anklam, Pomerania – 12 September 1899, Wolgast, Pomerania) — celebrated at his death as the **last surviving German veteran of the Napoleonic Wars of Liberation (1813–1815)** and, by many accounts, **the last surviving combatant of the Battle of Waterloo** of any nationality. Schmidt enlisted as a volunteer Jäger in the 1st Pomeranian Infantry Regiment on 17 March 1813 and fought at Bautzen, Großbeeren, Dennewitz, Leipzig, Laon, Ligny, and Waterloo. He worked as a goldsmith in Wolgast and died seven months after his 104th birthday.\n\nThe drawing shows Schmidt in bust format, wearing three medals and a soft house cap, with the inscription *\"August Schmidt / der letzte Freiheitskämpfer von 1813–15\"* below. Accompanying the drawing are two sheets of handwritten German text in Kurrent script sourced from **Über Land und Meer** (Stuttgart illustrated weekly), No. 52, 1898–1899, with the portrait published with permission of the Deutschen Kriegerbund-Buchhandlung, Tempelhof-Berlin. The object was acquired in 1989 from the collection formerly belonging to **Adriaan van der Willigen Pz.** (1810–1876), Haarlem physician, art historian, and member of Teylers Tweede Genootschap.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"August Schmidt/ der letzte Freiheitskmämpfer von 1813-15\" (also \"102\" and \"August Smidt....\")",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "portret (100-jarige); portret (man); portret (Smidt, August (104 jr.))",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Collectie A. van der Willigen"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/29870"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Portret van een 104-jarige August Schmidt, borststuk van voren, hoofd iets naar links, met drie onderscheidingen en een platte muts"
+    }
+  ]
+}

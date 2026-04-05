@@ -1,0 +1,160 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/document/300001019",
+  "type": "LinguisticObject",
+  "_label": "De rebus suis, sive de eis, quae ad se pertinere censebat, libri XII...",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De rebus suis, sive de eis, quae ad se pertinere censebat, libri XII...",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1020",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "created_by": {
+    "type": "Creation",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Marcus Aurelius"
+      }
+    ]
+  },
+  "used_for": [
+    {
+      "type": "Activity",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300054686",
+          "_label": "publishing"
+        }
+      ],
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "Millington, Edv."
+        }
+      ],
+      "took_place_at": [
+        {
+          "type": "Place",
+          "_label": "Londini (London)"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1697-01-01",
+        "end_of_the_end": "1697-12-31",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1697"
+          }
+        ]
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is the **second edition** (1697) of Thomas Gataker's monumental Latin edition of Marcus Aurelius' *Meditations* (*Ta eis heauton*, \"To Himself\"), first published in 1652. Gataker's edition is considered **\"the principal authority\"** on the text of the *Meditations* according to A.S.L. Farquharson, the foremost 20th-century Marcus Aurelius scholar. The 1697 edition was expanded with annotations by **André Dacier** (the leading French classical scholar of the era) and a biography attributed to \"Cornelio Stanhope\" — almost certainly **George Stanhope** (1660–1728), Dean of Canterbury. It was published in London by **Edward Millington**, one of the most famous book auctioneers of the 17th century, and features a portrait engraving likely by **William Faithorne the Elder** (c. 1616–1691), England's foremost portrait engraver.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "4to (quarto)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435452",
+          "_label": "physical description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "A. D'Acerius (annotator), Cornelio Stanhope (biographer)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "related persons"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/document/300001019"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7041724",
+  "type": "HumanMadeObject",
+  "_label": "Johannes Huss (Hus) als ketter levend verbrand in 1415",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Johannes Huss (Hus) als ketter levend verbrand in 1415",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 00002",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "penning (medal)"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "zilver"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Kingdom of Bohemia (1198-1806), unknown medalist"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1415-01-01",
+      "end_of_the_end": "1415-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1415"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "gegoten, ongerrand (cast, unedged)"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a cast silver medal depicting Jan Hus (c. 1369/1370–1415), the Czech religious reformer who was burned at the stake as a heretic at the Council of Constance on 6 July 1415. The obverse shows Hus's portrait bust; the reverse depicts his execution with Latin inscriptions including his famous prophecy. The medal belongs to the well-documented \"Hustaler\" tradition of Reformation commemorative medals. Despite the \"1415\" date inscribed on the medal, it was **not manufactured in 1415** — it is a later commemorative piece, most likely from the early 18th century (c. 1700–1740). It was part of the personal collection of Pieter Teyler van der Hulst, the museum's founder.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "diameter: 36.6 mm; massa: 17.3176 g",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "CREDO VNAM ESSE ECCLESIAM SANC CATOLI / IO'A - HVS",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "obverse inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "CETV . REVOLVTIS . ANIS . DEO . REDDE . TEA'N'E . E . MI / AN . A . CHRO - NA . 1415 . IOH / CO' - DE' / NA - TVR",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "reverse inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1778-04-08",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055863",
+          "_label": "acquisition"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "acquisition date"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Collectie Pieter Teyler van der Hulst"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7041724"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

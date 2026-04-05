@@ -1,0 +1,159 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/107",
+  "type": "HumanMadeObject",
+  "_label": "Studie voor twee engelfiguren",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Studie voor twee engelfiguren",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "A 068",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Raphael (1483-1520)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1517-01-01",
+      "end_of_the_end": "1518-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "c. 1517–1518"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Stylus, red chalk, pencil on paper"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A drawing in red chalk (with stylus underdrawing and possible graphite annotations) on paper (203 x 224 mm) by **Raphael** (Raffaello Sanzio, Urbino, 1483 – Rome, 1520), dated c. 1517–1518. The title — \"Study for the half-length figures of two angels\" — connects the sheet to the preparatory process for the **Transfiguration** (Pinacoteca Vaticana), Raphael's last major painting, commissioned c. 1516–1517 by Cardinal Giulio de' Medici. Part of Teylers' collection of **twelve drawings attributed to Raphael** — the largest Raphael drawings collection in the Netherlands and among the most significant in the world. Acquired in 1790 as part of the same Odescalchi purchase that brought the Michelangelo drawings to Haarlem. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "203 x 224 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"Rafael\"; \"Sassoferrato\"; \"A 95?\"; \"Teyler\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Purchased from Odescalchi heirs, Rome, 1790",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055863",
+          "_label": "acquisition"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "acquisition date"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/107"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Studie voor twee engelfiguren"
+    }
+  ]
+}

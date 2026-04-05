@@ -1,0 +1,97 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/document/300008139",
+  "type": "HumanMadeObject",
+  "_label": "The Birds of America",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "The Birds of America",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "WBW 08140",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is the double elephant folio first edition of *The Birds of America* by John James Audubon (1785–1851), published in London by the author between 1827 and 1838. It consists of 435 hand-coloured plates made using etching, engraving, aquatint, and drypoint on \"double elephant\" format paper (approximately 99 × 66 cm per sheet), depicting 489 species of North American birds in life size. The plates are numbered I–CCCCXXXV (Roman numerals); the first ten were engraved by William Home Lizars of Edinburgh and later retouched and aquatinted by Robert Havell Jr.; plates 11–435 were engraved and printed by Robert Havell Sr. and Robert Havell Jr. of London. The work was issued serially in 87 parts of five plates each to subscribers, and was subsequently bound by recipients — most commonly into four volumes. Teylers Museum acquired its copy directly by subscription during the years of publication (1827–1838), paying a total of 2,243 guilders — more than the annual salary of then-director Martinus van Marum. Teylers' copy is the only original double elephant folio edition of *The Birds of America* in the Netherlands, and one of approximately 119–120 complete copies known to survive worldwide.\n\n---",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/document/300008139"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "The Birds of America"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000208",
+  "type": "HumanMadeObject",
+  "_label": "Model van een zonnecollector met stoomzuiger",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Model van een zonnecollector met stoomzuiger",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 0181",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "zonnecollector"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Mahonie"
+    },
+    {
+      "type": "Material",
+      "_label": "Messing"
+    },
+    {
+      "type": "Material",
+      "_label": "glas"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1879-01-01",
+      "end_of_the_end": "1879-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1879"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A **working scale model of a parabolic solar concentrator coupled to a steam piston mechanism**, manufactured in Paris in 1879 by instrument maker A. Salleron, based on the solar engine technology developed by Augustin Mouchot (1825–1912). The device consists of a silvered parabolic dish (~48 cm diameter) on a mahogany base. A blackened copper boiler is positioned at the focal point; tilting and rotating the dish tracks the sun and concentrates radiation on the boiler. Steam from the heated water drives a piston coupled to a set of wheels, demonstrating the complete conversion of solar radiation into mechanical motion. The museum likely acquired it in 1879 in direct response to the gold-medal demonstration by Mouchot and his assistant Abel Pifre at the **1878 Exposition Universelle in Paris**. This is one of the earliest solar-to-mechanical energy conversion devices in any museum collection worldwide. A comparable model exists in the Musée des Arts et Métiers, Paris (acquired 1880).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Model van een zonnecollector met stoomzuiger",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Heat"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000208"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

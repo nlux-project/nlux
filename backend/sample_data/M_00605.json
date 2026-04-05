@@ -1,0 +1,125 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7028882",
+  "type": "HumanMadeObject",
+  "_label": "Malachiet",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Malachiet",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "M 00605",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "mineraal (mineral)"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "18de eeuw (18th century)"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "M 00605 is a substantial malachite specimen (409.6 g) from the Ural Mountains of Russia, collected during the 18th century and now displayed in the Oval Hall (Ovale Zaal) of Teylers Museum. Malachite is a copper carbonate hydroxide mineral with the formula Cu₂(CO₃)(OH)₂, crystallising in the monoclinic crystal system, with a hardness of 3.5–4 on the Mohs scale. It is characterised by its vivid green colour with distinctive concentric banding patterns formed by the alternating growth of botryoidal or stalactitic masses.\n\nThe catalog image shows a spectacular specimen displaying the mineral's characteristic vivid green colour with concentric banding in lighter and darker green, visible on a polished cross-section that occupies most of the specimen's upper surface. The base is brownish-red, likely a gossan or iron oxide host rock typical of Ural copper deposits. The specimen is visually striking and representative of the finest-quality malachite extracted from the Ural Mountains during the 18th century.\n\nThe specimen has a documented and distinguished provenance. It was originally part of the mineral collection of the Dutch naturalist **Johannes le Francq van Berkhey** (1729–1812), a physician, painter, poet, and natural historian best known for his *Natuurlyke Historie van Holland* (4 vols., 1769–1776). Van Berkhey's collection was illustrated by **Martinus Houttuyn** (1720–1798), who included an engraving of this very malachite specimen in his encyclopedic work *Natuurlyke Historie of uitvoerige Beschryving der Dieren, Planten en Mineraalen, volgens het Samenstel van den Heer Linnaeus* (37 volumes, 1761–1785). When van Berkhey's collection was forced onto the market following his dismissal from Leiden University in 1795, Teylers Museum director **Martinus van Marum** (1750–1837) acquired the specimen for the museum. It has remained in the Teylers collection ever since and is displayed in the Oval Hall.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Weight: 409.6 g",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Collectie Teylers Museum"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7028882"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

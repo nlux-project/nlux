@@ -1,0 +1,149 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000250",
+  "type": "HumanMadeObject",
+  "_label": "Verbrandingstoestel voor waterstof",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Verbrandingstoestel voor waterstof",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 0219",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "verbrandingstoestel waterstof"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1790-01-01",
+      "end_of_the_end": "1791-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1790–1791"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "FK 0219 is a **gasometer** (*gazometer*) — a gas-measuring and gas-delivery apparatus — designed by **Martinus van Marum** (1750–1837) and built by instrument maker **Frederik Willem Fries** at Teylers Museum, Haarlem, in late 1790 to early 1791. It was specifically designed to demonstrate the combustion of hydrogen in oxygen, producing water and thereby confirming Lavoisier's proof that water is a compound (H₂O), not an element.\n\nThe device is van Marum's deliberate simplification and improvement of Lavoisier's original gasometer design (published in *Traité élémentaire de chimie*, 1789), built by Paris maker Pierre Mégnié and notoriously expensive. Van Marum's version made the water-synthesis demonstration affordable and reproducible for scientific institutions worldwide. Upon its completion van Marum received replication requests from scientific academies across Europe. Van Marum published its description in *Verhandelingen uitgegeven door Teyler's Tweede Genootschap*, Volume 10 (1798) — a primary technical source entirely absent from the catalog.\n\nFries was a Swiss-born instrument maker recruited by van Marum from London in 1790. He was introduced to Teylers' Second Society on 19 November 1790 and had left Haarlem by April 1791 due to homesickness — the tight production date \"1790–1791\" is fully confirmed by primary records.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"Verbrandingstoestel voor waterstof van Martinus van Marum\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Not recorded",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Chemical apparatus (Fysisch Kabinet)"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/4000250"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

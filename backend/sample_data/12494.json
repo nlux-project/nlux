@@ -1,0 +1,117 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/document/300012493",
+  "type": "LinguisticObject",
+  "_label": "\"A journal of a voyage to the South seas\"",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "\"A journal of a voyage to the South seas\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "12494",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "created_by": {
+    "type": "Creation",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Sydney Parkinson (ca.1745–1771)"
+      }
+    ]
+  },
+  "used_for": [
+    {
+      "type": "Activity",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300054686",
+          "_label": "publishing"
+        }
+      ],
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "Dilly, Charles; Phillips, James"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "The **second edition** of *A Journal of a Voyage to the South Seas, in His Majesty's Ship, the Endeavour* (London: Charles Dilly and James Phillips, 1784), by Sydney Parkinson (c.1745–1771). Parkinson served as botanical and natural history draughtsman to Sir Joseph Banks on Cook's first Pacific voyage (1768–1771). He died at sea on 26 January 1771 after contracting dysentery at Batavia. The first edition (1773) was edited controversially by his brother Stanfield Parkinson. This 1784 second edition was edited by **John Coakley Lettsom**, contains an extensive appendix (pp. [213]–353) with abridgements of Cook's second and third voyages, and includes 27 hand-coloured copper-engraved plates plus a portrait frontispiece and maps. The book is historically significant as one of the few unofficial accounts of Cook's first voyage, and the 1773 first edition contains the **first printed naming of the kangaroo** in any published book.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/document/300012493"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

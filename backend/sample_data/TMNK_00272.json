@@ -1,0 +1,181 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7041992",
+  "type": "HumanMadeObject",
+  "_label": "Gehelmde rijksdaalder uit Holland",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Gehelmde rijksdaalder uit Holland",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 00272",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Silver"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Holland (Republic, province); Gerard van Bylaer (±1540–1617); Jacob Janszoon de Jonge"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1584-01-01",
+      "end_of_the_end": "1584-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1584"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Smooth edge"
+      }
+    ],
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Dordrecht"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a **prinsendaalder** — a large silver coin struck in 1584 at the Dordrecht mint, bearing the portrait of **William the Silent (Willem van Oranje)** with a sword over his shoulder. It is the **only official Dutch coin to depict William of Orange**, and the 1584 date places it at the exact historical fulcrum of his assassination on **10 July 1584** by Balthasar Gerard. The coin was designed as political propaganda by the States of Holland, intended to facilitate William's formal inauguration as sovereign — which never took place. Dies were engraved by **Gerard van Bylaer**, one of the most important medallists of the Dutch Revolt, and the coin was produced under mint master **Jacob Janszoon de Jonge** at the Dordrecht mint, which had operated continuously since 1367.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Obverse: helmeted coat of arms of Holland. Reverse: bust right, Willem van Oranje with sword over shoulder",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "41.1 mm, 28.8316 g",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "MO x NO x ARG x COMIT x HOL x ZEL x [rosette] x VIGILATE x DEO x CONFIDENTE x 1584",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Purchased 31 January 1902 from Jean Henri Coronel (1846–1934)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7041992"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

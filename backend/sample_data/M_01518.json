@@ -1,0 +1,117 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7029903",
+  "type": "HumanMadeObject",
+  "_label": "Bergkristal",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Bergkristal",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "M 01518",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "mineraal"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1802-01-01",
+      "end_of_the_end": "1802-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "circa 1802"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "M 01518 is a large cluster of quartz crystals (rock crystal, i.e. colourless transparent quartz) from the Dauphiné region of the French Alps, south of Grenoble. The specimen weighs 6,900 grams and was acquired around 1802. The photograph shows a dense, multi-directional cluster of elongated prismatic crystals with pyramidal terminations, predominantly colourless to pale cream-yellow in tone, with some brownish iron-staining at the crystal bases. The crystals display the characteristic hexagonal prism faces and rhombohedral pyramid faces typical of alpha-quartz. No matrix rock is visible; the cluster appears to be a free-standing druse.\n\nThe Dauphiné region (now part of Isère, Drôme and Hautes-Alpes departments) has been one of the world's premier localities for rock crystal since at least the 17th century. The Oisans massif, particularly the La Gardette mine near Bourg-d'Oisans, produced some of the finest quartz specimens in European collections. Alpine crystal hunters (\"cristalliers\") worked these deposits commercially, supplying Parisian, Genevan and Milanese gem cutters as well as collectors. The term \"cristal de roche\" — literally \"rock crystal\" — was the standard French name for colourless quartz in 18th-century natural history literature and trade.\n\nThe specimen dates to the period when Teylers director Martinus van Marum was actively building the mineral cabinet. The production date of \"circa 1802\" in the catalog most likely refers to the date of acquisition by Teylers rather than any date of formation or collection in the field. Quartz is of course a geological mineral millions of years in the making, making the phrase \"production date\" categorically inappropriate for a natural specimen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Collectie Teylers Museum"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7029903"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

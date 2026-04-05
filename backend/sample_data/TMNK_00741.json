@@ -1,0 +1,149 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7041632",
+  "type": "HumanMadeObject",
+  "_label": "Vrede van Breda tussen de Verenigde Nederlanden en Engeland — einde van de Tweede Engels-Nederlandse Oorlog (1665-1667)",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Vrede van Breda tussen de Verenigde Nederlanden en Engeland — einde van de Tweede Engels-Nederlandse Oorlog (1665-1667)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 00741",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Silver"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Christoffel Adolphi (Adolfszoon) (±1631-1684) — medailleur; Jan Zoet (1609-1674) — designer; Republiek der Zeven Verenigde Nederlanden, Holland (1581-1795) — issuing authority"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1667-01-01",
+      "end_of_the_end": "1668-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1667–1668"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Geslagen (struck)"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "TMNK 00741 is a large silver commemorative medal struck in Amsterdam in 1667 to celebrate the Peace of Breda, which ended the Second Anglo-Dutch War (1665–1667). The treaty was signed on 31 July 1667 in the city of Breda, Netherlands. The medal was struck by order of the States of Holland (Staten van Holland) and is one of the most artistically ambitious Dutch medals of the seventeenth century.\n\nThe medal is the work of Christoffel Adolphi (also known as Adolfszoon, c. 1631–1684), the leading Dutch medal engraver of the period, working in Amsterdam. The inscriptions were composed by the Amsterdam poet Jan Zoet (1609–1674), a prolific writer known for his satirical and politically engaged verse. The obverse celebrates Dutch triumph in the war — most vividly symbolized by the Raid on the Medway (June 1667), during which Admiral Michiel de Ruyter's fleet entered the Thames estuary and destroyed the English fleet at anchor. The reverse celebrates the peace itself and the resumption of trade.\n\nThe medal is notable for a politically explosive element: the figure being trampled by Hollandia on the obverse was identified by contemporaries as **Discord** (Tweedracht), but the motto \"PROCUL . HINC . MALA . BESTIA . REGNIS\" (\"Be gone, pernicious beast, from our realms\") was widely understood as an insult directed personally at King Charles II of England. The British government formally protested; the Dutch States apologized and ordered the dies destroyed. That TMNK 00741 survives is evidence that some strikes were made before the dies were suppressed — giving this medal historical significance beyond its commemorative function. The medal is referenced in the standard corpus of Dutch historical medals compiled by Gerard van Loon.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "* NUMISMA * POSTERITATI * SACRUM * BELGA * BRITANNOQUE * RECONCILIATIS . / C . A .",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Acquired 1778-04-08 from Pieter Teyler van der Hulst",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Numismatische collectie"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7041632"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

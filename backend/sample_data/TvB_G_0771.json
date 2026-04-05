@@ -1,0 +1,197 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/Details/museum/22405",
+  "type": "HumanMadeObject",
+  "_label": "De dichter Jan Vos",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De dichter Jan Vos",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TvB G 0771",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "grafiek"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    },
+    {
+      "type": "Material",
+      "_label": "lichtbeige"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Karel Dujardin (1622-1678), graveur"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1642-01-01",
+      "end_of_the_end": "1678-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1642-1678, ca."
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "ets en stippelgravure"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is a portrait etching by Karel Dujardin (c. 1626–1678), depicting the Amsterdam poet and glazier Jan Vos (1612–1667) half-length, facing slightly right, holding a rolled paper or parchment in his left hand. The print was created as the frontispiece portrait for the second volume of Vos's collected poems, *Alle de gedichten* (Amsterdam, 1662). Below the portrait is a four-line laudatory poem by Joost van den Vondel. The print exists in at least 3–4 states; later states include biographical text about Vos's role in the 1648 Peace of Munster celebrations.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De Hollandse dichter Jan Vos met in zijn linkerhand een rol papier (of perkament).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "nl"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Teylers catalog description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "beeld: 129×125 mm, papier: 167×126 mm, opzet: 433×330 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"KDU JARDIN F\" / \"Zoo spant Natuur door Vos (...) een boghtige trompet. J. v. Vondel.\" / \"Hij wierd den 5e juny 1648 aange/steld om de vertoningen wegens de Munsterse Vrede te ontwerpen./en is overleden in July, 1667./Het afbeeldsel van de Dichter Vos.\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "portret (Vos, Jan), dichter, glazenier, keppeltje, papierrol",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "_label": "subject heading"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Jhr. H. Teding van Berkhout jr. en sr."
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/22405"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "De dichter Jan Vos"
+    }
+  ]
+}

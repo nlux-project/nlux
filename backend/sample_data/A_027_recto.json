@@ -1,0 +1,155 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/34464",
+  "type": "HumanMadeObject",
+  "_label": "Figuurstudie voor een Ignudo in de Sixtijnse Kapel",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Figuurstudie voor een Ignudo in de Sixtijnse Kapel",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "A 027 recto",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Paper"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Michelangelo Buonarroti (1475-1564)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1511-01-01",
+      "end_of_the_end": "1511-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "c. 1511"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Red chalk, graphite, white heightening"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A red chalk drawing with white heightening on paper by **Michelangelo Buonarroti** (1475–1564), c. 1511, depicting a study for one of the **ignudi** (nude male figures) on the Sistine Chapel ceiling, most probably near the Persian Sibyl / Separation of the Earth from the Waters. Described as \"probably the best-preserved example\" of Michelangelo's Sistine preparatory studies. The verso (A 027 verso) contains swift sketches of figures surrounding God the Father in the **Creation of Adam** — connecting this single sheet to two of the most significant Sistine compositions. Part of approximately 22–25 Michelangelo drawings at Teylers, forming one of the **top five collections of Michelangelo drawings in the world**, acquired in 1790 via Willem Anne Lestevenon from the Odescalchi heirs in Rome for 10,000 guilders. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"di buona Roti\"; \"phi\"; \"no 62\"; \"Teyler\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Purchased from Odescalchi heirs, Rome, 1790",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055863",
+          "_label": "acquisition"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "acquisition date"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/34464"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Figuurstudie voor een Ignudo in de Sixtijnse Kapel"
+    }
+  ]
+}

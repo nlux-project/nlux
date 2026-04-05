@@ -1,0 +1,139 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/35869",
+  "type": "HumanMadeObject",
+  "_label": "Drie tulpen",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Drie tulpen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "T 085",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "penseel in waterverf (watercolor brush)"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "perkament (parchment)"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Merian, Maria Sibylla (1647–1717), tekenaar"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1670-01-01",
+      "end_of_the_end": "1675-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "ca. 1670 – ca. 1675"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "\"Drie tulpen\" (Three Tulips) is a large-format watercolor drawing by Maria Sibylla Merian (1647–1717) on parchment, dated ca. 1670–1675. It depicts three tulips rendered with exceptional botanical precision, executed in pencil, colored brush, black brush, grey brush, and black pen. The sheet bears multiple handwritten inscriptions including the artist's own signature variants. It belongs to a category of luxury commercial drawings on parchment that Merian produced for the art market during her Nuremberg years (1670–1685). The work is cataloged as a \"Topstuk\" (masterpiece) by the museum.\n\n---",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"Mayo,\"; \"F No 4 / f 2=2-. Rab.T\"; \"M:S: Meriaan\"; \"M.S. Meriaan\"; \"T.85\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/35869"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Drie tulpen"
+    }
+  ]
+}

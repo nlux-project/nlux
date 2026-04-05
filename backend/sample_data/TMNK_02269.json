@@ -1,0 +1,165 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7041633",
+  "type": "HumanMadeObject",
+  "_label": "Beloningspenning van de Staten-Generaal aan bevelhebber Wolter Jan baron Bentinck, die bij Doggersbank gestreden heeft",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Beloningspenning van de Staten-Generaal aan bevelhebber Wolter Jan baron Bentinck, die bij Doggersbank gestreden heeft",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 02269",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Gold"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1781-01-01",
+      "end_of_the_end": "1781-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1781"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Screwed; smooth/engraved"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "TMNK 02269 is a large gold medal — one of the most imposing in the Teylers numismatic collection — awarded posthumously by the Staten-Generaal (States-General of the Dutch Republic) to the family of Wolter Jan Gerrit baron Bentinck (1745–1781), in recognition of his conduct at the Battle of the Doggersbank (5 August 1781). Bentinck commanded the 54-gun ship *Batavier* in the Dutch squadron under Vice-Admiral Johan Arnold Zoutman during this engagement, which took place in the North Sea during the Fourth Anglo-Dutch War (1780–1784). He died of his wounds on 24 August 1781, nineteen days after the battle.\n\nThe Battle of the Doggersbank was fought between a Dutch convoy escort and a British squadron under Vice-Admiral Sir Hyde Parker. Both sides suffered heavy casualties; neither achieved a decisive tactical victory, but the Dutch merchant convoy successfully reached port. In the Netherlands, the battle was celebrated as a vindication of Dutch naval honour after decades of decline. Zoutman became a national hero. The States-General awarded a small number of large gold honor medals on gold chains — known as the \"Erepenning van de Staten-Generaal\" — to the most senior officers: Zoutman, several captains-at-sea (Dedel, Van Braam, Van Kinsbergen), and posthumously Bentinck.\n\nThis medal is distinct from the oval \"Doggersbank-medaille\" (Betts-588; Van Loon Supplement 563) designed by Franciscus Hemsterhuis and engraved by Johann Heinrich Schepp, which was awarded more widely to all officers and petty officers present at the battle. The Teylers piece is the rarer, heavier States-General type — a prestige award on a gold chain.\n\nThe gold medal is screwed (it unscrews, presumably to allow it to be hung on a chain or worn as a decorative object). At 90.58 mm diameter and 811 g, it is an exceptionally large and heavy gold object — one of the largest and heaviest single medals in Dutch eighteenth-century medallurgy.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "CONCORDIA · RES PARVAE · CRESCUNT",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "obverse inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "DISCORDIA MAXIMAE DILABUNTUR; HONI · SOIT · QVI · MAL · Y · PENSE; IE MAINTIENDRAI",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "reverse inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "TER BELOONINIG VAN DE DAPPERHEIT, GETOONT IN DE ACTIE OP DOGGERSBANK . 5 AUG 1781",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Numismatische collectie"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7041633"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

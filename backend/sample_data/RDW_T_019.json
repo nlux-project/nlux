@@ -1,0 +1,137 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/33234",
+  "type": "HumanMadeObject",
+  "_label": "Bonne Année",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Bonne Année",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "RDW T 019",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1970-01-01",
+      "end_of_the_end": "1971-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1970 (for New Year 1971)"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Collage, viltstift, balpen, plakband"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A collaborative New Year's greeting collage on paper (330 x 412 mm) made in late **1970** by **Niki de Saint-Phalle** (Neuilly-sur-Seine, 1930 – La Jolla, 2002) and **Jean Tinguely** (Fribourg, 1925 – Bern, 1991), sent for New Year **1971** to **Edy de Wilde** (then director of the Stedelijk Museum Amsterdam) and his partner **Nono Reinhold**. Executed in collage, felt-tip marker, ballpoint pen, and adhesive tape. The inscription thanks de Wilde for dinner and invites the recipients to visit the couple at **Soisy-sur-Ecole** — their studio/residence 44 km southeast of Paris, also the site of their ongoing work on the monumental sculpture **Le Cyclop** (begun 1969). Donated to Teylers in 1998 via the **Stichting Reinhold De Wilde**. Designated one of Teylers' **50 Topstukken**.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Sheet: 330 x 412 mm; Mount: 425 x 600 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "New Year wishes; thanks for dinner; invitation to visit Soisy-sur-Ecole; addressed to \"Eddy de Wilde\"",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/33234"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "type": "VisualItem",
+      "_label": "Bonne Année"
+    }
+  ]
+}

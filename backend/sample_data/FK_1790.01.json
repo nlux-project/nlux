@@ -1,0 +1,133 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/4001478",
+  "type": "HumanMadeObject",
+  "_label": "Destilleerketels van Wedgwood Queensware aardewerk",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Destilleerketels van Wedgwood Queensware aardewerk",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "FK 1790.01",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Destilleerketel"
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Aardewerk"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1790-01-01",
+      "end_of_the_end": "1790-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1790"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "A set of **distillation vessels** (*destilleerketels*) made of **Wedgwood Queen's Ware** (cream-coloured earthenware / creamware), used in the chemistry laboratory of **Martinus van Marum** (1750–1837), founding director of Teylers Museum. Van Marum established the **first dedicated chemistry laboratory in the Netherlands** in 1790 in a building adjacent to the museum, using it to demonstrate and extend Lavoisier's oxygen-based chemistry to Dutch audiences.\n\nQueen's Ware is the refined creamware body perfected by **Josiah Wedgwood I** (1730–1795) from c.1765, named after Queen Charlotte (who granted permission to use the name from 1767). Wedgwood was a well-documented supplier of laboratory apparatus — retorts, crucibles, evaporating dishes — to leading 18th-century chemists including Priestley and Lavoisier. These vessels were almost certainly acquired for van Marum's 1790 laboratory programme.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Not recorded",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Chemical apparatus (Fysisch Kabinet)"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/4001478"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

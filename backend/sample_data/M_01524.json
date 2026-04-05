@@ -1,0 +1,115 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7029909",
+  "type": "HumanMadeObject",
+  "_label": "Antimoniet kristal",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Antimoniet kristal",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "M 01524",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "mineraal"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "onbekend (unknown)"
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "M 01524 is a large, visually spectacular specimen of stibnite (antimony trisulfide, Sb₂S₃) from the Ichinokawa Mine, Saijō, Ehime Prefecture, Japan — one of the most celebrated mineral localities in the world. The catalog image shows a towering cluster of bladed prismatic crystals displaying the characteristic lead-grey to black metallic lustre and bright mirror-like cleavage faces of stibnite. The crystals are elongated parallel to the c-axis with characteristic striated faces and grow in a complex fan-like or sheaf arrangement, reaching impressive height. The base consists of a mass of smaller interlocking crystals. There is no obvious matrix rock — the specimen appears to consist almost entirely of stibnite crystals, which is typical of Ichinokawa material.\n\nThe Ichinokawa Mine is located on Shikoku Island, near the city of Saijō (formerly Saijō-chō) in Ehime Prefecture, Japan. It operated as an antimony mine from at least the 7th century (tradition holds it supplied antimony for the Great Buddha of Nara, cast in 748 CE) and reached peak production between 1875 and 1900, when it produced 16,600 tons of antimony. The mine closed around 1957–1962. During the late 19th century, Ichinokawa produced the largest and finest stibnite crystals ever documented: single crystals up to approximately 60 cm long and 15 cm in diameter. Specimens were exhibited at the Kyoto Exhibition (1871) and the Paris World's Fair (1878), where they won silver medals. For over a century, Ichinokawa was considered the premier world locality for stibnite.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Collectie Teylers Museum"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7029909"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

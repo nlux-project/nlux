@@ -1,0 +1,149 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7041630",
+  "type": "HumanMadeObject",
+  "_label": "Rampzalige reis van Lourens Thyszoon Veyselaer en Daniël Silleman met het schip De Gouden Buys",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Rampzalige reis van Lourens Thyszoon Veyselaer en Daniël Silleman met het schip De Gouden Buys",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 01297",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Silver"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Actor",
+        "_label": "Dirk Schelte (1639–1715) — maker; Unknown medalist; Dutch Republic — Holland Province (1581–1795) — issuing authority"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1695-01-01",
+      "end_of_the_end": "1695-12-31",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1695"
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "Engraved; smooth with file marks"
+      }
+    ]
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "TMNK 01297 is a large silver engraved medal commemorating one of the most dramatic survival stories in VOC history: the disaster of the ship De Gouden Buys (The Golden Pipe) in 1693. The medal was made in 1695, two years after the event, when one of the two survivors — Lourens Thyszoon Veyselaer — had already died on his return voyage. The other survivor, Daniël Silleman, had published an account of the ordeal in Enkhuizen in 1695, which appears to have directly prompted the medal's commission.\n\nThe Gouden Buys departed Enkhuizen on 4 May 1693, bound for the Dutch East Indies (the VOC's trading empire in Asia). During the passage through the tropics, the ship was becalmed for two months near the equator. The combination of heat, thirst, and disease — most likely scurvy and dysentery — killed the great majority of the crew. When the ship finally reached the coast of southern Africa and anchored in Helenabay (St. Helena Bay, approximately 100 km north of what is now Cape Town) on 19 October 1693, only about 12 men remained fit for duty. Of the crew of approximately 190, around 178 had died at sea. Captain Baanman was bedridden. Seven men went ashore in a longboat to seek help. Five of them died in the African wilderness. Two survived: Lourens Thyszoon Veyselaer, who was taken in by the Khoikhoi people and eventually led to the Dutch settlement at the Cape; and Daniël Silleman.\n\nGovernor Simon van der Stel organized a rescue mission with four ships. The salvage vessel *Dageraad* recovered treasure chests from the stricken Gouden Buys (which had dragged her anchors and grounded in shallow water) and took Silleman aboard. But the *Dageraad* then foundered in a storm off Robben Island, with the loss of over 200 more lives. Silleman survived by swimming ashore. Both Veyselaer and Silleman ultimately made their way back to the Cape together. Veyselaer died on the homeward voyage. Silleman returned to the Netherlands, where his account was published and the medal was struck in his honor.\n\nThe medal is engraved rather than struck — its technique (smooth with file marks and engraved lines) makes it a unique pictorial object rather than a mass-produced coin-type piece. The inscriptions were composed by the Amsterdam jeweler-poet Dirk Schelte (baptized Amsterdam 4 October 1639, buried Amsterdam 26 March 1715). The commissioning body was the VOC Chamber of Enkhuizen — the same chamber from whose port the Gouden Buys had departed. The medal was awarded to Veyselaer (and/or Silleman) as an honor, with a suspension ring for wearing on a chain.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "HELEENS-BAY BERGDDE GOUDE-BUYS TWYL GOD HEM SPAARD VOOR 'T WILD GESPUYS TOT HY MET SES OM HULP GESONDEN MET EEN DE CAAP EN T SCHIP MAAR VONDEN GEDACHTENIS VAN T RAMPGEVAAR VAN LOURENS TYSSE VEYSELAAR DAAR HY EN SILLMAN T LEEVEN HIELEN VAN TWEEMAAL HONDERD MIN TIEN ZIELEN",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300028702",
+          "_label": "inscription"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Acquired 1778-04-08 from Pieter Teyler van der Hulst",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435438",
+          "_label": "provenance statement"
+        }
+      ]
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Numismatische collectie"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7041630"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

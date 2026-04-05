@@ -1,0 +1,121 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/museum/7016989",
+  "type": "HumanMadeObject",
+  "_label": "Wolharige mammoet / Mammoetschedel van Heukelum",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Wolharige mammoet / Mammoetschedel van Heukelum",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "F 16266",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "(none listed)"
+    }
+  ],
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "timespan": {
+        "type": "TimeSpan",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "ca. 31,000 jaar geleden (approximately 31,000 years ago)"
+          }
+        ]
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "F 16266 is the skull of a woolly mammoth (*Mammuthus primigenius*), discovered in 1820 near Heukelum in the Dutch province of Gelderland, and today known as \"De Mammoetschedel van Heukelum.\" It is the largest and most complete mammoth skull found in the Netherlands, and one of the most complete of its kind in Western Europe. The animal was a male estimated at approximately 43 years of age at the time of death, and lived approximately 31,000 years ago in the Late Pleistocene (Upper Palaeolithic).\n\nThe skull was discovered on 26 January 1820 when a dike breach near Heukelum, along the Nieuwe Zuider Lingedijk, carved a 20-metre-deep hole in the land of farmer Frans van Wilgen, exposing the specimen. Museum director Martinus van Marum visited in March 1820, but van Wilgen was absent. The skull was sold at auction in 1824, purchased by the Hollandsche Maatschappij der Wetenschappen for 2,755 guilders — a sum equivalent to the cost of three houses at the time. It remained in the Hollandsche Maatschappij's Naturaliënkabinet until that collection was dissolved in 1866, after which the skull was held in storage until transfer to Teylers Museum in **1885**.\n\nThe catalog image shows the skull mounted on a wall bracket in the museum, with the two massive curved tusks displayed hanging beneath it. The skull retains both orbital regions, the frontal and parietal bones, and shows the characteristic domed cranium of *Mammuthus primigenius*. It is displayed in the First Fossil Hall.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "(none listed)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "_label": "dimensions description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/museum/7016989"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

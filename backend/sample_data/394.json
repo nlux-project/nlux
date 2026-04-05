@@ -1,0 +1,116 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/ais6/details/document/300000393",
+  "type": "LinguisticObject",
+  "_label": "Berichte des Leiters der von der Kaiserlichen Akademie der Wissenschaften zur Ausgrabung eines Mammuthkadavers an die Kolyma-Beresowka ausgesandten Expedition",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Berichte des Leiters der von der Kaiserlichen Akademie der Wissenschaften zur Ausgrabung eines Mammuthkadavers an die Kolyma-Beresowka ausgesandten Expedition",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "394",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "created_by": {
+    "type": "Creation",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "O. Herz"
+      }
+    ]
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "mammoet"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "This is the official expedition report by Otto Herz on the recovery of the **Beresovka mammoth** — one of the most famous paleontological discoveries in history. Published by the Imperial Academy of Sciences in St. Petersburg in 1902, it documents the 1901 expedition to excavate a nearly complete woolly mammoth carcass preserved in Siberian permafrost for approximately 44,000 years. The mammoth was found with undigested food still in its stomach and grass between its teeth, indicating sudden death during summer. The mounted specimen remains on display at the Zoological Museum in St. Petersburg.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "description"
+        }
+      ],
+      "language": [
+        {
+          "type": "Language",
+          "_label": "en"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "AI research description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "gr. 8°, 38 pp, 10 plates",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435452",
+          "_label": "physical description"
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/details/document/300000393"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
