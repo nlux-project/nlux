@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Person",
-        "_label": "Ammonius"
+        "_label": "Ammonius",
+        "id": "https://teylers.adlibhosting.com/nlux/person/ammonius"
       }
     ]
   },
@@ -57,7 +59,8 @@
       "carried_out_by": [
         {
           "type": "Group",
-          "_label": "J. Luzac, Lugduni Batavorum"
+          "_label": "J. Luzac, Lugduni Batavorum",
+          "id": "https://teylers.adlibhosting.com/nlux/group/j-luzac-lugduni-batavorum"
         }
       ],
       "timespan": {

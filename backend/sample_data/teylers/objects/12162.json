@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Person",
-        "_label": "Reinier Ottens (1698-1750)"
+        "_label": "Reinier Ottens (1698-1750)",
+        "id": "https://teylers.adlibhosting.com/nlux/person/reinier-ottens-1698-1750"
       }
     ]
   },
@@ -57,7 +59,8 @@
       "carried_out_by": [
         {
           "type": "Group",
-          "_label": "Regnerum & Josuam Ottens"
+          "_label": "Regnerum & Josuam Ottens",
+          "id": "https://teylers.adlibhosting.com/nlux/group/regnerum-josuam-ottens"
         }
       ]
     }

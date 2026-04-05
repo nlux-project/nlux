@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -51,7 +52,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Arnold & Dent, Londen"
+        "_label": "Arnold & Dent, Londen",
+        "id": "https://teylers.adlibhosting.com/nlux/person/arnold-dent-londen"
       }
     ],
     "timespan": {

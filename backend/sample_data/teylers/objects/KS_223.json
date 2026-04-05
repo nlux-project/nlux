@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "George Hendrik Breitner (1857-1923)"
+        "_label": "George Hendrik Breitner (1857-1923)",
+        "id": "https://teylers.adlibhosting.com/nlux/person/george-hendrik-breitner-1857-1923"
       }
     ],
     "timespan": {

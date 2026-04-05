@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "(not listed)"
+        "_label": "(not listed)",
+        "id": "https://teylers.adlibhosting.com/nlux/person/not-listed"
       }
     ],
     "timespan": {

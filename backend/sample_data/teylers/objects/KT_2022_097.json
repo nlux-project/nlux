@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "David Jorisz. (ca. 1501-1556), tekenaar"
+        "_label": "David Jorisz. (ca. 1501-1556), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/david-jorisz-ca-1501-1556-tekenaar"
       }
     ],
     "timespan": {

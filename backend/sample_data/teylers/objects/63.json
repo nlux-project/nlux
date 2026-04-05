@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Person",
-        "_label": "Alexander Aphrodisiensis"
+        "_label": "Alexander Aphrodisiensis",
+        "id": "https://teylers.adlibhosting.com/nlux/person/alexander-aphrodisiensis"
       }
     ]
   },
@@ -57,7 +59,8 @@
       "carried_out_by": [
         {
           "type": "Group",
-          "_label": "Th. Roycroft, London"
+          "_label": "Th. Roycroft, London",
+          "id": "https://teylers.adlibhosting.com/nlux/group/th-roycroft-london"
         }
       ],
       "timespan": {

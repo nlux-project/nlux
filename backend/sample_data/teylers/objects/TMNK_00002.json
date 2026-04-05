@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -53,7 +54,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Kingdom of Bohemia (1198-1806), unknown medalist"
+        "_label": "Kingdom of Bohemia (1198-1806), unknown medalist",
+        "id": "https://teylers.adlibhosting.com/nlux/person/kingdom-of-bohemia-1198-1806-unknown-medalist"
       }
     ],
     "timespan": {

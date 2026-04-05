@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "took_place_at": [
       {
         "type": "Place",
-        "_label": "Öhningen, Schiener Berg, Baden-Württemberg, Germany"
+        "_label": "Öhningen, Schiener Berg, Baden-Württemberg, Germany",
+        "id": "https://teylers.adlibhosting.com/nlux/place/öhningen-schiener-berg-baden-württemberg-germany"
       }
     ]
   },

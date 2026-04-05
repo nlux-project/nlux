@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -83,7 +84,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Nicolaas Pieneman (1809-1860), kunstschilder en lithograaf"
+        "_label": "Nicolaas Pieneman (1809-1860), kunstschilder en lithograaf",
+        "id": "https://teylers.adlibhosting.com/nlux/person/nicolaas-pieneman-1809-1860-kunstschilder-en-lithograaf"
       }
     ],
     "timespan": {

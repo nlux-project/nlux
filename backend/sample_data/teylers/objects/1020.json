@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Person",
-        "_label": "Marcus Aurelius"
+        "_label": "Marcus Aurelius",
+        "id": "https://teylers.adlibhosting.com/nlux/person/marcus-aurelius"
       }
     ]
   },
@@ -57,13 +59,15 @@
       "carried_out_by": [
         {
           "type": "Group",
-          "_label": "Millington, Edv."
+          "_label": "Millington, Edv.",
+          "id": "https://teylers.adlibhosting.com/nlux/group/millington-edv"
         }
       ],
       "took_place_at": [
         {
           "type": "Place",
-          "_label": "Londini (London)"
+          "_label": "Londini (London)",
+          "id": "https://teylers.adlibhosting.com/nlux/place/londini-london"
         }
       ],
       "timespan": {

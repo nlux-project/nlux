@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Claude Lorrain (1604/5-1682), tekenaar"
+        "_label": "Claude Lorrain (1604/5-1682), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/claude-lorrain-16045-1682-tekenaar"
       }
     ],
     "timespan": {

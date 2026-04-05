@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Person",
-        "_label": "G. Cuvier"
+        "_label": "G. Cuvier",
+        "id": "https://teylers.adlibhosting.com/nlux/person/g-cuvier"
       }
     ]
   },
@@ -57,7 +59,8 @@
       "carried_out_by": [
         {
           "type": "Group",
-          "_label": "Baudouin, Paris"
+          "_label": "Baudouin, Paris",
+          "id": "https://teylers.adlibhosting.com/nlux/group/baudouin-paris"
         }
       ],
       "timespan": {

@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Person",
-        "_label": "J. Baster"
+        "_label": "J. Baster",
+        "id": "https://teylers.adlibhosting.com/nlux/person/j-baster"
       }
     ]
   },
@@ -57,7 +59,8 @@
       "carried_out_by": [
         {
           "type": "Group",
-          "_label": "J. Bosch, Haarlem"
+          "_label": "J. Bosch, Haarlem",
+          "id": "https://teylers.adlibhosting.com/nlux/group/j-bosch-haarlem"
         }
       ],
       "timespan": {

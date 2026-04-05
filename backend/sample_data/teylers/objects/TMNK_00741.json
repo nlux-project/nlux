@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Christoffel Adolphi (Adolfszoon) (±1631-1684) — medailleur; Jan Zoet (1609-1674) — designer; Republiek der Zeven Verenigde Nederlanden, Holland (1581-1795) — issuing authority"
+        "_label": "Christoffel Adolphi (Adolfszoon) (±1631-1684) — medailleur; Jan Zoet (1609-1674) — designer; Republiek der Zeven Verenigde Nederlanden, Holland (1581-1795) — issuing authority",
+        "id": "https://teylers.adlibhosting.com/nlux/person/christoffel-adolphi-adolfszoon-1631-1684-medailleur-jan-zoet-1609-1674-designer-republiek-der-zeven-verenigde-nederlanden-holland-1581-1795-issuing-authority"
       }
     ],
     "timespan": {

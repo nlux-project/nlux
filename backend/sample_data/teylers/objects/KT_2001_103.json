@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -53,7 +54,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Augustijn Claterbos (1750-1828), tekenaar"
+        "_label": "Augustijn Claterbos (1750-1828), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/augustijn-claterbos-1750-1828-tekenaar"
       }
     ],
     "timespan": {

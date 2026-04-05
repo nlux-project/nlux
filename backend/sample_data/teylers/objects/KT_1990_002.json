@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Marlene Dumas (1953), tekenaar"
+        "_label": "Marlene Dumas (1953), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/marlene-dumas-1953-tekenaar"
       }
     ],
     "timespan": {

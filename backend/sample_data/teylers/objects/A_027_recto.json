@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Michelangelo Buonarroti (1475-1564)"
+        "_label": "Michelangelo Buonarroti (1475-1564)",
+        "id": "https://teylers.adlibhosting.com/nlux/person/michelangelo-buonarroti-1475-1564"
       }
     ],
     "timespan": {

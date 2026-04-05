@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -53,7 +54,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Cornelis Troost (1697–1750), tekenaar"
+        "_label": "Cornelis Troost (1697–1750), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/cornelis-troost-16971750-tekenaar"
       }
     ],
     "timespan": {

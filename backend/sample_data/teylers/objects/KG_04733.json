@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -57,7 +58,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Karel Dujardin (1622-1678), graveur, uitgever"
+        "_label": "Karel Dujardin (1622-1678), graveur, uitgever",
+        "id": "https://teylers.adlibhosting.com/nlux/person/karel-dujardin-1622-1678-graveur-uitgever"
       }
     ],
     "timespan": {

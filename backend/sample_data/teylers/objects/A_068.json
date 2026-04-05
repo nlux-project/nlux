@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Raphael (1483-1520)"
+        "_label": "Raphael (1483-1520)",
+        "id": "https://teylers.adlibhosting.com/nlux/person/raphael-1483-1520"
       }
     ],
     "timespan": {

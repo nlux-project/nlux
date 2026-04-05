@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -53,7 +54,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Samuel van Hoogstraten (1627-1678), graveur"
+        "_label": "Samuel van Hoogstraten (1627-1678), graveur",
+        "id": "https://teylers.adlibhosting.com/nlux/person/samuel-van-hoogstraten-1627-1678-graveur"
       }
     ],
     "technique": [

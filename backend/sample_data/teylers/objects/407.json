@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Person",
-        "_label": "C.A. Crommelin"
+        "_label": "C.A. Crommelin",
+        "id": "https://teylers.adlibhosting.com/nlux/person/ca-crommelin"
       }
     ]
   },
@@ -57,7 +59,8 @@
       "carried_out_by": [
         {
           "type": "Group",
-          "_label": "s.n. (not named)"
+          "_label": "s.n. (not named)",
+          "id": "https://teylers.adlibhosting.com/nlux/group/sn-not-named"
         }
       ]
     }

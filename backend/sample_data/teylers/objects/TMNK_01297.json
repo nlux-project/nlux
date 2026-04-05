@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Dirk Schelte (1639–1715) — maker; Unknown medalist; Dutch Republic — Holland Province (1581–1795) — issuing authority"
+        "_label": "Dirk Schelte (1639–1715) — maker; Unknown medalist; Dutch Republic — Holland Province (1581–1795) — issuing authority",
+        "id": "https://teylers.adlibhosting.com/nlux/person/dirk-schelte-16391715-maker-unknown-medalist-dutch-republic-holland-province-15811795-issuing-authority"
       }
     ],
     "timespan": {

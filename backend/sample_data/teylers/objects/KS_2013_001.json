@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Jacobus van Looy (1855-1930)"
+        "_label": "Jacobus van Looy (1855-1930)",
+        "id": "https://teylers.adlibhosting.com/nlux/person/jacobus-van-looy-1855-1930"
       }
     ],
     "timespan": {

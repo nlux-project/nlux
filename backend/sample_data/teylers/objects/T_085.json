@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -53,7 +54,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Merian, Maria Sibylla (1647–1717), tekenaar"
+        "_label": "Merian, Maria Sibylla (1647–1717), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/merian-maria-sibylla-16471717-tekenaar"
       }
     ],
     "timespan": {

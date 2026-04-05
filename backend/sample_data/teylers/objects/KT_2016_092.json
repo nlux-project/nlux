@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Andy Warhol (1928-1987), tekenaar"
+        "_label": "Andy Warhol (1928-1987), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/andy-warhol-1928-1987-tekenaar"
       }
     ],
     "timespan": {
@@ -137,7 +139,8 @@
   "current_owner": [
     {
       "type": "Group",
-      "_label": "© Pictoright Amsterdam"
+      "_label": "© Pictoright Amsterdam",
+      "id": "https://teylers.adlibhosting.com/nlux/group/pictoright-amsterdam"
     }
   ],
   "subject_of": [

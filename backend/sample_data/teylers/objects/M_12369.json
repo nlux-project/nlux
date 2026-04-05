@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -85,7 +86,8 @@
   "current_owner": [
     {
       "type": "Group",
-      "_label": "Collectie Teylers Museum"
+      "_label": "Collectie Teylers Museum",
+      "id": "https://teylers.adlibhosting.com/nlux/group/collectie-teylers-museum"
     }
   ],
   "subject_of": [

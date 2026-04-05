@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Holland (Republic, province); Gerard van Bylaer (±1540–1617)"
+        "_label": "Holland (Republic, province); Gerard van Bylaer (±1540–1617)",
+        "id": "https://teylers.adlibhosting.com/nlux/person/holland-republic-province-gerard-van-bylaer-15401617"
       }
     ],
     "timespan": {
@@ -64,7 +66,8 @@
     "took_place_at": [
       {
         "type": "Place",
-        "_label": "Dordrecht"
+        "_label": "Dordrecht",
+        "id": "https://teylers.adlibhosting.com/nlux/place/dordrecht"
       }
     ]
   },

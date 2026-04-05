@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Adriaen van Ostade (1610–1684), tekenaar"
+        "_label": "Adriaen van Ostade (1610–1684), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/adriaen-van-ostade-16101684-tekenaar"
       }
     ],
     "timespan": {

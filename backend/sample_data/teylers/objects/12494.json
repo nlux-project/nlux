@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -41,7 +42,8 @@
     "carried_out_by": [
       {
         "type": "Person",
-        "_label": "Sydney Parkinson (ca.1745–1771)"
+        "_label": "Sydney Parkinson (ca.1745–1771)",
+        "id": "https://teylers.adlibhosting.com/nlux/person/sydney-parkinson-ca17451771"
       }
     ]
   },
@@ -57,7 +59,8 @@
       "carried_out_by": [
         {
           "type": "Group",
-          "_label": "Dilly, Charles; Phillips, James"
+          "_label": "Dilly, Charles; Phillips, James",
+          "id": "https://teylers.adlibhosting.com/nlux/group/dilly-charles-phillips-james"
         }
       ]
     }

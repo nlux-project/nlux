@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -53,7 +54,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Hendrick Avercamp (1585–1634), tekenaar"
+        "_label": "Hendrick Avercamp (1585–1634), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/hendrick-avercamp-15851634-tekenaar"
       }
     ],
     "timespan": {

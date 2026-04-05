@@ -29,7 +29,8 @@
           "carried_out_by": [
             {
               "type": "Group",
-              "_label": "Teylers Museum"
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
             }
           ]
         }
@@ -47,7 +48,8 @@
     "carried_out_by": [
       {
         "type": "Actor",
-        "_label": "Pauline Rifer de Courcelles (1781-1851), tekenaar"
+        "_label": "Pauline Rifer de Courcelles (1781-1851), tekenaar",
+        "id": "https://teylers.adlibhosting.com/nlux/person/pauline-rifer-de-courcelles-1781-1851-tekenaar"
       }
     ],
     "timespan": {
