@@ -1,3 +1,5 @@
 .DS_Store
 CLAUDE.md
 prompts
+state.db
+backend/harvested/state.db

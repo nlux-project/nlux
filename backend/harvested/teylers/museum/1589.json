@@ -1,0 +1,300 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "urn:nlux:0b3bdf2c122f0e9af49cdcc06a5b0d5b",
+  "type": "HumanMadeObject",
+  "_label": "Dood van Clytaemnestra",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Dood van Clytaemnestra",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1589",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/search/Details/collect/1589"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_harvest": {
+    "source_url": "https://teylers.adlibhosting.com/ais6/search/Details/collect/1589",
+    "local_id": "0b3bdf2c122f0e9af49cdcc06a5b0d5b",
+    "harvested_at": "2026-04-06T06:18:49.573791",
+    "augmented": false
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "2023-12-08T14:06:05",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@created"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@created"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "2024-02-19T12:36:25",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@modification"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@modification"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1575",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.end"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.end"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "ca.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.end.prec"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.end.prec"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1525",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.start"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.start"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "ca.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.start.prec"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.start.prec"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "x",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.publish_on_web"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.publish_on_web"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "K IX 037.jpg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.reference_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.reference_number"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "tekening",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Object_name.object_name"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Object_name.object_name"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Rubiales, Pedro de (1511-1582) - toegeschreven aan",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "tekenaar",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator.role"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator.role"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Polidoro da Caravaggio (ca.1499-1543) - oude toeschrijving",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Dood van Clytaemnestra",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Title.title"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Title.title"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "K IX 037",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "object_number"
+        }
+      ]
+    }
+  ]
+}

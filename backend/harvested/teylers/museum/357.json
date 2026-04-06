@@ -1,0 +1,316 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "urn:nlux:f7c31a681dc8d7491129f67836458561",
+  "type": "HumanMadeObject",
+  "_label": "Interieur van de Nieuwe Kerk te Haarlem",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Interieur van de Nieuwe Kerk te Haarlem",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "357",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/search/Details/collect/357"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_harvest": {
+    "source_url": "https://teylers.adlibhosting.com/ais6/search/Details/collect/357",
+    "local_id": "f7c31a681dc8d7491129f67836458561",
+    "harvested_at": "2026-04-06T06:16:24.660385",
+    "augmented": false
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "2023-12-08T14:01:31",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@created"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@created"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "2025-07-24T11:06:26",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@modification"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@modification"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1816",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.end"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.end"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1816",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.start"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.start"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "x",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.publish_on_web"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.publish_on_web"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "KS 226.jpg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.reference_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.reference_number"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "x",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.publish_on_web"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.publish_on_web"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "KS 226 verso.jpg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.reference_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.reference_number"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "schilderij",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Object_name.object_name"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Object_name.object_name"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hendriks, Wybrand (1744-1831)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "schilder",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator.role"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator.role"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Saenredam, Pieter (1597-1665)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "inventor",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator.role"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator.role"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Interieur van de Nieuwe Kerk te Haarlem",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Title.title"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Title.title"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "KS 226",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "object_number"
+        }
+      ]
+    }
+  ]
+}

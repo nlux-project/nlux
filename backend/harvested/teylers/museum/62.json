@@ -1,0 +1,284 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "urn:nlux:c12a2bce0441b299cc1d281d5a9594bb",
+  "type": "HumanMadeObject",
+  "_label": "Portret Frederik Hendrik van Nasssau",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Portret Frederik Hendrik van Nasssau",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "62",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/search/Details/collect/62"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_harvest": {
+    "source_url": "https://teylers.adlibhosting.com/ais6/search/Details/collect/62",
+    "local_id": "c12a2bce0441b299cc1d281d5a9594bb",
+    "harvested_at": "2026-04-06T06:15:53.310613",
+    "augmented": false
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "2023-12-08T13:59:57",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@created"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@created"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "2024-02-19T12:18:15",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@modification"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@modification"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1635",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.end"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.end"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "ca.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.end.prec"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.end.prec"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1631",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.start"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.start"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "ca.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.start.prec"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.start.prec"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "x",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.publish_on_web"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.publish_on_web"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "KG 04099.jpg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.reference_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.reference_number"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "grafiek",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Object_name.object_name"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Object_name.object_name"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vliet, Johannes Gillisz. van (ca. 1600/1610-1668)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "graveur",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator.role"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator.role"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Portret Frederik Hendrik van Nasssau",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Title.title"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Title.title"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "KG 04099",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "object_number"
+        }
+      ]
+    }
+  ]
+}

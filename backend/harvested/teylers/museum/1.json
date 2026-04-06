@@ -1,0 +1,300 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "urn:nlux:7642be98b2e0375346a7a35ee69709c5",
+  "type": "HumanMadeObject",
+  "_label": "Novemberstemming",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Novemberstemming",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/search/Details/collect/1"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_harvest": {
+    "source_url": "https://teylers.adlibhosting.com/ais6/search/Details/collect/1",
+    "local_id": "7642be98b2e0375346a7a35ee69709c5",
+    "harvested_at": "2026-04-06T06:15:46.942412",
+    "augmented": false
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "2023-12-08T13:59:29",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@created"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@created"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "2025-04-08T10:50:40",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@modification"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@modification"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1908",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.end"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.end"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1905",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.start"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.start"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "ca.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.start.prec"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.start.prec"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "KS 151 (1).jpg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.reference_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.reference_number"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "x",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.publish_on_web"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.publish_on_web"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "KS 151 verso.jpg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.reference_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.reference_number"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "schilderij",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Object_name.object_name"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Object_name.object_name"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Gorter, Arnold Marc (1866-1933)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "schilder",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator.role"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator.role"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Novemberstemming",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Title.title"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Title.title"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Herfst",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Title.title"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Title.title"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "KS 151",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "object_number"
+        }
+      ]
+    }
+  ]
+}

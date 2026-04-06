@@ -1,0 +1,252 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "urn:nlux:1f1113d6f5a575f1cd63845c29c2c4f6",
+  "type": "HumanMadeObject",
+  "_label": "Molen in landschap",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Molen in landschap",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "_label": "preferred name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "918",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "_label": "accession number"
+        }
+      ],
+      "assigned_by": [
+        {
+          "type": "AttributeAssignment",
+          "carried_out_by": [
+            {
+              "type": "Group",
+              "_label": "Teylers Museum",
+              "id": "https://teylers.adlibhosting.com/nlux/group/teylers-museum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "_label": "web page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/search/Details/collect/918"
+            }
+          ],
+          "format": "text/html",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Teylers Museum catalog page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "_harvest": {
+    "source_url": "https://teylers.adlibhosting.com/ais6/search/Details/collect/918",
+    "local_id": "1f1113d6f5a575f1cd63845c29c2c4f6",
+    "harvested_at": "2026-04-06T06:17:33.933027",
+    "augmented": false
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "2023-12-08T14:03:44",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@created"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@created"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "2024-02-19T11:52:21",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "@modification"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "@modification"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Jhr. H. Teding van Berkhout jr. en sr.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Collection.collection.name"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Collection.collection.name"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1708",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.end"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.end"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1668",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Dating.dating.date.start"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Dating.dating.date.start"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "x",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.publish_on_web"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.publish_on_web"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "TvB G 1241.jpg",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Media.media.reference.reference_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Media.media.reference.reference_number"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "grafiek",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Object_name.object_name"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Object_name.object_name"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hoppenbrouwers, Johannus Franciscus",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Production.creator"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Production.creator"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Molen in landschap",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "Title.title"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "Title.title"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "TvB G 1241",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300411780",
+          "_label": "object_number"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "object_number"
+        }
+      ]
+    }
+  ]
+}
