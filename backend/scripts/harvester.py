@@ -392,45 +392,60 @@ class AdlibAPIHarvester(BaseHarvester):
             f"&Limit={self.API_LIMIT}&StartFrom={start}"
         )
 
-    @staticmethod
-    def _get_field(field_data) -> str:
-        """Return first string value from a plain or multilingual field."""
-        if not field_data:
-            return ""
-        if not isinstance(field_data, list):
-            return str(field_data)
-        item = field_data[0]
-        if isinstance(item, dict):
-            return item.get("value", "")
-        return str(item) if item is not None else ""
+    @classmethod
+    def _flatten_field(cls, key: str, value) -> list[tuple[str, str]]:
+        """
+        Recursively flatten an Adlib field value into (label, string) pairs.
 
-    @staticmethod
-    def _get_all_values(field_data) -> list[str]:
-        """Return all string values from a plain or multilingual field."""
-        if not field_data:
+        Handles three formats returned by the AIS6 API:
+          - Plain scalar:   "KS 217"  →  [(key, "KS 217")]
+          - Multilingual:   [{"lang": "nl-NL", "value": "Titel"}]  →  [(key, "Titel")]
+          - Nested record:  [{"title": "De Amsterdamse Poort..."}]  →  [(key.title, "De Amst...")]
+          - Deep nested:    [{"media.reference": {"reference_number": "x.jpg"}}]  →  recursive
+        """
+        if value is None or isinstance(value, bool):
             return []
-        if not isinstance(field_data, list):
-            return [str(field_data)]
-        result = []
-        for item in field_data:
-            if isinstance(item, dict):
-                v = item.get("value", "")
-            else:
-                v = str(item) if item is not None else ""
-            if v and v.strip():
-                result.append(v.strip())
-        return result
+        if isinstance(value, (int, float)):
+            return [(key, str(value))]
+        if isinstance(value, str):
+            return [(key, value.strip())] if value.strip() else []
+        if isinstance(value, list):
+            result = []
+            for item in value:
+                result.extend(cls._flatten_field(key, item))
+            return result
+        if isinstance(value, dict):
+            if "value" in value:
+                # Multilingual format: {"lang": ..., "value": "..."}
+                v = str(value["value"]).strip()
+                return [(key, v)] if v else []
+            # Nested Adlib sub-record: flatten each sub-field with dotted key
+            result = []
+            for sub_key, sub_val in value.items():
+                result.extend(cls._flatten_field(f"{key}.{sub_key}", sub_val))
+            return result
+        return [(key, str(value))]
+
+    @classmethod
+    def _first_value(cls, raw: dict, *keys: str) -> str:
+        """Return the first non-empty flattened value for any of the given keys."""
+        for key in keys:
+            v = raw.get(key)
+            if v is not None:
+                pairs = cls._flatten_field(key, v)
+                if pairs:
+                    return pairs[0][1]
+        return ""
 
     def _guess_la_type(self, collection: str) -> str:
         return _LA_TYPE_BY_COLLECTION.get(collection, "HumanMadeObject")
 
     def _build_record(self, raw: dict, collection: str,
                       local_id: str, detail_url: str) -> dict:
-        priref = self._get_field(raw.get("priref"))
+        priref = str(raw.get("priref", "")) or str(raw.get("@priref", ""))
+        # Title: try capitalised then lowercase key, then object_name fallback
         title = (
-            self._get_field(raw.get("title"))
-            or self._get_field(raw.get("object_name"))
-            or self._get_field(raw.get("name"))
+            self._first_value(raw, "Title", "title", "Object_name", "object_name", "name")
             or priref
         )
 
@@ -444,36 +459,38 @@ class AdlibAPIHarvester(BaseHarvester):
             institution_id=self.cfg.institution_id,
         )
 
-        # Attach all raw fields as LinguisticObject notes
-        skip = {"priref", "@attributes"}
+        # Attach all raw fields as LinguisticObject notes (flatten nested records)
+        skip = {"priref", "@priref", "@attributes", "@selected"}
         notes = []
         for key, value in raw.items():
             if key in skip:
                 continue
-            for val_str in self._get_all_values(value):
-                notes.append({
-                    "type": "LinguisticObject",
-                    "content": val_str,
-                    "classified_as": [{"id": AAT_DESCRIPTION, "_label": key}],
-                    "identified_by": [{"type": "Name", "content": key}],
-                })
+            for label, val_str in self._flatten_field(key, value):
+                if val_str:
+                    notes.append({
+                        "type": "LinguisticObject",
+                        "content": val_str,
+                        "classified_as": [{"id": AAT_DESCRIPTION, "_label": label}],
+                        "identified_by": [{"type": "Name", "content": label}],
+                    })
         if notes:
             record.setdefault("referred_to_by", []).extend(notes)
 
-        # Image: store URL only, never download
+        # Image: store URL only, never download. Only include if it looks like a URL.
         for img_field in _IMAGE_FIELDS:
-            img_url = self._get_field(raw.get(img_field, []))
-            if img_url:
-                if not img_url.startswith("http"):
-                    img_url = urljoin(self.cfg.base_url, img_url)
-                record["representation"] = [{
-                    "type": "VisualItem",
-                    "digitally_shown_by": [{
-                        "type": "DigitalObject",
-                        "access_point": [{"id": img_url}],
-                        "format": "image/jpeg",
-                    }],
-                }]
+            pairs = self._flatten_field(img_field, raw.get(img_field, []))
+            for _, img_url in pairs:
+                if img_url.startswith("http"):
+                    record["representation"] = [{
+                        "type": "VisualItem",
+                        "digitally_shown_by": [{
+                            "type": "DigitalObject",
+                            "access_point": [{"id": img_url}],
+                            "format": "image/jpeg",
+                        }],
+                    }]
+                    break
+            if "representation" in record:
                 break
 
         return record
@@ -519,8 +536,8 @@ class AdlibAPIHarvester(BaseHarvester):
                 break
 
             for raw_rec in batch:
-                priref_val = raw_rec.get("priref", [])
-                priref = str(priref_val[0]) if priref_val else None
+                priref_raw = raw_rec.get("priref") or raw_rec.get("@priref")
+                priref = str(priref_raw).strip() if priref_raw is not None else None
                 if not priref:
                     continue
 
