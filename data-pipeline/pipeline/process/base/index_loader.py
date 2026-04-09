@@ -93,13 +93,17 @@ class IndexLoader(object):
         if index is not None and all_names:
             start = time.time()
             index.update(all_names)
+            if hasattr(index, 'commit'):
+                index.commit()
             durn = time.time() - start
             print(f"names insert time: {int(durn)} = {len(all_names) / durn}/sec")
         if eqindex is not None and all_uris:
             start = time.time()
             eqindex.update(all_uris)
+            if hasattr(eqindex, 'commit'):
+                eqindex.commit()
             durn = time.time() - start
-            print(f"uris insert time: {int(durn)} = {len(all_names) / durn}/sec")
+            print(f"uris insert time: {int(durn)} = {len(all_uris) / durn}/sec")
 
 
 class LmdbIndexLoader(IndexLoader):
