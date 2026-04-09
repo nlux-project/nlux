@@ -52,6 +52,20 @@ def load_directory(data_dir: Path):
         print(f"No JSON files found in {data_dir}")
         sys.exit(1)
 
+    # Rewrite pipeline placeholder URIs to match this API's base URL.
+    # The pipeline uses internal_uri as a placeholder (e.g. https://your.local.domain/data/)
+    # which must match DATA_API_BASE_URL in the lux-frontend config.
+    api_base = (settings.base_url.rstrip("/") + "/") if settings.base_url else "http://localhost:8000/"
+    _URI_REWRITES = [
+        ("https://your.local.domain/data/", api_base + "data/"),
+    ]
+
+    def _rewrite_uris(raw: str) -> str:
+        for old, new in _URI_REWRITES:
+            if old in raw:
+                raw = raw.replace(old, new)
+        return raw
+
     db = SessionLocal()
     inserted = updated = errors = 0
 
@@ -61,6 +75,9 @@ def load_directory(data_dir: Path):
         # unwrap if the record is a raw cache row rather than a Linked Art doc.
         if "data" in doc and isinstance(doc["data"], dict) and "id" not in doc:
             doc = doc["data"]
+        # Rewrite placeholder base URIs before storing
+        raw = _rewrite_uris(json.dumps(doc))
+        doc = json.loads(raw)
         uri = doc.get("id") or doc.get("@id")
         if not uri:
             print(f"  SKIP {source} — no 'id' field")
@@ -72,7 +89,7 @@ def load_directory(data_dir: Path):
             existing.type = doc.get("type", "")
             existing.label = doc.get("_label")
             existing.search_text = search_text
-            existing.data = json.dumps(doc)
+            existing.data = raw
             updated += 1
         else:
             db.add(Record(
@@ -80,7 +97,7 @@ def load_directory(data_dir: Path):
                 type=doc.get("type", ""),
                 label=doc.get("_label"),
                 search_text=search_text,
-                data=json.dumps(doc),
+                data=raw,
             ))
             inserted += 1
 

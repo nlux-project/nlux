@@ -178,8 +178,11 @@ def get_record(
             "orderedItems": [],
         }
 
+    # Try the path as-is, then with the API base URL prepended (for when the
+    # frontend strips the base URL and requests just the path portion).
+    full_uri = f"{_base()}/data/{decoded}"
     record = db.query(Record).filter(
-        (Record.uri == decoded) | (Record.uri == uri)
+        (Record.uri == decoded) | (Record.uri == uri) | (Record.uri == full_uri)
     ).first()
     if not record:
         raise HTTPException(status_code=404, detail="Record not found")
