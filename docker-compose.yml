@@ -1,6 +1,6 @@
 services:
 
-  # nlux-backend: FastAPI + SQLite
+  # nlux-backend: FastAPI + SQLite (default) or PostgreSQL (set DATABASE_URL)
   # API available at http://localhost:8000
   # Docs at http://localhost:8000/docs
   api:
@@ -35,5 +35,36 @@ services:
       api:
         condition: service_healthy
 
+  # --- data-pipeline services (start with: docker compose --profile pipeline up) ---
+
+  # PostgreSQL: datacache for data-pipeline reconcile/merge/export phases
+  db:
+    image: postgres:16-alpine
+    profiles: [pipeline]
+    environment:
+      POSTGRES_USER: nlux
+      POSTGRES_PASSWORD: nlux
+      POSTGRES_DB: nlux_pipeline
+    ports:
+      - "5432:5432"
+    volumes:
+      - pipeline_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nlux"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis: idmap and reference-map store for data-pipeline
+  redis:
+    image: redis:7-alpine
+    profiles: [pipeline]
+    ports:
+      - "6379:6379"
+    volumes:
+      - pipeline_redis:/data
+
 volumes:
   nlux_data:
+  pipeline_db:
+  pipeline_redis:

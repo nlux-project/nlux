@@ -3,3 +3,7 @@ CLAUDE.md
 prompts
 state.db
 backend/harvested/state.db
+*.db
+*.db-shm
+*.db-wal
+track_load_db.sh

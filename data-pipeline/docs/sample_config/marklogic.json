@@ -1,0 +1,10 @@
+{
+    "name": "marklogic",
+    "type": "results",
+    "namespace": "https://your.local.domain/data/",
+    
+    "recordcacheClass": "storage.cache.postgres.MergedRecordCache",
+    "mapperClass": "process.base.mapper.Mapper",
+    "acquirerClass": null
+    
+}

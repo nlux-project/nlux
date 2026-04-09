@@ -46,45 +46,69 @@ def load_directory(data_dir: Path):
             ))
             conn.commit()
 
-    json_files = list(data_dir.glob("*.json"))
-    if not json_files:
+    json_files = sorted(data_dir.glob("*.json"))
+    jsonl_files = sorted(data_dir.glob("*.jsonl"))
+    if not json_files and not jsonl_files:
         print(f"No JSON files found in {data_dir}")
         sys.exit(1)
 
     db = SessionLocal()
     inserted = updated = errors = 0
 
+    def _load_doc(doc: dict, source: str):
+        nonlocal inserted, updated, errors
+        # Pipeline output wraps Linked Art records in a datacache row;
+        # unwrap if the record is a raw cache row rather than a Linked Art doc.
+        if "data" in doc and isinstance(doc["data"], dict) and "id" not in doc:
+            doc = doc["data"]
+        uri = doc.get("id") or doc.get("@id")
+        if not uri:
+            print(f"  SKIP {source} — no 'id' field")
+            errors += 1
+            return
+        existing = db.query(Record).filter(Record.uri == uri).first()
+        search_text = extract_search_text(doc)
+        if existing:
+            existing.type = doc.get("type", "")
+            existing.label = doc.get("_label")
+            existing.search_text = search_text
+            existing.data = json.dumps(doc)
+            updated += 1
+        else:
+            db.add(Record(
+                uri=uri,
+                type=doc.get("type", ""),
+                label=doc.get("_label"),
+                search_text=search_text,
+                data=json.dumps(doc),
+            ))
+            inserted += 1
+
     try:
-        for path in sorted(json_files):
+        for path in json_files:
             try:
                 doc = json.loads(path.read_text(encoding="utf-8"))
-                uri = doc.get("id") or doc.get("@id")
-                if not uri:
-                    print(f"  SKIP {path.name} — no 'id' field")
-                    errors += 1
-                    continue
-
-                existing = db.query(Record).filter(Record.uri == uri).first()
-                search_text = extract_search_text(doc)
-
-                if existing:
-                    existing.type = doc.get("type", "")
-                    existing.label = doc.get("_label")
-                    existing.search_text = search_text
-                    existing.data = json.dumps(doc)
-                    updated += 1
-                else:
-                    db.add(Record(
-                        uri=uri,
-                        type=doc.get("type", ""),
-                        label=doc.get("_label"),
-                        search_text=search_text,
-                        data=json.dumps(doc),
-                    ))
-                    inserted += 1
+                _load_doc(doc, path.name)
             except Exception as e:
                 print(f"  ERROR {path.name}: {e}")
                 errors += 1
+
+        for path in jsonl_files:
+            print(f"Loading {path.name} ...")
+            with path.open(encoding="utf-8") as fh:
+                for lineno, line in enumerate(fh, 1):
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        doc = json.loads(line)
+                        _load_doc(doc, f"{path.name}:{lineno}")
+                    except Exception as e:
+                        print(f"  ERROR {path.name}:{lineno}: {e}")
+                        errors += 1
+                    if (inserted + updated) % 1000 == 0 and (inserted + updated) > 0:
+                        db.commit()
+                        print(f"  {inserted} inserted, {updated} updated so far ...")
 
         db.commit()
 

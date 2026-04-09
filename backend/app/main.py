@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import json
 from typing import Optional
-from urllib.parse import unquote
+from urllib.parse import unquote, quote
 
-from fastapi import FastAPI, Depends, HTTPException, Query, Response
+from fastapi import FastAPI, Depends, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 from sqlalchemy import text
@@ -13,8 +14,7 @@ from sqlalchemy import text
 from .config import settings
 from .database import Base, engine, get_db
 from .models import Record
-from .schemas import SearchResponse
-from .search import search_records
+from .search import search_records, SCOPE_TYPES
 
 app = FastAPI(title="nlux-backend", version="0.1.0")
 
@@ -25,22 +25,85 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Linked Art types grouped into the scopes lux-frontend expects
-SCOPE_TYPES = {
-    "item": ["HumanMadeObject", "DigitalObject"],
-    "work": ["LinguisticObject", "VisualItem", "InformationObject"],
-    "set": ["Set"],
-    "agent": ["Person", "Group", "Actor"],
-    "place": ["Place"],
-    "concept": ["Type", "Material", "Language", "MeasurementUnit", "Currency", "Concept"],
-    "event": ["Activity", "Period", "Event", "Move", "Acquisition"],
+CONTEXT_SEARCH = "https://linked.art/ns/v1/search.json"
+CONTEXT_LINKED_ART = "https://linked.art/ns/v1/linked-art.json"
+
+SCOPE_LABELS = {
+    "item": "Objects",
+    "work": "Works",
+    "set": "Sets",
+    "agent": "People & Groups",
+    "place": "Places",
+    "concept": "Concepts",
+    "event": "Events",
 }
+
+SCOPE_SUMMARIES = {
+    "item": "Physical and digital objects",
+    "work": "Works including texts, images, and information objects",
+    "set": "Sets and collections",
+    "agent": "People and groups",
+    "place": "Places and geographic areas",
+    "concept": "Concepts, types, and controlled vocabulary terms",
+    "event": "Events, activities, and periods",
+}
+
+# HAL relation names per scope — maps to related-list query names
+HAL_RELATIONS: dict[str, list[dict]] = {
+    "item": [
+        {"rel": "lux:itemArchive", "name": "memberItems", "relScope": "set"},
+        {"rel": "lux:itemCreatedBy", "name": "createdItem", "relScope": "agent"},
+    ],
+    "work": [
+        {"rel": "lux:workCreatedBy", "name": "createdWork", "relScope": "agent"},
+        {"rel": "lux:workCarriedBy", "name": "carriedWork", "relScope": "item"},
+    ],
+    "agent": [
+        {"rel": "lux:agentCreatedWork", "name": "createdWork", "relScope": "work"},
+        {"rel": "lux:agentProducedItem", "name": "producedItem", "relScope": "item"},
+        {"rel": "lux:agentRelatedPlaces", "name": "relatedToAgent", "relScope": "place"},
+    ],
+    "place": [
+        {"rel": "lux:placeRelatedAgents", "name": "relatedToPlace", "relScope": "agent"},
+        {"rel": "lux:placeRelatedItems", "name": "relatedToPlace", "relScope": "item"},
+    ],
+    "concept": [
+        {"rel": "lux:conceptRelatedItems", "name": "aboutConcept", "relScope": "item"},
+        {"rel": "lux:conceptRelatedAgents", "name": "aboutConcept", "relScope": "agent"},
+    ],
+    "set": [
+        {"rel": "lux:setMembers", "name": "memberOf", "relScope": "item"},
+    ],
+    "event": [],
+}
+
+
+def _base() -> str:
+    return settings.base_url.rstrip("/")
+
+
+def _search_url(scope: str, q: str, page: int, page_length: int) -> str:
+    return f"{_base()}/api/search/{scope}?q={quote(q)}&page={page}&pageLength={page_length}"
+
+
+def _estimate_url(scope: str, q: str) -> str:
+    return f"{_base()}/api/search-estimate/{scope}?q={quote(q)}"
+
+
+def _related_url(scope: str, name: str, uri: str, page: int = 1) -> str:
+    return f"{_base()}/api/related-list/{scope}?name={name}&uri={quote(uri)}&page={page}"
+
+
+def _scope_for_type(linked_art_type: str) -> str:
+    for scope, types in SCOPE_TYPES.items():
+        if linked_art_type in types:
+            return scope
+    return "item"
 
 
 @app.on_event("startup")
 def startup():
     Base.metadata.create_all(bind=engine)
-    # Create FTS5 virtual table for SQLite
     if settings.database_url.startswith("sqlite"):
         with engine.connect() as conn:
             conn.execute(text(
@@ -57,61 +120,58 @@ def health():
     return {"status": "ok"}
 
 
+# ---------------------------------------------------------------------------
+# /data endpoints
+# ---------------------------------------------------------------------------
+
 @app.get("/data/results/persons")
 def list_persons(
-    page: int = Query(0, ge=0),
+    page: int = Query(1, ge=1),
     pageLength: int = Query(20, alias="pageLength", ge=1),
     db: Session = Depends(get_db),
 ):
-    """Return an OrderedCollectionPage of all Person records."""
     q = db.query(Record).filter(Record.type == "Person")
     total = q.count()
-    items = q.offset(page * pageLength).limit(pageLength).all()
+    items = q.offset((page - 1) * pageLength).limit(pageLength).all()
     return {
-        "@context": "https://linked.art/ns/v1/linked-art.json",
-        "id": f"/data/results/persons?page={page}&pageLength={pageLength}",
+        "@context": CONTEXT_LINKED_ART,
+        "id": f"{_base()}/data/results/persons?page={page}&pageLength={pageLength}",
         "type": "OrderedCollectionPage",
         "totalItems": total,
-        "orderedItems": [
-            {"id": r.uri, "type": r.type, "_label": r.label}
-            for r in items
-        ],
+        "orderedItems": [{"id": r.uri, "type": r.type} for r in items],
     }
 
 
 @app.get("/data/results/places")
 def list_places(
-    page: int = Query(0, ge=0),
+    page: int = Query(1, ge=1),
     pageLength: int = Query(20, alias="pageLength", ge=1),
     db: Session = Depends(get_db),
 ):
-    """Return an OrderedCollectionPage of all Place records."""
     q = db.query(Record).filter(Record.type == "Place")
     total = q.count()
-    items = q.offset(page * pageLength).limit(pageLength).all()
+    items = q.offset((page - 1) * pageLength).limit(pageLength).all()
     return {
-        "@context": "https://linked.art/ns/v1/linked-art.json",
-        "id": f"/data/results/places?page={page}&pageLength={pageLength}",
+        "@context": CONTEXT_LINKED_ART,
+        "id": f"{_base()}/data/results/places?page={page}&pageLength={pageLength}",
         "type": "OrderedCollectionPage",
         "totalItems": total,
-        "orderedItems": [
-            {"id": r.uri, "type": r.type, "_label": r.label}
-            for r in items
-        ],
+        "orderedItems": [{"id": r.uri, "type": r.type} for r in items],
     }
 
 
 @app.get("/data/{uri:path}")
-def get_record(uri: str, db: Session = Depends(get_db)):
-    # FastAPI path param captures everything; also handle URL-encoded ids
+def get_record(
+    uri: str,
+    profile: Optional[str] = Query(None),
+    lang: str = Query("en"),
+    db: Session = Depends(get_db),
+):
     decoded = unquote(uri)
 
-    # LUX internal collection paths (e.g. results/collections/all) are not
-    # real Linked Art records — return an empty OrderedCollection stub so
-    # the frontend doesn't crash with a 404.
     if decoded.startswith("results/"):
         return {
-            "@context": "https://linked.art/ns/v1/linked-art.json",
+            "@context": CONTEXT_LINKED_ART,
             "id": decoded,
             "type": "OrderedCollection",
             "totalItems": 0,
@@ -123,30 +183,249 @@ def get_record(uri: str, db: Session = Depends(get_db)):
     ).first()
     if not record:
         raise HTTPException(status_code=404, detail="Record not found")
-    return json.loads(record.data)
+
+    data = json.loads(record.data)
+
+    # Inject HAL _links when no profile is requested
+    if profile is None:
+        scope = _scope_for_type(record.type)
+        links: dict = {"self": {"href": record.uri}}
+        for rel in HAL_RELATIONS.get(scope, []):
+            links[rel["rel"]] = {
+                "href": _related_url(rel["relScope"], rel["name"], record.uri),
+                "_estimate": 0,
+            }
+        data["_links"] = links
+
+    return data
 
 
-@app.get("/api/search/{scope}", response_model=SearchResponse)
+# ---------------------------------------------------------------------------
+# /api/search endpoints
+# ---------------------------------------------------------------------------
+
+@app.get("/api/search/{scope}")
 def search(
     scope: str,
-    q: str = Query(..., description="Search query string"),
-    page: int = Query(0, ge=0),
+    q: str = Query(...),
+    page: int = Query(1, ge=1),
+    pageLength: Optional[int] = Query(None, alias="pageLength", ge=1),
+    sort: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
+):
+    page_length = min(
+        pageLength or settings.page_length_default,
+        settings.page_length_max,
+    )
+    items, total = search_records(db, q, scope, page, page_length)
+
+    total_pages = max((total + page_length - 1) // page_length, 1)
+    collection_url = _estimate_url(scope, q)
+
+    result: dict = {
+        "@context": CONTEXT_SEARCH,
+        "id": _search_url(scope, q, page, page_length),
+        "type": "OrderedCollectionPage",
+        "partOf": [{
+            "id": collection_url,
+            "type": "OrderedCollection",
+            "label": {"en": [SCOPE_LABELS.get(scope, scope)]},
+            "summary": {"en": [SCOPE_SUMMARIES.get(scope, "")]},
+            "totalItems": total,
+        }],
+        "orderedItems": items,
+    }
+    if page < total_pages:
+        result["next"] = {
+            "id": _search_url(scope, q, page + 1, page_length),
+            "type": "OrderedCollectionPage",
+        }
+    if page > 1:
+        result["prev"] = {
+            "id": _search_url(scope, q, page - 1, page_length),
+            "type": "OrderedCollectionPage",
+        }
+    return result
+
+
+@app.get("/api/search-estimate/{scope}")
+def search_estimate(
+    scope: str,
+    q: str = Query(...),
+    db: Session = Depends(get_db),
+):
+    _, total = search_records(db, q, scope, page=1, page_length=0)
+    page_length = settings.page_length_default
+    total_pages = max((total + page_length - 1) // page_length, 1)
+
+    result: dict = {
+        "@context": CONTEXT_SEARCH,
+        "id": _estimate_url(scope, q),
+        "type": "OrderedCollection",
+        "label": {"en": [SCOPE_LABELS.get(scope, scope)]},
+        "summary": {"en": [SCOPE_SUMMARIES.get(scope, "")]},
+        "totalItems": total,
+    }
+    if total > 0:
+        result["first"] = {
+            "id": _search_url(scope, q, 1, page_length),
+            "type": "OrderedCollectionPage",
+        }
+        result["last"] = {
+            "id": _search_url(scope, q, total_pages, page_length),
+            "type": "OrderedCollectionPage",
+        }
+    return result
+
+
+@app.get("/api/search-will-match")
+def search_will_match(
+    q: str = Query(...),
+    db: Session = Depends(get_db),
+):
+    """
+    Determine whether one or more named searches return at least one result.
+    q can be a JSON object keyed by arbitrary names (each value is a search
+    criteria dict), or a single criteria dict.
+
+    Returns: {name: {"hasOneOrMoreResult": 1|0|-1, "isRelatedList": false}}
+    """
+    try:
+        criteria = json.loads(q)
+    except (json.JSONDecodeError, TypeError):
+        criteria = {"default": {"text": q}}
+
+    if not isinstance(criteria, dict):
+        criteria = {"default": criteria}
+
+    # If criteria values are dicts with search grammar, treat each as a named search.
+    # Detect whether it's a map of named queries or a single query.
+    first_val = next(iter(criteria.values()), None)
+    if not isinstance(first_val, dict):
+        # Single-level query — wrap it
+        criteria = {"default": criteria}
+
+    results = {}
+    for name, sub_q in criteria.items():
+        try:
+            q_str = json.dumps(sub_q) if isinstance(sub_q, dict) else str(sub_q)
+            scope = sub_q.get("_scope", "item") if isinstance(sub_q, dict) else "item"
+            _, count = search_records(db, q_str, scope, page=1, page_length=1)
+            results[name] = {
+                "hasOneOrMoreResult": 1 if count > 0 else 0,
+                "isRelatedList": False,
+            }
+        except Exception:
+            results[name] = {"hasOneOrMoreResult": -1, "isRelatedList": False}
+
+    return results
+
+
+# ---------------------------------------------------------------------------
+# /api/facets and /api/related-list
+# ---------------------------------------------------------------------------
+
+@app.get("/api/facets/{scope}")
+def facets(
+    scope: str,
+    name: str = Query(...),
+    q: Optional[str] = Query(None),
+    page: int = Query(1, ge=1),
+    pageLength: int = Query(20, alias="pageLength", ge=1),
+    sort: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
+):
+    """Returns empty facets — facet calculation not yet implemented."""
+    id_str = f"{_base()}/api/facets/{scope}?name={name}&q={q or ''}&page={page}"
+    return {
+        "@context": CONTEXT_SEARCH,
+        "id": id_str,
+        "type": "OrderedCollectionPage",
+        "orderedItems": [],
+    }
+
+
+@app.get("/api/related-list/{scope}")
+def related_list(
+    scope: str,
+    name: str = Query(...),
+    uri: str = Query(...),
+    page: int = Query(1, ge=1),
     pageLength: Optional[int] = Query(None, alias="pageLength", ge=1),
     db: Session = Depends(get_db),
 ):
-    items, total = search_records(db, q, scope, page, pageLength)
-    collection_id = f"/api/search/{scope}?q={q}"
-    return SearchResponse(
-        id=f"{collection_id}&page={page}",
-        totalItems=total,
-        orderedItems=items,
-        partOf=[{"id": collection_id, "type": "OrderedCollection", "totalItems": total}],
-    )
+    """Returns empty related list — cross-entity linking not yet implemented."""
+    return {
+        "@context": CONTEXT_SEARCH,
+        "id": _related_url(scope, name, uri, page),
+        "type": "OrderedCollectionPage",
+        "orderedItems": [],
+    }
 
+
+# ---------------------------------------------------------------------------
+# /api/translate and /api/search-info
+# ---------------------------------------------------------------------------
+
+@app.get("/api/translate/{scope}")
+def translate(
+    scope: str,
+    q: str = Query(...),
+):
+    query = json.dumps({"_scope": scope, "text": q, "_lang": "en"})
+    from fastapi.responses import Response
+    return Response(content=query, media_type="application/json")
+
+
+@app.get("/api/search-info")
+def search_info():
+    """
+    Describes available search terms, facet names, and sort options per scope.
+    Minimal implementation — enough for lux-frontend to initialise.
+    """
+    scopes = list(SCOPE_TYPES.keys())
+    search_by: dict = {}
+    for scope in scopes:
+        search_by[scope] = [
+            {
+                "name": "text",
+                "targetScope": scope,
+                "acceptsGroup": False,
+                "acceptsTerm": True,
+                "acceptsIdTerm": False,
+                "onlyAcceptsId": False,
+                "acceptsAtomicValue": True,
+            }
+        ]
+
+    return {
+        "searchBy": search_by,
+        "facetBy": [],
+        "sortBy": [
+            {"name": "relevance", "type": "nonSemantic"},
+        ],
+    }
+
+
+# ---------------------------------------------------------------------------
+# /api/advanced-search-config
+# ---------------------------------------------------------------------------
+
+@app.get("/api/advanced-search-config")
+def advanced_search_config():
+    """
+    Returns empty object — frontend falls back to its bundled defaults.
+    Returning populated terms/options would require full AAT configuration.
+    """
+    return {}
+
+
+# ---------------------------------------------------------------------------
+# /api/stats and /api/tenant-status
+# ---------------------------------------------------------------------------
 
 @app.get("/api/stats")
 def stats(db: Session = Depends(get_db)):
-    """Record counts per scope — used by lux-frontend landing page infographics."""
     counts = {}
     for scope, types in SCOPE_TYPES.items():
         count = (
@@ -158,71 +437,11 @@ def stats(db: Session = Depends(get_db)):
     return {"estimates": {"searchScopes": counts}}
 
 
-@app.get("/api/translate/{scope}")
-def translate(
-    scope: str,
-    q: str = Query(..., description="Simple search query string"),
-):
-    """
-    Translate a simple search string into a LUX advanced query JSON string.
-    The frontend uses this when switching from simple to advanced search.
-    """
-    query = json.dumps({"_scope": scope, "text": q})
-    return Response(content=query, media_type="application/json")
-
-
-@app.get("/api/advanced-search-config")
-def advanced_search_config():
-    """
-    Return an empty object so the frontend spread leaves its local defaults
-    intact. Returning {"terms": {}, "options": {}} would override them with
-    empty dicts and crash the UI when it tries to access term properties.
-    """
-    return {}
-
-
-@app.get("/api/facets/{scope}")
-def facets(
-    scope: str,
-    q: Optional[str] = Query(None),
-    page: int = Query(1, ge=1),
-    db: Session = Depends(get_db),
-):
-    """Stub — returns empty facets with required id field for frontend pagination."""
-    id_str = f"/api/facets/{scope}?q={q or ''}&page={page}"
+@app.get("/api/tenant-status")
+def tenant_status():
     return {
-        "id": id_str,
-        "type": "OrderedCollectionPage",
-        "orderedItems": [],
-        "totalItems": 0,
-        "partOf": [{"id": id_str, "type": "OrderedCollection", "totalItems": 0}],
+        "prod": False,
+        "readOnly": True,
+        "codeVersion": "0.1.0",
+        "dataVersion": None,
     }
-
-
-@app.get("/api/related-list/{scope}")
-def related_list(
-    scope: str,
-    name: str = Query(...),
-    uri: str = Query(...),
-    page: int = Query(0, ge=0),
-    pageLength: Optional[int] = Query(None, alias="pageLength", ge=1),
-    db: Session = Depends(get_db),
-):
-    """Stub — returns empty related list. Implement in Phase 1."""
-    return {
-        "id": f"/api/related-list/{scope}?name={name}&uri={uri}&page={page}",
-        "type": "OrderedCollectionPage",
-        "totalItems": 0,
-        "orderedItems": [],
-    }
-
-
-@app.get("/api/search-estimate/{scope}")
-def search_estimate(
-    scope: str,
-    q: str = Query(...),
-    db: Session = Depends(get_db),
-):
-    """Fast count estimate for a search query."""
-    _, total = search_records(db, q, scope, page=0, page_length=0)
-    return {"count": total}

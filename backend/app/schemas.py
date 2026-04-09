@@ -5,16 +5,6 @@ from pydantic import BaseModel
 
 
 class SearchResult(BaseModel):
+    """Activity Streams stub returned in orderedItems."""
     id: str
     type: str
-    label: Optional[str]
-
-
-class SearchResponse(BaseModel):
-    """Mirrors lux-middletier search response format."""
-    context: str = "https://linked.art/ns/v1/linked-art.json"
-    id: str
-    type: str = "OrderedCollectionPage"
-    totalItems: int
-    orderedItems: List[Dict[str, Any]]
-    partOf: List[Dict[str, Any]] = []

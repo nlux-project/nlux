@@ -1,0 +1,15 @@
+{
+    "name": "teylers",
+    "type": "internal",
+    "namespace": "https://teylers.adlibhosting.com/ais6/Details/museum/",
+    "matches": ["teylers.adlibhosting.com/ais6/Details/museum/"],
+    "fetch": "https://teylers.adlibhosting.com/ais6/webapi/wwwopac.ashx?database=museum&search=priref+%3D+{identifier}&output=json&limit=1",
+    "merge_order": 1,
+
+    "harvesterClass": "process.base.harvester.Harvester",
+    "mapperClass": "sources.museums.teylers.mapper.TeylersMapper",
+    "loaderClass": "sources.museums.teylers.loader.TeylersLoader",
+    "fetcherClass": "sources.museums.teylers.fetcher.TeylersFetcher",
+
+    "totalRecords": 100685
+}

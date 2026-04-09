@@ -24,8 +24,8 @@ def _is_sqlite(db: Session) -> bool:
 
 def _extract_query_text(q: str) -> str:
     """
-    The frontend passes q as a JSON object e.g. {"text":"marcus"}.
-    Extract the plain text value so it can be used in FTS queries.
+    The frontend passes q as a JSON object e.g. {"text":"marcus"} or
+    {"_scope":"item","text":"warhol"}. Extract the plain text value.
     """
     try:
         parsed = json.loads(q)
@@ -40,18 +40,18 @@ def search_records(
     db: Session,
     q: str,
     scope: str,
-    page: int = 0,
+    page: int = 1,
     page_length: Optional[int] = None,
 ) -> Tuple[List[Dict[str, Any]], int]:
     """
     Returns (items, total_count).
-    items: list of full JSON-LD dicts.
+    items: list of Activity Streams stubs — [{"id": uri, "type": linked_art_type}, ...]
+    page is 1-based.
     """
     q = _extract_query_text(q)
     if page_length is None:
         page_length = settings.page_length_default
     page_length = min(page_length, settings.page_length_max)
-    # Frontend uses 1-based page numbers; convert to 0-based offset
     offset = max(page - 1, 0) * page_length
 
     if _is_sqlite(db):
@@ -59,8 +59,14 @@ def search_records(
     return _pg_search(db, q, scope, offset, page_length)
 
 
+def count_records(db: Session, q: str, scope: str) -> int:
+    """Return only the total count for a search query (used by search-estimate)."""
+    q = _extract_query_text(q)
+    _, total = search_records(db, q, scope, page=1, page_length=0)
+    return total
+
+
 def _type_placeholders(types: List[str]) -> Tuple[str, Dict]:
-    """Build an IN clause placeholder string and params dict for a list of types."""
     params = {f"t{i}": t for i, t in enumerate(types)}
     clause = ", ".join(f":t{i}" for i in range(len(types)))
     return clause, params
@@ -80,7 +86,7 @@ def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):
             total = db.execute(count_sql, {"q": q, **type_params}).scalar() or 0
 
             rows_sql = text(
-                f"SELECT r.data FROM records r "
+                f"SELECT r.uri, r.type FROM records r "
                 f"JOIN records_fts fts ON fts.rowid = r.rowid "
                 f"WHERE records_fts MATCH :q AND r.type IN ({type_clause}) "
                 f"LIMIT :limit OFFSET :offset"
@@ -90,21 +96,21 @@ def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):
             count_sql = text("SELECT COUNT(*) FROM records_fts WHERE records_fts MATCH :q")
             total = db.execute(count_sql, {"q": q}).scalar() or 0
             rows_sql = text(
-                "SELECT r.data FROM records r "
+                "SELECT r.uri, r.type FROM records r "
                 "JOIN records_fts fts ON fts.rowid = r.rowid "
                 "WHERE records_fts MATCH :q LIMIT :limit OFFSET :offset"
             )
             rows = db.execute(rows_sql, {"q": q, "limit": limit, "offset": offset}).fetchall()
     except Exception:
-        # Fallback to LIKE if FTS table not created yet
+        # Fallback to LIKE if FTS table not yet populated
         like = f"%{q}%"
         query = db.query(Record).filter(Record.search_text.like(like))
         if types:
             query = query.filter(Record.type.in_(types))
         total = query.count()
-        rows = [(r.data,) for r in query.offset(offset).limit(limit).all()]
+        rows = [(r.uri, r.type) for r in query.offset(offset).limit(limit).all()]
 
-    items = [json.loads(row[0]) for row in rows]
+    items = [{"id": row[0], "type": row[1]} for row in rows]
     return items, total
 
 
@@ -121,7 +127,7 @@ def _pg_search(db: Session, q: str, scope: str, offset: int, limit: int):
         total = db.execute(sql_count, {"q": q, **type_params}).scalar() or 0
 
         sql_rows = text(
-            f"SELECT data FROM records "
+            f"SELECT uri, type FROM records "
             f"WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q) "
             f"AND type IN ({type_clause}) "
             f"LIMIT :limit OFFSET :offset"
@@ -129,15 +135,16 @@ def _pg_search(db: Session, q: str, scope: str, offset: int, limit: int):
         rows = db.execute(sql_rows, {"q": q, **type_params, "limit": limit, "offset": offset}).fetchall()
     else:
         sql_count = text(
-            "SELECT COUNT(*) FROM records WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q)"
+            "SELECT COUNT(*) FROM records "
+            "WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q)"
         )
         total = db.execute(sql_count, {"q": q}).scalar() or 0
         sql_rows = text(
-            "SELECT data FROM records "
+            "SELECT uri, type FROM records "
             "WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q) "
             "LIMIT :limit OFFSET :offset"
         )
         rows = db.execute(sql_rows, {"q": q, "limit": limit, "offset": offset}).fetchall()
 
-    items = [json.loads(row[0]) for row in rows]
+    items = [{"id": row[0], "type": row[1]} for row in rows]
     return items, total

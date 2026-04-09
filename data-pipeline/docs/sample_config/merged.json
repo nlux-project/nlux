@@ -1,0 +1,11 @@
+{
+	"name": "merged",
+	"type": "results",
+	"namespace": "https://your.local.domain/data/",
+	"idmap_name": "idmap",
+
+	"recordcacheClass": "storage.cache.postgres.MergedRecordCache",
+    "mapperClass": "process.base.mapper.Mapper",
+    "reconcilerClass": null,
+    "acquirerClass": null
+}
