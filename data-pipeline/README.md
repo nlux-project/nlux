@@ -1,80 +1,162 @@
-# Data Transformation Pipeline Code
+# Teylers Museum Source
 
-## Architecture
+Integration of the [Teylers Museum](https://www.teylersmuseum.nl) collection into the data pipeline.
 
-![architecture diagram](docs/architecture2.png)
+## API
 
+Data is fetched from the Axiell AIS6 Adlib webapi:
 
-## Pipeline Components
+```
+https://teylers.adlibhosting.com/ais6/webapi/wwwopac.ashx
+```
 
-### Future ITS Owned Components:
-* Harvester: ActivityStreams based record harvester that stores to a Cache.
-* Cache:  Record cache for storing local copies of JSON data. Currently postgres or filesystem.
-* IdMap: Identifier Map that mints, manages and retrieves external/internal identifier sets. Currently redis or in-memory.
+- **Database name:** `museum`
+- **Total records:** ~100,685
+- **Output format:** Adlib grouped JSON (`xmltype=Grouped`)
+- **Detail page URL pattern:** `https://teylers.adlibhosting.com/ais6/Details/museum/{priref}`
+- **Image URL pattern:** `https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value={filename}&folderId=1&width=800&height=800&imageformat=jpg`
 
-### Pipeline Components:
+## Source files
 
-* config: Configuration of the pipeline, as JSON records in a cache.
-* process/Collector: Recursively collects identifiers for a given record.
-* process/Reconciler: Reconcile records
-* process/Merger: Merges two Linked Art records representing the same entity together.
-* process/Reidentifier: Recursively external rewrite URIs in a record to internal identifiers, given an IdMap.
-* process/ReferenceManager: Manages inter-record connections
-* process/UpdateManager: Manages harvesting and updates to caches
-* sources/\*/Acquirer: Wraps Fetcher and Mapper to acquire a record either from the network or a cache
-* sources/\*/Fetcher: Fetches identified record from external source to a Cache.
-* sources/\*/Harvester: Retrieve multiple records via IIIF Change Discovery or OAI-PMH
-* sources/\*/Mapper: Maps from source format into Linked Art, or from Linked Art to discovery layer format (Marklogic, QLever)
-* sources/\*/Reconciler: Determine if the entity in the given record is described in the external source.
-* sources/\*/Loader: Load a dump of the data into the data cache.
-* sources/\*/IndexLoader: Create an inverted index to reconcile records against this dataset.
-* storage/MarkLogic: Marklogic storage of data
-* storage/Cache: Data caches (Postgresql, file system)
-* storage/Idmap: Key/value store API (Redis, file system, in-memory)
+```
+pipeline/sources/museums/teylers/
+  __init__.py
+  mapper.py     # transforms Adlib JSON → LUX / Linked Art (CIDOC-CRM via cromulent)
+  loader.py     # pages through the API and stores records in the PostgreSQL datacache
+  fetcher.py    # fetches a single record by priref
+```
 
+```
+config/config_cache/teylers.json   # pipeline source config
+harvest-teylers.py                 # standalone harvest script
+harvest-teylers.sh                 # wrapper shell script
+```
 
-## External Sources: Implementation Status
+## Configuration
 
-| Source          | Fetch | Map | Name Reconcile | Load | IdxLoad |
-| --------------- | ----- | --- | -------------- | ---- | ------- |
-| AAT             |   ✅  |  ✅ |    ✅         | N/A | -       | 
-| DNB             |   ✅  |  ✅ |     -         |  ✅ | -       | 
-| FAST            |   ✅  |  -  |     -          |  -   | -      | 
-| Geonames        |   ✅  |  ✅ |     -          | ✅  | -      | 
-| LCNAF           |   ✅  |  ✅ |     ✅        |  ✅ | -       | 
-| LCSH            |   ✅  |  ✅ |     ✅        |  ✅ | ✅      | 
-| TGN             |   ✅  |  ✅ |     -         | N/A  | -       | 
-| ULAN            |   ✅  |  ✅ |     ✅        | N/A  | -       | 
-| VIAF            |   ✅  |  ✅ |     -         |  ✅  | -       | 
-| Who's on First  |   ✅  |  ✅ |     -         | N/A  | -       | 
-| Wikidata        |   ✅  |  ✅ |     -         |  ✅  | ✅     | 
-| Japan NL        |   ✅  |  ✅ |     -         | N/A  | -       |
-| BNF             |   ✅  |  ✅ |     -         | N/A  | -       |
-| GBIF            |   ✅  |  ✅ |     -         | N/A  | -       |
-| ORCID           |   ✅  |  ✅ |     -         | N/A  | -       |
-| ROR             |   ✅  |  ✅ |     -         | N/A  | -       |
-| Wikimedia API   |   ✅  |  ✅ |     -         | N/A  | -       |
-| DNB             |   ✅  |  ✅ |     -         | N/A  | -       |
-| BNE             |   ✅  |  ✅ |     -         | N/A  | -       |
-| Nomenclature    |   -   |  -  |     -          | -    | -      |
-| Getty Museum    |   -   |  -  |     -          | -    | -      |
-| Homosaurus      |   -   |  -  |     -          | -    | -      |
-| Nomisma         |   -   |  -  |     -          | -    | -      |
-| SNAC            |   -   |  -  |     -          | -    | -      |
+`config/config_cache/teylers.json`:
 
+```json
+{
+    "name": "teylers",
+    "type": "internal",
+    "namespace": "https://teylers.adlibhosting.com/ais6/Details/museum/",
+    "matches": ["teylers.adlibhosting.com/ais6/Details/museum/"],
+    "merge_order": 1,
+    "harvesterClass": "process.base.harvester.Harvester",
+    "mapperClass": "sources.museums.teylers.mapper.TeylersMapper",
+    "loaderClass": "sources.museums.teylers.loader.TeylersLoader",
+    "fetcherClass": "sources.museums.teylers.fetcher.TeylersFetcher",
+    "totalRecords": 100685
+}
+```
 
-✅ = Done ; - = Not started ; N/A = Can't/Won't be done
+## LUX / Linked Art compliance
 
-* AAT, TGN, ULAN: Dump files are NTriples based. More effort to reconstruct than it would be worth. Instead we can use IIIF Change Discovery to synchronize.
-* WOF: Dump file is a 33Gb sqlite db... we just use it as the cache directly
-* FAST: Not implemented yet (needs to process MARC/XML)
+The mapper outputs records compliant with the [LUX HumanMadeObject model](https://github.com/nlux-project/documentation/tree/main). Fields mapped:
 
-### Fetching external source dump files
+| LUX field | Source field |
+|---|---|
+| `_label` | First title |
+| `identified_by > Name` | `title` (primary + alternates) |
+| `identified_by > Identifier` | `object_number` (accession number) |
+| `classified_as` | `object_name` → AAT URI (see table below) |
+| `produced_by > carried_out_by` | `creator` |
+| `produced_by > timespan` | `dating.date.start` / `dating.date.end` |
+| `produced_by > technique` | `technique` |
+| `made_of` | `material` |
+| `dimension` | `dimension.value` / `dimension.unit` / `dimension.type` |
+| `current_owner` | Teylers Museum (Wikidata Q751582) |
+| `subject_of` | Detail page URL |
+| `representation` | First public image from `media.reference` |
 
-Process:
-1. In the config file, look up `dumpFilePath` and `remoteDumpFile`
-2. Go to the directory where `dumpFilePath` exists and rename it with a date (e.g. latest-2022-07)
-3. execute `wget <url>` where `<url>` is the URL from `remoteDumpFile` (and probably validate it by hand online)
-4. For wikidata, as it's SO HUGE, instead do:  `nohup wget --quiet <url> &` to fetch it in the background so we can get on with our lives in the mean time.
-5. Done :) 
+### Object type → AAT mapping
 
+| Dutch term | AAT URI | Label |
+|---|---|---|
+| schilderij | aat:300033618 | paintings (visual works) |
+| tekening | aat:300033973 | drawings (visual works) |
+| prent | aat:300041273 | prints (visual works) |
+| aquarel | aat:300078925 | watercolors (paintings) |
+| gouache | aat:300015017 | gouaches (paintings) |
+| sculptuur / beeld | aat:300047090 | sculpture (visual works) |
+| fossiel | aat:300380921 | fossils |
+| instrument | aat:300266639 | scientific instruments |
+| munt | aat:300037222 | coins (money) |
+| penning | aat:300435429 | medals (coins) |
+| boek | aat:300028051 | books |
+| manuscript | aat:300028569 | manuscripts (documents) |
+
+## Running
+
+### 1. Harvest raw records to disk
+
+```bash
+./harvest-teylers.sh
+# or with a custom output directory:
+./harvest-teylers.sh /path/to/output
+```
+
+Writes `data/input/teylers/{priref}.json` — one file per record. Re-running is safe; existing files are skipped.
+
+### 2. Full pipeline
+
+```bash
+# Load harvested files into the PostgreSQL datacache
+python ./manage-data.py --load --teylers
+
+# Reconcile against external authority sources
+python ./run-reconcile.py 0 1 --teylers
+
+# Merge
+python ./run-merge.py 0 1 --teylers
+
+# Export to LUX-formatted JSONL
+python ./run-export.py 0 1
+```
+
+Output lands in `data/output/latest/`.
+
+### 3. Optional: load authority data for cross-source reconciliation
+
+Without authority data the pipeline still works, but AAT type URIs and the Wikidata `current_owner` reference will not be enriched or linked across sources. "Failed to acquire" warnings during reconcile are expected in this case.
+
+#### AAT (Getty Art & Architecture Thesaurus)
+
+Harvests live from Getty's activity stream — no download needed:
+
+```bash
+# Harvest AAT records from Getty's API
+uv run python ./run-harvest.py --aat
+
+# Build the reconciliation index (label → AAT id lookup)
+uv run python ./manage-data.py --load-index --aat
+
+# Re-reconcile teylers now that AAT is available
+uv run python ./run-reconcile.py 0 1 --teylers
+```
+
+#### Wikidata
+
+Requires the full dump (~100 GB compressed). Only needed if you want to link creators and places across sources.
+
+```bash
+# Download the dump (takes hours)
+mkdir -p data/input/wikidata
+curl -L https://dumps.wikimedia.org/wikidatawiki/entities/latest-all.json.gz \
+    -o data/input/wikidata/latest-all.json.gz
+
+# Load into the datacache (parallel, 24 slices)
+./load_parallel.sh --wikidata
+
+# Build the reconciliation index
+uv run python ./manage-data.py --load-index --wikidata
+```
+
+**Recommendation:** Start with AAT only. It is fast, covers all the type classifications Teylers records reference, and requires no large download. Wikidata is only worth loading if you need to reconcile creators and places against other sources.
+
+## Known issues / dependencies
+
+- Requires **Python 3.9** with `pyld<2.0.2` (pyld 2.0.2+ uses `str | None` syntax incompatible with Python 3.9).
+- Requires PostgreSQL and Redis to be running before any pipeline phase (`manage-data`, `run-reconcile`, `run-merge`, `run-export`).
+- The harvest script (`harvest-teylers.sh`) only requires network access — no database needed.
