@@ -1,62 +1,50 @@
+import os
 import time
-import requests
 import ujson as json
 from pipeline.process.base.loader import Loader
 
-WEBAPI = "https://teylers.adlibhosting.com/ais6/webapi/wwwopac.ashx"
-PAGE_SIZE = 100
-
 
 class TeylersLoader(Loader):
-    """Load all Teylers Museum objects by paging through the Adlib webapi."""
+    """Load Teylers Museum objects from pre-harvested JSON files on disk.
+
+    Reads from data/input/teylers/{priref}.json — these files should be
+    created by harvest-teylers.sh and enriched by enrich-teylers.py before
+    running the loader.
+    """
 
     def __init__(self, config):
         Loader.__init__(self, config)
         self.namespace = config["namespace"]
-        self.session = requests.Session()
-
-    def _fetch_page(self, startfrom):
-        # Omit the fields parameter to retrieve all available fields.
-        url = (
-            f"{WEBAPI}?database=museum"
-            f"&search=all"
-            f"&output=json"
-            f"&limit={PAGE_SIZE}"
-            f"&startfrom={startfrom}"
-        )
-        resp = self.session.get(url, timeout=30)
-        resp.raise_for_status()
-        return resp.json()
+        cfgs = config["all_configs"]
+        self.input_dir = os.path.join(cfgs.dumps_dir, "teylers")
 
     def load(self):
         start = time.time()
+
+        if not os.path.isdir(self.input_dir):
+            raise FileNotFoundError(
+                f"Harvest directory not found: {self.input_dir}\n"
+                f"Run ./harvest-teylers.sh and enrich-teylers.py first."
+            )
+
+        files = sorted(fn for fn in os.listdir(self.input_dir) if fn.endswith(".json"))
+        total = len(files)
+        print(f"Teylers: loading {total} records from {self.input_dir}")
+
         x = 0
-        startfrom = 1
+        for fn in files:
+            path = os.path.join(self.input_dir, fn)
+            with open(path) as fh:
+                rec = json.load(fh)
 
-        first = self._fetch_page(startfrom)
-        total = first["adlibJSON"]["diagnostic"]["hits"]
-        self.total = total
-        print(f"Teylers: {total} records to load")
+            priref = str(rec.get("@priref", ""))
+            if not priref:
+                continue
 
-        while startfrom <= total:
-            if startfrom == 1:
-                data = first
-            else:
-                data = self._fetch_page(startfrom)
+            self.out_cache[priref] = {"data": rec, "identifier": priref}
+            x += 1
 
-            records = data["adlibJSON"]["recordList"].get("record", [])
-            if not records:
-                break
-
-            for rec in records:
-                priref = str(rec.get("@priref", ""))
-                if not priref:
-                    continue
-                self.out_cache[priref] = {"data": rec, "identifier": priref}
-                x += 1
-
-            startfrom += PAGE_SIZE
-            if not x % 1000:
+            if x % 1000 == 0:
                 elapsed = time.time() - start
                 rate = x / elapsed if elapsed else 0
                 print(f"{x}/{total} loaded ({rate:.0f}/s)")
