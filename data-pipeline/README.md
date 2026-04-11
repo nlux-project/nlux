@@ -12,9 +12,11 @@ https://teylers.adlibhosting.com/ais6/webapi/wwwopac.ashx
 
 - **Database name:** `museum`
 - **Total records:** ~100,685
-- **Output format:** Adlib grouped JSON (`xmltype=Grouped`)
+- **Output format:** Adlib grouped JSON
 - **Detail page URL pattern:** `https://teylers.adlibhosting.com/ais6/Details/museum/{priref}`
 - **Image URL pattern:** `https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value={filename}&folderId=1&width=800&height=800&imageformat=jpg`
+
+**Note:** The Adlib `search=all` bulk endpoint returns a reduced field set (Title, Production, Dating, Object_name, Media, object_number). Fields like `Dimension`, `Material`, `Technique`, and `Content_subject` are only available when fetching records individually by priref. The enrichment step handles this (see below).
 
 ## Source files
 
@@ -28,8 +30,10 @@ pipeline/sources/museums/teylers/
 
 ```
 config/config_cache/teylers.json   # pipeline source config
-harvest-teylers.py                 # standalone harvest script
+harvest-teylers.py                 # standalone bulk harvest script
 harvest-teylers.sh                 # wrapper shell script
+enrich-teylers.py                  # re-fetches each record individually to fill missing fields
+re-harvest-teylers.sh              # full pipeline: harvest + enrich + load + reconcile + merge + export + Docker reload
 ```
 
 ## Configuration
@@ -89,17 +93,45 @@ The mapper outputs records compliant with the [LUX HumanMadeObject model](https:
 
 ## Running
 
-### 1. Harvest raw records to disk
+### Quick start: full re-harvest
+
+The `re-harvest-teylers.sh` script runs the entire pipeline end-to-end with per-step validation:
+
+```bash
+./re-harvest-teylers.sh          # uses priref=41634 as test record
+./re-harvest-teylers.sh 1        # use a different test record
+```
+
+Steps executed:
+1. Bulk harvest from Adlib API (`harvest-teylers.sh`)
+2. Enrich records with missing fields via individual API lookups (`enrich-teylers.py`)
+3. Load into PostgreSQL datacache (`manage-data.py --load --teylers`)
+4. Reconcile against AAT (`run-reconcile.py`)
+5. Merge (`run-merge.py`)
+6. Export to Linked Art JSONL (`run-export.py`)
+7. Reset and reload Docker API database + generate agent records
+
+Each step validates the test record and stops on first failure.
+
+### Manual: step by step
+
+#### 1. Harvest raw records to disk
 
 ```bash
 ./harvest-teylers.sh
-# or with a custom output directory:
-./harvest-teylers.sh /path/to/output
 ```
 
 Writes `data/input/teylers/{priref}.json` — one file per record. Re-running is safe; existing files are skipped.
 
-### 2. Full pipeline
+**Important:** The bulk harvest uses `search=all` which omits `Dimension`, `Material`, `Technique`, and `Content_subject`. Run the enrichment step to fill these in:
+
+```bash
+uv run python enrich-teylers.py
+```
+
+This re-fetches each record individually (10 concurrent threads, ~20 min for 100k records) and merges the missing fields into the existing files.
+
+#### 2. Full pipeline
 
 ```bash
 # Load harvested files into the PostgreSQL datacache
@@ -117,13 +149,18 @@ python ./run-export.py 0 1
 
 Output lands in `data/output/latest/`.
 
-### 3. Optional: load authority data for cross-source reconciliation
+#### 3. Load into nlux API (Docker)
 
-Without authority data the pipeline still works, but AAT type URIs and the Wikidata `current_owner` reference will not be enriched or linked across sources. "Failed to acquire" warnings during reconcile are expected in this case.
+```bash
+docker cp data/output/latest/export_full_0.jsonl nlux-api-1:/tmp/export_full_0.jsonl
+docker exec nlux-api-1 python3 scripts/reset.py
+docker exec nlux-api-1 python3 scripts/load_data.py /tmp/
+docker exec nlux-api-1 python3 scripts/generate_agents.py
+```
 
-#### AAT (Getty Art & Architecture Thesaurus)
+### AAT authority data (run once)
 
-Harvests live from Getty's activity stream — no download needed:
+Without AAT the pipeline still works, but type URIs will not be enriched. "Failed to acquire" warnings during reconcile are expected without AAT.
 
 ```bash
 # Harvest AAT records from Getty's API
@@ -136,27 +173,50 @@ uv run python ./manage-data.py --load-index --aat
 uv run python ./run-reconcile.py 0 1 --teylers
 ```
 
-#### Wikidata
+### Wikidata (optional)
 
 Requires the full dump (~100 GB compressed). Only needed if you want to link creators and places across sources.
 
 ```bash
-# Download the dump (takes hours)
 mkdir -p data/input/wikidata
 curl -L https://dumps.wikimedia.org/wikidatawiki/entities/latest-all.json.gz \
     -o data/input/wikidata/latest-all.json.gz
 
-# Load into the datacache (parallel, 24 slices)
 ./load_parallel.sh --wikidata
-
-# Build the reconciliation index
 uv run python ./manage-data.py --load-index --wikidata
 ```
 
-**Recommendation:** Start with AAT only. It is fast, covers all the type classifications Teylers records reference, and requires no large download. Wikidata is only worth loading if you need to reconcile creators and places against other sources.
+**Recommendation:** Start with AAT only. It is fast, covers all the type classifications Teylers records reference, and requires no large download.
+
+## Testing
+
+### Per-step validation
+
+Test scripts in `data/tests/` (or `tests/` in the git repo) validate a single record through each pipeline stage:
+
+| Script | Validates |
+|---|---|
+| `test-harvest-teylers-step1.sh` | Harvest file: required fields present |
+| `test-harvest-teylers-step3.sh` | PostgreSQL datacache: fields carried through |
+| `test-harvest-teylers-step5.sh` | Rewritten cache after merge: Linked Art fields present |
+| `test-harvest-teylers-step6.sh` | Export JSONL: Linked Art fields present |
+| `test-harvest-teylers-step7.sh` | API response: all fields + HAL links + agent URIs |
+
+All tests treat absent fields as errors (exit 1). Run individually:
+
+```bash
+./data/tests/test-harvest-teylers-step1.sh 41634
+```
+
+Or use `test-record.sh` to run all steps at once without re-running the pipeline:
+
+```bash
+./test-record.sh 41634
+```
 
 ## Known issues / dependencies
 
 - Requires **Python 3.9** with `pyld<2.0.2` (pyld 2.0.2+ uses `str | None` syntax incompatible with Python 3.9).
 - Requires PostgreSQL and Redis to be running before any pipeline phase (`manage-data`, `run-reconcile`, `run-merge`, `run-export`).
 - The harvest script (`harvest-teylers.sh`) only requires network access — no database needed.
+- The Adlib `search=all` bulk endpoint returns a reduced field set; `enrich-teylers.py` compensates by re-fetching individually.
