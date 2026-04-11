@@ -17,14 +17,17 @@ echo "==> Step 1: Deleting existing harvest files ..."
 rm -rf data/input/teylers/
 mkdir -p data/input/teylers/
 
-echo "==> Harvesting Teylers from Adlib API ..."
+echo "==> Harvesting Teylers from Adlib API (bulk) ..."
 ./harvest-teylers.sh
+
+echo "==> Enriching records (individual API fetches for Dimension, Material, etc.) ..."
+uv run python enrich-teylers.py
 
 check
 FILE="data/input/teylers/${TEST_PRIREF}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
 ./data/tests/test-harvest-teylers-step1.sh "$TEST_PRIREF" || fail "Harvest file validation failed"
-pass "Harvest OK — file has expected fields"
+pass "Harvest + enrich OK — file has expected fields"
 
 # ── Step 2: Clear pipeline phase flags ───────────────────────────────────────
 rm -f data/logs/flags/reconcile_is_done-0.txt
