@@ -4,16 +4,6 @@ import ujson as json
 from pipeline.process.base.loader import Loader
 
 WEBAPI = "https://teylers.adlibhosting.com/ais6/webapi/wwwopac.ashx"
-FIELDS = (
-    "priref,object_number,title,title.type,"
-    "creator,creator.role,"
-    "dating.date.start,dating.date.start.prec,"
-    "dating.date.end,dating.date.end.prec,"
-    "object_name,material,technique,"
-    "dimension,dimension.type,dimension.value,dimension.unit,"
-    "content.subject,content.place,"
-    "media.reference"
-)
 PAGE_SIZE = 100
 
 
@@ -26,13 +16,13 @@ class TeylersLoader(Loader):
         self.session = requests.Session()
 
     def _fetch_page(self, startfrom):
+        # Omit the fields parameter to retrieve all available fields.
         url = (
             f"{WEBAPI}?database=museum"
             f"&search=all"
             f"&output=json"
             f"&limit={PAGE_SIZE}"
             f"&startfrom={startfrom}"
-            f"&fields={FIELDS}"
         )
         resp = self.session.get(url, timeout=30)
         resp.raise_for_status()

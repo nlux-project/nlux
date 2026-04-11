@@ -5,25 +5,18 @@ import ujson as json
 import requests
 
 WEBAPI = "https://teylers.adlibhosting.com/ais6/webapi/wwwopac.ashx"
-FIELDS = (
-    "priref,object_number,title,title.type,"
-    "creator,creator.role,"
-    "dating.date.start,dating.date.start.prec,"
-    "dating.date.end,dating.date.end.prec,"
-    "object_name,material,technique,"
-    "dimension,dimension.type,dimension.value,dimension.unit,"
-    "content.subject,content.place,"
-    "media.reference"
-)
 PAGE_SIZE = 100
 
 output_dir = sys.argv[1]
 session = requests.Session()
 
 def fetch_page(startfrom):
+    # Omit the fields parameter to retrieve all available fields per record.
+    # The Adlib grouped output uses capitalized group names (Dimension, Material, etc.)
+    # that don't match the lowercase field-level names the fields= filter expects.
     url = (
         f"{WEBAPI}?database=museum&search=all&output=json"
-        f"&limit={PAGE_SIZE}&startfrom={startfrom}&fields={FIELDS}"
+        f"&limit={PAGE_SIZE}&startfrom={startfrom}"
     )
     resp = session.get(url, timeout=30)
     resp.raise_for_status()
