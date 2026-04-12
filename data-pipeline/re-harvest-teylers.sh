@@ -44,6 +44,7 @@ pass "Datacache OK — fields carried through"
 
 # ── Step 4: Reconcile against AAT ────────────────────────────────────────────
 echo "==> Step 4: Reconciling ..."
+psql -h localhost -U postgres -d postgres -c "TRUNCATE teylers_rewritten_record_cache, teylers_record_cache, merged_merged_record_cache;"
 uv run python ./run-reconcile.py 0 1 --teylers
 
 # ── Step 5: Merge ─────────────────────────────────────────────────────────────
@@ -56,6 +57,7 @@ pass "Merge OK"
 
 # ── Step 6: Export ────────────────────────────────────────────────────────────
 echo "==> Step 6: Exporting ..."
+psql -h localhost -U postgres -d postgres -c "TRUNCATE marklogic_merged_record_cache, marklogic_data_cache;"
 rm -f data/logs/flags/export_is_done-0.txt
 uv run python ./run-export.py 0 1
 

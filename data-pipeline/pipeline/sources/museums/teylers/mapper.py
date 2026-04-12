@@ -14,19 +14,53 @@ TEYLERS_LABEL = "Teylers Museum"
 
 # Dutch object_name → (cromulent class, AAT URI, AAT label)
 _OBJECT_TYPE_MAP = {
-    "schilderij":  (model.HumanMadeObject, "http://vocab.getty.edu/aat/300033618", "paintings (visual works)"),
-    "tekening":    (model.HumanMadeObject, "http://vocab.getty.edu/aat/300033973", "drawings (visual works)"),
-    "prent":       (model.HumanMadeObject, "http://vocab.getty.edu/aat/300041273", "prints (visual works)"),
-    "aquarel":     (model.HumanMadeObject, "http://vocab.getty.edu/aat/300078925", "watercolors (paintings)"),
-    "gouache":     (model.HumanMadeObject, "http://vocab.getty.edu/aat/300015017", "gouaches (paintings)"),
-    "sculptuur":   (model.HumanMadeObject, "http://vocab.getty.edu/aat/300047090", "sculpture (visual works)"),
-    "beeld":       (model.HumanMadeObject, "http://vocab.getty.edu/aat/300047090", "sculpture (visual works)"),
-    "fossiel":     (model.HumanMadeObject, "http://vocab.getty.edu/aat/300380921", "fossils"),
-    "instrument":  (model.HumanMadeObject, "http://vocab.getty.edu/aat/300266639", "scientific instruments"),
-    "munt":        (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
-    "penning":     (model.HumanMadeObject, "http://vocab.getty.edu/aat/300435429", "medals (coins)"),
-    "boek":        (model.LinguisticObject, "http://vocab.getty.edu/aat/300028051", "books"),
-    "manuscript":  (model.LinguisticObject, "http://vocab.getty.edu/aat/300028569", "manuscripts (documents)"),
+    # Paintings & drawings
+    "schilderij":            (model.HumanMadeObject, "http://vocab.getty.edu/aat/300033618", "paintings (visual works)"),
+    "tekening":              (model.HumanMadeObject, "http://vocab.getty.edu/aat/300033973", "drawings (visual works)"),
+    "prent":                 (model.HumanMadeObject, "http://vocab.getty.edu/aat/300041273", "prints (visual works)"),
+    "grafiek":               (model.HumanMadeObject, "http://vocab.getty.edu/aat/300041273", "prints (visual works)"),
+    "aquarel":               (model.HumanMadeObject, "http://vocab.getty.edu/aat/300078925", "watercolors (paintings)"),
+    "penseel in waterverf":  (model.HumanMadeObject, "http://vocab.getty.edu/aat/300078925", "watercolors (paintings)"),
+    "gouache":               (model.HumanMadeObject, "http://vocab.getty.edu/aat/300015017", "gouaches (paintings)"),
+    "schetsboek":            (model.HumanMadeObject, "http://vocab.getty.edu/aat/300027354", "sketchbooks"),
+    # Sculpture
+    "sculptuur":             (model.HumanMadeObject, "http://vocab.getty.edu/aat/300047090", "sculpture (visual works)"),
+    "beeld":                 (model.HumanMadeObject, "http://vocab.getty.edu/aat/300047090", "sculpture (visual works)"),
+    # Natural history
+    "fossiel":               (model.HumanMadeObject, "http://vocab.getty.edu/aat/300380921", "fossils"),
+    "mineraal":              (model.HumanMadeObject, "http://vocab.getty.edu/aat/300011068", "minerals"),
+    # Scientific instruments
+    "instrument":            (model.HumanMadeObject, "http://vocab.getty.edu/aat/300266639", "scientific instruments"),
+    # Coins & medals — map all Dutch coin denominations to aat:300037222
+    "munt":                  (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "duit":                  (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "gulden":                (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "stuiver":               (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "dubbele stuiver":       (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "daalder":               (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "leeuwendaalder":        (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "gouden dukaat":         (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "zilveren dukaat":       (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "zilveren rijder":       (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "denarius":              (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "cent":                  (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "halve cent":            (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "antoninianus":          (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "groot":                 (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "follis":                (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "driegulden":            (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "scheepjesschelling":    (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "rijdergulden":          (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "oord":                  (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "halve leeuwendaalder":  (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "halve zilveren rijder": (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "vijf cent (stuiver)":          (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "tien cent (dubbeltje)":        (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "vijfentwintig cent (kwartje)": (model.HumanMadeObject, "http://vocab.getty.edu/aat/300037222", "coins (money)"),
+    "penning":               (model.HumanMadeObject, "http://vocab.getty.edu/aat/300435429", "medals (coins)"),
+    # Books & manuscripts
+    "boek":                  (model.LinguisticObject, "http://vocab.getty.edu/aat/300028051", "books"),
+    "manuscript":            (model.LinguisticObject, "http://vocab.getty.edu/aat/300028569", "manuscripts (documents)"),
 }
 
 # Dutch dimension type → AAT URI

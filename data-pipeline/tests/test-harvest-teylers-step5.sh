@@ -19,5 +19,6 @@ if errors:
     print(f'    ERRORS: {errors}')
     sys.exit(1)
 else:
+    print(f'    NO ERRORS')
     sys.exit(0)
 "

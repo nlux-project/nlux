@@ -56,10 +56,14 @@ with open(fn, "w") as outh:
             except Exception as e:
                 print(f"{yuid} errored in marklogic mapper: {e}")
                 continue
+            # Extract data BEFORE storing to ml (the store commits to
+            # PostgreSQL which can invalidate the merged iterator's cursor)
+            data = dict(rec2["data"]) if isinstance(rec2, dict) and "data" in rec2 else rec2
             ml[yuid] = rec2
         else:
-            rec2 = ml[yuid]["data"]
-        jstr = json.dumps(rec2, separators=(",", ":"))
+            data = ml[yuid]["data"]
+        jstr = json.dumps(data, separators=(",", ":"),
+                          default=lambda o: o.isoformat() if isinstance(o, datetime.datetime) else str(o))
         outh.write(jstr)
         outh.write("\n")
         sys.stdout.write(".")
