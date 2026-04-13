@@ -74,6 +74,7 @@ docker cp data/output/latest/export_full_0.jsonl nlux-api-1:/tmp/export_full_0.j
 docker exec nlux-api-1 python3 scripts/reset.py
 docker exec nlux-api-1 python3 scripts/load_data.py /tmp/
 docker exec nlux-api-1 python3 scripts/generate_agents.py
+docker exec nlux-api-1 python3 scripts/generate_concepts.py
 
 check
 ./data/tests/test-harvest-teylers-step7.sh "$TEST_PRIREF" || fail "API validation failed"
