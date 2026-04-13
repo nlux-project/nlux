@@ -130,7 +130,7 @@ class Reconciler(object):
 
         # sameAs is just a reconciler
         for eq in ids:
-            diffs = self.global_reconciler.reconcile(eq, "diffs")
+            diffs = self.global_reconciler.reconcile(eq, "diffs") if self.global_reconciler else []
             if diffs:
                 for d in diffs:
                     if d in ids:
@@ -183,7 +183,7 @@ class Reconciler(object):
                                     f" --- reconciler {r} / {reconcileType} found {nid} for {record['data']['id']}"
                                 )
                             # Test distinct to avoid adding bad
-                            diffs = self.global_reconciler.reconcile(nid, "diffs")
+                            diffs = self.global_reconciler.reconcile(nid, "diffs") if self.global_reconciler else []
                             okay_to_add = True
                             for d in diffs:
                                 if d in ids:

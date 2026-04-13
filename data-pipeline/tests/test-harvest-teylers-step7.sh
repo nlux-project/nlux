@@ -19,7 +19,7 @@ curl -sf "http://localhost:8000/data/${PATH_PART}" | uv run python3 -c "
 import json, sys
 d = json.load(sys.stdin)
 errors = []
-for field in ['identified_by', 'classified_as', 'produced_by', 'made_of', 'dimension', 'current_owner', 'subject_of', 'representation', '_links']:
+for field in ['identified_by', 'referred_to_by', 'classified_as', 'produced_by', 'made_of', 'dimension', 'current_owner', 'subject_of', 'representation', '_links']:
     if field not in d:
         errors.append(f'{field}: absent')
 cob = d.get('produced_by', {}).get('carried_out_by', [])

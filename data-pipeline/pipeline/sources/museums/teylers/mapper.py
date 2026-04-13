@@ -222,6 +222,14 @@ class TeylersMapper(Mapper):
                         meas.classified_as = model.Type(ident=aat, label=dim_type)
                 top.dimension = meas
 
+        # --- Description → referred_to_by ---
+        for desc_text in _group_values(rec.get("Description", []), "description"):
+            top.referred_to_by = vocab.Description(content=desc_text)
+
+        # --- Inscription ---
+        for insc_text in _group_values(rec.get("Inscription", []), "inscription.content"):
+            top.referred_to_by = model.LinguisticObject(content=insc_text)
+
         # --- Current owner: Teylers Museum ---
         top.current_owner = model.Group(ident=TEYLERS_URI, label=TEYLERS_LABEL)
 
