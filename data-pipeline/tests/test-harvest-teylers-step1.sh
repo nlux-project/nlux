@@ -10,7 +10,7 @@ errors = []
 if '@priref' not in rec: errors.append('@priref missing')
 if '@created' not in rec: errors.append('@created missing')
 if '@modification' not in rec: errors.append('@modification missing')
-for field in ['Title', 'Dimension', 'Material', 'Production', 'Object_name', 'Technique']:
+for field in ['Title', 'Description', 'Dimension', 'Material', 'Production', 'Object_category', 'Object_name', 'Technique']:
     status = 'present' if field in rec else 'absent'
     if status == 'absent':
         errors.append(f'{field}: {status}')

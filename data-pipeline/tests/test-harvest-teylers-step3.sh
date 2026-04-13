@@ -10,7 +10,7 @@ if not row:
     sys.exit(1)
 rec = row[0]
 errors = []
-for field in ['Title', 'Dimension', 'Material', 'Production', 'Object_name', 'Technique']:
+for field in ['Title', 'Description', 'Dimension', 'Material', 'Production', 'Object_category', 'Object_name', 'Technique']:
     if field not in rec:
         errors.append(f'{field}: absent')
 conn.close()

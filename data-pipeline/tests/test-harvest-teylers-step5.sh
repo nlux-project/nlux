@@ -11,7 +11,7 @@ if not row:
 rec = row[0]
 data = rec.get('data', rec) if isinstance(rec, dict) else json.loads(rec).get('data', json.loads(rec))
 errors = []
-for field in ['identified_by', 'produced_by', 'made_of', 'dimension', 'classified_as', 'current_owner', 'representation']:
+for field in ['identified_by', 'classified_as', 'produced_by', 'made_of', 'dimension', 'current_owner', 'subject_of', 'representation']:
     if field not in data:
         errors.append(f'{field}: absent')
 conn.close()
@@ -19,6 +19,5 @@ if errors:
     print(f'    ERRORS: {errors}')
     sys.exit(1)
 else:
-    print(f'    NO ERRORS')
     sys.exit(0)
 "
