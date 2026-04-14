@@ -29,8 +29,12 @@ except ImportError:
 
 
 # CHT SPARQL endpoint (Triply-powered)
+#SPARQL_ENDPOINT = (
+    #"https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cht/sparql"
+#)
+# CHT SPARQL endpoint (Speedy)
 SPARQL_ENDPOINT = (
-    "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cht/sparql"
+    "https://api.linkeddata.cultureelerfgoed.nl/datasets/thesauri/Cultuurhistorische-Thesaurus-CHT/sparql"
 )
 CHT_NAMESPACE = "https://data.cultureelerfgoed.nl/term/id/cht/"
 
