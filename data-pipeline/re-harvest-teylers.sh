@@ -42,8 +42,12 @@ check
 ./data/tests/test-harvest-teylers-step3.sh "$TEST_PRIREF" || fail "Datacache validation failed"
 pass "Datacache OK — fields carried through"
 
-# ── Step 4: Reconcile against AAT ────────────────────────────────────────────
-echo "==> Step 4: Reconciling ..."
+# ── Step 4: Reconcile against CHT + AAT ─────────────────────────────────────
+# NOTE: CHT index must be built once before reconcile (run manually if not done):
+#   uv run python harvest-cht.py
+#   uv run python manage-data.py --load --cht
+#   uv run python manage-data.py --load-index --cht
+echo "==> Step 4: Reconciling (CHT + AAT) ..."
 psql -h localhost -U postgres -d postgres -c "TRUNCATE teylers_rewritten_record_cache, teylers_record_cache, merged_merged_record_cache;"
 uv run python ./run-reconcile.py 0 1 --teylers
 

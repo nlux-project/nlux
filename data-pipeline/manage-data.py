@@ -49,6 +49,9 @@ if "--load" in sys.argv:
     if "--teylers" in sys.argv or "--all" in sys.argv:
         cfgs.internal["teylers"]["datacache"].clear()
         cfgs.internal["teylers"]["loader"].load()
+    if "--cht" in sys.argv or "--all" in sys.argv:
+        cfgs.external["cht"]["datacache"].clear()
+        cfgs.external["cht"]["loader"].load()
 
     if "--viaf" in sys.argv or "--all" in sys.argv:
         my_slice = int(sys.argv[1])
@@ -78,6 +81,8 @@ if "--load-index" in sys.argv:
         cfgs.external["aat"]["indexLoader"].load()
     if "--ulan" in sys.argv or "--all" in sys.argv:
         cfgs.external["ulan"]["indexLoader"].load()
+    if "--cht" in sys.argv or "--all" in sys.argv:
+        cfgs.external["cht"]["indexLoader"].load()
 
 ### RELOAD
 

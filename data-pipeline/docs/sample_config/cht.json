@@ -1,0 +1,15 @@
+{
+    "name": "cht",
+    "type": "external",
+    "namespace": "https://data.cultureelerfgoed.nl/term/id/cht/",
+    "matches": ["data.cultureelerfgoed.nl/term/id/cht/"],
+
+    "merge_order": 8,
+
+    "loaderClass":      "sources.authorities.cht.loader.ChtLoader",
+    "mapperClass":      "sources.authorities.cht.mapper.ChtMapper",
+    "indexLoaderClass": "process.base.index_loader.SqliteIndexLoader",
+    "reconcilerClass":  "sources.authorities.cht.reconciler.ChtReconciler",
+
+    "reconcileDbPath": "label_to_cht.sqlite"
+}
