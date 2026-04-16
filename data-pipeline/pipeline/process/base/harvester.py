@@ -34,9 +34,12 @@ class Harvester(object):
         return what
 
     def crawl(self, last_harvest=None):
-        self.fetcher = self.config["fetcher"]
+        self.fetcher = self.config.get("fetcher", None)
         if self.fetcher is not None:
-            self.fetcher.enabled = True
+            try:
+                self.fetcher.enabled = True
+            except Exception:
+                pass
         self.seen = {}
         if last_harvest is not None:
             self.last_harvest = last_harvest

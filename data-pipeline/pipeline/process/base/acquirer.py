@@ -6,7 +6,7 @@ class Acquirer(object):
         self.datacache = config["datacache"]
         self.recordcache = config["recordcache"]
         self.mapper = config["mapper"]
-        self.fetcher = config["fetcher"]
+        self.fetcher = config.get("fetcher", None)
         self.debug = config.get("debug", 0)
         self.name = config["name"]
         # self.force_rebuild = config.get("force_rebuild", False)
@@ -38,7 +38,7 @@ class Acquirer(object):
                 print(f"       Skipping {self.name}/{identifier} in acquire due to ignore_sources")
             return None
 
-        if self.fetcher.enabled:
+        if self.fetcher and getattr(self.fetcher, "enabled", False):
             rec = self.fetcher.fetch(identifier)
             if rec is None:
                 if self.debug:
