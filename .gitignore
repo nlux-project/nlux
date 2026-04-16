@@ -7,3 +7,4 @@ backend/harvested/state.db
 *.db-shm
 *.db-wal
 track_load_db.sh
+.env
