@@ -1,6 +1,7 @@
 redis
 psycopg2-binary
 cromulent>=1.0.1
+pyld<2.0.2
 requests
 requests_toolbelt
 ujson
