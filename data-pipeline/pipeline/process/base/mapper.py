@@ -368,6 +368,8 @@ class Mapper(object):
             return record
         if "equivalent" in record["data"]:
             hsh = {e["id"]: e for e in record["data"]["equivalent"]}
+            if not self.global_reconciler or not hasattr(self.global_reconciler, "reconcile"):
+                return record
             diffs = self.global_reconciler.reconcile(recid, "diffs")
             for d in diffs:
                 if d in hsh:
