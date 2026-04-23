@@ -8,16 +8,18 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: nl
+  logo: assets/nlux-logo.png
+  favicon: assets/nlux-logo.png
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: grey
+      accent: blue grey
       toggle:
         icon: material/brightness-7
         name: Schakel naar donker
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: blue grey
+      accent: grey
       toggle:
         icon: material/brightness-4
         name: Schakel naar licht
@@ -38,11 +40,15 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
 
+extra_css:
+  - stylesheets/brand.css
+
 nav:
   - Home: index.md
   - Over NLUX:
       - Missie en Waarden: NLUX-mission-values.md
       - Roadmap: NLUX-roadmap.md
+      - Branding Configuratie: NLUX-branding-config.md
   - Plannen:
       - Technisch Implementatieplan: NLUX-technical-implementation-plan.md
       - Businessplan: NLUX-business-plan.md

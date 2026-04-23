@@ -13,9 +13,9 @@ fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
 check() { echo -e "${YELLOW}  ▸ Validating priref=$TEST_PRIREF ...${NC}"; }
 
 # ── Step 1: Re-harvest ───────────────────────────────────────────────────────
-echo "==> Step 1: Deleting existing harvest files ..."
-rm -rf data/input/teylers/
-mkdir -p data/input/teylers/
+#echo "==> Step 1: Deleting existing harvest files ..."
+#rm -rf data/input/teylers/
+#mkdir -p data/input/teylers/
 
 echo "==> Harvesting Teylers from Adlib API (bulk) ..."
 ./harvest-teylers.sh
