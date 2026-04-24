@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2026-04-24T17:52:48Z</responseDate>
+  <request verb="GetRecord" metadataPrefix="oai_pnh">http://62.221.199.184:17518/oai</request>
+  <GetRecord>
+    <record>
+      <header>
+        <dc_identifier>5061-06</dc_identifier>
+      </header>
+      <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:edm="http://www.europeana.eu/schemas/edm/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdaGr2="http://rdvocab.info/ElementsGr2/" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/">
+        <dc:identifier>5061-06</dc:identifier>
+        <relatedid>Object41790</relatedid>
+        <recordtype>Object</recordtype>
+        <title>Pseudo-muntfibula</title>
+        <dc:title>Pseudo-muntfibula/bracteatenfibula</dc:title>
+        <dc:subject>Pseudo-muntfibula/bracteatenfibula</dc:subject>
+        <dc:description language="DUT">Pseudo-muntfibula; type Frick 1.3; parelrand en drie bevestigingshaken (?) aan onderzijde; gewicht: 3.02 gram</dc:description>
+        <dc_type>PNH Collectie</dc_type>
+        <europeana_type>DIVERS</europeana_type>
+        <dc_source>The Museum System</dc_source>
+        <dcterms:temporal>850-900</dcterms:temporal>
+        <dcterms:temporalperiod>Middeleeuwen: 450 - 1500 nC</dcterms:temporalperiod>
+        <dcterms:temporalperiod>Middeleeuwen vroeg: 450 - 1050 nC</dcterms:temporalperiod>
+        <dcterms:temporalperiod>Middeleeuwen vroeg C: 725 - 900 nC</dcterms:temporalperiod>
+        <dc_creator ConstituentID="3203" DisplayOrder="1" Role="Uitvoerder onderzoek" creatorandrole="Diachron UvA bv (Uitvoerder onderzoek)">Diachron UvA bv</dc_creator>
+        <dc_rights>Naamsvermelding-NietCommercieel-GeenAfgeleideWerken 3.0 Nederland (CC BY-NC-ND 3.0) 
+http://creativecommons.org/licenses/by-nc-nd/3.0/nl/</dc_rights>
+        <dc_format>-/0.4/2.3</dc_format>
+        <dc_language>DUT</dc_language>
+        <europeana_language>DUT</europeana_language>
+        <dcterms_medium>Brons</dcterms_medium>
+        <europeana_country>The Netherlands</europeana_country>
+        <europeana_provider>Provincie Noord-Holland</europeana_provider>
+        <europeana_isshownby>https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images59/\Castricum/limmen-de krocht\doosnummers-objecten\5061-06vz.jpg</europeana_isshownby>
+        <europeana_isshownby>https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images59/\Castricum/limmen-de krocht\doosnummers-objecten\5061-06kz.jpg</europeana_isshownby>
+        <europeana_object>\\nts91\ProvNH59\Media\Castricum/limmen-de krocht\doosnummers-objecten\5061-06vz.jpg</europeana_object>
+        <europeana_object>\\nts91\ProvNH59\Media\Castricum/limmen-de krocht\doosnummers-objecten\5061-06kz.jpg</europeana_object>
+        <europeana_uri>http://collectie.huisvanhilde.nl</europeana_uri>
+        <objectid>41790</objectid>
+        <periodezoeken>Middeleeuwen: 450 - 1500 nC</periodezoeken>
+        <periodezoeken>Middeleeuwen vroeg: 450 - 1050 nC</periodezoeken>
+        <periodezoeken>Middeleeuwen vroeg C: 725 - 900 nC</periodezoeken>
+        <thesperiode>Middeleeuwen: 450 - 1500 nC</thesperiode>
+        <thesperiode>Middeleeuwen vroeg: 450 - 1050 nC</thesperiode>
+        <thesperiode>Middeleeuwen vroeg C: 725 - 900 nC</thesperiode>
+        <thesvondst>Metaalsoorten</thesvondst>
+        <thesvondst>Brons</thesvondst>
+        <thesvondst>Fibula/mantelspeld</thesvondst>
+        <thesvondst>Schijffibula</thesvondst>
+        <thesvondst>pseudo-muntfibula/bracteatenfibula</thesvondst>
+        <objecttype>object</objecttype>
+        <vindplaats regio="Kennemerland" gemeente="Castricum" plaats="Limmen" jaar="2003-2004" vindplaatstotaal="De Krocht, Limmen, Castricum" googleurl="http://www.google.com/maps/place/Nederland, Limmen" googleplace="Nederland, Limmen" onderzoek="archeologisch: opgraving">De Krocht</vindplaats>
+        <literatuur alphasortaltInstitution="Amsterdams Archeologisch Centrum" alphasort="Dijkstra M.F.P." yearpublished="2006" title="Limmen - De Krocht" subtitle="De opgraving van een middeleeuwse plattelandsnederzetting in Kennemerland" placepublished="Amsterdam" auteur="M.F.P. Dijkstra" pagenumber="113">Limmen - De Krocht, De opgraving van een middeleeuwse plattelandsnederzetting in Kennemerland, Amsterdam, 2006</literatuur>
+        <literatuur alphasort="Eerden R.A. van" yearpublished="2023" title="Noord-Holland in het eerste millennium" volume="2" placepublished="Zandvoort" auteur="R.A. van Eerden" pagenumber="540">Noord-Holland in het eerste millennium, Zandvoort, 2023</literatuur>
+        <rubriek>Metaal</rubriek>
+        <relobjectsites sitename="De Krocht" deeplinksitepubl="http://collectie.huisvanhilde.nl/?query=Records/relatedid=[Site304]&amp;label=Zoekopdracht&amp;showtype=record">Site304</relobjectsites>
+        <relobjectconst dc_creator="Diachron UvA bv">Constituent3203</relobjectconst>
+        <Standplaats>Depot C</Standplaats>
+        <publiek>1</publiek>
+        <deeplinkpubl>https://hdl.handle.net/21.12153/obj41790</deeplinkpubl>
+        <relatedid>Object41790</relatedid>
+        <vindplaats xco="107.548" yco="508.648">De Krocht</vindplaats>
+      </metadata>
+    </record>
+  </GetRecord>
+</OAI-PMH>

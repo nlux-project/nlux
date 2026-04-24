@@ -1,0 +1,18 @@
+{
+    "name": "hvh",
+    "type": "internal",
+    "namespace": "https://collectie.huisvanhilde.nl/resource/",
+    "matches": ["collectie.huisvanhilde.nl/resource/"],
+    "fetch": "http://62.221.199.184:17518/oai?verb=GetRecord&metadataPrefix=oai_pnh&identifier={identifier}",
+    "merge_order": 2,
+
+    "pmhEndpoint": "http://62.221.199.184:17518/oai",
+    "pmhMetadataPrefix": "oai_pnh",
+
+    "harvesterClass": "sources.museums.hvh.harvester.HvhHarvester",
+    "mapperClass": "sources.museums.hvh.mapper.HvhMapper",
+    "loaderClass": "sources.museums.hvh.loader.HvhLoader",
+    "fetcherClass": "sources.museums.hvh.fetcher.HvhFetcher",
+
+    "totalRecords": 18423
+}
