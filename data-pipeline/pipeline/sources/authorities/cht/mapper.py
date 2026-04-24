@@ -1,3 +1,5 @@
+from typing import Optional
+
 from cromulent import model, vocab
 from pipeline.process.base.mapper import Mapper
 
@@ -24,7 +26,7 @@ class ChtMapper(Mapper):
                 return model.Material
         return model.Type
 
-    def transform(self, record: dict, rectype, reference=False) -> dict | None:
+    def transform(self, record: dict, rectype, reference=False) -> Optional[dict]:
         rec = record["data"]
         uri = rec.get("id", "")
         if not uri:

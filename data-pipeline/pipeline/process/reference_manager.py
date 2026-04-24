@@ -28,6 +28,7 @@ class ReferenceManager(object):
             getty_redirects[f] = t
         self.redirects = getty_redirects
         self.ref_cache = {}
+        self.reference_uris_path = os.path.join(self.configs.data_dir, "reference_uris.txt")
 
     def write_metatypes(self, my_slice):
         # write out our slice of metatypes
@@ -42,7 +43,7 @@ class ReferenceManager(object):
         # step through all entries in done_refs and write URI
         # to a file, if distance <= MAX_DISTANCE
         maxd = self.configs.max_distance
-        with open("reference_uris.txt", "w") as fh:
+        with open(self.reference_uris_path, "w") as fh:
             x = 0
             for k in self.done_refs.iter_keys():
                 x += 1
@@ -56,7 +57,11 @@ class ReferenceManager(object):
                     fh.write(f"{k['dist']}|{k.pkey}\n")
 
     def iter_done_refs(self, my_slice, max_slice):
-        with open("reference_uris.txt", "r") as fh:
+        if not os.path.exists(self.reference_uris_path):
+            print(f"Reference URI cache missing at {self.reference_uris_path}; rebuilding from done_refs")
+            self.write_done_refs()
+
+        with open(self.reference_uris_path, "r") as fh:
             if my_slice < 0 or max_slice < 0:
                 # just read the whole file
                 line = fh.readline()

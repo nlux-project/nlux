@@ -3,9 +3,11 @@
     "type": "external",
     "namespace": "https://data.cultureelerfgoed.nl/term/id/cht/",
     "matches": ["data.cultureelerfgoed.nl/term/id/cht/"],
+    "fetch": "https://data.cultureelerfgoed.nl/term/id/cht/{identifier}",
 
     "merge_order": 8,
 
+    "fetcherClass":     "process.base.fetcher.Fetcher",
     "loaderClass":      "sources.authorities.cht.loader.ChtLoader",
     "mapperClass":      "sources.authorities.cht.mapper.ChtMapper",
     "indexLoaderClass": "process.base.index_loader.SqliteIndexLoader",
