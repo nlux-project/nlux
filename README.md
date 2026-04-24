@@ -20,9 +20,9 @@ NLUX is gebouwd op project LUX (Yale Collections Discovery), beschikbaar op GitH
 Records worden verwerkt via een Yale LUX-gebaseerde ETL-pipeline:
 
 ```
-Teylers Adlib API
-  → harvest-teylers.sh        (ruwe JSON)
-  → enrich-teylers.py         (verrijking met Dimension, Material, etc.)
+Teylers Adlib API / Huis van Hilde OAI-PMH
+  → harvest-teylers.sh / harvest-hvh.sh
+  → enrich-teylers.py         (Teylers-specifieke verrijking)
   → manage-data.py --load     (PostgreSQL datacache)
   → run-reconcile.py          (CHT + AAT authority linking)
   → run-merge.py              (entity deduplicatie)
