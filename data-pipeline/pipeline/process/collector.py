@@ -225,8 +225,11 @@ class Collector(object):
                         if self.debug:
                             print(f"     testing {eqid} from {xrec['id']}")
 
-                        diffs = self.global_reconciler.reconcile(eqid, "diffs")
-                        if diffs is None:
+                        if self.global_reconciler and hasattr(self.global_reconciler, "reconcile"):
+                            diffs = self.global_reconciler.reconcile(eqid, "diffs")
+                            if diffs is None:
+                                diffs = set([])
+                        else:
                             diffs = set([])
                         if diffs.intersection(set(currids)):
                             # print(f"Found distinct, not merging {eqid} to {rec['id']}")

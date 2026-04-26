@@ -361,7 +361,7 @@ class Mapper(object):
 
     def trash_different_from(self, record):
         if self.global_reconciler is None:
-            self.global_reconciler = self.configs.results["merged"]["reconciler"]
+            self.global_reconciler = self.configs.results["merged"].get("reconciler", None)
         try:
             recid = record["data"]["id"]
         except:
