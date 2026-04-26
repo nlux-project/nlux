@@ -3,7 +3,7 @@ import re
 from cromulent import model, vocab
 
 from pipeline.process.base.mapper import Mapper
-from pipeline.sources.museums.hvh.parser import first_text, texts
+from pipeline.sources.museums.hvh.parser import first_text, first_value, texts
 
 
 OWNER_URI = "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland"
@@ -40,6 +40,44 @@ def _set_timespan(prod, label):
     prod.timespan = ts
 
 
+def _dedupe(values):
+    seen = set()
+    output = []
+    for value in values:
+        if value not in seen:
+            seen.add(value)
+            output.append(value)
+    return output
+
+
+def _attrs(data, key):
+    value = first_value(data, key)
+    if isinstance(value, dict):
+        return value.get("attrs", {}) or {}
+    return {}
+
+
+def _values(data, key):
+    for value in data.get(key, []) or []:
+        if isinstance(value, dict):
+            text = value.get("value", "").strip()
+            attrs = value.get("attrs", {}) or {}
+        else:
+            text = str(value).strip()
+            attrs = {}
+        if text:
+            yield text, attrs
+
+
+def _join_place_name(name, attrs):
+    parts = [name]
+    for key in ("plaats", "gemeente", "regio"):
+        value = attrs.get(key)
+        if value and value not in parts:
+            parts.append(value)
+    return ", ".join(parts)
+
+
 class HvhMapper(Mapper):
     def __init__(self, config):
         Mapper.__init__(self, config)
@@ -71,21 +109,68 @@ class HvhMapper(Mapper):
         for desc in texts(rec, "dc:description"):
             top.referred_to_by = vocab.Description(content=desc)
 
+        for statement in texts(rec, "dc_format"):
+            top.referred_to_by = vocab.DimensionStatement(content=statement)
+
         for material in texts(rec, "dcterms_medium"):
             top.made_of = model.Material(label=material)
 
         temporal = first_text(rec, "dcterms:temporal")
+        production = None
         if temporal:
             production = model.Production()
             _set_timespan(production, temporal)
             if hasattr(production, "timespan"):
                 top.produced_by = production
 
-        for field in ("objecttype", "dc:subject", "thesvondst", "dcterms:temporalperiod", "rubriek"):
-            for label in texts(rec, field):
-                top.classified_as = model.Type(label=label)
+        creators = list(_values(rec, "dc_creator"))
+        for creator, attrs in creators:
+            role_label = attrs.get("Role")
+            if role_label:
+                top.referred_to_by = vocab.Note(content=f"{role_label}: {creator}")
+
+        classifications = []
+        for field in ("objecttype", "dc:subject", "thesvondst", "dcterms:temporalperiod", "periodezoeken", "thesperiode", "rubriek"):
+            classifications.extend(texts(rec, field))
+        for label in _dedupe(classifications):
+            top.classified_as = model.Type(label=label)
 
         top.current_owner = model.Group(ident=OWNER_URI, label=OWNER_LABEL)
+
+        storage = first_text(rec, "Standplaats")
+        if storage:
+            top.current_location = model.Place(label=storage)
+
+        findspot = first_text(rec, "vindplaats")
+        if findspot:
+            attrs = _attrs(rec, "vindplaats")
+            encounter = model.Encounter()
+            encounter.took_place_at = model.Place(label=_join_place_name(findspot, attrs))
+            if attrs.get("onderzoek"):
+                encounter.classified_as = model.Type(label=attrs["onderzoek"])
+            if attrs.get("jaar"):
+                _set_timespan(encounter, attrs["jaar"])
+            for creator, creator_attrs in creators:
+                group = model.Group(label=creator)
+                if creator_attrs.get("creatorandrole"):
+                    group.identified_by = vocab.DisplayName(content=creator_attrs["creatorandrole"])
+                encounter.carried_out_by = group
+            top.encountered_by = encounter
+
+        rel_site = first_value(rec, "relobjectsites")
+        if isinstance(rel_site, dict):
+            site_attrs = rel_site.get("attrs", {}) or {}
+            site_name = site_attrs.get("sitename")
+            site_url = site_attrs.get("deeplinksitepubl")
+            if site_name:
+                top.referred_to_by = vocab.Note(content=f"Vindplaats: {site_name}")
+            if site_url:
+                page = model.LinguisticObject(label=f"Site page at Huis van Hilde: {site_name or rel_site.get('value')}")
+                webpage = vocab.WebPage(label="Findspot page at Huis van Hilde")
+                webpage.access_point = model.DigitalObject(ident=site_url)
+                webpage.format = "text/html"
+                page.digitally_carried_by = webpage
+                top.subject_of = page
 
         page_url = first_text(rec, "deeplinkpubl")
         if page_url:

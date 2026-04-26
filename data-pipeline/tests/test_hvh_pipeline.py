@@ -71,8 +71,18 @@ class HvhPipelineTest(unittest.TestCase):
         self.assertIn("produced_by", data)
         self.assertIn("classified_as", data)
         self.assertIn("current_owner", data)
+        self.assertIn("current_location", data)
+        self.assertIn("encountered_by", data)
         self.assertIn("subject_of", data)
         self.assertIn("representation", data)
+
+        self.assertEqual(data["current_location"]["_label"], "Depot C")
+        encounter = data["encountered_by"][0]
+        self.assertEqual(encounter["took_place_at"][0]["_label"], "De Krocht, Limmen, Castricum, Kennemerland")
+        self.assertEqual(encounter["carried_out_by"][0]["_label"], "Diachron UvA bv")
+        self.assertTrue(
+            any(note.get("content") == "-/0.4/2.3" for note in data.get("referred_to_by", []))
+        )
 
 
 if __name__ == "__main__":
