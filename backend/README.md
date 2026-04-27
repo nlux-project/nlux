@@ -125,6 +125,18 @@ python scripts/load_data.py <directory>
 
 Walks `<directory>` for `*.json` files, extracts `id`, `type`, `_label`, and text content for full-text indexing, and upserts each record into the database.
 
+After generating synthetic agents, enrich Person records with Wikidata/Wikipedia
+biographies:
+
+```bash
+python scripts/generate_agents.py
+python scripts/enrich_person_biographies.py
+```
+
+The biography script adds Wikipedia summaries as `Display Biography` notes on
+matched `Person` records and stores Wikidata/Wikipedia equivalents for source
+traceability.
+
 Test data: [jsoeterbroek/teylers_collection_research/lux_metadata](https://github.com/jsoeterbroek/teylers_collection_research/tree/main/lux_metadata)
 
 ---
