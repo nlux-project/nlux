@@ -22,18 +22,89 @@ def _is_sqlite(db: Session) -> bool:
     return "sqlite" in settings.database_url
 
 
+def _parse_query(q: str) -> Any:
+    try:
+        return json.loads(q)
+    except (json.JSONDecodeError, TypeError):
+        return q
+
+
 def _extract_query_text(q: str) -> str:
     """
     The frontend passes q as a JSON object e.g. {"text":"marcus"} or
     {"_scope":"item","text":"warhol"}. Extract the plain text value.
     """
-    try:
-        parsed = json.loads(q)
-        if isinstance(parsed, dict) and "text" in parsed:
-            return parsed["text"]
-    except (json.JSONDecodeError, TypeError):
-        pass
+    parsed = _parse_query(q)
+    if isinstance(parsed, dict) and "text" in parsed:
+        return parsed["text"]
     return q
+
+
+def _walk_json(value: Any):
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            yield from _walk_json(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from _walk_json(child)
+
+
+def _has_nested_id(value: Any, uri: str) -> bool:
+    return any(node.get("id") == uri for node in _walk_json(value))
+
+
+FIELD_PATHS: Dict[str, List[str]] = {
+    "producedBy": ["produced_by"],
+    "encounteredBy": ["produced_by"],
+    "productionInfluencedBy": ["produced_by"],
+    "createdBy": ["created_by"],
+    "publishedBy": ["created_by"],
+    "creationInfluencedBy": ["created_by"],
+    "carriedBy": ["carries", "digitally_carries"],
+    "aboutAgent": ["about"],
+    "classification": ["classified_as"],
+    "material": ["made_of"],
+}
+
+
+def _criteria_id(criteria: Any) -> Optional[str]:
+    if isinstance(criteria, dict):
+        value = criteria.get("id")
+        return value if isinstance(value, str) else None
+    return None
+
+
+def _matches_structured_query(data: dict, criteria: Any) -> bool:
+    if not isinstance(criteria, dict):
+        return False
+    if "AND" in criteria:
+        parts = criteria["AND"]
+        return isinstance(parts, list) and all(
+            _matches_structured_query(data, part) for part in parts
+        )
+    if "OR" in criteria:
+        parts = criteria["OR"]
+        return isinstance(parts, list) and any(
+            _matches_structured_query(data, part) for part in parts
+        )
+
+    for field, value in criteria.items():
+        uri = _criteria_id(value)
+        paths = FIELD_PATHS.get(field)
+        if uri is None or paths is None:
+            continue
+        if any(_has_nested_id(data.get(path), uri) for path in paths):
+            return True
+    return False
+
+
+def _is_structured_query(parsed: Any) -> bool:
+    if not isinstance(parsed, dict) or "text" in parsed:
+        return False
+    if "AND" in parsed or "OR" in parsed:
+        return True
+    return any(key in FIELD_PATHS for key in parsed)
 
 
 def search_records(
@@ -48,12 +119,16 @@ def search_records(
     items: list of Activity Streams stubs — [{"id": uri, "type": linked_art_type}, ...]
     page is 1-based.
     """
-    q = _extract_query_text(q)
+    parsed = _parse_query(q)
     if page_length is None:
         page_length = settings.page_length_default
     page_length = min(page_length, settings.page_length_max)
     offset = max(page - 1, 0) * page_length
 
+    if _is_structured_query(parsed):
+        return _json_search(db, parsed, scope, offset, page_length)
+
+    q = _extract_query_text(q)
     if _is_sqlite(db):
         return _sqlite_search(db, q, scope, offset, page_length)
     return _pg_search(db, q, scope, offset, page_length)
@@ -70,6 +145,26 @@ def _type_placeholders(types: List[str]) -> Tuple[str, Dict]:
     params = {f"t{i}": t for i, t in enumerate(types)}
     clause = ", ".join(f":t{i}" for i in range(len(types)))
     return clause, params
+
+
+def _json_search(db: Session, criteria: dict, scope: str, offset: int, limit: int):
+    types = SCOPE_TYPES.get(scope, [])
+    query = db.query(Record)
+    if types:
+        query = query.filter(Record.type.in_(types))
+
+    matches: List[Tuple[str, str]] = []
+    for record in query.all():
+        try:
+            data = json.loads(record.data)
+        except json.JSONDecodeError:
+            continue
+        if _matches_structured_query(data, criteria):
+            matches.append((record.uri, record.type))
+
+    total = len(matches)
+    rows = matches[offset : offset + limit] if limit > 0 else []
+    return [{"id": uri, "type": linked_art_type} for uri, linked_art_type in rows], total
 
 
 def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):

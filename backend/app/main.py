@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from typing import Optional
+from typing import Any, Optional
 from urllib.parse import unquote, quote
 
 from fastapi import FastAPI, Depends, HTTPException, Query
@@ -59,6 +59,18 @@ HAL_RELATIONS: dict[str, list[dict]] = {
         {"rel": "lux:workCarriedBy", "name": "carriedWork", "relScope": "item"},
     ],
     "agent": [
+        {
+            "rel": "lux:agentCreatedPublishedInfluencedWork",
+            "name": "createdWork",
+            "relScope": "work",
+            "hrefType": "search",
+        },
+        {
+            "rel": "lux:agentMadeDiscoveredInfluencedItem",
+            "name": "producedItem",
+            "relScope": "item",
+            "hrefType": "search",
+        },
         {"rel": "lux:agentCreatedWork", "name": "createdWork", "relScope": "work"},
         {"rel": "lux:agentProducedItem", "name": "producedItem", "relScope": "item"},
         {"rel": "lux:agentRelatedPlaces", "name": "relatedToAgent", "relScope": "place"},
@@ -94,11 +106,104 @@ def _related_url(scope: str, name: str, uri: str, page: int = 1) -> str:
     return f"{_base()}/api/related-list/{scope}?name={name}&uri={quote(uri)}&page={page}"
 
 
+def _relationship_search_query(name: str, uri: str) -> dict:
+    if name in {"producedItem", "createdItem"}:
+        return {
+            "OR": [
+                {"producedBy": {"id": uri}},
+                {"encounteredBy": {"id": uri}},
+                {"productionInfluencedBy": {"id": uri}},
+            ],
+        }
+    if name == "createdWork":
+        return {
+            "OR": [
+                {"createdBy": {"id": uri}},
+                {"publishedBy": {"id": uri}},
+                {"creationInfluencedBy": {"id": uri}},
+            ],
+        }
+    return {"text": uri}
+
+
+def _relationship_url(scope: str, rel: dict, uri: str, label: str | None) -> str:
+    if rel.get("hrefType") == "search":
+        q = json.dumps(_relationship_search_query(rel["name"], uri))
+        return _search_url(scope, q, page=1, page_length=settings.page_length_default)
+    return _related_url(scope, rel["name"], uri)
+
+
 def _scope_for_type(linked_art_type: str) -> str:
     for scope, types in SCOPE_TYPES.items():
         if linked_art_type in types:
             return scope
     return "item"
+
+
+def _walk_json(value: Any):
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            yield from _walk_json(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from _walk_json(child)
+
+
+def _has_nested_id(value: Any, uri: str) -> bool:
+    return any(node.get("id") == uri for node in _walk_json(value))
+
+
+def _matches_related_record(data: dict, name: str, uri: str) -> bool:
+    if name in {"producedItem", "createdItem"}:
+        return _has_nested_id(data.get("produced_by"), uri)
+    if name == "createdWork":
+        return _has_nested_id(data.get("created_by"), uri)
+    if name == "carriedWork":
+        return _has_nested_id(data.get("carries"), uri) or _has_nested_id(
+            data.get("digitally_carries"),
+            uri,
+        )
+    if name == "memberOf":
+        return _has_nested_id(data.get("member_of"), uri) or _has_nested_id(
+            data.get("part_of"),
+            uri,
+        )
+    if name == "relatedToPlace":
+        return _has_nested_id(data.get("current_location"), uri) or _has_nested_id(
+            data.get("produced_by"),
+            uri,
+        )
+    if name == "aboutConcept":
+        return _has_nested_id(data.get("about"), uri) or _has_nested_id(data.get("classified_as"), uri)
+    return False
+
+
+def _related_records(
+    db: Session,
+    scope: str,
+    name: str,
+    uri: str,
+    page: int,
+    page_length: int,
+) -> tuple[list[dict], int]:
+    types = SCOPE_TYPES.get(scope, [])
+    query = db.query(Record)
+    if types:
+        query = query.filter(Record.type.in_(types))
+
+    matches: list[dict] = []
+    for record in query.all():
+        try:
+            data = json.loads(record.data)
+        except json.JSONDecodeError:
+            continue
+        if _matches_related_record(data, name, uri):
+            matches.append({"id": record.uri, "type": record.type})
+
+    total = len(matches)
+    offset = max(page - 1, 0) * page_length
+    return matches[offset : offset + page_length], total
 
 
 @app.on_event("startup")
@@ -194,9 +299,22 @@ def get_record(
         scope = _scope_for_type(record.type)
         links: dict = {"self": {"href": record.uri}}
         for rel in HAL_RELATIONS.get(scope, []):
+            _, estimate = _related_records(
+                db,
+                rel["relScope"],
+                rel["name"],
+                record.uri,
+                page=1,
+                page_length=0,
+            )
             links[rel["rel"]] = {
-                "href": _related_url(rel["relScope"], rel["name"], record.uri),
-                "_estimate": 0,
+                "href": _relationship_url(
+                    rel["relScope"],
+                    rel,
+                    record.uri,
+                    data.get("_label") or record.label,
+                ),
+                "_estimate": estimate,
             }
         data["_links"] = links
 
@@ -357,12 +475,42 @@ def related_list(
     pageLength: Optional[int] = Query(None, alias="pageLength", ge=1),
     db: Session = Depends(get_db),
 ):
-    """Returns empty related list — cross-entity linking not yet implemented."""
-    return {
+    """Returns records related by simple Linked Art object references."""
+    page_length = min(
+        pageLength or settings.page_length_default,
+        settings.page_length_max,
+    )
+    decoded_uri = unquote(uri)
+    items, total = _related_records(db, scope, name, decoded_uri, page, page_length)
+    total_pages = max((total + page_length - 1) // page_length, 1)
+
+    id_str = _related_url(scope, name, decoded_uri, page)
+    collection_url = _related_url(scope, name, decoded_uri, 1)
+    result: dict = {
         "@context": CONTEXT_SEARCH,
-        "id": _related_url(scope, name, uri, page),
+        "id": id_str,
         "type": "OrderedCollectionPage",
-        "orderedItems": [],
+        "partOf": [{
+            "id": collection_url,
+            "type": "OrderedCollection",
+            "label": {"en": [SCOPE_LABELS.get(scope, scope)]},
+            "summary": {"en": [SCOPE_SUMMARIES.get(scope, "")]},
+            "totalItems": total,
+        }],
+        "orderedItems": items,
+    }
+    if page < total_pages:
+        result["next"] = {
+            "id": _related_url(scope, name, decoded_uri, page + 1),
+            "type": "OrderedCollectionPage",
+        }
+    if page > 1:
+        result["prev"] = {
+            "id": _related_url(scope, name, decoded_uri, page - 1),
+            "type": "OrderedCollectionPage",
+        }
+    return {
+        **result,
     }
 
 
