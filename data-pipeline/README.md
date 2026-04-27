@@ -145,6 +145,9 @@ python ./run-merge.py 0 1 --teylers
 
 # Export to LUX-formatted JSONL
 python ./run-export.py 0 1
+
+# Optionally enrich Person records with Wikidata/Wikipedia biography notes
+python ./run-export.py 0 1 --biographies
 ```
 
 Output lands in `data/output/latest/`.
@@ -156,7 +159,6 @@ docker cp data/output/latest/export_full_0.jsonl nlux-api-1:/tmp/export_full_0.j
 docker exec nlux-api-1 python3 scripts/reset.py
 docker exec nlux-api-1 python3 scripts/load_data.py /tmp/
 docker exec nlux-api-1 python3 scripts/generate_agents.py
-docker exec nlux-api-1 python3 scripts/enrich_person_biographies.py
 ```
 
 ### AAT authority data (run once)

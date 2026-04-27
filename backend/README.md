@@ -125,8 +125,13 @@ python scripts/load_data.py <directory>
 
 Walks `<directory>` for `*.json` files, extracts `id`, `type`, `_label`, and text content for full-text indexing, and upserts each record into the database.
 
-After generating synthetic agents, enrich Person records with Wikidata/Wikipedia
-biographies:
+Person biographies are preferably enriched in the data pipeline during export:
+
+```bash
+python data-pipeline/run-export.py 0 1 --biographies
+```
+
+For already-loaded API databases, a backend post-load helper is also available:
 
 ```bash
 python scripts/generate_agents.py

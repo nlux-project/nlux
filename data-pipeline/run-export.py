@@ -4,6 +4,7 @@ import json
 from dotenv import load_dotenv
 from pipeline.config import Config
 from pipeline.storage.cache.postgres import PoolManager
+from pipeline.process.biography_enrichment import enrich_person_record
 
 import datetime
 import io
@@ -28,6 +29,28 @@ if "--profile" in sys.argv:
 else:
     profiling = False
 
+if "--biographies" in sys.argv:
+    sys.argv.remove("--biographies")
+    enrich_biographies = True
+else:
+    enrich_biographies = False
+
+if "--biography-force" in sys.argv:
+    sys.argv.remove("--biography-force")
+    biography_force = True
+else:
+    biography_force = False
+
+biography_languages = ["nl", "en"]
+for arg in list(sys.argv):
+    if arg.startswith("--biography-languages="):
+        sys.argv.remove(arg)
+        biography_languages = [
+            lang.strip()
+            for lang in arg.split("=", 1)[1].split(",")
+            if lang.strip()
+        ]
+
 if len(sys.argv) > 2:
     my_slice = int(sys.argv[1])
     max_slice = int(sys.argv[2])
@@ -45,9 +68,16 @@ if profiling:
 if not os.path.exists(cfgs.exports_dir):
     os.mkdir(cfgs.exports_dir)
 
+base_uri = (
+    cfgs.internal_uri.rsplit("data/", 1)[0]
+    if cfgs.internal_uri.endswith("/data/") or cfgs.internal_uri.endswith("data/")
+    else cfgs.internal_uri
+)
+
 fn = os.path.join(cfgs.exports_dir, f"export_full_{my_slice}.jsonl")
 with open(fn, "w") as outh:
     x = 0
+    enriched_biographies = 0
     for rec in merged.iter_records_slice(my_slice, max_slice):
         yuid = rec["yuid"]
         if not yuid in ml:
@@ -62,6 +92,18 @@ with open(fn, "w") as outh:
             ml[yuid] = rec2
         else:
             data = ml[yuid]["data"]
+        if enrich_biographies and data.get("type") == "Person":
+            try:
+                data, qid = enrich_person_record(
+                    dict(data),
+                    biography_languages,
+                    base_uri,
+                    force=biography_force,
+                )
+                if qid:
+                    enriched_biographies += 1
+            except Exception as e:
+                print(f"{yuid} errored in biography enrichment: {e}")
         jstr = json.dumps(data, separators=(",", ":"),
                           default=lambda o: o.isoformat() if isinstance(o, datetime.datetime) else str(o))
         outh.write(jstr)
@@ -71,6 +113,9 @@ with open(fn, "w") as outh:
         x += 1
         if profiling and x >= 10000:
             break
+
+if enrich_biographies:
+    print(f"\nEnriched {enriched_biographies} Person records with biographies")
 
 
 if profiling:
