@@ -146,7 +146,10 @@ python ./run-merge.py 0 1 --teylers
 # Export to LUX-formatted JSONL
 python ./run-export.py 0 1
 
-# Optionally enrich Person records with Wikidata/Wikipedia biography notes
+# Export generated Person/Group records referenced by objects
+python ./run-export.py 0 1 --export-agents
+
+# Export generated agents and enrich Person records with Wikidata/Wikipedia biography notes
 python ./run-export.py 0 1 --biographies
 ```
 
