@@ -11,6 +11,10 @@ RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
 fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
 check() { echo -e "${YELLOW}  ▸ Validating priref=$TEST_PRIREF ...${NC}"; }
+run_teylers_test() {
+    TEST_PRIREF="$TEST_PRIREF" TEYLERS_REQUIRE_LIVE=1 \
+        uv run python -m unittest "tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.$1"
+}
 
 # ── Step 1: Re-harvest ───────────────────────────────────────────────────────
 #echo "==> Step 1: Deleting existing harvest files ..."
@@ -26,7 +30,7 @@ uv run python enrich-teylers.py
 check
 FILE="data/input/teylers/${TEST_PRIREF}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
-./data/tests/test-harvest-teylers-step1.sh "$TEST_PRIREF" || fail "Harvest file validation failed"
+run_teylers_test test_harvest_file || fail "Harvest file validation failed"
 pass "Harvest + enrich OK — file has expected fields"
 
 # ── Step 2: Clear pipeline phase flags ───────────────────────────────────────
@@ -39,7 +43,7 @@ echo "==> Step 3: Loading into PostgreSQL ..."
 uv run python ./manage-data.py --load --teylers
 
 check
-./data/tests/test-harvest-teylers-step3.sh "$TEST_PRIREF" || fail "Datacache validation failed"
+run_teylers_test test_datacache_record || fail "Datacache validation failed"
 pass "Datacache OK — fields carried through"
 
 # ── Step 4: Reconcile against CHT + AAT ─────────────────────────────────────
@@ -56,7 +60,7 @@ echo "==> Step 5: Merging ..."
 uv run python ./run-merge.py 0 1 --teylers
 
 check
-./data/tests/test-harvest-teylers-step5.sh "$TEST_PRIREF" || fail "Merge validation failed"
+run_teylers_test test_rewritten_record || fail "Merge validation failed"
 pass "Merge OK"
 
 # ── Step 6: Export ────────────────────────────────────────────────────────────
@@ -69,7 +73,7 @@ TOTAL=$(wc -l < data/output/latest/export_full_0.jsonl)
 echo "    Export: $TOTAL records"
 
 check
-./data/tests/test-harvest-teylers-step6.sh "$TEST_PRIREF" || fail "Export validation failed"
+run_teylers_test test_export_record || fail "Export validation failed"
 pass "Export OK"
 
 # ── Step 7: Reload into Docker API ───────────────────────────────────────────
@@ -81,7 +85,7 @@ docker exec nlux-api-1 python3 scripts/generate_agents.py
 docker exec nlux-api-1 python3 scripts/generate_concepts.py
 
 check
-./data/tests/test-harvest-teylers-step7.sh "$TEST_PRIREF" || fail "API validation failed"
+run_teylers_test test_api_record || fail "API validation failed"
 pass "API OK — all fields present, agent URIs assigned"
 
 echo ""

@@ -11,6 +11,10 @@ RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
 fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
 info() { echo -e "${YELLOW}── $1 ──${NC}"; }
+run_teylers_test() {
+    TEST_PRIREF="$PRIREF" TEYLERS_REQUIRE_LIVE=1 \
+        uv run python -m unittest "tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.$1"
+}
 
 # ── Step 1: Harvest file ─────────────────────────────────────────────────────
 info "Step 1: Check harvest file for priref=$PRIREF"
@@ -18,7 +22,7 @@ info "Step 1: Check harvest file for priref=$PRIREF"
 FILE="data/input/teylers/${PRIREF}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
 pass "File exists"
-./data/tests/test-harvest-teylers-step1.sh "$PRIREF" || fail "Step 1 validation failed"
+run_teylers_test test_harvest_file || fail "Step 1 validation failed"
 pass "Harvest file validated"
 
 # ── Step 3: PostgreSQL datacache ──────────────────────────────────────────────
@@ -29,7 +33,7 @@ SELECT CASE WHEN COUNT(*) > 0 THEN 'found' ELSE 'missing' END
 FROM teylers_data_cache WHERE data->>'@priref' = '${PRIREF}'
 " | grep -q 'found' || fail "Record not in teylers_data_cache"
 pass "Record found in datacache"
-./data/tests/test-harvest-teylers-step3.sh "$PRIREF" || fail "Step 3 validation failed"
+run_teylers_test test_datacache_record || fail "Step 3 validation failed"
 pass "Datacache validated"
 
 # ── Step 5: Reconciled/rewritten record ───────────────────────────────────────
@@ -39,7 +43,7 @@ COUNT=$(psql -h localhost -U postgres -d postgres -t -A -c "SELECT COUNT(*) FROM
 if [ "$COUNT" = "0" ]; then
     echo "  (rewritten cache empty — reconcile/merge not yet run, skipping)"
 else
-    ./data/tests/test-harvest-teylers-step5.sh "$PRIREF" || fail "Step 5 validation failed"
+    run_teylers_test test_rewritten_record || fail "Step 5 validation failed"
     pass "Rewritten record validated"
 fi
 
@@ -50,7 +54,7 @@ EXPORT="data/output/latest/export_full_0.jsonl"
 if [ ! -f "$EXPORT" ]; then
     echo "  (export file not found, skipping)"
 else
-    ./data/tests/test-harvest-teylers-step6.sh "$PRIREF" || fail "Step 6 validation failed"
+    run_teylers_test test_export_record || fail "Step 6 validation failed"
     pass "Export validated"
 fi
 
@@ -60,7 +64,7 @@ info "Step 7: Check nlux API response"
 if ! docker ps --format '{{.Names}}' | grep -q nlux-api-1; then
     echo "  (nlux-api-1 container not running, skipping)"
 else
-    ./data/tests/test-harvest-teylers-step7.sh "$PRIREF" || fail "Step 7 validation failed"
+    run_teylers_test test_api_record || fail "Step 7 validation failed"
     pass "API response validated"
 fi
 

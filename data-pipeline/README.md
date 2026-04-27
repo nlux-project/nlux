@@ -192,20 +192,22 @@ uv run python ./manage-data.py --load-index --wikidata
 
 ### Per-step validation
 
-Test scripts in `data/tests/` (or `tests/` in the git repo) validate a single record through each pipeline stage:
+Python `unittest` modules in `tests/` validate source parsing and single-record pipeline stages:
 
-| Script | Validates |
+| Test | Validates |
 |---|---|
-| `test-harvest-teylers-step1.sh` | Harvest file: required fields present |
-| `test-harvest-teylers-step3.sh` | PostgreSQL datacache: fields carried through |
-| `test-harvest-teylers-step5.sh` | Rewritten cache after merge: Linked Art fields present |
-| `test-harvest-teylers-step6.sh` | Export JSONL: Linked Art fields present |
-| `test-harvest-teylers-step7.sh` | API response: all fields + HAL links + agent URIs |
+| `tests.test_hvh_pipeline` | HvH OAI parsing and mapper output |
+| `tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.test_harvest_file` | Harvest file: required fields present |
+| `tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.test_datacache_record` | PostgreSQL datacache: fields carried through |
+| `tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.test_rewritten_record` | Rewritten cache after merge: Linked Art fields present |
+| `tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.test_export_record` | Export JSONL: Linked Art fields present |
+| `tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.test_api_record` | API response: all fields + HAL links + agent URIs |
 
-All tests treat absent fields as errors (exit 1). Run individually:
+Run individually:
 
 ```bash
-./data/tests/test-harvest-teylers-step1.sh 41634
+TEST_PRIREF=41634 uv run python -m unittest \
+  tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.test_harvest_file
 ```
 
 Or use `test-record.sh` to run all steps at once without re-running the pipeline:
