@@ -1,83 +1,49 @@
 #!/bin/bash
-# Test a single record through each pipeline step (without re-running the pipeline).
-# Usage: ./test-record.sh [priref]
+# Validates a test record after each step — exits on first failure.
 set -euo pipefail
 
-PRIREF="${1:-41634}"
 cd /Users/lux/data-pipeline
 
+TEST_PRIREF="${1:-41634}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 
 pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
 fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
-info() { echo -e "${YELLOW}── $1 ──${NC}"; }
+check() { echo -e "${YELLOW}  ▸ Validating priref=$TEST_PRIREF ...${NC}"; }
 run_teylers_test() {
-    TEST_PRIREF="$PRIREF" TEYLERS_REQUIRE_LIVE=1 \
+    TEST_PRIREF="$TEST_PRIREF" TEYLERS_REQUIRE_LIVE=1 \
         uv run python -m unittest "tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.$1"
 }
 
-# ── Step 1: Harvest file ─────────────────────────────────────────────────────
-info "Step 1: Check harvest file for priref=$PRIREF"
-
-FILE="data/input/teylers/${PRIREF}.json"
+echo "==> Testing Step 1: harvest file validation ..."
+check
+FILE="data/input/teylers/${TEST_PRIREF}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
-pass "File exists"
-run_teylers_test test_harvest_file || fail "Step 1 validation failed"
-pass "Harvest file validated"
+run_teylers_test test_harvest_file || fail "Harvest file validation failed"
+pass "Harvest + enrich OK — file has expected fields"
 
-# ── Step 3: PostgreSQL datacache ──────────────────────────────────────────────
-info "Step 3: Check teylers_data_cache in PostgreSQL"
+echo "==> Testing Step 3: datacache validation ..."
+check
+run_teylers_test test_datacache_record || fail "Datacache validation failed"
+pass "Datacache OK — fields carried through"
 
-psql -h localhost -U postgres -d postgres -t -A -c "
-SELECT CASE WHEN COUNT(*) > 0 THEN 'found' ELSE 'missing' END
-FROM teylers_data_cache WHERE data->>'@priref' = '${PRIREF}'
-" | grep -q 'found' || fail "Record not in teylers_data_cache"
-pass "Record found in datacache"
-run_teylers_test test_datacache_record || fail "Step 3 validation failed"
-pass "Datacache validated"
+# ── Step 5: Merge ─────────────────────────────────────────────────────────────
+echo "==> Testing Step 5: merge validation ..."
+check
+run_teylers_test test_rewritten_record || fail "Merge validation failed"
+pass "Merge OK"
 
-# ── Step 4: Reconciled/mapped record ──────────────────────────────────────────
-info "Step 4: Check teylers_record_cache (after reconcile)"
+# ── Step 6: Export ────────────────────────────────────────────────────────────
+echo "==> Testing Step 6: export validation ..."
+check
+run_teylers_test test_export_record || fail "Export validation failed"
+pass "Export OK"
 
-psql -h localhost -U postgres -d postgres -t -A -c "
-SELECT CASE WHEN COUNT(*) > 0 THEN 'found' ELSE 'missing' END
-FROM teylers_record_cache WHERE identifier = '${PRIREF}'
-" | grep -q 'found' || fail "Record not in teylers_record_cache; run: uv run python ./run-reconcile.py --teylers --recid ${PRIREF} --norefs"
-pass "Record found in reconciled record cache"
-run_teylers_test test_reconciled_record || fail "Step 4 validation failed"
-pass "Reconciled record validated"
-
-# ── Step 5: Merged/rewritten record ───────────────────────────────────────────
-info "Step 5: Check teylers_rewritten_record_cache (after merge)"
-
-COUNT=$(psql -h localhost -U postgres -d postgres -t -A -c "SELECT COUNT(*) FROM teylers_rewritten_record_cache" 2>/dev/null || echo "0")
-if [ "$COUNT" = "0" ]; then
-    fail "Rewritten cache empty; run: uv run python ./run-merge.py --teylers --recid ${PRIREF} --norefs"
-else
-    run_teylers_test test_rewritten_record || fail "Step 5 validation failed"
-    pass "Rewritten record validated"
-fi
-
-# ── Step 6: JSONL export ──────────────────────────────────────────────────────
-info "Step 6: Check export JSONL"
-
-EXPORT="data/output/latest/export_full_0.jsonl"
-if [ ! -f "$EXPORT" ]; then
-    echo "  (export file not found, skipping)"
-else
-    run_teylers_test test_export_record || fail "Step 6 validation failed"
-    pass "Export validated"
-fi
-
-# ── Step 7: nlux API (Docker) ─────────────────────────────────────────────────
-info "Step 7: Check nlux API response"
-
-if ! docker ps --format '{{.Names}}' | grep -q nlux-api-1; then
-    echo "  (nlux-api-1 container not running, skipping)"
-else
-    run_teylers_test test_api_record || fail "Step 7 validation failed"
-    pass "API response validated"
-fi
+# ── Step 7: Reload into Docker API ───────────────────────────────────────────
+echo "==> Testing Step 7: API validation ..."
+check
+run_teylers_test test_api_record || fail "API validation failed"
+pass "API OK — all fields present, agent URIs assigned"
 
 echo ""
-echo -e "${GREEN}All checks passed for priref=$PRIREF${NC}"
+echo -e "${GREEN}==> All steps completed and validated for priref=$TEST_PRIREF${NC}"

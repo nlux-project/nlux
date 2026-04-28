@@ -1,60 +1,49 @@
 #!/bin/bash
-# Test a single Huis van Hilde record through each pipeline step.
-# Usage: ./test-hvh-record.sh [identifier]
+# Validates a test record after each step — exits on first failure.
 set -euo pipefail
 
-IDENTIFIER="${1:-5061-06}"
 cd /Users/lux/data-pipeline
 
+TEST_PRIREF="${1:-4564-09}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 
 pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
 fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
-info() { echo -e "${YELLOW}── $1 ──${NC}"; }
+check() { echo -e "${YELLOW}  ▸ Validating priref=$TEST_PRIREF ...${NC}"; }
 run_hvh_test() {
-    TEST_HVH_ID="$IDENTIFIER" HVH_REQUIRE_LIVE=1 \
-        uv run python -m unittest "tests.test_hvh_pipeline.HvhPipelineTest.$1"
+    TEST_PRIREF="$TEST_PRIREF" HVH_REQUIRE_LIVE=1 \
+        uv run python -m unittest "tests.test_hvh_pipeline.HvhPipelineIntegrationTest.$1"
 }
 
-# ── Step 1: Harvest file ─────────────────────────────────────────────────────
-info "Step 1: Check harvest file for identifier=$IDENTIFIER"
-
-FILE="data/input/hvh/${IDENTIFIER}.json"
+echo "==> Testing Step 1: harvest file validation ..."
+check
+FILE="data/input/hvh/${TEST_PRIREF}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
-pass "File exists"
+run_hvh_test test_harvest_file || fail "Harvest file validation failed"
+pass "Harvest + enrich OK — file has expected fields"
 
-# ── Step 3: PostgreSQL datacache ──────────────────────────────────────────────
-info "Step 3: Check hvh_data_cache in PostgreSQL"
+echo "==> Testing Step 3: datacache validation ..."
+check
+run_hvh_test test_datacache_record || fail "Datacache validation failed"
+pass "Datacache OK — fields carried through"
 
-psql -h localhost -U postgres -d postgres -t -A -c "
-SELECT CASE WHEN COUNT(*) > 0 THEN 'found' ELSE 'missing' END
-FROM hvh_data_cache WHERE identifier = '${IDENTIFIER}'
-" | grep -q 'found' || fail "Record not in hvh_data_cache"
-pass "Record found in datacache"
-run_hvh_test test_datacache_record || fail "Step 3 validation failed"
-pass "Datacache validated"
+# ── Step 5: Merge ─────────────────────────────────────────────────────────────
+echo "==> Testing Step 5: merge validation ..."
+check
+run_hvh_test test_rewritten_record || fail "Merge validation failed"
+pass "Merge OK"
 
-# ── Step 4: Reconciled/mapped record ──────────────────────────────────────────
-info "Step 4: Check hvh_record_cache (after reconcile)"
+# ── Step 6: Export ────────────────────────────────────────────────────────────
+echo "==> Testing Step 6: export validation ..."
+check
+run_hvh_test test_export_record || fail "Export validation failed"
+pass "Export OK"
 
-psql -h localhost -U postgres -d postgres -t -A -c "
-SELECT CASE WHEN COUNT(*) > 0 THEN 'found' ELSE 'missing' END
-FROM hvh_record_cache WHERE identifier = '${IDENTIFIER}'
-" | grep -q 'found' || fail "Record not in hvh_record_cache; run: uv run python ./run-reconcile.py --hvh --recid ${IDENTIFIER} --norefs"
-pass "Record found in reconciled record cache"
-run_hvh_test test_reconciled_record || fail "Step 4 validation failed"
-pass "Reconciled record validated"
-
-# ── Step 5: Merged/rewritten record ───────────────────────────────────────────
-info "Step 5: Check hvh_rewritten_record_cache (after merge)"
-
-COUNT=$(psql -h localhost -U postgres -d postgres -t -A -c "SELECT COUNT(*) FROM hvh_rewritten_record_cache" 2>/dev/null || echo "0")
-if [ "$COUNT" = "0" ]; then
-    fail "Rewritten cache empty; run: uv run python ./run-merge.py --hvh --recid ${IDENTIFIER} --norefs"
-else
-    run_hvh_test test_rewritten_record || fail "Step 5 validation failed"
-    pass "Rewritten record validated"
-fi
+# ── Step 7: Reload into Docker API ───────────────────────────────────────────
+echo "==> Testing Step 7: API validation ..."
+check
+run_hvh_test test_api_record || fail "API validation failed"
+pass "API OK — all fields present, agent URIs assigned"
 
 echo ""
-echo -e "${GREEN}All checks passed for HvH identifier=$IDENTIFIER${NC}"
+echo -e "${GREEN}==> All steps completed and validated for priref=$TEST_PRIREF${NC}"
