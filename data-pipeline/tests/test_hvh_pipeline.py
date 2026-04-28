@@ -1,3 +1,5 @@
+import json
+import os
 import unittest
 from pathlib import Path
 
@@ -5,7 +7,47 @@ from pipeline.sources.museums.hvh.mapper import HvhMapper
 from pipeline.sources.museums.hvh.parser import parse_oai_record_xml, parse_list_identifiers_xml
 
 
+PIPELINE = Path(os.environ.get("PIPELINE_DIR", "/Users/lux/data-pipeline"))
 FIXTURES = Path(__file__).parent / "fixtures"
+TEST_HVH_ID = os.environ.get("TEST_HVH_ID", "5061-06")
+REQUIRE_LIVE = os.environ.get("HVH_REQUIRE_LIVE") == "1"
+
+LINKED_ART_REQUIRED_FIELDS = [
+    "identified_by",
+    "classified_as",
+    "current_owner",
+    "subject_of",
+]
+
+
+def _skip_or_fail(testcase, message):
+    if REQUIRE_LIVE:
+        testcase.fail(message)
+    testcase.skipTest(message)
+
+
+def _coerce_record(value):
+    if isinstance(value, str):
+        value = json.loads(value)
+    if isinstance(value, dict) and "data" in value:
+        return value["data"]
+    return value
+
+
+def _missing_fields(record, fields):
+    return [field for field in fields if field not in record]
+
+
+def _connect_pg(testcase):
+    try:
+        import psycopg2
+    except ImportError:
+        _skip_or_fail(testcase, "psycopg2 is not installed")
+
+    try:
+        return psycopg2.connect(host="localhost", user="postgres", password="admin123", dbname="postgres")
+    except Exception as exc:
+        _skip_or_fail(testcase, f"PostgreSQL is unavailable: {exc}")
 
 
 class DummyIdMap(dict):
@@ -83,6 +125,47 @@ class HvhPipelineTest(unittest.TestCase):
         self.assertTrue(
             any(note.get("content") == "-/0.4/2.3" for note in data.get("referred_to_by", []))
         )
+
+    def test_datacache_record(self):
+        with _connect_pg(self) as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT data FROM hvh_data_cache WHERE identifier = %s", (TEST_HVH_ID,))
+                row = cur.fetchone()
+
+        if not row:
+            _skip_or_fail(self, "Record not found in hvh_data_cache")
+
+        record = _coerce_record(row[0])
+        values = record.get("dc:identifier", [])
+        self.assertTrue(any(value.get("value") == TEST_HVH_ID for value in values))
+
+    def test_reconciled_record(self):
+        with _connect_pg(self) as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT data FROM hvh_record_cache WHERE identifier = %s", (TEST_HVH_ID,))
+                row = cur.fetchone()
+
+        if not row:
+            _skip_or_fail(self, "Record not found in hvh_record_cache")
+
+        record = _coerce_record(row[0])
+        self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+
+    def test_rewritten_record(self):
+        with _connect_pg(self) as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    "SELECT data FROM hvh_rewritten_record_cache "
+                    "WHERE data::text LIKE %s LIMIT 1",
+                    (f"%{TEST_HVH_ID}%",),
+                )
+                row = cur.fetchone()
+
+        if not row:
+            _skip_or_fail(self, "Record not found in hvh_rewritten_record_cache")
+
+        record = _coerce_record(row[0])
+        self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
 
 
 if __name__ == "__main__":

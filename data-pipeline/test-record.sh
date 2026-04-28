@@ -36,12 +36,23 @@ pass "Record found in datacache"
 run_teylers_test test_datacache_record || fail "Step 3 validation failed"
 pass "Datacache validated"
 
-# ── Step 5: Reconciled/rewritten record ───────────────────────────────────────
-info "Step 5: Check teylers_rewritten_record_cache (after reconcile+merge)"
+# ── Step 4: Reconciled/mapped record ──────────────────────────────────────────
+info "Step 4: Check teylers_record_cache (after reconcile)"
+
+psql -h localhost -U postgres -d postgres -t -A -c "
+SELECT CASE WHEN COUNT(*) > 0 THEN 'found' ELSE 'missing' END
+FROM teylers_record_cache WHERE identifier = '${PRIREF}'
+" | grep -q 'found' || fail "Record not in teylers_record_cache; run: uv run python ./run-reconcile.py --teylers --recid ${PRIREF} --norefs"
+pass "Record found in reconciled record cache"
+run_teylers_test test_reconciled_record || fail "Step 4 validation failed"
+pass "Reconciled record validated"
+
+# ── Step 5: Merged/rewritten record ───────────────────────────────────────────
+info "Step 5: Check teylers_rewritten_record_cache (after merge)"
 
 COUNT=$(psql -h localhost -U postgres -d postgres -t -A -c "SELECT COUNT(*) FROM teylers_rewritten_record_cache" 2>/dev/null || echo "0")
 if [ "$COUNT" = "0" ]; then
-    echo "  (rewritten cache empty — reconcile/merge not yet run, skipping)"
+    fail "Rewritten cache empty; run: uv run python ./run-merge.py --teylers --recid ${PRIREF} --norefs"
 else
     run_teylers_test test_rewritten_record || fail "Step 5 validation failed"
     pass "Rewritten record validated"

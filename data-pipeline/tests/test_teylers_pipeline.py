@@ -90,6 +90,18 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
         record = _coerce_record(row[0])
         self.assertEqual(_missing_fields(record, RAW_REQUIRED_FIELDS), [])
 
+    def test_reconciled_record(self):
+        with _connect_pg(self) as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT data FROM teylers_record_cache WHERE identifier = %s", (TEST_PRIREF,))
+                row = cur.fetchone()
+
+        if not row:
+            _skip_or_fail(self, "Record not found in teylers_record_cache")
+
+        record = _coerce_record(row[0])
+        self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+
     def test_rewritten_record(self):
         with _connect_pg(self) as conn:
             with conn.cursor() as cur:
