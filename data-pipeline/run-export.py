@@ -45,8 +45,11 @@ if "--biography-force" in sys.argv:
 else:
     biography_force = False
 
-if "--export-agents" in sys.argv:
-    sys.argv.remove("--export-agents")
+export_entity_flags = {"--export-agents", "--export-entities"}
+if export_entity_flags.intersection(sys.argv):
+    for flag in export_entity_flags:
+        if flag in sys.argv:
+            sys.argv.remove(flag)
     export_entities = True
 else:
     export_entities = enrich_biographies

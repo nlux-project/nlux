@@ -147,7 +147,7 @@ python ./run-merge.py 0 1 --teylers
 python ./run-export.py 0 1
 
 # Export generated searchable entity records referenced by objects
-python ./run-export.py 0 1 --export-agents
+python ./run-export.py 0 1 --export-entities
 
 # Export generated entities and enrich Person records with Wikidata/Wikipedia biography notes
 python ./run-export.py 0 1 --biographies
