@@ -3,6 +3,9 @@ import os
 import subprocess
 import unittest
 from pathlib import Path
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
 
 from pipeline.sources.museums.hvh.mapper import HvhMapper
 from pipeline.sources.museums.hvh.parser import parse_oai_record_xml, parse_list_identifiers_xml

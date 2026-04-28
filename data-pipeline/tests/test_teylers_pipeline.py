@@ -3,6 +3,9 @@ import os
 import subprocess
 import unittest
 from pathlib import Path
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
 
 
 PIPELINE = Path(os.environ.get("PIPELINE_DIR", "/Users/lux/data-pipeline"))
