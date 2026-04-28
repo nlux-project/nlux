@@ -28,6 +28,7 @@ RAW_REQUIRED_FIELDS = [
 LINKED_ART_REQUIRED_FIELDS = [
     "identified_by",
     "classified_as",
+    "member_of",
     "current_owner",
     "subject_of",
 ]
@@ -130,11 +131,13 @@ class HvhPipelineIntegrationTest(unittest.TestCase):
         self.assertIn("made_of", data)
         self.assertIn("produced_by", data)
         self.assertIn("classified_as", data)
+        self.assertIn("member_of", data)
         self.assertIn("current_owner", data)
         self.assertIn("current_location", data)
         self.assertIn("encountered_by", data)
         self.assertIn("subject_of", data)
         self.assertIn("representation", data)
+        self.assertEqual(data["member_of"][0]["_label"], "Huis van Hilde collection")
 
         self.assertEqual(data["current_location"]["_label"], "Depot C")
         encounter = data["encountered_by"][0]

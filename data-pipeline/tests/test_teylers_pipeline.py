@@ -29,6 +29,7 @@ LINKED_ART_REQUIRED_FIELDS = [
     "classified_as",
     "produced_by",
     "made_of",
+    "member_of",
     "dimension",
     "current_owner",
     "subject_of",

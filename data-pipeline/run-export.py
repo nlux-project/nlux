@@ -4,7 +4,7 @@ import json
 from dotenv import load_dotenv
 from pipeline.config import Config
 from pipeline.storage.cache.postgres import PoolManager
-from pipeline.process.agent_export import assign_agent_uris, build_agent_record
+from pipeline.process.entity_export import assign_entity_uris, build_entity_record
 from pipeline.process.biography_enrichment import enrich_person_record
 
 import datetime
@@ -47,9 +47,9 @@ else:
 
 if "--export-agents" in sys.argv:
     sys.argv.remove("--export-agents")
-    export_agents = True
+    export_entities = True
 else:
-    export_agents = enrich_biographies
+    export_entities = enrich_biographies
 
 biography_languages = ["nl", "en"]
 for arg in list(sys.argv):
@@ -88,7 +88,7 @@ fn = os.path.join(cfgs.exports_dir, f"export_full_{my_slice}.jsonl")
 with open(fn, "w") as outh:
     x = 0
     enriched_biographies = 0
-    agents = {}
+    entities = {}
     for rec in merged.iter_records_slice(my_slice, max_slice):
         yuid = rec["yuid"]
         if not yuid in ml:
@@ -103,9 +103,9 @@ with open(fn, "w") as outh:
             ml[yuid] = rec2
         else:
             data = ml[yuid]["data"]
-        if export_agents:
+        if export_entities:
             data = dict(data)
-            assign_agent_uris(data, agents, base_uri)
+            assign_entity_uris(data, entities, base_uri)
         if enrich_biographies and data.get("type") == "Person":
             try:
                 data, qid = enrich_person_record(
@@ -127,9 +127,9 @@ with open(fn, "w") as outh:
         x += 1
         if profiling and x >= 10000:
             break
-    if export_agents:
-        for uri, info in sorted(agents.items()):
-            data = build_agent_record(uri, info["type"], info["label"])
+    if export_entities:
+        for uri, info in sorted(entities.items()):
+            data = build_entity_record(uri, info["type"], info["label"], info.get("equivalent"))
             if enrich_biographies and data.get("type") == "Person":
                 try:
                     data, qid = enrich_person_record(
@@ -154,8 +154,8 @@ with open(fn, "w") as outh:
 
 if enrich_biographies:
     print(f"\nEnriched {enriched_biographies} Person records with biographies")
-if export_agents:
-    print(f"Exported {len(agents)} generated Person/Group records")
+if export_entities:
+    print(f"Exported {len(entities)} generated entity records")
 
 
 if profiling:

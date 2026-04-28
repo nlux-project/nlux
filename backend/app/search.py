@@ -14,7 +14,7 @@ SCOPE_TYPES: Dict[str, List[str]] = {
     "agent": ["Person", "Group", "Actor"],
     "place": ["Place"],
     "concept": ["Type", "Material", "Language", "MeasurementUnit", "Currency", "Concept"],
-    "event": ["Activity", "Period", "Event", "Move", "Acquisition"],
+    "event": ["Activity", "Period", "Event", "Move", "Acquisition", "Production", "Encounter"],
 }
 
 

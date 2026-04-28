@@ -11,6 +11,7 @@ DETAIL_BASE = "https://teylers.adlibhosting.com/ais6/Details/museum/{priref}"
 # Teylers Museum as current_owner (Wikidata Q751582)
 TEYLERS_URI = "http://www.wikidata.org/entity/Q751582"
 TEYLERS_LABEL = "Teylers Museum"
+TEYLERS_COLLECTION_LABEL = "Teylers Museum collection"
 
 # Dutch object_name → (cromulent class, AAT URI, AAT label)
 _OBJECT_TYPE_MAP = {
@@ -232,6 +233,7 @@ class TeylersMapper(Mapper):
 
         # --- Current owner: Teylers Museum ---
         top.current_owner = model.Group(ident=TEYLERS_URI, label=TEYLERS_LABEL)
+        top.member_of = model.Set(label=TEYLERS_COLLECTION_LABEL)
 
         # --- Digital reference: detail page ---
         detail_url = DETAIL_BASE.format(priref=priref)
