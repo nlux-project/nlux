@@ -55,6 +55,10 @@ echo "==> Step 4: Reconciling (CHT + AAT) ..."
 psql -h localhost -U postgres -d postgres -c "TRUNCATE teylers_rewritten_record_cache, teylers_record_cache, merged_merged_record_cache;"
 uv run python ./run-reconcile.py 0 1 --teylers
 
+check
+run_teylers_test test_reconciled_record || fail "Reconciliation validation failed"
+pass "Reconciliation OK"
+
 # ── Step 5: Merge ─────────────────────────────────────────────────────────────
 echo "==> Step 5: Merging ..."
 uv run python ./run-merge.py 0 1 --teylers

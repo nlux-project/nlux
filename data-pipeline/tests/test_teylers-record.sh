@@ -27,6 +27,11 @@ check
 run_teylers_test test_datacache_record || fail "Datacache validation failed"
 pass "Datacache OK — fields carried through"
 
+echo "==> Testing Step 4: reconciliation validation ..."
+check
+run_teylers_test test_reconciled_record || fail "Reconciliation validation failed"
+pass "Reconciliation OK"
+
 # ── Step 5: Merge ─────────────────────────────────────────────────────────────
 echo "==> Testing Step 5: merge validation ..."
 check
