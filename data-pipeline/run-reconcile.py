@@ -12,6 +12,9 @@ import io
 import cProfile
 import pstats
 from pstats import SortKey
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
 
 load_dotenv()
 basepath = os.getenv("LUX_BASEPATH", "")

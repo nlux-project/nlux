@@ -8,6 +8,9 @@ from dotenv import load_dotenv
 from pipeline.config import Config
 from pipeline.process.reference_manager import ReferenceManager
 from pipeline.process.update_manager import UpdateManager
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
 
 load_dotenv()
 basepath = os.getenv("LUX_BASEPATH", "")
