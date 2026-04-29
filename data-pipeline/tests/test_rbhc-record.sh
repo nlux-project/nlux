@@ -20,7 +20,7 @@ check
 FILE="data/input/rbhc/${TEST_PRIREF}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
 run_rbhc_test test_harvest_file || fail "Harvest file validation failed"
-pass "Harvest OK — file has expected fields"
+pass "Harvest + enrich OK — file has expected fields"
 
 echo "==> Testing Step 3: datacache validation ..."
 check

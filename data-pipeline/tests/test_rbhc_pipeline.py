@@ -24,6 +24,8 @@ RAW_REQUIRED_FIELDS = [
     "Object_name",
     "Production",
     "Production_date",
+    "Description",
+    "Dimension",
     "Reproduction",
     "object_number",
 ]
