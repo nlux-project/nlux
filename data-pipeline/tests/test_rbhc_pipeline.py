@@ -37,9 +37,29 @@ LINKED_ART_REQUIRED_FIELDS = [
     "dimension",
     "member_of",
     "current_owner",
+    "referred_to_by",
     "subject_of",
     "representation",
 ]
+
+DESCRIPTION_STATEMENT = "http://vocab.getty.edu/aat/300435416"
+
+
+def _classified_as_equivalent(record, uri):
+    for cls in record.get("classified_as", []):
+        if cls.get("id") == uri:
+            return True
+        if any(eq.get("id") == uri for eq in cls.get("equivalent", [])):
+            return True
+    return False
+
+
+def _description_notes(record):
+    return [
+        note
+        for note in record.get("referred_to_by", [])
+        if note.get("content") and _classified_as_equivalent(note, DESCRIPTION_STATEMENT)
+    ]
 
 
 def _skip_or_fail(testcase, message):
@@ -133,6 +153,9 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(data["current_owner"][0]["id"], "http://www.wikidata.org/entity/Q759169")
         self.assertEqual(data["current_location"]["_label"], "HM09V01")
         self.assertEqual(data["produced_by"]["carried_out_by"][0]["_label"], "Lenoir, Etienne")
+        descriptions = _description_notes(data)
+        self.assertEqual(len(descriptions), 1)
+        self.assertIn("Geelkoperen standaardmeter", descriptions[0]["content"])
         self.assertIn("mmb-web.adlibhosting.com/ais6/Details/collect/2", data["subject_of"][0]["digitally_carried_by"][0]["access_point"][0]["id"])
         self.assertIn("Website%5CVoorwerpen", data["representation"][0]["digitally_shown_by"][0]["id"].replace("\\", "%5C"))
 
@@ -159,6 +182,11 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
 
         record = _coerce_record(row[0])
         self.assertEqual(_missing_fields(record, RAW_REQUIRED_FIELDS), [])
+        descriptions = record.get("Description", [])
+        self.assertTrue(
+            any("zonnewijzer" in json.dumps(desc, ensure_ascii=False).lower() for desc in descriptions)
+            or TEST_PRIREF != "246"
+        )
 
     def test_reconciled_record(self):
         try:
@@ -174,6 +202,7 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
 
         record = _coerce_record(row[0])
         self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+        self.assertTrue(_description_notes(record))
 
     def test_rewritten_record(self):
         try:
@@ -199,21 +228,22 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
         if not path.exists():
             _skip_or_fail(self, f"Export file not found: {path}")
 
-        source_uri = f"mmb-web.adlibhosting.com/ais6/Details/collect/{TEST_PRIREF}"
+        source_uri = f"https://mmb-web.adlibhosting.com/ais6/Details/collect/{TEST_PRIREF}"
         with path.open(encoding="utf-8") as fh:
             for line in fh:
                 if not line.strip():
                     continue
                 record = _coerce_record(json.loads(line))
                 equivalents = record.get("equivalent", [])
-                if any(source_uri in eq.get("id", "") for eq in equivalents):
+                if any(eq.get("id", "").rstrip("/") == source_uri for eq in equivalents):
                     self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+                    self.assertTrue(_description_notes(record))
                     return
 
         _skip_or_fail(self, "Record not found in export")
 
     def test_api_record(self):
-        source_uri = f"mmb-web.adlibhosting.com/ais6/Details/collect/{TEST_PRIREF}"
+        source_uri = f"https://mmb-web.adlibhosting.com/ais6/Details/collect/{TEST_PRIREF}"
         try:
             uri = subprocess.check_output(
                 [
@@ -227,7 +257,7 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
                         "conn = sqlite3.connect('/data/nlux.db')\n"
                         "cur = conn.cursor()\n"
                         "cur.execute(\"SELECT uri FROM records WHERE data LIKE ? LIMIT 1\", "
-                        f"('%{source_uri}%',))\n"
+                        f"('%\"id\": \"{source_uri}\"%',))\n"
                         "row = cur.fetchone()\n"
                         "print(row[0] if row else '')\n"
                         "conn.close()\n"
@@ -250,6 +280,7 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
 
         record = json.loads(raw)
         self.assertEqual(_missing_fields(record, [*LINKED_ART_REQUIRED_FIELDS, "_links"]), [])
+        self.assertTrue(_description_notes(record))
 
 
 if __name__ == "__main__":

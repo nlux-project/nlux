@@ -45,7 +45,6 @@ Copy `docs/sample_config/rbhc.json` into your runtime `config/config_cache/` alo
 cd data-pipeline
 
 ./harvest-rbhc.sh
-uv run python enrich-rbhc.py
 uv run python manage-data.py --load --rbhc
 uv run python run-reconcile.py 0 1 --rbhc
 uv run python run-merge.py 0 1 --rbhc
@@ -58,7 +57,7 @@ Validate a loaded test record from bash:
 ./tests/test_rbhc-record.sh 2
 ```
 
-For a quick single-record test, enrich only the test record before loading:
+`harvest-rbhc.sh` runs both the bulk harvest and the required per-record enrichment. For a quick single-record test, enrich only the test record before loading:
 
 ```bash
 uv run python enrich-rbhc.py data/input/rbhc 2
