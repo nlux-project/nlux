@@ -8,6 +8,9 @@ from pathlib import Path
 
 import requests
 
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
 
 WEBAPI = "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx"
 DATABASE = "collect"

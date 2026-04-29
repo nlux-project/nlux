@@ -27,6 +27,9 @@ except ImportError:
     print("requests is required: pip install requests")
     sys.exit(1)
 
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
 
 # CHT SPARQL endpoint (Triply-powered)
 #SPARQL_ENDPOINT = (

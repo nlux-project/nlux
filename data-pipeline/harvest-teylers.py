@@ -4,6 +4,10 @@ import time
 import ujson as json
 import requests
 
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
+
 WEBAPI = "https://teylers.adlibhosting.com/ais6/webapi/wwwopac.ashx"
 PAGE_SIZE = 100
 

@@ -7,6 +7,9 @@ import ujson as json
 
 from pipeline.sources.museums.hvh.parser import parse_list_identifiers_xml, parse_oai_record_xml
 
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
 
 OAI_ENDPOINT = "http://62.221.199.184:17518/oai"
 OUTPUT_DIR = sys.argv[1] if len(sys.argv) > 1 else "data/input/hvh"
