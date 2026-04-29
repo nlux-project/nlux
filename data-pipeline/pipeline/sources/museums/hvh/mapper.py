@@ -8,7 +8,7 @@ from pipeline.sources.museums.hvh.parser import first_text, first_value, texts
 
 OWNER_URI = "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland"
 OWNER_LABEL = "Provinciaal Depot voor Archeologie Noord-Holland"
-HVH_COLLECTION_LABEL = "Huis van Hilde collection"
+HVH_COLLECTION_LABEL = "Huis van Hilde"
 YEAR_RANGE_RE = re.compile(r"^\s*(\d{1,4})\s*-\s*(\d{1,4})\s*$")
 SINGLE_YEAR_RE = re.compile(r"^\s*(\d{1,4})\s*$")
 

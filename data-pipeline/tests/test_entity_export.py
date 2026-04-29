@@ -15,7 +15,7 @@ class EntityExportTest(unittest.TestCase):
             "classified_as": [{"type": "Type", "_label": "coins (money)"}],
             "made_of": [{"type": "Material", "_label": "Brons"}],
             "current_location": {"type": "Place", "_label": "Depot C"},
-            "member_of": [{"type": "Set", "_label": "Huis van Hilde collection"}],
+            "member_of": [{"type": "Set", "_label": "Huis van Hilde"}],
             "produced_by": {
                 "type": "Production",
                 "carried_out_by": [{"type": "Person", "_label": "Rembrandt"}],
@@ -29,7 +29,7 @@ class EntityExportTest(unittest.TestCase):
         self.assertIn("coins (money)", labels)
         self.assertIn("Brons", labels)
         self.assertIn("Depot C", labels)
-        self.assertIn("Huis van Hilde collection", labels)
+        self.assertIn("Huis van Hilde", labels)
         self.assertIn("Production: Rembrandt", labels)
         self.assertIn("Rembrandt", labels)
 
@@ -67,7 +67,7 @@ class EntityExportTest(unittest.TestCase):
         cases = [
             ("Type", "coins (money)", "concept"),
             ("Place", "Depot C", "place"),
-            ("Set", "Huis van Hilde collection", "set"),
+            ("Set", "Huis van Hilde", "set"),
             ("Production", "Production: Rembrandt", "event"),
         ]
 
@@ -81,6 +81,20 @@ class EntityExportTest(unittest.TestCase):
                 self.assertEqual(record["type"], entity_type)
                 self.assertEqual(record["_label"], label)
                 self.assertEqual(record["identified_by"][0]["content"], label)
+
+    def test_build_set_record_marks_it_as_named_collection(self):
+        record = build_entity_record(
+            "http://localhost:8000/data/set/example",
+            "Set",
+            "Huis van Hilde",
+        )
+
+        equivalents = [
+            eq["id"]
+            for classification in record["classified_as"]
+            for eq in classification.get("equivalent", [])
+        ]
+        self.assertIn("http://vocab.getty.edu/aat/300456764", equivalents)
 
 
 if __name__ == "__main__":

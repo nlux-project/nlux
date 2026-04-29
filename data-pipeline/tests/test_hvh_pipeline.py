@@ -137,7 +137,7 @@ class HvhPipelineIntegrationTest(unittest.TestCase):
         self.assertIn("encountered_by", data)
         self.assertIn("subject_of", data)
         self.assertIn("representation", data)
-        self.assertEqual(data["member_of"][0]["_label"], "Huis van Hilde collection")
+        self.assertEqual(data["member_of"][0]["_label"], "Huis van Hilde")
 
         self.assertEqual(data["current_location"]["_label"], "Depot C")
         encounter = data["encountered_by"][0]

@@ -5,6 +5,7 @@ from typing import Any
 
 CONTEXT = "https://linked.art/ns/v1/linked-art.json"
 AAT_PREFERRED_NAME = "http://vocab.getty.edu/aat/300404670"
+AAT_NAMED_COLLECTION = "http://vocab.getty.edu/aat/300456764"
 
 AGENT_TYPES = {"Person", "Group", "Actor"}
 PLACE_TYPES = {"Place"}
@@ -147,6 +148,24 @@ def _identified_by(label: str) -> list[dict]:
     ]
 
 
+def _classifications(entity_type: str) -> list[dict]:
+    if entity_type == "Set":
+        return [
+            {
+                "type": "Type",
+                "_label": "Named Collection",
+                "equivalent": [
+                    {
+                        "id": AAT_NAMED_COLLECTION,
+                        "type": "Type",
+                        "_label": "named collections",
+                    }
+                ],
+            }
+        ]
+    return []
+
+
 def build_entity_record(uri: str, entity_type: str, label: str, equivalent: str | None = None) -> dict:
     record = {
         "@context": CONTEXT,
@@ -155,6 +174,9 @@ def build_entity_record(uri: str, entity_type: str, label: str, equivalent: str 
         "_label": label,
         "identified_by": _identified_by(label),
     }
+    classifications = _classifications(entity_type)
+    if classifications:
+        record["classified_as"] = classifications
     if equivalent:
         record["equivalent"] = [{"id": equivalent, "type": entity_type, "_label": label}]
     return record
