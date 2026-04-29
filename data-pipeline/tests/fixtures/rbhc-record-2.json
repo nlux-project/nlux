@@ -1,0 +1,217 @@
+{
+  "@priref": 2,
+  "@created": "2017-08-18T10:55:01",
+  "@modification": "2024-01-04T13:57:11",
+  "Title": [
+    {
+      "title": [
+        {
+          "lang": "nl-NL",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "Standaard metre, Etienne Lenoir Parijs, 1795"
+              }
+            ]
+          }
+        },
+        {
+          "lang": "en-GB",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "Standard meter, Etienne Lenoir Paris, 1795"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "Object_name": [
+    {
+      "object_name": [
+        {
+          "lang": "nl-NL",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "Standaardmeter"
+              }
+            ]
+          }
+        },
+        {
+          "lang": "en-GB",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "Standard metre"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "Production": [
+    {
+      "creator": [
+        {
+          "lang": "nl-NL",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "Lenoir, Etienne; Parijs"
+              }
+            ]
+          }
+        }
+      ],
+      "creator.role": [
+        {
+          "lang": "nl-NL",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "Maker"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "Production_date": [
+    {
+      "production.date.start": {
+        "spans": [
+          {
+            "text": "1795"
+          }
+        ]
+      },
+      "production.date.end": {
+        "spans": [
+          {
+            "text": "1795"
+          }
+        ]
+      }
+    }
+  ],
+  "Description": [
+    {
+      "description": {
+        "spans": [
+          {
+            "text": "Geelkoperen standaardmeter met een schaalverdeling in dm en in cm."
+          }
+        ]
+      }
+    }
+  ],
+  "Dimension": [
+    {
+      "dimension.type": [
+        {
+          "lang": "nl-NL",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "Hoogte"
+              }
+            ]
+          }
+        }
+      ],
+      "dimension.unit": [
+        {
+          "lang": "nl-NL",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "cm"
+              }
+            ]
+          }
+        }
+      ],
+      "dimension.value": {
+        "spans": [
+          {
+            "text": "0.4"
+          }
+        ]
+      }
+    }
+  ],
+  "Inscription": [
+    {
+      "inscription.content": {
+        "spans": [
+          {
+            "text": "Midden: METRE Rechts: Le noir."
+          }
+        ]
+      }
+    }
+  ],
+  "Associated_subject": [
+    {
+      "association.subject": [
+        {
+          "lang": "nl-NL",
+          "invariant": false,
+          "value": {
+            "spans": [
+              {
+                "text": "Amsterdam; the Netherlands"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "Reproduction": [
+    {
+      "reproduction.reference": {
+        "spans": [
+          {
+            "text": "Website\\Voorwerpen\\20000\\V23890.JPG"
+          }
+        ]
+      }
+    }
+  ],
+  "location.default.name": {
+    "spans": [
+      {
+        "text": "HM09V01"
+      }
+    ]
+  },
+  "object_number": {
+    "spans": [
+      {
+        "text": "V23890"
+      }
+    ]
+  },
+  "priref": {
+    "spans": [
+      {
+        "text": "2"
+      }
+    ]
+  }
+}

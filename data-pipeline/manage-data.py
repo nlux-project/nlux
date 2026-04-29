@@ -55,6 +55,9 @@ if "--load" in sys.argv:
     if "--hvh" in sys.argv or "--all" in sys.argv:
         cfgs.internal["hvh"]["datacache"].clear()
         cfgs.internal["hvh"]["loader"].load()
+    if "--rbhc" in sys.argv or "--all" in sys.argv:
+        cfgs.internal["rbhc"]["datacache"].clear()
+        cfgs.internal["rbhc"]["loader"].load()
     if "--cht" in sys.argv or "--all" in sys.argv:
         cfgs.external["cht"]["datacache"].clear()
         cfgs.external["cht"]["loader"].load()

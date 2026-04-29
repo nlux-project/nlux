@@ -1,0 +1,15 @@
+{
+    "name": "rbhc",
+    "type": "internal",
+    "namespace": "https://mmb-web.adlibhosting.com/ais6/Details/collect/",
+    "matches": ["mmb-web.adlibhosting.com/ais6/Details/collect/"],
+    "fetch": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?database=collect&search=priref+%3D+{identifier}&output=json&limit=1",
+    "merge_order": 3,
+
+    "harvesterClass": "process.base.harvester.Harvester",
+    "mapperClass": "sources.museums.rbhc.mapper.RbhcMapper",
+    "loaderClass": "sources.museums.rbhc.loader.RbhcLoader",
+    "fetcherClass": "sources.museums.rbhc.fetcher.RbhcFetcher",
+
+    "totalRecords": 83758
+}
