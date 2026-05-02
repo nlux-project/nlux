@@ -1,0 +1,15 @@
+{
+    "name": "fhm",
+    "type": "internal",
+    "namespace": "http://collectie.franshalsmuseum.nl/?query=search=objectid=",
+    "matches": ["collectie.franshalsmuseum.nl/?query=search=objectid="],
+    "fetch": "https://collectie.franshalsmuseum.nl/cc/ccConnector.asmx/search",
+    "merge_order": 4,
+
+    "harvesterClass": "process.base.harvester.Harvester",
+    "mapperClass": "sources.museums.fhm.mapper.FhmMapper",
+    "loaderClass": "sources.museums.fhm.loader.FhmLoader",
+    "fetcherClass": "sources.museums.fhm.fetcher.FhmFetcher",
+
+    "totalRecords": 10986
+}
