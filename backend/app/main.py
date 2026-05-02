@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+import base64
 import json
 from typing import Any, Optional
-from urllib.parse import unquote, quote
+from urllib.error import HTTPError, URLError
+from urllib.parse import unquote, quote, urlparse
+from urllib.request import Request, urlopen
 
 from fastapi import FastAPI, Depends, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 from sqlalchemy import text
@@ -27,6 +30,13 @@ app.add_middleware(
 
 CONTEXT_SEARCH = "https://linked.art/ns/v1/search.json"
 CONTEXT_LINKED_ART = "https://linked.art/ns/v1/linked-art.json"
+IIIF_PRESENTATION_3_CONTEXT = "http://iiif.io/api/presentation/3/context.json"
+
+TRUSTED_IMAGE_HOSTS = {
+    "teylers.adlibhosting.com",
+    "mmb-web.adlibhosting.com",
+    "collectie.huisvanhilde.nl",
+}
 
 SCOPE_LABELS = {
     "item": "Objects",
@@ -92,6 +102,25 @@ HAL_RELATIONS: dict[str, list[dict]] = {
 
 def _base() -> str:
     return settings.base_url.rstrip("/")
+
+
+def _public_base() -> str:
+    return _base() or "http://localhost:8000"
+
+
+def _decode_image_token(token: str) -> str:
+    padding = "=" * (-len(token) % 4)
+    try:
+        return base64.urlsafe_b64decode(f"{token}{padding}".encode("ascii")).decode("utf-8")
+    except Exception:
+        raise HTTPException(status_code=400, detail="Invalid image token")
+
+
+def _trusted_image_url(url: str) -> str:
+    parsed = urlparse(url)
+    if parsed.scheme not in {"http", "https"} or parsed.hostname not in TRUSTED_IMAGE_HOSTS:
+        raise HTTPException(status_code=403, detail="Image host is not trusted")
+    return url
 
 
 def _search_url(scope: str, q: str, page: int, page_length: int) -> str:
@@ -223,6 +252,82 @@ def startup():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+# ---------------------------------------------------------------------------
+# IIIF endpoints
+# ---------------------------------------------------------------------------
+
+@app.get("/iiif/image/{token}")
+def iiif_image(token: str):
+    image_url = _trusted_image_url(_decode_image_token(token))
+    request = Request(image_url, headers={"User-Agent": "NLUX/0.1"})
+
+    try:
+        with urlopen(request, timeout=20) as response:
+            content = response.read()
+            content_type = response.headers.get_content_type() or "image/jpeg"
+    except HTTPError as exc:
+        raise HTTPException(status_code=exc.code, detail="Source image request failed")
+    except URLError as exc:
+        raise HTTPException(status_code=502, detail=f"Source image is unavailable: {exc.reason}")
+
+    return Response(
+        content=content,
+        media_type=content_type,
+        headers={"Cache-Control": "public, max-age=86400"},
+    )
+
+
+@app.get("/iiif/manifest/{token}")
+def iiif_manifest(
+    token: str,
+    label: str = Query("Image"),
+    width: int = Query(800, ge=1),
+    height: int = Query(800, ge=1),
+):
+    _trusted_image_url(_decode_image_token(token))
+    base = _public_base()
+    manifest_id = f"{base}/iiif/manifest/{token}"
+    image_id = f"{base}/iiif/image/{token}"
+    canvas_id = f"{manifest_id}/canvas/1"
+    annotation_page_id = f"{canvas_id}/annotation-page/1"
+
+    return {
+        "@context": IIIF_PRESENTATION_3_CONTEXT,
+        "id": manifest_id,
+        "type": "Manifest",
+        "label": {"none": [label]},
+        "items": [
+            {
+                "id": canvas_id,
+                "type": "Canvas",
+                "height": height,
+                "width": width,
+                "items": [
+                    {
+                        "id": annotation_page_id,
+                        "type": "AnnotationPage",
+                        "items": [
+                            {
+                                "id": f"{annotation_page_id}/annotation/1",
+                                "type": "Annotation",
+                                "motivation": "painting",
+                                "target": canvas_id,
+                                "body": {
+                                    "id": image_id,
+                                    "type": "Image",
+                                    "format": "image/jpeg",
+                                    "height": height,
+                                    "width": width,
+                                },
+                            }
+                        ],
+                    }
+                ],
+            }
+        ],
+    }
 
 
 # ---------------------------------------------------------------------------

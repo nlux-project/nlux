@@ -1,3 +1,6 @@
+import base64
+from urllib.parse import quote
+
 from pipeline.process.base.mapper import Mapper
 from cromulent import model, vocab
 
@@ -7,6 +10,7 @@ IMAGE_BASE = (
     "&folderId=1&width=800&height=800&imageformat=jpg"
 )
 DETAIL_BASE = "https://teylers.adlibhosting.com/ais6/Details/museum/{priref}"
+IIIF_PRESENTATION_3_CONTEXT = "http://iiif.io/api/presentation/3/context.json"
 
 # Teylers Museum as current_owner (Wikidata Q751582)
 TEYLERS_URI = "http://www.wikidata.org/entity/Q751582"
@@ -92,11 +96,61 @@ def _group_values(group_list, field_name):
             yield val
 
 
+def _api_base(config):
+    all_configs = config.get("all_configs")
+    internal_uri = getattr(all_configs, "internal_uri", "") if all_configs else ""
+    if internal_uri:
+        return internal_uri.rstrip("/").removesuffix("/data")
+    return "http://localhost:8000"
+
+
+def _iiif_token(url):
+    return base64.urlsafe_b64encode(url.encode("utf-8")).decode("ascii").rstrip("=")
+
+
+def _iiif_manifest_url(api_base, image_url, label):
+    token = _iiif_token(image_url)
+    return f"{api_base}/iiif/manifest/{token}?label={quote(label or 'Image')}"
+
+
+def _append_iiif_manifest(data, manifest_url):
+    if not manifest_url:
+        return
+
+    data.setdefault("subject_of", []).append(
+        {
+            "type": "LinguisticObject",
+            "_label": "IIIF manifest",
+            "digitally_carried_by": [
+                {
+                    "type": "DigitalObject",
+                    "_label": "IIIF Presentation 3 manifest",
+                    "format": "application/ld+json",
+                    "conforms_to": [
+                        {
+                            "id": IIIF_PRESENTATION_3_CONTEXT,
+                            "type": "InformationObject",
+                            "_label": "IIIF Presentation API 3.0",
+                        }
+                    ],
+                    "access_point": [
+                        {
+                            "id": manifest_url,
+                            "type": "DigitalObject",
+                        }
+                    ],
+                }
+            ],
+        }
+    )
+
+
 class TeylersMapper(Mapper):
 
     def __init__(self, config):
         Mapper.__init__(self, config)
         self.namespace = config["namespace"]
+        self.api_base = _api_base(config)
 
     def guess_type(self, data):
         obj_names = data.get("Object_name", [])
@@ -245,12 +299,14 @@ class TeylersMapper(Mapper):
         top.subject_of = page
 
         # --- Representation: first public image ---
+        image_url = None
         for media_entry in (rec.get("Media", []) or []):
             ref = media_entry.get("media.reference", {})
             publish = _span_text(ref.get("publish_on_web"))
             filename = _span_text(ref.get("reference_number"))
             if publish and filename:
-                img_url = IMAGE_BASE.format(filename=filename)
+                img_url = IMAGE_BASE.format(filename=quote(filename))
+                image_url = img_url
                 vis = model.VisualItem()
                 dobj = model.DigitalObject()
                 dobj.access_point = model.DigitalObject(ident=img_url)
@@ -260,4 +316,6 @@ class TeylersMapper(Mapper):
                 break  # one representative image
 
         data = model.factory.toJSON(top)
+        if image_url:
+            _append_iiif_manifest(data, _iiif_manifest_url(self.api_base, image_url, primary_title))
         return {"identifier": priref, "data": data, "source": "teylers"}

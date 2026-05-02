@@ -49,12 +49,34 @@ def _representation_image_urls(record):
     return urls
 
 
+def _iiif_manifest_urls(record):
+    urls = []
+    for subject in record.get("subject_of", []):
+        for digital in subject.get("digitally_carried_by", []):
+            conforms_to = digital.get("conforms_to", [])
+            if not any("iiif.io/api/presentation/3" in entry.get("id", "") for entry in conforms_to):
+                continue
+            for access_point in digital.get("access_point", []):
+                if access_point.get("id"):
+                    urls.append(access_point["id"])
+    return urls
+
+
 def _assert_teylers_image_url(testcase, record):
     urls = _representation_image_urls(record)
     testcase.assertTrue(urls, "record has no image URL in representation")
     testcase.assertTrue(
         any("teylers.adlibhosting.com" in url for url in urls),
         f"record image URLs are not Teylers URLs: {urls}",
+    )
+
+
+def _assert_teylers_iiif_manifest(testcase, record):
+    urls = _iiif_manifest_urls(record)
+    testcase.assertTrue(urls, "record has no IIIF manifest in subject_of")
+    testcase.assertTrue(
+        any("/iiif/manifest/" in url for url in urls),
+        f"record IIIF manifest URLs are not NLUX manifest URLs: {urls}",
     )
 
 
@@ -128,6 +150,7 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
         if TEST_PRIREF == "21916":
             _assert_teylers_image_url(self, record)
+            _assert_teylers_iiif_manifest(self, record)
 
     def test_rewritten_record(self):
         with _connect_pg(self) as conn:
@@ -146,6 +169,7 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
         if TEST_PRIREF == "21916":
             _assert_teylers_image_url(self, record)
+            _assert_teylers_iiif_manifest(self, record)
 
     def test_export_record(self):
         path = PIPELINE / "data" / "output" / "latest" / "export_full_0.jsonl"
@@ -171,6 +195,7 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
                     self.assertEqual(_missing_fields(record, required), [])
                     if TEST_PRIREF == "21916":
                         _assert_teylers_image_url(self, record)
+                        _assert_teylers_iiif_manifest(self, record)
                     return
 
         _skip_or_fail(self, "Record not found in export")
@@ -217,6 +242,7 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(_missing_fields(record, [*LINKED_ART_REQUIRED_FIELDS, "_links"]), [])
         if TEST_PRIREF == "21916":
             _assert_teylers_image_url(self, record)
+            _assert_teylers_iiif_manifest(self, record)
 
         for person in record.get("produced_by", {}).get("carried_out_by", []):
             self.assertIn("id", person, f"agent {person.get('_label')} has no id")
