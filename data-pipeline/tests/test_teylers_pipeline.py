@@ -7,6 +7,8 @@ from pathlib import Path
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
 
+from pipeline.sources.museums.teylers.mapper import TeylersMapper
+
 
 PIPELINE = Path(os.environ.get("PIPELINE_DIR", "/Users/lux/data-pipeline"))
 TEST_PRIREF = os.environ.get("TEST_PRIREF", "41634")
@@ -115,7 +117,63 @@ def _connect_pg(testcase):
         _skip_or_fail(testcase, f"PostgreSQL is unavailable: {exc}")
 
 
+class DummyIdMap(dict):
+    update_token = "__test__"
+
+
+class DummyConfigs:
+    internal_uri = "http://localhost:8000/data/"
+    data_dir = str(Path(__file__).parent / "fixtures")
+    allow_network = False
+    globals = {}
+    results = {"merged": {}}
+    external = {}
+    internal = {}
+
+    def get_idmap(self):
+        return DummyIdMap()
+
+    def canonicalize(self, uri):
+        return uri
+
+
+def _about_people(record):
+    return [
+        entity
+        for entity in record.get("about", [])
+        if entity.get("type") == "Person"
+    ]
+
+
 class TeylersPipelineIntegrationTest(unittest.TestCase):
+    def test_mapper_extracts_portrait_subject_person(self):
+        mapper = TeylersMapper(
+            {
+                "name": "teylers",
+                "namespace": "https://teylers.adlibhosting.com/ais6/Details/museum/",
+                "all_configs": DummyConfigs(),
+            }
+        )
+        mapped = mapper.transform(
+            {
+                "data": {
+                    "@priref": "5569",
+                    "Title": [{"title": {"spans": [{"text": "Portret Jacobus Zaffius"}]}}],
+                    "Object_name": [{"object_name": {"spans": [{"text": "grafiek"}]}}],
+                    "Production": [
+                        {"creator": {"spans": [{"text": "Velde, Jan van de (II) (1593-1641)"}]}}
+                    ],
+                    "Content_subject": [
+                        {"content.subject": {"spans": [{"text": "portret (Zaffius, Jacobus)"}]}},
+                        {"content.subject": {"spans": [{"text": "vanitas"}]}},
+                    ],
+                }
+            }
+        )
+
+        people = _about_people(mapped["data"])
+        self.assertEqual([person["_label"] for person in people], ["Jacobus Zaffius"])
+
     def test_harvest_file(self):
         path = PIPELINE / "data" / "input" / "teylers" / f"{TEST_PRIREF}.json"
         if not path.exists():
@@ -148,6 +206,11 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
 
         record = _coerce_record(row[0])
         self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+        if TEST_PRIREF in {"5569", "24573"}:
+            self.assertTrue(
+                any("Zaffius" in person.get("_label", "") for person in _about_people(record)),
+                "Zaffius portrait records should link the sitter as an about Person",
+            )
         if TEST_PRIREF == "21916":
             _assert_teylers_image_url(self, record)
             _assert_teylers_iiif_manifest(self, record)

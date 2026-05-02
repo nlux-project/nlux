@@ -1,4 +1,5 @@
 import base64
+import re
 from urllib.parse import quote
 
 from pipeline.process.base.mapper import Mapper
@@ -145,6 +146,20 @@ def _append_iiif_manifest(data, manifest_url):
     )
 
 
+def _person_name_from_subject(subject):
+    """Extract depicted sitter names from Teylers subject strings."""
+    if not subject:
+        return None
+    match = re.match(r"\s*portret\s*\(([^)]+)\)\s*$", subject, flags=re.I)
+    if not match:
+        return None
+    name = match.group(1).strip()
+    if "," not in name:
+        return name
+    surname, given = [part.strip() for part in name.split(",", 1)]
+    return f"{given} {surname}".strip()
+
+
 class TeylersMapper(Mapper):
 
     def __init__(self, config):
@@ -284,6 +299,14 @@ class TeylersMapper(Mapper):
         # --- Inscription ---
         for insc_text in _group_values(rec.get("Inscription", []), "inscription.content"):
             top.referred_to_by = model.LinguisticObject(content=insc_text)
+
+        # --- Depicted people / subjects ---
+        for subject_text in _group_values(rec.get("Content_subject", []), "content.subject"):
+            person_label = _person_name_from_subject(subject_text)
+            if person_label:
+                top.about = model.Person(label=person_label)
+            else:
+                top.about = model.Type(label=subject_text)
 
         # --- Current owner: Teylers Museum ---
         top.current_owner = model.Group(ident=TEYLERS_URI, label=TEYLERS_LABEL)

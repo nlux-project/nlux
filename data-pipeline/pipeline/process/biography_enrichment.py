@@ -156,6 +156,50 @@ def fetch_wikipedia_summary(language: str, title: str) -> dict | None:
     }
 
 
+def _wikidata_time(entity: dict, prop: str) -> str | None:
+    claims = entity.get("claims", {}).get(prop, [])
+    for claim in claims:
+        value = (
+            claim.get("mainsnak", {})
+            .get("datavalue", {})
+            .get("value", {})
+        )
+        time_value = value.get("time")
+        if time_value:
+            return time_value
+    return None
+
+
+def _normalise_wikidata_time(value: str) -> str | None:
+    match = re.match(r"^[+]?(\d{1,4})-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$", value or "")
+    if not match:
+        return None
+    year = match.group(1).zfill(4)
+    return f"{year}-01-01T00:00:00"
+
+
+def _life_event(event_type: str, timestamp: str) -> dict:
+    return {
+        "type": event_type,
+        "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": timestamp,
+            "end_of_the_begin": timestamp.replace("-01-01T00:00:00", "-12-31T23:59:59"),
+            "begin_of_the_end": timestamp,
+            "end_of_the_end": timestamp.replace("-01-01T00:00:00", "-12-31T23:59:59"),
+        },
+    }
+
+
+def add_life_dates(doc: dict, entity: dict) -> None:
+    birth = _normalise_wikidata_time(_wikidata_time(entity, "P569"))
+    death = _normalise_wikidata_time(_wikidata_time(entity, "P570"))
+    if birth and "born" not in doc:
+        doc["born"] = _life_event("Birth", birth)
+    if death and "died" not in doc:
+        doc["died"] = _life_event("Death", death)
+
+
 def has_biography_note(doc: dict) -> bool:
     for note in doc.get("referred_to_by", []):
         for classification in note.get("classified_as", []):
@@ -257,6 +301,8 @@ def enrich_person_record(
         qid, entity = search_wikidata(label, languages)
     if not qid or not entity:
         return doc, None
+
+    add_life_dates(doc, entity)
 
     link = wikipedia_sitelink(entity, languages)
     if not link:

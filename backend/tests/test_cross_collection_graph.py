@@ -11,7 +11,7 @@ from app.database import Base
 
 
 PERSON_URI = "http://localhost:8000/data/person/jacobus-zaffius"
-PLACE_URI = "http://localhost:8000/data/place/shared-place"
+PLACE_URI = "http://localhost:8000/data/place/haarlem"
 
 
 def _record(uri, linked_art_type, label, data):
@@ -41,7 +41,7 @@ class CrossCollectionGraphTest(unittest.TestCase):
                 _record(
                     self.object_a,
                     "HumanMadeObject",
-                    "Teylers object by Jacobus Zaffius",
+                    "Portrait of Jacobus Zaffius in the Teylers collection",
                     {
                         "member_of": [{"id": "http://localhost:8000/data/set/teylers", "type": "Set"}],
                         "produced_by": {
@@ -53,27 +53,63 @@ class CrossCollectionGraphTest(unittest.TestCase):
                 _record(
                     self.object_b,
                     "HumanMadeObject",
-                    "Frans Hals object by Jacobus Zaffius mentioning shared place",
+                    "Portrait of Jacobus Zaffius in the Frans Hals collection",
                     {
                         "member_of": [{"id": "http://localhost:8000/data/set/frans-hals-museum", "type": "Set"}],
                         "produced_by": {
                             "type": "Production",
                             "carried_out_by": [{"id": PERSON_URI, "type": "Person", "_label": "Jacobus Zaffius"}],
-                            "took_place_at": [{"id": PLACE_URI, "type": "Place", "_label": "Shared Place"}],
+                            "took_place_at": [{"id": PLACE_URI, "type": "Place", "_label": "Haarlem"}],
                         },
                     },
                 ),
                 _record(
                     self.object_c,
                     "HumanMadeObject",
-                    "Collection C object mentioning shared place",
+                    "Huis van Hilde object mentioning Haarlem",
                     {
                         "member_of": [{"id": "http://localhost:8000/data/set/huis-van-hilde", "type": "Set"}],
-                        "current_location": {"id": PLACE_URI, "type": "Place", "_label": "Shared Place"},
+                        "current_location": {"id": PLACE_URI, "type": "Place", "_label": "Haarlem"},
                     },
                 ),
-                _record(PERSON_URI, "Person", "Jacobus Zaffius", {}),
-                _record(PLACE_URI, "Place", "Shared Place", {}),
+                _record(
+                    PERSON_URI,
+                    "Person",
+                    "Jacobus Zaffius",
+                    {
+                        "identified_by": [{"type": "Name", "content": "Jacobus Zaffius"}],
+                        "born": {
+                            "type": "Birth",
+                            "timespan": {
+                                "type": "TimeSpan",
+                                "begin_of_the_begin": "1534-01-01T00:00:00",
+                                "end_of_the_end": "1534-12-31T23:59:59",
+                            },
+                        },
+                        "died": {
+                            "type": "Death",
+                            "timespan": {
+                                "type": "TimeSpan",
+                                "begin_of_the_begin": "1618-01-01T00:00:00",
+                                "end_of_the_end": "1618-12-31T23:59:59",
+                            },
+                        },
+                        "referred_to_by": [
+                            {
+                                "type": "LinguisticObject",
+                                "content": "Jacobus Zaffius was a Catholic priest in Haarlem.",
+                                "classified_as": [
+                                    {
+                                        "id": "http://localhost:8000/data/concept/display-biography",
+                                        "type": "Type",
+                                        "_label": "Display Biography",
+                                    }
+                                ],
+                            }
+                        ],
+                    },
+                ),
+                _record(PLACE_URI, "Place", "Haarlem", {}),
             ]
         )
         self.db.commit()
@@ -126,6 +162,37 @@ class CrossCollectionGraphTest(unittest.TestCase):
 
         self.assertEqual(place_total, 1)
         self.assertEqual(place_items[0]["id"], self.object_b)
+
+    def test_text_search_returns_zaffius_objects_person_and_haarlem_place(self):
+        object_items, object_total = search_records(self.db, "Zaffius", "item", page=1, page_length=20)
+
+        self.assertGreaterEqual(object_total, 2)
+        object_ids = {item["id"] for item in object_items}
+        self.assertIn(self.object_a, object_ids)
+        self.assertIn(self.object_b, object_ids)
+
+        agent_items, agent_total = search_records(self.db, "Zaffius", "agent", page=1, page_length=20)
+
+        self.assertGreaterEqual(agent_total, 1)
+        agent_ids = {item["id"] for item in agent_items}
+        self.assertIn(PERSON_URI, agent_ids)
+
+        person = self.db.query(Record).filter(Record.uri == PERSON_URI).one()
+        person_data = json.loads(person.data)
+        self.assertIn("born", person_data)
+        self.assertIn("died", person_data)
+        self.assertTrue(
+            any(
+                any(cls.get("_label") == "Display Biography" for cls in note.get("classified_as", []))
+                for note in person_data.get("referred_to_by", [])
+            ),
+            "People & Groups result should include a biography note",
+        )
+
+        place_items, place_total = search_records(self.db, "Haarlem", "place", page=1, page_length=20)
+
+        self.assertGreaterEqual(place_total, 1)
+        self.assertIn(PLACE_URI, {item["id"] for item in place_items})
 
 
 if __name__ == "__main__":

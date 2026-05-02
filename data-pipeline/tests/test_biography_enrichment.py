@@ -2,6 +2,7 @@ import unittest
 
 from pipeline.process.biography_enrichment import (
     BIOGRAPHY_CONCEPT,
+    add_life_dates,
     biography_note,
     has_biography_note,
     label_variants,
@@ -47,6 +48,42 @@ class BiographyEnrichmentTest(unittest.TestCase):
             note["subject_of"][0]["digitally_carried_by"][0]["access_point"][0]["id"],
             "https://en.wikipedia.org/wiki/Pieter_de_Bailliu",
         )
+
+    def test_add_life_dates_uses_wikidata_birth_and_death_claims(self):
+        doc = {"type": "Person", "_label": "Jacobus Zaffius"}
+        entity = {
+            "claims": {
+                "P569": [
+                    {
+                        "mainsnak": {
+                            "datavalue": {
+                                "value": {
+                                    "time": "+1534-01-01T00:00:00Z",
+                                    "precision": 9,
+                                }
+                            }
+                        }
+                    }
+                ],
+                "P570": [
+                    {
+                        "mainsnak": {
+                            "datavalue": {
+                                "value": {
+                                    "time": "+1618-01-01T00:00:00Z",
+                                    "precision": 9,
+                                }
+                            }
+                        }
+                    }
+                ],
+            }
+        }
+
+        add_life_dates(doc, entity)
+
+        self.assertEqual(doc["born"]["timespan"]["begin_of_the_begin"], "1534-01-01T00:00:00")
+        self.assertEqual(doc["died"]["timespan"]["begin_of_the_begin"], "1618-01-01T00:00:00")
 
 
 if __name__ == "__main__":
