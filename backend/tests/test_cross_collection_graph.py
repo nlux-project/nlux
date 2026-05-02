@@ -10,7 +10,7 @@ from app.search import search_records
 from app.database import Base
 
 
-PERSON_URI = "http://localhost:8000/data/person/shared-artist"
+PERSON_URI = "http://localhost:8000/data/person/jacobus-zaffius"
 PLACE_URI = "http://localhost:8000/data/place/shared-place"
 
 
@@ -32,33 +32,33 @@ class CrossCollectionGraphTest(unittest.TestCase):
         Session = sessionmaker(bind=engine)
         self.db = Session()
 
-        self.object_a = "http://localhost:8000/data/object/collection-a-object"
-        self.object_b = "http://localhost:8000/data/object/collection-b-object"
-        self.object_c = "http://localhost:8000/data/object/collection-c-object"
+        self.object_a = "http://localhost:8000/data/object/teylers-zaffius-object"
+        self.object_b = "http://localhost:8000/data/object/frans-hals-zaffius-object"
+        self.object_c = "http://localhost:8000/data/object/hvh-shared-place-object"
 
         self.db.add_all(
             [
                 _record(
                     self.object_a,
                     "HumanMadeObject",
-                    "Collection A object by shared person",
+                    "Teylers object by Jacobus Zaffius",
                     {
-                        "member_of": [{"id": "http://localhost:8000/data/set/collection-a", "type": "Set"}],
+                        "member_of": [{"id": "http://localhost:8000/data/set/teylers", "type": "Set"}],
                         "produced_by": {
                             "type": "Production",
-                            "carried_out_by": [{"id": PERSON_URI, "type": "Person", "_label": "Shared Artist"}],
+                            "carried_out_by": [{"id": PERSON_URI, "type": "Person", "_label": "Jacobus Zaffius"}],
                         },
                     },
                 ),
                 _record(
                     self.object_b,
                     "HumanMadeObject",
-                    "Collection B object by shared person mentioning shared place",
+                    "Frans Hals object by Jacobus Zaffius mentioning shared place",
                     {
-                        "member_of": [{"id": "http://localhost:8000/data/set/collection-b", "type": "Set"}],
+                        "member_of": [{"id": "http://localhost:8000/data/set/frans-hals-museum", "type": "Set"}],
                         "produced_by": {
                             "type": "Production",
-                            "carried_out_by": [{"id": PERSON_URI, "type": "Person", "_label": "Shared Artist"}],
+                            "carried_out_by": [{"id": PERSON_URI, "type": "Person", "_label": "Jacobus Zaffius"}],
                             "took_place_at": [{"id": PLACE_URI, "type": "Place", "_label": "Shared Place"}],
                         },
                     },
@@ -68,11 +68,11 @@ class CrossCollectionGraphTest(unittest.TestCase):
                     "HumanMadeObject",
                     "Collection C object mentioning shared place",
                     {
-                        "member_of": [{"id": "http://localhost:8000/data/set/collection-c", "type": "Set"}],
+                        "member_of": [{"id": "http://localhost:8000/data/set/huis-van-hilde", "type": "Set"}],
                         "current_location": {"id": PLACE_URI, "type": "Place", "_label": "Shared Place"},
                     },
                 ),
-                _record(PERSON_URI, "Person", "Shared Artist", {}),
+                _record(PERSON_URI, "Person", "Jacobus Zaffius", {}),
                 _record(PLACE_URI, "Place", "Shared Place", {}),
             ]
         )
