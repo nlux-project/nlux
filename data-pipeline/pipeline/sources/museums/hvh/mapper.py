@@ -186,7 +186,8 @@ class HvhMapper(Mapper):
         image_url = first_text(rec, "europeana_isshownby")
         if image_url:
             visual = model.VisualItem()
-            digital = model.DigitalObject(ident=image_url)
+            digital = model.DigitalObject()
+            digital.access_point = model.DigitalObject(ident=image_url)
             digital.format = "image/jpeg"
             visual.digitally_shown_by = digital
             top.representation = visual

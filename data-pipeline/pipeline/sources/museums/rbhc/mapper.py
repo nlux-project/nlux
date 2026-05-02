@@ -204,7 +204,8 @@ class RbhcMapper(Mapper):
             filename = _span_text(repro_entry.get("reproduction.reference"))
             if filename:
                 vis = model.VisualItem()
-                dobj = model.DigitalObject(ident=IMAGE_BASE.format(filename=filename))
+                dobj = model.DigitalObject()
+                dobj.access_point = model.DigitalObject(ident=IMAGE_BASE.format(filename=filename))
                 dobj.format = "image/jpeg"
                 vis.digitally_shown_by = dobj
                 top.representation = vis

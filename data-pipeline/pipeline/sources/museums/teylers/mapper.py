@@ -252,7 +252,8 @@ class TeylersMapper(Mapper):
             if publish and filename:
                 img_url = IMAGE_BASE.format(filename=filename)
                 vis = model.VisualItem()
-                dobj = model.DigitalObject(ident=img_url)
+                dobj = model.DigitalObject()
+                dobj.access_point = model.DigitalObject(ident=img_url)
                 dobj.format = "image/jpeg"
                 vis.digitally_shown_by = dobj
                 top.representation = vis

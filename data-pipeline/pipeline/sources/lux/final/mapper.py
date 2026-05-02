@@ -9,6 +9,18 @@ from pipeline.process.utils.mapper_utils import test_birth_death
 from pipeline.storage.idmap.lmdb import JsonLmdb
 
 
+TRUSTED_IMAGE_HOSTS = {
+    "teylers.adlibhosting.com",
+    "mmb-web.adlibhosting.com",
+    "collectie.huisvanhilde.nl",
+}
+
+
+def _is_trusted_image_url(url):
+    host = urlparse(url).hostname
+    return host in TRUSTED_IMAGE_HOSTS
+
+
 class Cleaner(Mapper):
     def __init__(self, config):
         Mapper.__init__(self, config)
@@ -104,7 +116,7 @@ class Cleaner(Mapper):
                             rep["digitally_shown_by"] = [do["data"]]
                         else:
                             continue
-                elif not "yale.edu" in apid.lower():
+                elif not "yale.edu" in apid.lower() and not _is_trusted_image_url(apid):
                     # Trash them as we can't validate licenses
                     continue
 
