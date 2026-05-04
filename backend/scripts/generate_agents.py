@@ -25,6 +25,8 @@ AAT_PREFERRED_NAME = "http://vocab.getty.edu/aat/300404670"
 # Known group URIs (use external authority when available)
 KNOWN_GROUPS = {
     "Teylers Museum": "http://www.wikidata.org/entity/Q751582",
+    "Frans Hals Museum": "http://www.wikidata.org/entity/Q574961",
+    "Rijksmuseum Boerhaave": "http://www.wikidata.org/entity/Q759169",
 }
 
 

@@ -16,6 +16,8 @@ EXPORTABLE_TYPES = AGENT_TYPES | PLACE_TYPES | SET_TYPES | CONCEPT_TYPES | EVENT
 
 KNOWN_GROUPS = {
     "Teylers Museum": "http://www.wikidata.org/entity/Q751582",
+    "Frans Hals Museum": "http://www.wikidata.org/entity/Q574961",
+    "Rijksmuseum Boerhaave": "http://www.wikidata.org/entity/Q759169",
 }
 
 

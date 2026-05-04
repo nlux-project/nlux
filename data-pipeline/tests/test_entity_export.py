@@ -62,6 +62,21 @@ class EntityExportTest(unittest.TestCase):
             "http://vocab.getty.edu/aat/300037222",
         )
 
+    def test_assign_entity_uris_uses_known_museum_group_authorities(self):
+        base_uri = "http://localhost:8000/"
+        data = {
+            "type": "HumanMadeObject",
+            "current_owner": [{"type": "Group", "_label": "Frans Hals Museum"}],
+        }
+        entities = {}
+
+        assign_entity_uris(data, entities, base_uri)
+
+        owner_uri = data["current_owner"][0]["id"]
+        self.assertEqual(owner_uri, "http://www.wikidata.org/entity/Q574961")
+        self.assertEqual(entities[owner_uri]["type"], "Group")
+        self.assertEqual(entities[owner_uri]["label"], "Frans Hals Museum")
+
     def test_build_entity_record_creates_concept_place_set_and_event_records(self):
         base_uri = "http://localhost:8000/"
         cases = [

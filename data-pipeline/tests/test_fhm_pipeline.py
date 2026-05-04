@@ -37,6 +37,7 @@ LINKED_ART_REQUIRED_FIELDS = [
     "dimension",
     "member_of",
     "current_owner",
+    "current_location",
     "subject_of",
     "representation",
 ]
@@ -139,6 +140,9 @@ class FhmPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(_missing_fields(data, LINKED_ART_REQUIRED_FIELDS), [])
         self.assertEqual(data["member_of"][0]["_label"], "Frans Hals Museum collection")
         self.assertEqual(data["current_owner"][0]["id"], "http://www.wikidata.org/entity/Q574961")
+        self.assertEqual(data["current_location"]["type"], "Place")
+        self.assertEqual(data["current_location"]["_label"], "Frans Hals Museum")
+        self.assertEqual(data["current_location"]["id"], "http://www.wikidata.org/entity/Q574961")
         self.assertEqual(data["produced_by"]["carried_out_by"][0]["_label"], "Luuk Wilmering")
         self.assertIn("mf G 2000-5 b", json.dumps(data["identified_by"], ensure_ascii=False))
         self.assertIn("foto", json.dumps(data["made_of"], ensure_ascii=False).lower())
