@@ -3,7 +3,7 @@
 Load Linked Art JSON files into the nlux-backend database.
 
 Usage:
-    python scripts/load_data.py <path/to/lux_metadata/>
+    python scripts/load_data.py <path/to/lux_metadata_or_file>
 """
 import json
 import sys
@@ -33,6 +33,10 @@ def extract_search_text(doc: dict) -> str:
 
 
 def load_directory(data_dir: Path):
+    load_path(data_dir)
+
+
+def load_path(data_path: Path):
     Base.metadata.create_all(bind=engine)
 
     # Ensure FTS5 table exists for SQLite
@@ -46,10 +50,21 @@ def load_directory(data_dir: Path):
             ))
             conn.commit()
 
-    json_files = sorted(data_dir.glob("*.json"))
-    jsonl_files = sorted(data_dir.glob("*.jsonl"))
+    if data_path.is_file():
+        if data_path.suffix == ".json":
+            json_files = [data_path]
+            jsonl_files = []
+        elif data_path.suffix == ".jsonl":
+            json_files = []
+            jsonl_files = [data_path]
+        else:
+            print(f"Unsupported data file type: {data_path}")
+            sys.exit(1)
+    else:
+        json_files = sorted(data_path.glob("*.json"))
+        jsonl_files = sorted(data_path.glob("*.jsonl"))
     if not json_files and not jsonl_files:
-        print(f"No JSON files found in {data_dir}")
+        print(f"No JSON files found in {data_path}")
         sys.exit(1)
 
     # Rewrite pipeline placeholder URIs to match this API's base URL.
@@ -143,6 +158,6 @@ def load_directory(data_dir: Path):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python scripts/load_data.py <data_directory>")
+        print("Usage: python scripts/load_data.py <data_directory_or_file>")
         sys.exit(1)
-    load_directory(Path(sys.argv[1]))
+    load_path(Path(sys.argv[1]))

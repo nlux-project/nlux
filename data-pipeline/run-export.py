@@ -4,6 +4,10 @@ import json
 from dotenv import load_dotenv
 from pipeline.config import Config
 from pipeline.storage.cache.postgres import PoolManager
+from pipeline.process.export_splitting import (
+    collection_sources_for_record,
+    export_filename,
+)
 from pipeline.process.entity_export import assign_entity_uris, build_entity_record
 from pipeline.process.biography_enrichment import enrich_person_record
 
@@ -87,11 +91,20 @@ base_uri = (
     else cfgs.internal_uri
 )
 
-fn = os.path.join(cfgs.exports_dir, f"export_full_{my_slice}.jsonl")
-with open(fn, "w") as outh:
+writers = {}
+
+
+def get_writer(source_name):
+    if source_name not in writers:
+        fn = os.path.join(cfgs.exports_dir, export_filename(source_name, my_slice))
+        writers[source_name] = open(fn, "w")
+    return writers[source_name]
+
+
+try:
     x = 0
     enriched_biographies = 0
-    entities = {}
+    entities_by_source = {}
     for rec in merged.iter_records_slice(my_slice, max_slice):
         yuid = rec["yuid"]
         if not yuid in ml:
@@ -106,9 +119,14 @@ with open(fn, "w") as outh:
             ml[yuid] = rec2
         else:
             data = ml[yuid]["data"]
+        source_names = collection_sources_for_record(rec, data, cfgs)
         if export_entities:
             data = dict(data)
+            entities = {}
             assign_entity_uris(data, entities, base_uri)
+            for source_name in source_names:
+                source_entities = entities_by_source.setdefault(source_name, {})
+                source_entities.update(entities)
         if enrich_biographies and data.get("type") == "Person":
             try:
                 data, qid = enrich_person_record(
@@ -123,42 +141,50 @@ with open(fn, "w") as outh:
                 print(f"{yuid} errored in biography enrichment: {e}")
         jstr = json.dumps(data, separators=(",", ":"),
                           default=lambda o: o.isoformat() if isinstance(o, datetime.datetime) else str(o))
-        outh.write(jstr)
-        outh.write("\n")
+        for source_name in source_names:
+            outh = get_writer(source_name)
+            outh.write(jstr)
+            outh.write("\n")
         sys.stdout.write(".")
         sys.stdout.flush()
         x += 1
         if profiling and x >= 10000:
             break
     if export_entities:
-        for uri, info in sorted(entities.items()):
-            data = build_entity_record(uri, info["type"], info["label"], info.get("equivalent"))
-            if enrich_biographies and data.get("type") == "Person":
-                try:
-                    data, qid = enrich_person_record(
-                        data,
-                        biography_languages,
-                        base_uri,
-                        force=biography_force,
-                    )
-                    if qid:
-                        enriched_biographies += 1
-                except Exception as e:
-                    print(f"{uri} errored in biography enrichment: {e}")
-            jstr = json.dumps(
-                data,
-                separators=(",", ":"),
-                default=lambda o: o.isoformat()
-                if isinstance(o, datetime.datetime)
-                else str(o),
-            )
-            outh.write(jstr)
-            outh.write("\n")
+        for source_name, entities in sorted(entities_by_source.items()):
+            outh = get_writer(source_name)
+            for uri, info in sorted(entities.items()):
+                data = build_entity_record(uri, info["type"], info["label"], info.get("equivalent"))
+                if enrich_biographies and data.get("type") == "Person":
+                    try:
+                        data, qid = enrich_person_record(
+                            data,
+                            biography_languages,
+                            base_uri,
+                            force=biography_force,
+                        )
+                        if qid:
+                            enriched_biographies += 1
+                    except Exception as e:
+                        print(f"{uri} errored in biography enrichment: {e}")
+                jstr = json.dumps(
+                    data,
+                    separators=(",", ":"),
+                    default=lambda o: o.isoformat()
+                    if isinstance(o, datetime.datetime)
+                    else str(o),
+                )
+                outh.write(jstr)
+                outh.write("\n")
+finally:
+    for writer in writers.values():
+        writer.close()
 
 if enrich_biographies:
     print(f"\nEnriched {enriched_biographies} Person records with biographies")
 if export_entities:
-    print(f"Exported {len(entities)} generated entity records")
+    exported_entities = sum(len(entities) for entities in entities_by_source.values())
+    print(f"Exported {exported_entities} generated entity records across collection files")
 
 
 if profiling:

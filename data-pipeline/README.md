@@ -153,14 +153,19 @@ python ./run-export.py 0 1 --export-entities
 python ./run-export.py 0 1 --biographies
 ```
 
-Output lands in `data/output/latest/`.
+Output lands in `data/output/latest/` as collection-specific JSONL files,
+such as `export_teylers_0.jsonl`, `export_hvh_0.jsonl`,
+`export_rbhc_0.jsonl`, and `export_fhm_0.jsonl`. Records that cannot be
+assigned to an internal collection source are written to
+`export_shared_0.jsonl`.
 
 #### 3. Load into nlux API (Docker)
 
 ```bash
-docker cp data/output/latest/export_full_0.jsonl nlux-api-1:/tmp/export_full_0.jsonl
+docker exec nlux-api-1 mkdir -p /tmp/latest
+docker cp data/output/latest/. nlux-api-1:/tmp/latest/
 docker exec nlux-api-1 python3 scripts/reset.py
-docker exec nlux-api-1 python3 scripts/load_data.py /tmp/
+docker exec nlux-api-1 python3 scripts/load_data.py /tmp/latest/
 docker exec nlux-api-1 python3 scripts/generate_agents.py
 ```
 

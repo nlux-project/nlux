@@ -235,7 +235,7 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
             _assert_teylers_iiif_manifest(self, record)
 
     def test_export_record(self):
-        path = PIPELINE / "data" / "output" / "latest" / "export_full_0.jsonl"
+        path = PIPELINE / "data" / "output" / "latest" / "export_teylers_0.jsonl"
         if not path.exists():
             _skip_or_fail(self, f"Export file not found: {path}")
 

@@ -73,7 +73,7 @@ psql -h localhost -U postgres -d postgres -c "TRUNCATE marklogic_merged_record_c
 rm -f data/logs/flags/export_is_done-0.txt
 uv run python ./run-export.py 0 1
 
-TOTAL=$(wc -l < data/output/latest/export_full_0.jsonl)
+TOTAL=$(wc -l < data/output/latest/export_teylers_0.jsonl)
 echo "    Export: $TOTAL records"
 
 check
@@ -82,9 +82,9 @@ pass "Export OK"
 
 # ── Step 7: Reload into Docker API ───────────────────────────────────────────
 echo "==> Step 7: Resetting and reloading Docker API database ..."
-docker cp data/output/latest/export_full_0.jsonl nlux-api-1:/tmp/export_full_0.jsonl
+docker cp data/output/latest/export_teylers_0.jsonl nlux-api-1:/tmp/export_teylers_0.jsonl
 docker exec nlux-api-1 python3 scripts/reset.py
-docker exec nlux-api-1 python3 scripts/load_data.py /tmp/
+docker exec nlux-api-1 python3 scripts/load_data.py /tmp/export_teylers_0.jsonl
 docker exec nlux-api-1 python3 scripts/generate_agents.py
 docker exec nlux-api-1 python3 scripts/generate_concepts.py
 
