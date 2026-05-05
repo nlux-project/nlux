@@ -5,7 +5,6 @@ from cromulent import model, vocab
 from pipeline.process.base.mapper import Mapper
 
 
-WFM_URI = "http://www.wikidata.org/entity/Q2382575"
 WFM_LABEL = "Westfries Museum"
 WFM_COLLECTION_LABEL = "Westfries Museum collection"
 WFM_DETAIL_BASE = "https://westfriesmuseum.com/detail/{record_id}"
@@ -146,8 +145,8 @@ class WfmMapper(Mapper):
         if has_production:
             top.produced_by = production
 
-        top.current_owner = model.Group(ident=WFM_URI, label=WFM_LABEL)
-        top.current_location = model.Place(ident=WFM_URI, label=WFM_LABEL)
+        top.current_owner = model.Group(label=WFM_LABEL)
+        top.current_location = model.Place(label=WFM_LABEL)
         top.member_of = model.Set(label=WFM_COLLECTION_LABEL)
 
         detail_url = WFM_DETAIL_BASE.format(record_id=record_id)

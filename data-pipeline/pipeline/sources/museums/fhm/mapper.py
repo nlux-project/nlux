@@ -120,7 +120,7 @@ class FhmMapper(Mapper):
                 top.referred_to_by = model.LinguisticObject(content=content)
 
         top.current_owner = model.Group(ident=FHM_URI, label=FHM_LABEL)
-        top.current_location = model.Place(ident=FHM_URI, label=FHM_LABEL)
+        top.current_location = model.Place(label=FHM_LABEL)
         top.member_of = model.Set(label=FHM_COLLECTION_LABEL)
 
         deeplink = _clean(rec.get("deeplink")) or uri
