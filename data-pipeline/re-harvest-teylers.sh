@@ -68,10 +68,10 @@ run_teylers_test test_rewritten_record || fail "Merge validation failed"
 pass "Merge OK"
 
 # ── Step 6: Export ────────────────────────────────────────────────────────────
-echo "==> Step 6: Exporting ..."
+echo "==> Step 6: Exporting with generated entities and biographies ..."
 psql -h localhost -U postgres -d postgres -c "TRUNCATE marklogic_merged_record_cache, marklogic_data_cache;"
 rm -f data/logs/flags/export_is_done-0.txt
-uv run python ./run-export.py 0 1
+uv run python ./run-export.py 0 1 --biographies
 
 TOTAL=$(wc -l < data/output/latest/export_teylers_0.jsonl)
 echo "    Export: $TOTAL records"
@@ -90,7 +90,7 @@ docker exec nlux-api-1 python3 scripts/generate_concepts.py
 
 check
 run_teylers_test test_api_record || fail "API validation failed"
-pass "API OK — all fields present, agent URIs assigned"
+pass "API OK — all fields present, entity records and biographies available"
 
 echo ""
 echo -e "${GREEN}==> All steps completed and validated for priref=$TEST_PRIREF${NC}"
