@@ -142,7 +142,10 @@ class FhmPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(data["current_owner"][0]["id"], "http://www.wikidata.org/entity/Q574961")
         self.assertEqual(data["current_location"]["type"], "Place")
         self.assertEqual(data["current_location"]["_label"], "Frans Hals Museum")
-        self.assertNotIn("id", data["current_location"])
+        self.assertEqual(
+            data["current_location"]["id"],
+            "http://localhost:8000/data/place/68c89848-21ad-5bed-8546-4e249b35924d",
+        )
         self.assertEqual(data["produced_by"]["carried_out_by"][0]["_label"], "Luuk Wilmering")
         self.assertIn("mf G 2000-5 b", json.dumps(data["identified_by"], ensure_ascii=False))
         self.assertIn("foto", json.dumps(data["made_of"], ensure_ascii=False).lower())

@@ -1,4 +1,5 @@
 import re
+import uuid
 from urllib.parse import urljoin
 
 from cromulent import model, vocab
@@ -41,6 +42,20 @@ def _last_year(value):
     return last
 
 
+def _api_base(config):
+    all_configs = config.get("all_configs")
+    internal_uri = getattr(all_configs, "internal_uri", "") if all_configs else ""
+    if internal_uri:
+        return internal_uri.rstrip("/").removesuffix("/data")
+    return "http://localhost:8000"
+
+
+def _place_uri(base_uri, label):
+    base = base_uri.rstrip("/") + "/"
+    uid = uuid.uuid5(uuid.NAMESPACE_DNS, f"Place:{label.strip().lower()}")
+    return f"{base}data/place/{uid}"
+
+
 def _dimension_from_text(value):
     match = re.search(r"([\d,.]+)\s*x\s*([\d,.]+)\s*([a-zA-Z]+)", value or "")
     if not match:
@@ -55,6 +70,7 @@ class FhmMapper(Mapper):
     def __init__(self, config):
         Mapper.__init__(self, config)
         self.namespace = config["namespace"]
+        self.api_base = _api_base(config)
 
     def transform(self, record, rectype=None, reference=False):
         rec = record.get("data", {})
@@ -120,7 +136,7 @@ class FhmMapper(Mapper):
                 top.referred_to_by = model.LinguisticObject(content=content)
 
         top.current_owner = model.Group(ident=FHM_URI, label=FHM_LABEL)
-        top.current_location = model.Place(label=FHM_LABEL)
+        top.current_location = model.Place(ident=_place_uri(self.api_base, FHM_LABEL), label=FHM_LABEL)
         top.member_of = model.Set(label=FHM_COLLECTION_LABEL)
 
         deeplink = _clean(rec.get("deeplink")) or uri
