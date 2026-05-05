@@ -1,0 +1,27 @@
+[
+  {
+    "url": "http://localhost:8000/health",
+    "field": "status",
+    "value": "ok"
+  },
+  {
+    "url": "http://localhost:8000/data/example-record",
+    "fields": [
+      {
+        "field": "type",
+        "value": "HumanMadeObject"
+      },
+      {
+        "field": "identified_by[0].content",
+        "value": "Example title"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8000/api/search/item?page=1&pageLength=1",
+    "field_values": {
+      "type": "OrderedCollectionPage",
+      "orderedItems[0].type": "HumanMadeObject"
+    }
+  }
+]
