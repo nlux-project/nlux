@@ -3,6 +3,8 @@ import unittest
 from pipeline.process.export_splitting import (
     collection_sources_for_record,
     export_filename,
+    filter_collection_sources,
+    pop_source_filters,
 )
 
 
@@ -76,6 +78,21 @@ class ExportSplittingTest(unittest.TestCase):
     def test_shared_file_for_unassigned_records(self):
         sources = collection_sources_for_record({}, {"equivalent": []}, DummyConfigs())
         self.assertEqual(sources, ["shared"])
+
+    def test_pop_source_filters_consumes_known_source_flags(self):
+        argv = ["run-export.py", "0", "1", "--wfm", "--export-entities"]
+
+        selected = pop_source_filters(argv, ["teylers", "hvh", "wfm"])
+
+        self.assertEqual(selected, {"wfm"})
+        self.assertEqual(argv, ["run-export.py", "0", "1", "--export-entities"])
+
+    def test_filter_collection_sources_keeps_selected_sources(self):
+        self.assertEqual(
+            filter_collection_sources(["teylers", "wfm"], {"wfm"}),
+            ["wfm"],
+        )
+        self.assertEqual(filter_collection_sources(["wfm"], set()), ["wfm"])
 
 
 if __name__ == "__main__":

@@ -7,6 +7,8 @@ from pipeline.storage.cache.postgres import PoolManager
 from pipeline.process.export_splitting import (
     collection_sources_for_record,
     export_filename,
+    filter_collection_sources,
+    pop_source_filters,
 )
 from pipeline.process.entity_export import assign_entity_uris, build_entity_record
 from pipeline.process.biography_enrichment import enrich_person_record
@@ -19,6 +21,9 @@ from pstats import SortKey
 # suppress NotOpenSSLWarning: urllib3
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
+
+if "--biographies" in sys.argv:
+    sys.exit("The --biographies flag has been removed. Use --export-entities instead.")
 
 load_dotenv()
 basepath = os.getenv("LUX_BASEPATH", "")
@@ -37,12 +42,6 @@ if "--profile" in sys.argv:
 else:
     profiling = False
 
-if "--biographies" in sys.argv:
-    sys.argv.remove("--biographies")
-    enrich_biographies = True
-else:
-    enrich_biographies = False
-
 if "--biography-force" in sys.argv:
     sys.argv.remove("--biography-force")
     biography_force = True
@@ -56,7 +55,9 @@ if export_entity_flags.intersection(sys.argv):
             sys.argv.remove(flag)
     export_entities = True
 else:
-    export_entities = enrich_biographies
+    export_entities = False
+
+enrich_biographies = export_entities
 
 biography_languages = ["nl", "en"]
 for arg in list(sys.argv):
@@ -67,6 +68,8 @@ for arg in list(sys.argv):
             for lang in arg.split("=", 1)[1].split(",")
             if lang.strip()
         ]
+
+selected_sources = pop_source_filters(sys.argv, cfgs.internal.keys())
 
 if len(sys.argv) > 2:
     my_slice = int(sys.argv[1])
@@ -97,15 +100,19 @@ writers = {}
 def get_writer(source_name):
     if source_name not in writers:
         fn = os.path.join(cfgs.exports_dir, export_filename(source_name, my_slice))
-        writers[source_name] = open(fn, "w")
+        writers[source_name] = open(fn, "w", buffering=1)
     return writers[source_name]
 
 
 try:
     x = 0
+    seen = 0
     enriched_biographies = 0
     entities_by_source = {}
+    if selected_sources:
+        print(f"Exporting selected collections: {', '.join(sorted(selected_sources))}")
     for rec in merged.iter_records_slice(my_slice, max_slice):
+        seen += 1
         yuid = rec["yuid"]
         if not yuid in ml:
             try:
@@ -120,6 +127,12 @@ try:
         else:
             data = ml[yuid]["data"]
         source_names = collection_sources_for_record(rec, data, cfgs)
+        source_names = filter_collection_sources(source_names, selected_sources)
+        if not source_names:
+            if seen % 1000 == 0:
+                sys.stdout.write(f"\nScanned {seen} merged records, exported {x} matching records")
+                sys.stdout.flush()
+            continue
         if export_entities:
             data = dict(data)
             entities = {}
@@ -148,12 +161,16 @@ try:
         sys.stdout.write(".")
         sys.stdout.flush()
         x += 1
+        if x % 1000 == 0:
+            sys.stdout.write(f"\nExported {x} records")
+            sys.stdout.flush()
         if profiling and x >= 10000:
             break
     if export_entities:
         for source_name, entities in sorted(entities_by_source.items()):
             outh = get_writer(source_name)
-            for uri, info in sorted(entities.items()):
+            print(f"\nExporting {len(entities)} generated entity records for {source_name}")
+            for entity_count, (uri, info) in enumerate(sorted(entities.items()), start=1):
                 data = build_entity_record(uri, info["type"], info["label"], info.get("equivalent"))
                 if enrich_biographies and data.get("type") == "Person":
                     try:
@@ -176,6 +193,9 @@ try:
                 )
                 outh.write(jstr)
                 outh.write("\n")
+                if entity_count % 100 == 0:
+                    sys.stdout.write(f"\nExported {entity_count} generated entities for {source_name}")
+                    sys.stdout.flush()
 finally:
     for writer in writers.values():
         writer.close()

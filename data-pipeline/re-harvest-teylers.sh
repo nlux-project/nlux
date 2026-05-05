@@ -71,7 +71,7 @@ pass "Merge OK"
 echo "==> Step 6: Exporting with generated entities and biographies ..."
 psql -h localhost -U postgres -d postgres -c "TRUNCATE marklogic_merged_record_cache, marklogic_data_cache;"
 rm -f data/logs/flags/export_is_done-0.txt
-uv run python ./run-export.py 0 1 --biographies
+uv run python ./run-export.py 0 1 --teylers --export-entities
 
 TOTAL=$(wc -l < data/output/latest/export_teylers_0.jsonl)
 echo "    Export: $TOTAL records"

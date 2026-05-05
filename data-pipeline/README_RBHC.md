@@ -48,7 +48,7 @@ cd data-pipeline
 uv run python manage-data.py --load --rbhc
 uv run python run-reconcile.py 0 1 --rbhc
 uv run python run-merge.py 0 1 --rbhc
-uv run python run-export.py 0 1 --export-entities
+uv run python run-export.py 0 1 --rbhc --export-entities
 ```
 
 Validate a loaded test record from bash:

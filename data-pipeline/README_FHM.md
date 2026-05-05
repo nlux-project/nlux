@@ -53,7 +53,7 @@ cd data-pipeline
 uv run python manage-data.py --load --fhm
 uv run python run-reconcile.py --fhm
 uv run python run-merge.py --fhm
-uv run python run-export.py 0 1 --export-entities
+uv run python run-export.py 0 1 --fhm --export-entities
 ```
 
 For a small harvest smoke test:

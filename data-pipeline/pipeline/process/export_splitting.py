@@ -7,6 +7,16 @@ def export_filename(source_name: str, my_slice: int) -> str:
     return f"export_{safe_name or 'shared'}_{my_slice}.jsonl"
 
 
+def pop_source_filters(argv: list[str], source_names: Iterable[str]) -> set[str]:
+    selected = set()
+    for source_name in source_names:
+        flag = f"--{source_name}"
+        while flag in argv:
+            argv.remove(flag)
+            selected.add(source_name)
+    return selected
+
+
 def _iter_equivalent_ids(data):
     if not isinstance(data, dict):
         return
@@ -47,3 +57,13 @@ def collection_sources_for_record(record: dict, data: dict, cfgs) -> list[str]:
         source_names.update(_source_names_from_equivalents(data, cfgs))
 
     return sorted(source_names) if source_names else ["shared"]
+
+
+def filter_collection_sources(
+    source_names: Iterable[str],
+    selected_sources: set[str],
+) -> list[str]:
+    sources = list(source_names)
+    if not selected_sources:
+        return sources
+    return [source_name for source_name in sources if source_name in selected_sources]

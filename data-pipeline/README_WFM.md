@@ -51,7 +51,7 @@ cd data-pipeline
 uv run python manage-data.py --load --wfm
 uv run python run-reconcile.py 0 1 --wfm
 uv run python run-merge.py 0 1 --wfm
-uv run python run-export.py 0 1 --biographies
+uv run python run-export.py 0 1 --wfm --export-entities
 ```
 
 For a small harvest smoke test:

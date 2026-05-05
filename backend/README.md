@@ -125,10 +125,10 @@ python scripts/load_data.py <directory>
 
 Walks `<directory>` for `*.json` files, extracts `id`, `type`, `_label`, and text content for full-text indexing, and upserts each record into the database.
 
-Person biographies are preferably enriched in the data pipeline during export:
+Generated Person biographies are preferably enriched in the data pipeline during entity export:
 
 ```bash
-python data-pipeline/run-export.py 0 1 --biographies
+python data-pipeline/run-export.py 0 1 --export-entities
 ```
 
 For already-loaded API databases, a backend post-load helper is also available:

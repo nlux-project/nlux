@@ -146,11 +146,9 @@ python ./run-merge.py 0 1 --teylers
 # Export to LUX-formatted JSONL
 python ./run-export.py 0 1
 
-# Export generated searchable entity records referenced by objects
-python ./run-export.py 0 1 --export-entities
-
-# Export generated entities and enrich Person records with Wikidata/Wikipedia biography notes
-python ./run-export.py 0 1 --biographies
+# Export generated searchable entity records referenced by objects,
+# including biography enrichment for generated Person records
+python ./run-export.py 0 1 --teylers --export-entities
 ```
 
 Output lands in `data/output/latest/` as collection-specific JSONL files,
