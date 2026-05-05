@@ -18,6 +18,11 @@ class DummyConfigs:
             "type": "internal",
             "matches": ["collectie.huisvanhilde.nl/resource/"],
         },
+        "wfm": {
+            "name": "wfm",
+            "type": "internal",
+            "matches": ["westfriesmuseum.com/detail/"],
+        },
     }
 
     def split_uri(self, uri):
@@ -53,6 +58,20 @@ class ExportSplittingTest(unittest.TestCase):
             DummyConfigs(),
         )
         self.assertEqual(sources, ["hvh"])
+
+    def test_falls_back_to_wfm_equivalent_source_uri(self):
+        sources = collection_sources_for_record(
+            {},
+            {
+                "equivalent": [
+                    {
+                        "id": "https://westfriesmuseum.com/detail/c396d24a-de49-11e6-836d-d89d6717b464",
+                    }
+                ]
+            },
+            DummyConfigs(),
+        )
+        self.assertEqual(sources, ["wfm"])
 
     def test_shared_file_for_unassigned_records(self):
         sources = collection_sources_for_record({}, {"equivalent": []}, DummyConfigs())

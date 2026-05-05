@@ -1,0 +1,37 @@
+{
+  "id": "c396d24a-de49-11e6-836d-d89d6717b464",
+  "entity_uuid": "cf04701e-0402-a016-ce97-40fcf1d7255a",
+  "title": "op papier geplakt, met lijstje in bruine inkt",
+  "description": "",
+  "asset": [
+    {
+      "uuid": "d4caebf8-738c-cd04-70d9-a6c55f81cdc8",
+      "mimetype": "image/jp2",
+      "filename": "08844.jp2",
+      "width": 3342,
+      "height": 2564,
+      "thumb": {
+        "large": "https://images.memorix.nl/wfm/thumb/640x480/d4caebf8-738c-cd04-70d9-a6c55f81cdc8.jpg"
+      },
+      "download": "https://images.memorix.nl/wfm/download/jpeg_fullsize/d4caebf8-738c-cd04-70d9-a6c55f81cdc8.jpg"
+    }
+  ],
+  "metadata": [
+    {"field": "head_collection", "label": "Hoofdcollectie", "value": "Westfries Museum"},
+    {"field": "object_number", "label": "Objectnummer", "value": ["08844"]},
+    {"field": "object_name", "label": "Documenttype", "value": ["prent"]},
+    {"field": "description", "label": "Objectbeschrijving", "value": "op papier geplakt, met lijstje in bruine inkt"},
+    {"field": "keyword", "label": "Trefwoorden", "value": ["Prenten en tekeningen"]},
+    {"field": "content_subject", "label": "Onderwerp", "value": "'De STEDE GROOTEBROEK. 1726', straat, kerk, figuren, midden boven '387'"},
+    {"field": "production_date_start", "label": "Jaar", "value": "1726"},
+    {"field": "production_date_end", "label": "Eind Jaar", "value": "1750"},
+    {"field": "manufacturing_place", "label": "Plaats vervaardiging", "value": ["Nederland"]},
+    {"field": "creator", "label": "Vervaardiger", "value": ["tekenaar Cornelis Pronk", "graveur Hendricus Spilman"]},
+    {"field": "technique", "label": "Gebruikte Techniek", "value": ["kopergravure"]},
+    {"field": "notes", "label": "Opmerking", "value": ["Grootebroek"]}
+  ],
+  "geodata": [],
+  "links": {
+    "media": "https://webservices.memorix.nl/mediabank/media/c396d24a-de49-11e6-836d-d89d6717b464"
+  }
+}

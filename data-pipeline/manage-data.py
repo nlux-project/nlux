@@ -67,6 +67,12 @@ if "--load" in sys.argv:
         if "recordcache2" in cfgs.internal["fhm"]:
             cfgs.internal["fhm"]["recordcache2"].clear()
         cfgs.internal["fhm"]["loader"].load()
+    if "--wfm" in sys.argv or "--all" in sys.argv:
+        cfgs.internal["wfm"]["datacache"].clear()
+        cfgs.internal["wfm"]["recordcache"].clear()
+        if "recordcache2" in cfgs.internal["wfm"]:
+            cfgs.internal["wfm"]["recordcache2"].clear()
+        cfgs.internal["wfm"]["loader"].load()
     if "--cht" in sys.argv or "--all" in sys.argv:
         cfgs.external["cht"]["datacache"].clear()
         cfgs.external["cht"]["loader"].load()

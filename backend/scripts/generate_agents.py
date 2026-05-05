@@ -27,6 +27,7 @@ KNOWN_GROUPS = {
     "Teylers Museum": "http://www.wikidata.org/entity/Q751582",
     "Frans Hals Museum": "http://www.wikidata.org/entity/Q574961",
     "Rijksmuseum Boerhaave": "http://www.wikidata.org/entity/Q759169",
+    "Westfries Museum": "http://www.wikidata.org/entity/Q2382575",
 }
 
 

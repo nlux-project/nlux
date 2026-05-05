@@ -1,0 +1,17 @@
+{
+    "name": "wfm",
+    "type": "internal",
+    "namespace": "https://westfriesmuseum.com/detail/",
+    "matches": ["westfriesmuseum.com/detail/", "webservices.memorix.nl/mediabank/media/"],
+    "fetch": "https://webservices.memorix.nl/mediabank/media/{identifier}",
+    "apiUrl": "https://webservices.memorix.nl/mediabank",
+    "apiKey": "0f18ed8a-b243-11e6-94c8-9f49a90dcd1d",
+    "merge_order": 5,
+
+    "harvesterClass": "process.base.harvester.Harvester",
+    "mapperClass": "sources.museums.wfm.mapper.WfmMapper",
+    "loaderClass": "sources.museums.wfm.loader.WfmLoader",
+    "fetcherClass": "sources.museums.wfm.fetcher.WfmFetcher",
+
+    "totalRecords": 5428
+}

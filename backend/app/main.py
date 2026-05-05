@@ -36,6 +36,7 @@ TRUSTED_IMAGE_HOSTS = {
     "teylers.adlibhosting.com",
     "mmb-web.adlibhosting.com",
     "collectie.huisvanhilde.nl",
+    "images.memorix.nl",
 }
 
 SCOPE_LABELS = {
