@@ -146,7 +146,13 @@ class WfmPipelineIntegrationTest(unittest.TestCase):
             "westfriesmuseum.com/detail/c396d24a-de49-11e6-836d-d89d6717b464",
             data["subject_of"][0]["digitally_carried_by"][0]["access_point"][0]["id"],
         )
-        self.assertIn("images.memorix.nl", json.dumps(data["representation"], ensure_ascii=False))
+        image = data["representation"][0]["digitally_shown_by"][0]
+        self.assertEqual(image["format"], "image/jpeg")
+        self.assertIn("images.memorix.nl", image["access_point"][0]["id"])
+        self.assertIn(
+            "localhost:8000/iiif/manifest/",
+            json.dumps(data["subject_of"], ensure_ascii=False),
+        )
 
     def test_harvest_file(self):
         path = PIPELINE / "data" / "input" / "wfm" / f"{TEST_WFM_ID}.json"
@@ -220,6 +226,12 @@ class WfmPipelineIntegrationTest(unittest.TestCase):
                 equivalents = record.get("equivalent", [])
                 if any(source_uri in eq.get("id", "") for eq in equivalents):
                     self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+                    image = record["representation"][0]["digitally_shown_by"][0]
+                    self.assertIn("images.memorix.nl", image["access_point"][0]["id"])
+                    self.assertIn(
+                        "localhost:8000/iiif/manifest/",
+                        json.dumps(record["subject_of"], ensure_ascii=False),
+                    )
                     return
 
         _skip_or_fail(self, "Record not found in export")

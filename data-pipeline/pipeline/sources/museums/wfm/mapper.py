@@ -1,4 +1,6 @@
+import base64
 import re
+from urllib.parse import quote
 
 from cromulent import model, vocab
 
@@ -8,6 +10,7 @@ from pipeline.process.base.mapper import Mapper
 WFM_LABEL = "Westfries Museum"
 WFM_COLLECTION_LABEL = "Westfries Museum collection"
 WFM_DETAIL_BASE = "https://westfriesmuseum.com/detail/{record_id}"
+IIIF_PRESENTATION_3_CONTEXT = "http://iiif.io/api/presentation/3/context.json"
 
 DESCRIPTION_STATEMENT = "http://vocab.getty.edu/aat/300435416"
 
@@ -41,6 +44,55 @@ def _first(metadata, field):
     return values[0] if values else None
 
 
+def _api_base(config):
+    all_configs = config.get("all_configs")
+    internal_uri = getattr(all_configs, "internal_uri", "") if all_configs else ""
+    if internal_uri:
+        return internal_uri.rstrip("/").removesuffix("/data")
+    return "http://localhost:8000"
+
+
+def _iiif_token(url):
+    return base64.urlsafe_b64encode(url.encode("utf-8")).decode("ascii").rstrip("=")
+
+
+def _iiif_manifest_url(api_base, image_url, label):
+    token = _iiif_token(image_url)
+    return f"{api_base}/iiif/manifest/{token}?label={quote(label or 'Image')}"
+
+
+def _append_iiif_manifest(data, manifest_url):
+    if not manifest_url:
+        return
+
+    data.setdefault("subject_of", []).append(
+        {
+            "type": "LinguisticObject",
+            "_label": "IIIF manifest",
+            "digitally_carried_by": [
+                {
+                    "type": "DigitalObject",
+                    "_label": "IIIF Presentation 3 manifest",
+                    "format": "application/ld+json",
+                    "conforms_to": [
+                        {
+                            "id": IIIF_PRESENTATION_3_CONTEXT,
+                            "type": "InformationObject",
+                            "_label": "IIIF Presentation API 3.0",
+                        }
+                    ],
+                    "access_point": [
+                        {
+                            "id": manifest_url,
+                            "type": "DigitalObject",
+                        }
+                    ],
+                }
+            ],
+        }
+    )
+
+
 def _year(value):
     match = re.search(r"\b(\d{3,4})\b", value or "")
     return match.group(1).zfill(4) if match else None
@@ -69,6 +121,7 @@ class WfmMapper(Mapper):
     def __init__(self, config):
         Mapper.__init__(self, config)
         self.namespace = config["namespace"]
+        self.api_base = _api_base(config)
 
     def transform(self, record, rectype=None, reference=False):
         rec = record.get("data", {})
@@ -163,6 +216,7 @@ class WfmMapper(Mapper):
         page.digitally_carried_by = webpage
         top.subject_of = page
 
+        image_url = None
         for asset in rec.get("asset", []):
             image_url = (
                 (asset.get("thumb") or {}).get("large")
@@ -171,10 +225,14 @@ class WfmMapper(Mapper):
             )
             if image_url:
                 visual_item = model.VisualItem()
-                digital = model.DigitalObject(ident=image_url)
+                digital = model.DigitalObject()
+                digital.access_point = model.DigitalObject(ident=image_url)
                 digital.format = "image/jpeg"
                 visual_item.digitally_shown_by = digital
                 top.representation = visual_item
+                break
 
         data = model.factory.toJSON(top)
+        if image_url:
+            _append_iiif_manifest(data, _iiif_manifest_url(self.api_base, image_url, primary_title))
         return {"identifier": record_id, "data": data, "source": "wfm"}
