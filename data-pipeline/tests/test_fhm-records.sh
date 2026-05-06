@@ -15,7 +15,6 @@ run_fhm_test() {
         uv run python -m unittest "tests.test_fhm_pipeline.FhmPipelineIntegrationTest.$1"
 }
 
-echo "==> Testing FHM ..."
 echo "==> Testing Step 1: harvest file validation ..."
 check
 FILE="data/input/fhm/${TEST_OBJECTID}.json"

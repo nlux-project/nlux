@@ -15,6 +15,7 @@ run_hvh_test() {
         uv run python -m unittest "tests.test_hvh_pipeline.HvhPipelineIntegrationTest.$1"
 }
 
+echo "==> Testing HVH ..."
 echo "==> Testing Step 1: harvest file validation ..."
 check
 FILE="data/input/hvh/${TEST_PRIREF}.json"

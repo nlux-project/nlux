@@ -4,7 +4,7 @@ set -euo pipefail
 
 cd /Users/lux/data-pipeline
 
-TEST_PRIREF="${1:-2}"
+TEST_PRIREF="${1:-1ab7d71e-de49-11e6-836d-d89d6717b464}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 
 pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
@@ -15,6 +15,7 @@ run_wfm_test() {
         uv run python -m unittest "tests.test_wfm_pipeline.WfmPipelineIntegrationTest.$1"
 }
 
+echo "==> Testing WFM ..."
 echo "==> Testing Step 1: harvest file validation ..."
 check
 FILE="data/input/wfm/${TEST_PRIREF}.json"
