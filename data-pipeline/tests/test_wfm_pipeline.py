@@ -4,7 +4,7 @@ import subprocess
 import unittest
 from pathlib import Path
 from urllib.parse import quote
-
+# suppress NotOpenSSLWarning: urllib3
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
 
@@ -15,6 +15,8 @@ from pipeline.sources.museums.wfm.mapper import WfmMapper
 PIPELINE = Path(os.environ.get("PIPELINE_DIR", "/Users/lux/data-pipeline"))
 FIXTURES = Path(__file__).parent / "fixtures"
 TEST_WFM_ID = os.environ.get("TEST_WFM_ID") or os.environ.get("TEST_PRIREF", "c396d24a-de49-11e6-836d-d89d6717b464")
+WFM_COLLECTION_URI = "http://localhost:8000/data/set/1084a0b1-9d14-5e2e-a373-c425c7746cd1"
+OUWATER_URI = "http://localhost:8000/data/person/4209b862-359b-5e69-89fa-a65f4dfc764c"
 REQUIRE_LIVE = os.environ.get("WFM_REQUIRE_LIVE") == "1"
 
 RAW_REQUIRED_FIELDS = [
@@ -58,6 +60,26 @@ def _coerce_record(value):
 
 def _missing_fields(record, fields):
     return [field for field in fields if field not in record]
+
+
+def _has_classification(record, label=None, equivalent_id=None):
+    for classification in record.get("classified_as", []) or []:
+        if label and classification.get("_label") == label:
+            return True
+        if equivalent_id and any(
+            equivalent.get("id") == equivalent_id
+            for equivalent in classification.get("equivalent", []) or []
+        ):
+            return True
+    return False
+
+
+def _identified_by_content(record):
+    return [
+        identifier.get("content")
+        for identifier in record.get("identified_by", []) or []
+        if identifier.get("content")
+    ]
 
 
 def _connect_pg(testcase):
@@ -330,6 +352,49 @@ class WfmPipelineIntegrationTest(unittest.TestCase):
                 for item in agent_results.get("orderedItems", [])
             ),
             "agent search should return the Westfries Museum group",
+        )
+
+    def test_api_wfm_collection_record(self):
+        record = self._api_get_data(WFM_COLLECTION_URI)
+
+        self.assertEqual(record["id"], WFM_COLLECTION_URI)
+        self.assertEqual(record["type"], "Set")
+        self.assertEqual(record["_label"], "Westfries Museum collection")
+        self.assertIn("Westfries Museum collection", _identified_by_content(record))
+        self.assertTrue(
+            _has_classification(
+                record,
+                label="Named Collection",
+                equivalent_id="http://vocab.getty.edu/aat/300456764",
+            ),
+            "collection should be classified as a named collection",
+        )
+
+    def test_api_ouwater_person_record(self):
+        record = self._api_get_data(OUWATER_URI)
+
+        self.assertEqual(record["id"], OUWATER_URI)
+        self.assertEqual(record["type"], "Person")
+        self.assertEqual(record["_label"], "Ouwater, Isaak")
+        self.assertIn("Ouwater, Isaak", _identified_by_content(record))
+
+        born_timespan = record.get("born", {}).get("timespan", {})
+        died_timespan = record.get("died", {}).get("timespan", {})
+        self.assertTrue(born_timespan, "birth timespan should be present")
+        self.assertTrue(died_timespan, "death timespan should be present")
+        self.assertEqual(born_timespan.get("end_of_the_end"), "1747-12-31T23:59:59")
+        self.assertEqual(died_timespan.get("end_of_the_end"), "1792-12-31T23:59:59")
+
+        notes = record.get("referred_to_by", []) or []
+        biography_notes = [
+            note for note in notes
+            if note.get("content")
+            and _has_classification(note, equivalent_id="http://vocab.getty.edu/aat/300080102")
+        ]
+        self.assertTrue(biography_notes, "biography should be present")
+        self.assertTrue(
+            any("Wikipedia summary" in " ".join(_identified_by_content(note)) for note in notes),
+            "Wikipedia summary should be present",
         )
 
 

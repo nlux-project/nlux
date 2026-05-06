@@ -3,6 +3,7 @@ import os
 import subprocess
 import unittest
 from pathlib import Path
+from urllib.parse import quote
 
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
@@ -14,6 +15,9 @@ from pipeline.sources.museums.rbhc.mapper import RbhcMapper
 PIPELINE = Path(os.environ.get("PIPELINE_DIR", "/Users/lux/data-pipeline"))
 FIXTURES = Path(__file__).parent / "fixtures"
 TEST_PRIREF = os.environ.get("TEST_PRIREF", "2")
+RBHC_COLLECTION_URI = "http://localhost:8000/data/set/d1096be6-e742-5ad7-ac17-1fe71ac0a49e"
+RBHC_OWNER_URI = "http://www.wikidata.org/entity/Q759169"
+LENOIR_URI = "http://localhost:8000/data/person/858f1a1f-6039-53d3-80f0-c48bb68f5a61"
 REQUIRE_LIVE = os.environ.get("RBHC_REQUIRE_LIVE") == "1"
 
 RAW_REQUIRED_FIELDS = [
@@ -52,6 +56,26 @@ def _classified_as_equivalent(record, uri):
         if any(eq.get("id") == uri for eq in cls.get("equivalent", [])):
             return True
     return False
+
+
+def _has_classification(record, label=None, equivalent_id=None):
+    for classification in record.get("classified_as", []) or []:
+        if label and classification.get("_label") == label:
+            return True
+        if equivalent_id and any(
+            equivalent.get("id") == equivalent_id
+            for equivalent in classification.get("equivalent", []) or []
+        ):
+            return True
+    return False
+
+
+def _identified_by_content(record):
+    return [
+        identifier.get("content")
+        for identifier in record.get("identified_by", []) or []
+        if identifier.get("content")
+    ]
 
 
 def _description_notes(record):
@@ -126,6 +150,70 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
                 "namespace": "https://mmb-web.adlibhosting.com/ais6/Details/collect/",
                 "all_configs": DummyConfigs(),
             }
+        )
+
+    def _api_record_uri(self):
+        source_uri = f"https://mmb-web.adlibhosting.com/ais6/Details/collect/{TEST_PRIREF}"
+        try:
+            uri = subprocess.check_output(
+                [
+                    "docker",
+                    "exec",
+                    "nlux-api-1",
+                    "python3",
+                    "-c",
+                    (
+                        "import sqlite3\n"
+                        "conn = sqlite3.connect('/data/nlux.db')\n"
+                        "cur = conn.cursor()\n"
+                        "cur.execute(\"SELECT uri FROM records WHERE data LIKE ? LIMIT 1\", "
+                        f"('%\"id\": \"{source_uri}\"%',))\n"
+                        "row = cur.fetchone()\n"
+                        "print(row[0] if row else '')\n"
+                        "conn.close()\n"
+                    ),
+                ],
+                text=True,
+                stderr=subprocess.DEVNULL,
+            ).strip()
+        except Exception as exc:
+            _skip_or_fail(self, f"Docker API database is unavailable: {exc}")
+
+        if not uri:
+            _skip_or_fail(self, "Record not found in API database")
+        return uri
+
+    def _api_get_json(self, url):
+        try:
+            raw = subprocess.check_output(
+                [
+                    "docker",
+                    "exec",
+                    "-i",
+                    "nlux-api-1",
+                    "python3",
+                    "-c",
+                    (
+                        "import sys, urllib.request\n"
+                        "url = sys.stdin.read().strip().replace('http://localhost:8000', 'http://127.0.0.1:8000')\n"
+                        "print(urllib.request.urlopen(url, timeout=10).read().decode())\n"
+                    ),
+                ],
+                input=url,
+                text=True,
+                stderr=subprocess.DEVNULL,
+            )
+        except Exception as exc:
+            _skip_or_fail(self, f"API endpoint is unavailable: {exc}")
+        return json.loads(raw)
+
+    def _api_get_data(self, uri):
+        path_part = uri.removeprefix("http://localhost:8000/data/")
+        return self._api_get_json(f"http://localhost:8000/data/{path_part}")
+
+    def _api_search(self, scope, query):
+        return self._api_get_json(
+            f"http://localhost:8000/api/search/{scope}?q={quote(query)}&page=1&pageLength=10"
         )
 
     def test_fetcher_builds_collect_webapi_uri(self):
@@ -243,44 +331,77 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
         _skip_or_fail(self, "Record not found in export")
 
     def test_api_record(self):
-        source_uri = f"https://mmb-web.adlibhosting.com/ais6/Details/collect/{TEST_PRIREF}"
-        try:
-            uri = subprocess.check_output(
-                [
-                    "docker",
-                    "exec",
-                    "nlux-api-1",
-                    "python3",
-                    "-c",
-                    (
-                        "import sqlite3\n"
-                        "conn = sqlite3.connect('/data/nlux.db')\n"
-                        "cur = conn.cursor()\n"
-                        "cur.execute(\"SELECT uri FROM records WHERE data LIKE ? LIMIT 1\", "
-                        f"('%\"id\": \"{source_uri}\"%',))\n"
-                        "row = cur.fetchone()\n"
-                        "print(row[0] if row else '')\n"
-                        "conn.close()\n"
-                    ),
-                ],
-                text=True,
-                stderr=subprocess.DEVNULL,
-            ).strip()
-        except Exception as exc:
-            _skip_or_fail(self, f"Docker API database is unavailable: {exc}")
-
-        if not uri:
-            _skip_or_fail(self, "Record not found in API database")
-
-        path_part = uri.removeprefix("http://localhost:8000/data/")
-        try:
-            raw = subprocess.check_output(["curl", "-sf", f"http://localhost:8000/data/{path_part}"], text=True)
-        except Exception as exc:
-            _skip_or_fail(self, f"API record endpoint is unavailable: {exc}")
-
-        record = json.loads(raw)
+        record = self._api_get_data(self._api_record_uri())
         self.assertEqual(_missing_fields(record, [*LINKED_ART_REQUIRED_FIELDS, "_links"]), [])
         self.assertTrue(_description_notes(record))
+
+    def test_api_record_has_resolvable_collection_and_owner(self):
+        record = self._api_get_data(self._api_record_uri())
+        collection_uri = record["member_of"][0].get("id")
+        owner_uri = record["current_owner"][0].get("id")
+
+        self.assertTrue(collection_uri, "member_of should have a resolvable id")
+        self.assertTrue(owner_uri, "current_owner should have a resolvable id")
+
+        collection = self._api_get_data(collection_uri)
+        self.assertEqual(collection["type"], "Set")
+        self.assertEqual(collection["_label"], "Rijksmuseum Boerhaave collection")
+
+        owner = self._api_get_data(owner_uri)
+        self.assertEqual(owner["type"], "Group")
+        self.assertEqual(owner["_label"], "Rijksmuseum Boerhaave")
+
+    def test_api_search_finds_collection_and_owner(self):
+        set_results = self._api_search("set", "Rijksmuseum Boerhaave collection")
+        self.assertTrue(
+            any(
+                item.get("type") == "Set"
+                and self._api_get_data(item["id"]).get("_label") == "Rijksmuseum Boerhaave collection"
+                for item in set_results.get("orderedItems", [])
+            ),
+            "set search should return the Rijksmuseum Boerhaave collection",
+        )
+
+        agent_results = self._api_search("agent", "Rijksmuseum Boerhaave")
+        self.assertTrue(
+            any(
+                item.get("type") == "Group"
+                and self._api_get_data(item["id"]).get("_label") == "Rijksmuseum Boerhaave"
+                for item in agent_results.get("orderedItems", [])
+            ),
+            "agent search should return the Rijksmuseum Boerhaave group",
+        )
+
+    def test_api_rbhc_collection_record(self):
+        record = self._api_get_data(RBHC_COLLECTION_URI)
+
+        self.assertEqual(record["id"], RBHC_COLLECTION_URI)
+        self.assertEqual(record["type"], "Set")
+        self.assertEqual(record["_label"], "Rijksmuseum Boerhaave collection")
+        self.assertIn("Rijksmuseum Boerhaave collection", _identified_by_content(record))
+        self.assertTrue(
+            _has_classification(
+                record,
+                label="Named Collection",
+                equivalent_id="http://vocab.getty.edu/aat/300456764",
+            ),
+            "collection should be classified as a named collection",
+        )
+
+    def test_api_lenoir_person_record(self):
+        record = self._api_get_data(LENOIR_URI)
+
+        self.assertEqual(record["id"], LENOIR_URI)
+        self.assertEqual(record["type"], "Person")
+        self.assertEqual(record["_label"], "Lenoir, Etienne")
+        self.assertIn("Lenoir, Etienne", _identified_by_content(record))
+
+        born_timespan = record.get("born", {}).get("timespan", {})
+        died_timespan = record.get("died", {}).get("timespan", {})
+        self.assertTrue(born_timespan, "birth timespan should be present")
+        self.assertTrue(died_timespan, "death timespan should be present")
+        self.assertEqual(born_timespan.get("end_of_the_end"), "1822-12-31T23:59:59")
+        self.assertEqual(died_timespan.get("end_of_the_end"), "1900-12-31T23:59:59")
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@ import os
 import subprocess
 import unittest
 from pathlib import Path
+from urllib.parse import quote
 # suppress NotOpenSSLWarning: urllib3
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
@@ -12,6 +13,8 @@ from pipeline.sources.museums.teylers.mapper import TeylersMapper
 
 PIPELINE = Path(os.environ.get("PIPELINE_DIR", "/Users/lux/data-pipeline"))
 TEST_PRIREF = os.environ.get("TEST_PRIREF", "41634")
+TEYLERS_COLLECTION_URI = "http://localhost:8000/data/set/d435a0f6-1837-5d39-a545-f9b994e8464c"
+BAILLIU_URI = "http://localhost:8000/data/person/dea612fd-103f-539a-85a2-20a9eb44ad0d"
 REQUIRE_LIVE = os.environ.get("TEYLERS_REQUIRE_LIVE") == "1"
 
 RAW_REQUIRED_FIELDS = [
@@ -105,6 +108,26 @@ def _missing_fields(record, fields):
     return [field for field in fields if field not in record]
 
 
+def _has_classification(record, label=None, equivalent_id=None):
+    for classification in record.get("classified_as", []) or []:
+        if label and classification.get("_label") == label:
+            return True
+        if equivalent_id and any(
+            equivalent.get("id") == equivalent_id
+            for equivalent in classification.get("equivalent", []) or []
+        ):
+            return True
+    return False
+
+
+def _identified_by_content(record):
+    return [
+        identifier.get("content")
+        for identifier in record.get("identified_by", []) or []
+        if identifier.get("content")
+    ]
+
+
 def _connect_pg(testcase):
     try:
         import psycopg2
@@ -146,6 +169,69 @@ def _about_people(record):
 
 
 class TeylersPipelineIntegrationTest(unittest.TestCase):
+    def _api_record_uri(self):
+        try:
+            uri = subprocess.check_output(
+                [
+                    "docker",
+                    "exec",
+                    "nlux-api-1",
+                    "python3",
+                    "-c",
+                    (
+                        "import sqlite3\n"
+                        "conn = sqlite3.connect('/data/nlux.db')\n"
+                        "cur = conn.cursor()\n"
+                        "cur.execute(\"SELECT uri FROM records WHERE data LIKE ? LIMIT 1\", "
+                        f"('%museum/{TEST_PRIREF}%',))\n"
+                        "row = cur.fetchone()\n"
+                        "print(row[0] if row else '')\n"
+                        "conn.close()\n"
+                    ),
+                ],
+                text=True,
+                stderr=subprocess.DEVNULL,
+            ).strip()
+        except Exception as exc:
+            _skip_or_fail(self, f"Docker API database is unavailable: {exc}")
+
+        if not uri:
+            _skip_or_fail(self, "Record not found in API database")
+        return uri
+
+    def _api_get_json(self, url):
+        try:
+            raw = subprocess.check_output(
+                [
+                    "docker",
+                    "exec",
+                    "-i",
+                    "nlux-api-1",
+                    "python3",
+                    "-c",
+                    (
+                        "import sys, urllib.request\n"
+                        "url = sys.stdin.read().strip().replace('http://localhost:8000', 'http://127.0.0.1:8000')\n"
+                        "print(urllib.request.urlopen(url, timeout=10).read().decode())\n"
+                    ),
+                ],
+                input=url,
+                text=True,
+                stderr=subprocess.DEVNULL,
+            )
+        except Exception as exc:
+            _skip_or_fail(self, f"API endpoint is unavailable: {exc}")
+        return json.loads(raw)
+
+    def _api_get_data(self, uri):
+        path_part = uri.removeprefix("http://localhost:8000/data/")
+        return self._api_get_json(f"http://localhost:8000/data/{path_part}")
+
+    def _api_search(self, scope, query):
+        return self._api_get_json(
+            f"http://localhost:8000/api/search/{scope}?q={quote(query)}&page=1&pageLength=10"
+        )
+
     def test_mapper_extracts_portrait_subject_person(self):
         mapper = TeylersMapper(
             {
@@ -264,44 +350,7 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
         _skip_or_fail(self, "Record not found in export")
 
     def test_api_record(self):
-        try:
-            uri = subprocess.check_output(
-                [
-                    "docker",
-                    "exec",
-                    "nlux-api-1",
-                    "python3",
-                    "-c",
-                    (
-                        "import sqlite3\n"
-                        "conn = sqlite3.connect('/data/nlux.db')\n"
-                        "cur = conn.cursor()\n"
-                        "cur.execute(\"SELECT uri FROM records WHERE data LIKE ? LIMIT 1\", "
-                        f"('%museum/{TEST_PRIREF}%',))\n"
-                        "row = cur.fetchone()\n"
-                        "print(row[0] if row else '')\n"
-                        "conn.close()\n"
-                    ),
-                ],
-                text=True,
-                stderr=subprocess.DEVNULL,
-            ).strip()
-        except Exception as exc:
-            _skip_or_fail(self, f"Docker API database is unavailable: {exc}")
-
-        if not uri:
-            _skip_or_fail(self, "Record not found in API database")
-
-        path_part = uri.removeprefix("http://localhost:8000/data/")
-        try:
-            raw = subprocess.check_output(
-                ["curl", "-sf", f"http://localhost:8000/data/{path_part}"],
-                text=True,
-            )
-        except Exception as exc:
-            _skip_or_fail(self, f"API record endpoint is unavailable: {exc}")
-
-        record = json.loads(raw)
+        record = self._api_get_data(self._api_record_uri())
         self.assertEqual(_missing_fields(record, [*LINKED_ART_REQUIRED_FIELDS, "_links"]), [])
         if TEST_PRIREF == "21916":
             _assert_teylers_image_url(self, record)
@@ -309,6 +358,67 @@ class TeylersPipelineIntegrationTest(unittest.TestCase):
 
         for person in record.get("produced_by", {}).get("carried_out_by", []):
             self.assertIn("id", person, f"agent {person.get('_label')} has no id")
+
+    def test_api_record_has_resolvable_collection_and_owner(self):
+        record = self._api_get_data(self._api_record_uri())
+        collection_uri = record["member_of"][0].get("id")
+        owner_uri = record["current_owner"][0].get("id")
+
+        self.assertTrue(collection_uri, "member_of should have a resolvable id")
+        self.assertTrue(owner_uri, "current_owner should have a resolvable id")
+
+        collection = self._api_get_data(collection_uri)
+        self.assertEqual(collection["type"], "Set")
+        self.assertEqual(collection["_label"], "Teylers Museum collection")
+
+        owner = self._api_get_data(owner_uri)
+        self.assertEqual(owner["type"], "Group")
+        self.assertEqual(owner["_label"], "Teylers Museum")
+
+    def test_api_search_finds_collection_and_owner(self):
+        set_results = self._api_search("set", "Teylers Museum collection")
+        self.assertTrue(
+            any(
+                item.get("type") == "Set"
+                and self._api_get_data(item["id"]).get("_label") == "Teylers Museum collection"
+                for item in set_results.get("orderedItems", [])
+            ),
+            "set search should return the Teylers Museum collection",
+        )
+
+        agent_results = self._api_search("agent", "Teylers Museum")
+        self.assertTrue(
+            any(
+                item.get("type") == "Group"
+                and self._api_get_data(item["id"]).get("_label") == "Teylers Museum"
+                for item in agent_results.get("orderedItems", [])
+            ),
+            "agent search should return the Teylers Museum group",
+        )
+
+    def test_api_teylers_collection_record(self):
+        record = self._api_get_data(TEYLERS_COLLECTION_URI)
+
+        self.assertEqual(record["id"], TEYLERS_COLLECTION_URI)
+        self.assertEqual(record["type"], "Set")
+        self.assertEqual(record["_label"], "Teylers Museum collection")
+        self.assertIn("Teylers Museum collection", _identified_by_content(record))
+        self.assertTrue(
+            _has_classification(
+                record,
+                label="Named Collection",
+                equivalent_id="http://vocab.getty.edu/aat/300456764",
+            ),
+            "collection should be classified as a named collection",
+        )
+
+    def test_api_bailliu_person_record(self):
+        record = self._api_get_data(BAILLIU_URI)
+
+        self.assertEqual(record["id"], BAILLIU_URI)
+        self.assertEqual(record["type"], "Person")
+        self.assertEqual(record["_label"], "Bailliu, Peeter-Frans (graveur) (m)")
+        self.assertIn("Bailliu, Peeter-Frans (graveur) (m)", _identified_by_content(record))
 
 
 if __name__ == "__main__":
