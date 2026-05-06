@@ -23,7 +23,6 @@ RAW_REQUIRED_FIELDS = [
     "Dimension",
     "Material",
     "Production",
-    "Object_category",
     "Object_name",
     "Technique",
 ]

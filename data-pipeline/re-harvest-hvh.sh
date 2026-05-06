@@ -72,7 +72,7 @@ pass "Export OK"
 # -- Step 7: Reload into Docker API ------------------------------------------
 echo "==> Step 7: Resetting and reloading Docker API database ..."
 docker cp data/output/latest/export_hvh_0.jsonl nlux-api-1:/tmp/export_hvh_0.jsonl
-docker exec nlux-api-1 python3 scripts/reset.py
+#docker exec nlux-api-1 python3 scripts/reset.py
 docker exec nlux-api-1 python3 scripts/load_data.py /tmp/export_hvh_0.jsonl
 docker exec nlux-api-1 python3 scripts/generate_agents.py
 docker exec nlux-api-1 python3 scripts/generate_concepts.py
