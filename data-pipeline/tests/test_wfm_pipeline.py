@@ -3,6 +3,7 @@ import os
 import subprocess
 import unittest
 from pathlib import Path
+from urllib.parse import quote
 
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
@@ -100,6 +101,53 @@ class WfmPipelineIntegrationTest(unittest.TestCase):
                 "namespace": "https://westfriesmuseum.com/detail/",
                 "all_configs": DummyConfigs(),
             }
+        )
+
+    def _api_record_uri(self):
+        source_uri = f"westfriesmuseum.com/detail/{TEST_WFM_ID}"
+        try:
+            uri = subprocess.check_output(
+                [
+                    "docker",
+                    "exec",
+                    "nlux-api-1",
+                    "python3",
+                    "-c",
+                    (
+                        "import sqlite3\n"
+                        "conn = sqlite3.connect('/data/nlux.db')\n"
+                        "cur = conn.cursor()\n"
+                        "cur.execute(\"SELECT uri FROM records WHERE data LIKE ? LIMIT 1\", "
+                        f"('%{source_uri}%',))\n"
+                        "row = cur.fetchone()\n"
+                        "print(row[0] if row else '')\n"
+                        "conn.close()\n"
+                    ),
+                ],
+                text=True,
+                stderr=subprocess.DEVNULL,
+            ).strip()
+        except Exception as exc:
+            _skip_or_fail(self, f"Docker API database is unavailable: {exc}")
+
+        if not uri:
+            _skip_or_fail(self, "Record not found in API database")
+        return uri
+
+    def _api_get_json(self, url):
+        try:
+            raw = subprocess.check_output(["curl", "-sf", url], text=True)
+        except Exception as exc:
+            _skip_or_fail(self, f"API endpoint is unavailable: {exc}")
+        return json.loads(raw)
+
+    def _api_get_data(self, uri):
+        path_part = uri.removeprefix("http://localhost:8000/data/")
+        return self._api_get_json(f"http://localhost:8000/data/{path_part}")
+
+    def _api_search(self, scope, query):
+        return self._api_get_json(
+            f"http://localhost:8000/api/search/{scope}?q={quote(query)}&page=1&pageLength=10"
         )
 
     def test_fetcher_builds_memorix_requests(self):
@@ -226,6 +274,8 @@ class WfmPipelineIntegrationTest(unittest.TestCase):
                 equivalents = record.get("equivalent", [])
                 if any(source_uri in eq.get("id", "") for eq in equivalents):
                     self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+                    self.assertTrue(record["member_of"][0].get("id"), "member_of should have a resolvable id")
+                    self.assertTrue(record["current_owner"][0].get("id"), "current_owner should have a resolvable id")
                     image = record["representation"][0]["digitally_shown_by"][0]
                     self.assertIn("images.memorix.nl", image["access_point"][0]["id"])
                     self.assertIn(
@@ -237,34 +287,50 @@ class WfmPipelineIntegrationTest(unittest.TestCase):
         _skip_or_fail(self, "Record not found in export")
 
     def test_api_record(self):
-        source_uri = f"westfriesmuseum.com/detail/{TEST_WFM_ID}"
-        try:
-            uri = subprocess.check_output(
-                [
-                    "docker",
-                    "exec",
-                    "nlux-api-1",
-                    "python3",
-                    "-c",
-                    (
-                        "import sqlite3\n"
-                        "conn = sqlite3.connect('/data/nlux.db')\n"
-                        "cur = conn.cursor()\n"
-                        "cur.execute(\"SELECT uri FROM records WHERE data LIKE ? LIMIT 1\", "
-                        f"('%{source_uri}%',))\n"
-                        "row = cur.fetchone()\n"
-                        "print(row[0] if row else '')\n"
-                        "conn.close()\n"
-                    ),
-                ],
-                text=True,
-                stderr=subprocess.DEVNULL,
-            ).strip()
-        except Exception as exc:
-            _skip_or_fail(self, f"Docker API database is unavailable: {exc}")
+        record = self._api_get_data(self._api_record_uri())
+        self.assertEqual(record["member_of"][0]["type"], "Set")
+        self.assertEqual(record["member_of"][0]["_label"], "Westfries Museum collection")
+        self.assertEqual(record["current_owner"][0]["type"], "Group")
+        self.assertEqual(record["current_owner"][0]["_label"], "Westfries Museum")
+        self.assertTrue(record["member_of"][0].get("id"), "member_of should have a resolvable id")
+        self.assertTrue(record["current_owner"][0].get("id"), "current_owner should have a resolvable id")
 
-        if not uri:
-            _skip_or_fail(self, "Record not found in API database")
+    def test_api_record_has_resolvable_collection_and_owner(self):
+        record = self._api_get_data(self._api_record_uri())
+        collection_uri = record["member_of"][0].get("id")
+        owner_uri = record["current_owner"][0].get("id")
+
+        self.assertTrue(collection_uri, "member_of should have a resolvable id")
+        self.assertTrue(owner_uri, "current_owner should have a resolvable id")
+
+        collection = self._api_get_data(collection_uri)
+        self.assertEqual(collection["type"], "Set")
+        self.assertEqual(collection["_label"], "Westfries Museum collection")
+
+        owner = self._api_get_data(owner_uri)
+        self.assertEqual(owner["type"], "Group")
+        self.assertEqual(owner["_label"], "Westfries Museum")
+
+    def test_api_search_finds_collection_and_owner(self):
+        set_results = self._api_search("set", "Westfries Museum collection")
+        self.assertTrue(
+            any(
+                item.get("type") == "Set"
+                and self._api_get_data(item["id"]).get("_label") == "Westfries Museum collection"
+                for item in set_results.get("orderedItems", [])
+            ),
+            "set search should return the Westfries Museum collection",
+        )
+
+        agent_results = self._api_search("agent", "Westfries Museum")
+        self.assertTrue(
+            any(
+                item.get("type") == "Group"
+                and self._api_get_data(item["id"]).get("_label") == "Westfries Museum"
+                for item in agent_results.get("orderedItems", [])
+            ),
+            "agent search should return the Westfries Museum group",
+        )
 
 
 if __name__ == "__main__":
