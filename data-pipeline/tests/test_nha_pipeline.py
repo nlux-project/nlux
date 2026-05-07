@@ -152,7 +152,7 @@ class NhaC587PipelineIntegrationTest(unittest.TestCase):
         )
 
     def test_harvest_file(self):
-        path = PIPELINE / "data" / "input" / "nha-c587" / f"{TEST_NHA_C587_ID}.json"
+        path = PIPELINE / "data" / "input" / "nha" / "c587" / f"{TEST_NHA_C587_ID}.json"
         if not path.exists():
             _skip_or_fail(self, f"Harvest file not found: {path}")
 

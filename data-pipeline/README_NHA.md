@@ -24,6 +24,7 @@ Filter:   search_s_collectie:"587 - portretten van de Provinciale Atlas Noord-Ho
 
 - Source abbreviation: `nha-c587`
 - Source namespace: `https://hdl.handle.net/21.12102/`
+- Harvest input directory: `data/input/nha/c587/`
 - Image host: `https://images.memorix.nl/ranh/`
 - Observed total records: 893
 
@@ -61,5 +62,5 @@ uv run python run-export.py 0 1 --nha-c587 --export-entities
 For a small harvest smoke test:
 
 ```bash
-./harvest-nha.sh data/input/nha-c587 10
+./harvest-nha.sh data/input/nha/c587 10
 ```

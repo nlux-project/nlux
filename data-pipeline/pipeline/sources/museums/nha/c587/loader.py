@@ -11,7 +11,7 @@ class NhaC587Loader(Loader):
     def __init__(self, config):
         Loader.__init__(self, config)
         cfgs = config["all_configs"]
-        self.input_dir = os.path.join(cfgs.dumps_dir, "nha-c587")
+        self.input_dir = os.path.join(cfgs.dumps_dir, "nha", "c587")
 
     def load(self):
         start = time.time()

@@ -14,7 +14,7 @@ class HarvestConfigs:
 
 
 def main():
-    out_dir = Path(sys.argv[1] if len(sys.argv) > 1 else "data/input/nha-c587")
+    out_dir = Path(sys.argv[1] if len(sys.argv) > 1 else "data/input/nha/c587")
     out_dir.mkdir(parents=True, exist_ok=True)
 
     limit = int(sys.argv[2]) if len(sys.argv) > 2 else None
