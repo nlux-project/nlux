@@ -12,7 +12,7 @@ echo "==> Testing NHA C587 ..."
 echo "==> Testing mapper and fetcher configuration ..."
 TEST_NHA_C587_ID="$TEST_NHA_C587_ID1" NHA_C587_REQUIRE_LIVE=1 \
     uv run python -m unittest "tests.test_nha_pipeline.NhaC587PipelineIntegrationTest.test_fetcher_builds_filtered_memorix_requests"
-TEST_NHA_C587_ID="$TEST_NHA_C587_ID2" NHA_C587_REQUIRE_LIVE=1 \
+TEST_NHA_C587_ID="$TEST_NHA_C587_ID1" NHA_C587_REQUIRE_LIVE=1 \
     uv run python -m unittest "tests.test_nha_pipeline.NhaC587PipelineIntegrationTest.test_mapper_transforms_record"
 
 /bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_nha-pipeline.sh "$TEST_NHA_C587_ID1"
