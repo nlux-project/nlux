@@ -19,7 +19,7 @@ class NhaC587Loader(Loader):
         if not os.path.isdir(self.input_dir):
             raise FileNotFoundError(
                 f"Harvest directory not found: {self.input_dir}\n"
-                "Run ./harvest-nha-c587.sh first."
+                "Run ./harvest-nha.sh first."
             )
 
         files = sorted(fn for fn in os.listdir(self.input_dir) if fn.endswith(".json"))

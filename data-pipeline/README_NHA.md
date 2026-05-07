@@ -36,8 +36,8 @@ pipeline/sources/museums/nha/c587/
   mapper.py
 
 docs/sample_config/nha-c587.json
-harvest-nha-c587.py
-harvest-nha-c587.sh
+harvest-nha.py
+harvest-nha.sh
 tests/test_nha_c587_pipeline.py
 tests/fixtures/nha-c587-record-F7DDF7.json
 ```
@@ -51,7 +51,7 @@ Copy `docs/sample_config/nha-c587.json` into your runtime `config/config_cache/`
 ```bash
 cd data-pipeline
 
-./harvest-nha-c587.sh
+./harvest-nha.sh
 uv run python manage-data.py --load --nha-c587
 uv run python run-reconcile.py 0 1 --nha-c587
 uv run python run-merge.py 0 1 --nha-c587
@@ -61,5 +61,5 @@ uv run python run-export.py 0 1 --nha-c587 --export-entities
 For a small harvest smoke test:
 
 ```bash
-./harvest-nha-c587.sh data/input/nha-c587 10
+./harvest-nha.sh data/input/nha-c587 10
 ```
