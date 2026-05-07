@@ -8,14 +8,23 @@ from urllib.parse import quote
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
 
-from pipeline.sources.museums.nha.c587.fetcher import COLLECTION_FILTER, NhaC587Fetcher
+from pipeline.sources.museums.nha.c480.fetcher import COLLECTION_FILTER as C480_COLLECTION_FILTER
+from pipeline.sources.museums.nha.c480.fetcher import NhaC480Fetcher
+from pipeline.sources.museums.nha.c480.mapper import NhaC480Mapper
+from pipeline.sources.museums.nha.c587.fetcher import COLLECTION_FILTER as C587_COLLECTION_FILTER
+from pipeline.sources.museums.nha.c587.fetcher import NhaC587Fetcher
 from pipeline.sources.museums.nha.c587.mapper import NhaC587Mapper
 
 
 PIPELINE = Path(os.environ.get("PIPELINE_DIR", "/Users/lux/data-pipeline"))
 FIXTURES = Path(__file__).parent / "fixtures"
 TEST_NHA_C587_ID = os.environ.get("TEST_NHA_C587_ID", "F7DDF7EEFB8E11DF9E4D523BC2E286E2")
-REQUIRE_LIVE = os.environ.get("NHA_C587_REQUIRE_LIVE") == "1"
+TEST_NHA_C480_ID = os.environ.get("TEST_NHA_C480_ID", "65B76D9AFB8F11DF9E4D523BC2E286E2")
+REQUIRE_LIVE = (
+    os.environ.get("NHA_REQUIRE_LIVE") == "1"
+    or os.environ.get("NHA_C587_REQUIRE_LIVE") == "1"
+    or os.environ.get("NHA_C480_REQUIRE_LIVE") == "1"
+)
 
 RAW_REQUIRED_FIELDS = [
     "id",
@@ -127,7 +136,7 @@ class NhaC587PipelineIntegrationTest(unittest.TestCase):
         )
         params = fetcher._params(include_filter=True, page=1, rows=25)
         self.assertEqual(params["apiKey"], "test-key")
-        self.assertEqual(params["fq[]"], COLLECTION_FILTER)
+        self.assertEqual(params["fq[]"], C587_COLLECTION_FILTER)
 
     def test_fixture_has_required_raw_fields(self):
         self.assertEqual(_missing_fields(self.record, RAW_REQUIRED_FIELDS), [])
@@ -276,6 +285,127 @@ class NhaC587PipelineIntegrationTest(unittest.TestCase):
             any(person.get("_label") == "Maarten van Heemskerk" for person in people),
             "Maarten van Heemskerk should have a matching Person label",
         )
+
+
+class NhaC480PipelineIntegrationTest(unittest.TestCase):
+    def setUp(self):
+        self.record = _load_json(FIXTURES / "nha-c480-record-65B76D.json")
+        self.mapper = NhaC480Mapper(
+            {
+                "name": "nha-c480",
+                "namespace": "https://hdl.handle.net/21.12102/",
+                "all_configs": DummyConfigs(),
+            }
+        )
+
+    def test_fetcher_builds_filtered_memorix_requests(self):
+        fetcher = NhaC480Fetcher(
+            {
+                "name": "nha-c480",
+                "fetch": "",
+                "apiUrl": "https://webservices.memorix.nl/mediabank",
+                "apiKey": "test-key",
+                "all_configs": DummyConfigs(),
+            }
+        )
+
+        self.assertTrue(fetcher.validate_identifier(TEST_NHA_C480_ID))
+        self.assertEqual(
+            fetcher.make_fetch_uri(TEST_NHA_C480_ID),
+            f"https://webservices.memorix.nl/mediabank/media/{TEST_NHA_C480_ID}",
+        )
+        params = fetcher._params(include_filter=True, page=1, rows=25)
+        self.assertEqual(params["apiKey"], "test-key")
+        self.assertEqual(params["fq[]"], C480_COLLECTION_FILTER)
+
+    def test_fixture_has_required_raw_fields(self):
+        self.assertEqual(_missing_fields(self.record, RAW_REQUIRED_FIELDS), [])
+
+    def test_mapper_transforms_record(self):
+        mapped = self.mapper.transform({"data": self.record})
+        self.assertEqual(mapped["identifier"], TEST_NHA_C480_ID)
+        self.assertEqual(mapped["source"], "nha-c480")
+
+        data = mapped["data"]
+        self.assertEqual(data["type"], "HumanMadeObject")
+        self.assertEqual(data["_label"], "736")
+        self.assertEqual(_missing_fields(data, LINKED_ART_REQUIRED_FIELDS), [])
+        self.assertEqual(data["member_of"][0]["_label"], "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van")
+        self.assertEqual(data["current_owner"][0]["_label"], "Noord-Hollands Archief")
+        self.assertEqual(data["current_location"]["_label"], "Noord-Hollands Archief")
+        self.assertIn("Een Boer en eene Boerin uit de omstreken van Purmerend", json.dumps(data["referred_to_by"], ensure_ascii=False))
+        self.assertIn("Nederland", json.dumps(data["produced_by"], ensure_ascii=False))
+        self.assertIn(
+            "https://hdl.handle.net/21.12102/65B76D9AFB8F11DF9E4D523BC2E286E2",
+            data["subject_of"][0]["digitally_carried_by"][0]["access_point"][0]["id"],
+        )
+        image = data["representation"][0]["digitally_shown_by"][0]
+        self.assertEqual(image["format"], "image/jpeg")
+        self.assertIn("images.memorix.nl/ranh", image["access_point"][0]["id"])
+        self.assertIn(
+            "localhost:8000/iiif/manifest/",
+            json.dumps(data["subject_of"], ensure_ascii=False),
+        )
+
+    def test_harvest_file(self):
+        path = PIPELINE / "data" / "input" / "nha" / "c480" / f"{TEST_NHA_C480_ID}.json"
+        if not path.exists():
+            _skip_or_fail(self, f"Harvest file not found: {path}")
+
+        record = _load_json(path)
+        self.assertEqual(_missing_fields(record, RAW_REQUIRED_FIELDS), [])
+        self.assertEqual(str(record.get("id")), TEST_NHA_C480_ID)
+
+    def test_datacache_record(self):
+        try:
+            with _connect_pg(self) as conn:
+                with conn.cursor() as cur:
+                    cur.execute("SELECT data FROM nha_c480_data_cache WHERE data->>'id' = %s", (TEST_NHA_C480_ID,))
+                    row = cur.fetchone()
+        except Exception as exc:
+            _skip_or_fail(self, f"NHA C480 datacache table is unavailable: {exc}")
+
+        if not row:
+            _skip_or_fail(self, "Record not found in nha_c480_data_cache")
+
+        record = _coerce_record(row[0])
+        self.assertEqual(_missing_fields(record, RAW_REQUIRED_FIELDS), [])
+
+    def test_reconciled_record(self):
+        try:
+            with _connect_pg(self) as conn:
+                with conn.cursor() as cur:
+                    cur.execute("SELECT data FROM nha_c480_record_cache WHERE identifier = %s", (TEST_NHA_C480_ID,))
+                    row = cur.fetchone()
+        except Exception as exc:
+            _skip_or_fail(self, f"NHA C480 record cache table is unavailable: {exc}")
+
+        if not row:
+            _skip_or_fail(self, "Record not found in nha_c480_record_cache")
+
+        record = _coerce_record(row[0])
+        self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+
+    def test_export_record(self):
+        path = PIPELINE / "data" / "output" / "latest" / "export_nha-c480_0.jsonl"
+        if not path.exists():
+            _skip_or_fail(self, f"Export file not found: {path}")
+
+        source_uri = f"hdl.handle.net/21.12102/{TEST_NHA_C480_ID}"
+        with path.open(encoding="utf-8") as fh:
+            for line in fh:
+                if not line.strip():
+                    continue
+                record = _coerce_record(json.loads(line))
+                equivalents = record.get("equivalent", [])
+                if any(source_uri in eq.get("id", "") for eq in equivalents):
+                    self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+                    self.assertTrue(record["member_of"][0].get("id"), "member_of should have a resolvable id")
+                    image = record["representation"][0]["digitally_shown_by"][0]
+                    self.assertIn("images.memorix.nl/ranh", image["access_point"][0]["id"])
+                    return
+
+        _skip_or_fail(self, "Record not found in export")
 
 
 if __name__ == "__main__":

@@ -144,10 +144,19 @@ def _note(content, classification_uri=None, classification_label=None):
 
 
 class NhaC587Mapper(Mapper):
+    source_name = "nha-c587"
+    owner_label = NHA_LABEL
+    collection_label = NHA_COLLECTION_LABEL
+    detail_base = NHA_DETAIL_BASE
+
     def __init__(self, config):
         Mapper.__init__(self, config)
         self.namespace = config["namespace"]
         self.api_base = _api_base(config)
+        self.source_name = config.get("name", self.source_name)
+        self.owner_label = config.get("ownerLabel", self.owner_label)
+        self.collection_label = config.get("collectionLabel", self.collection_label)
+        self.detail_base = config.get("detailBase", self.detail_base)
 
     def transform(self, record, rectype=None, reference=False):
         rec = record.get("data", {})
@@ -227,11 +236,11 @@ class NhaC587Mapper(Mapper):
         if has_production:
             top.produced_by = production
 
-        top.current_owner = model.Group(label=NHA_LABEL)
-        top.current_location = model.Place(label=NHA_LABEL)
-        top.member_of = model.Set(label=NHA_COLLECTION_LABEL)
+        top.current_owner = model.Group(label=self.owner_label)
+        top.current_location = model.Place(label=self.owner_label)
+        top.member_of = model.Set(label=self.collection_label)
 
-        detail_url = _first(metadata, "pid") or rec.get("handle") or NHA_DETAIL_BASE.format(record_id=record_id)
+        detail_url = _first(metadata, "pid") or rec.get("handle") or self.detail_base.format(record_id=record_id)
         page = model.LinguisticObject()
         webpage = vocab.WebPage(label="Object page at Noord-Hollands Archief")
         webpage.access_point = model.DigitalObject(ident=detail_url)
@@ -258,4 +267,4 @@ class NhaC587Mapper(Mapper):
         data = model.factory.toJSON(top)
         if image_url:
             _append_iiif_manifest(data, _iiif_manifest_url(self.api_base, image_url, primary_title))
-        return {"identifier": record_id, "data": data, "source": "nha-c587"}
+        return {"identifier": record_id, "data": data, "source": self.source_name}

@@ -1,12 +1,23 @@
 #!/bin/bash
 set -euo pipefail
 
-OUTPUT_DIR="${1:-data/input/nha/c587}"
-LIMIT="${2:-}"
+SOURCE="${1:-nha-c587}"
+OUTPUT_DIR="${2:-}"
+LIMIT="${3:-}"
 
-mkdir -p "$OUTPUT_DIR"
-if [ -n "$LIMIT" ]; then
-    uv run python harvest-nha.py "$OUTPUT_DIR" "$LIMIT"
+if [[ "$SOURCE" != nha-* ]]; then
+    OUTPUT_DIR="$SOURCE"
+    SOURCE="nha-c587"
+    LIMIT="${2:-}"
+fi
+
+if [[ -n "$OUTPUT_DIR" ]]; then
+    mkdir -p "$OUTPUT_DIR"
+fi
+if [[ -n "$LIMIT" ]]; then
+    uv run python harvest-nha.py "$SOURCE" "$OUTPUT_DIR" "$LIMIT"
+elif [[ -n "$OUTPUT_DIR" ]]; then
+    uv run python harvest-nha.py "$SOURCE" "$OUTPUT_DIR"
 else
-    uv run python harvest-nha.py "$OUTPUT_DIR"
+    uv run python harvest-nha.py "$SOURCE"
 fi

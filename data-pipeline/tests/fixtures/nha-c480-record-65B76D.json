@@ -1,0 +1,101 @@
+{
+  "id": "65B76D9AFB8F11DF9E4D523BC2E286E2",
+  "entity_uuid": "beeldbank",
+  "title": "",
+  "description": "",
+  "asset": [
+    {
+      "uuid": "15709b61-6f68-dc0e-f4d7-f115706c6e14",
+      "name": "object",
+      "mimetype": "image/jp2",
+      "fullname": "15709b61-6f68-dc0e-f4d7-f115706c6e14.jpg",
+      "available_mimetypes": [
+        "image/jp2"
+      ],
+      "dc_title": "object",
+      "default_thumb": true,
+      "filename": "c24a24b1-cb62-c69f-9b3a-d0d77c7da5b8.jp2",
+      "width": 2514,
+      "height": 3270,
+      "rank": 1,
+      "mediatype": "image",
+      "topview": "https://images.memorix.nl/ranh/topviewjson/memorix/15709b61-6f68-dc0e-f4d7-f115706c6e14",
+      "deepzoom": "https://images.memorix.nl/ranh/deepzoom/15709b61-6f68-dc0e-f4d7-f115706c6e14.dzi",
+      "thumb": {
+        "small": "https://images.memorix.nl/ranh/thumb/350x350crop/15709b61-6f68-dc0e-f4d7-f115706c6e14.jpg",
+        "medium": "https://images.memorix.nl/ranh/thumb/350x350/15709b61-6f68-dc0e-f4d7-f115706c6e14.jpg",
+        "fluid": "https://images.memorix.nl/ranh/thumb/mediabank-horizontal/15709b61-6f68-dc0e-f4d7-f115706c6e14.jpg",
+        "large": "https://images.memorix.nl/ranh/thumb/640x480/15709b61-6f68-dc0e-f4d7-f115706c6e14.jpg",
+        "vertical": "https://images.memorix.nl/ranh/thumb/mediabank-vertical/15709b61-6f68-dc0e-f4d7-f115706c6e14.jpg"
+      },
+      "download": "https://webservices.memorix.nl/mediabank/media/65B76D9AFB8F11DF9E4D523BC2E286E2/downloadoriginal/15709b61-6f68-dc0e-f4d7-f115706c6e14?apiKey=81749016-5b7f-4e2f-a7b7-bba1be25f33f",
+      "downloadList": false
+    }
+  ],
+  "pdf": [],
+  "metadata": [
+    {
+      "field": "nummer",
+      "label": "Inventarisnummer",
+      "value": "736"
+    },
+    {
+      "field": "opmerkingen",
+      "label": "Opmerkingen",
+      "value": "\"Een Boer en eene Boerin uit de omstreken van Purmerend in Noord Holland.\""
+    },
+    {
+      "field": "land",
+      "label": "Land",
+      "value": "Nederland"
+    },
+    {
+      "field": "techniek",
+      "label": "Techniek",
+      "value": "Grafiek Drukwerk"
+    },
+    {
+      "field": "collectie",
+      "label": "Collectie",
+      "value": "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van"
+    },
+    {
+      "field": "pid",
+      "label": "Permanente link",
+      "value": "https://hdl.handle.net/21.12102/65B76D9AFB8F11DF9E4D523BC2E286E2"
+    },
+    {
+      "field": "toegang",
+      "label": "",
+      "value": "<a href=\"https://proxy.archieven.nl/236/17301F4A89CC45FE86BA07F3AF68CC92\" target=\"_blank\">Archieftoegang</a>"
+    },
+    {
+      "field": "datering_begin",
+      "label": "Datum",
+      "value": null
+    },
+    {
+      "field": "record_type",
+      "label": "Soort",
+      "value": null
+    },
+    {
+      "field": "adres",
+      "label": "Adres",
+      "value": null
+    },
+    {
+      "field": "persoon_op_afbeelding",
+      "label": "Persoon op afbeelding",
+      "value": null
+    }
+  ],
+  "geodata": [],
+  "webexpositions": null,
+  "links": {
+    "media": "https://webservices.memorix.nl/mediabank/media/65B76D9AFB8F11DF9E4D523BC2E286E2"
+  },
+  "watermark": false,
+  "iprestricted": false,
+  "handle": "https://hdl.handle.net/21.12102/65B76D9AFB8F11DF9E4D523BC2E286E2"
+}
