@@ -11,7 +11,7 @@ cd /Users/lux/data-pipeline
 # /Users/lux/data-pipeline/data/input/rbhc/2.json
 # http://localhost:8088/view/object/0a7994ef-d7db-4a0f-98c7-ade4ca77d8c1
 # http://localhost:8000/data/object/0a7994ef-d7db-4a0f-98c7-ade4ca77d8c1
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_rbhc-record.sh 2
+/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_rbhc-pipeline.sh 2
 
 # ----------------------------------------
 # Test: Jaarmarkt van Gondreville
@@ -19,7 +19,7 @@ cd /Users/lux/data-pipeline
 # /Users/lux/data-pipeline/data/input/rbhc/246.json
 # http://localhost:8088/view/object/0021ca83-4150-4f7b-ae1c-ffce174cded3
 # http://localhost:8000/data/object/0021ca83-4150-4f7b-ae1c-ffce174cded3
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_rbhc-record.sh 246
+/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_rbhc-pipeline.sh 246
 
 # ----------------------------------------
 # Test API search and resolvable references

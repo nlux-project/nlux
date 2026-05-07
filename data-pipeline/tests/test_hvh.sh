@@ -11,13 +11,13 @@ cd /Users/lux/data-pipeline
 # /Users/lux/data-pipeline/data/input/hvh/4564-09.json
 # http://localhost:8088/view/object/c809d719-9b22-4bdc-a656-f0a51eafbc83
 # http://localhost:8000/data/object/c809d719-9b22-4bdc-a656-f0a51eafbc83
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_hvh-record.sh 4564-09
+/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_hvh-pipeline.sh 4564-09
 
 # ----------------------------------------
 # Test: Pseudo-muntfibula/bracteatenfibula
 # ----------------------------------------
 # /Users/lux/data-pipeline/data/input/hvh/5061-06.json
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_hvh-record.sh 5061-06
+/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_hvh-pipeline.sh 5061-06
 
 # ----------------------------------------
 # Test API search and resolvable references
