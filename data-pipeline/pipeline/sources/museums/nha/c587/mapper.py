@@ -112,6 +112,30 @@ def _creator_name(value):
     return value
 
 
+def _person_name_from_portrait_title(title):
+    title = _clean(title)
+    if not title:
+        return None
+
+    match = re.match(
+        r"^(?:zelfportret|self-?portrait)(?:\s+(?:van|of))?\s+(.+)$",
+        title,
+        flags=re.IGNORECASE,
+    )
+    if not match:
+        match = re.match(
+            r"^(?:portret|portrait)\s+(?:van|of)\s+(.+)$",
+            title,
+            flags=re.IGNORECASE,
+        )
+    if not match:
+        return None
+
+    name = re.split(r"\s*[;|]\s*", match.group(1), 1)[0]
+    name = re.sub(r"\s*,?\s*(?:\(?\d{3,4}\b.*|\*.*)$", "", name).strip(" ,.;")
+    return name or None
+
+
 def _note(content, classification_uri=None, classification_label=None):
     note = model.LinguisticObject(content=content)
     if classification_uri or classification_label:
@@ -164,6 +188,9 @@ class NhaC587Mapper(Mapper):
 
         for person in _values(metadata.get("persoon_op_afbeelding")):
             top.about = model.Person(label=person)
+        portrait_person = _person_name_from_portrait_title(primary_title)
+        if portrait_person:
+            top.about = model.Person(label=portrait_person)
 
         for place in _values(metadata.get("adres")):
             top.about = model.Place(label=place)

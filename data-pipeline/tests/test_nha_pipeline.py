@@ -58,6 +58,14 @@ def _missing_fields(record, fields):
     return [field for field in fields if field not in record]
 
 
+def _about_people(record):
+    return [
+        entity
+        for entity in record.get("about", [])
+        if entity.get("type") == "Person"
+    ]
+
+
 def _connect_pg(testcase):
     try:
         import psycopg2
@@ -152,6 +160,29 @@ class NhaC587PipelineIntegrationTest(unittest.TestCase):
             "localhost:8000/iiif/manifest/",
             json.dumps(data["subject_of"], ensure_ascii=False),
         )
+
+    def test_mapper_extracts_portrait_title_subject_person(self):
+        record = json.loads(json.dumps(self.record))
+        cases = {
+            "Portret van Maarten van Heemskerk": "Maarten van Heemskerk",
+            "Portrait of Jane Doe": "Jane Doe",
+            "Zelfportret van Judith Leyster": "Judith Leyster",
+            "Selfportrait of Rembrandt van Rijn": "Rembrandt van Rijn",
+            "Self-portrait of Vincent van Gogh": "Vincent van Gogh",
+        }
+
+        for title, expected in cases.items():
+            with self.subTest(title=title):
+                for item in record["metadata"]:
+                    if item["field"] == "beschrijving":
+                        item["value"] = title
+                        break
+                mapped = self.mapper.transform({"data": record})
+                people = _about_people(mapped["data"])
+                self.assertTrue(
+                    any(person.get("_label") == expected for person in people),
+                    f"{title!r} should link {expected!r} as an about Person",
+                )
 
     def test_harvest_file(self):
         path = PIPELINE / "data" / "input" / "nha" / "c587" / f"{TEST_NHA_C587_ID}.json"
