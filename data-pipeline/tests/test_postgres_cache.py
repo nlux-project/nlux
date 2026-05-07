@@ -9,6 +9,7 @@ class PostgresCacheNamingTest(unittest.TestCase):
 
     def test_cache_table_name_sanitizes_hyphenated_source_names(self):
         self.assertEqual(_cache_table_name("nha-c587", "record_cache"), "nha_c587_record_cache")
+        self.assertEqual(_cache_table_name("nha-c480", "record_cache"), "nha_c480_record_cache")
 
 
 if __name__ == "__main__":

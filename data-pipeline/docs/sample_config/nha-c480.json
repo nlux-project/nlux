@@ -1,0 +1,22 @@
+{
+    "name": "nha-c480",
+    "type": "internal",
+    "namespace": "https://hdl.handle.net/21.12102/",
+    "matches": [
+        "hdl.handle.net/21.12102/",
+        "webservices.memorix.nl/mediabank/media/"
+    ],
+    "fetch": "https://webservices.memorix.nl/mediabank/media/{identifier}",
+    "apiUrl": "https://webservices.memorix.nl/mediabank",
+    "apiKey": "81749016-5b7f-4e2f-a7b7-bba1be25f33f",
+    "collectionFilter": "search_s_collectie:\"480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van\"",
+    "collectionLabel": "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van",
+    "merge_order": 5,
+
+    "harvesterClass": "process.base.harvester.Harvester",
+    "mapperClass": "sources.museums.nha.c480.mapper.NhaC480Mapper",
+    "loaderClass": "sources.museums.nha.c480.loader.NhaC480Loader",
+    "fetcherClass": "sources.museums.nha.c480.fetcher.NhaC480Fetcher",
+
+    "totalRecords": 1256
+}

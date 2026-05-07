@@ -39,7 +39,7 @@ pipeline/sources/museums/nha/c587/
 docs/sample_config/nha-c587.json
 harvest-nha.py
 harvest-nha.sh
-tests/test_nha_c587_pipeline.py
+tests/test_nha_pipeline.py
 tests/fixtures/nha-c587-record-F7DDF7.json
 ```
 
@@ -63,4 +63,67 @@ For a small harvest smoke test:
 
 ```bash
 ./harvest-nha.sh data/input/nha/c587 10
+```
+
+## C480 - Historieprenten Provinciale Atlas Noord-Holland
+
+Collection 480 contains history prints from the Provinciale Atlas Noord-Holland.
+
+### Harvesting
+
+The public collection page embeds the Memorix mediabank widget:
+
+```text
+https://noord-hollandsarchief.nl/beelden/beeldbank/?mode=gallery&fq[]=search_s_collectie:"480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van"
+```
+
+The source uses the same public API configuration as C587 with a different collection filter:
+
+```text
+API base: https://webservices.memorix.nl/mediabank
+API key:  81749016-5b7f-4e2f-a7b7-bba1be25f33f
+Filter:   search_s_collectie:"480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van"
+```
+
+- Source abbreviation: `nha-c480`
+- Source namespace: `https://hdl.handle.net/21.12102/`
+- Harvest input directory: `data/input/nha/c480/`
+- Image host: `https://images.memorix.nl/ranh/`
+- Observed total records: 1256
+
+### Files
+
+```text
+pipeline/sources/museums/nha/c480/
+  fetcher.py
+  loader.py
+  mapper.py
+
+docs/sample_config/nha-c480.json
+harvest-nha.py
+harvest-nha.sh
+tests/test_nha_pipeline.py
+tests/fixtures/nha-c480-record-65B76D.json
+```
+
+### Config
+
+Copy `docs/sample_config/nha-c480.json` into your runtime `config/config_cache/` alongside the other source configs.
+
+### Run
+
+```bash
+cd data-pipeline
+
+./harvest-nha.sh nha-c480
+uv run python manage-data.py --load --nha-c480
+uv run python run-reconcile.py 0 1 --nha-c480
+uv run python run-merge.py 0 1 --nha-c480
+uv run python run-export.py 0 1 --nha-c480 --export-entities
+```
+
+For a small harvest smoke test:
+
+```bash
+./harvest-nha.sh nha-c480 data/input/nha/c480 10
 ```

@@ -8,10 +8,13 @@ from pipeline.process.base.loader import Loader
 class NhaC587Loader(Loader):
     """Load NHA C587 records from harvested Memorix JSON files."""
 
+    source_label = "NHA C587"
+    collection_dir = "c587"
+
     def __init__(self, config):
         Loader.__init__(self, config)
         cfgs = config["all_configs"]
-        self.input_dir = os.path.join(cfgs.dumps_dir, "nha", "c587")
+        self.input_dir = os.path.join(cfgs.dumps_dir, "nha", self.collection_dir)
 
     def load(self):
         start = time.time()
@@ -24,7 +27,7 @@ class NhaC587Loader(Loader):
 
         files = sorted(fn for fn in os.listdir(self.input_dir) if fn.endswith(".json"))
         total = len(files)
-        print(f"NHA C587: loading {total} records from {self.input_dir}")
+        print(f"{self.source_label}: loading {total} records from {self.input_dir}")
 
         loaded = 0
         for fn in files:
@@ -45,4 +48,4 @@ class NhaC587Loader(Loader):
                 print(f"{loaded}/{total} loaded ({rate:.0f}/s)")
 
         self.out_cache.commit()
-        print(f"NHA C587: loaded {loaded} records in {time.time() - start:.1f}s")
+        print(f"{self.source_label}: loaded {loaded} records in {time.time() - start:.1f}s")
