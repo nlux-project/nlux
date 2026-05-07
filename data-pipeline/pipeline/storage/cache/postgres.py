@@ -1,4 +1,5 @@
 import datetime
+import re
 import sys
 import threading
 import time
@@ -77,7 +78,7 @@ class PoolManager(object):
 class PooledCache(object):
     def __init__(self, config):
         self.config = config
-        self.name = config["name"] + "_" + config["tabletype"]
+        self.name = _cache_table_name(config["name"], config["tabletype"])
         self.conn = None
         self.iterating_conn = None
         self.pools = PoolManager.get_instance()
@@ -602,6 +603,11 @@ class PooledCache(object):
         # and warn that the code shouldn't do this
         print(f"*** code somewhere is asking for a cache as a boolean value and shouldn't ***")
         return True
+
+
+def _cache_table_name(source_name, table_type):
+    source_name = re.sub(r"[^A-Za-z0-9_]+", "_", source_name).strip("_")
+    return f"{source_name}_{table_type}"
 
 
 class DataCache(PooledCache):

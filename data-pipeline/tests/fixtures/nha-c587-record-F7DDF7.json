@@ -1,0 +1,90 @@
+{
+  "id": "F7DDF7EEFB8E11DF9E4D523BC2E286E2",
+  "entity_uuid": "beeldbank",
+  "title": "",
+  "description": "",
+  "asset": [
+    {
+      "uuid": "07ef58e8-2b68-f827-0363-1ddd47f41640",
+      "name": "object",
+      "mimetype": "image/jp2",
+      "fullname": "07ef58e8-2b68-f827-0363-1ddd47f41640.jpg",
+      "width": 3157,
+      "height": 4084,
+      "mediatype": "image",
+      "thumb": {
+        "medium": "https://images.memorix.nl/ranh/thumb/350x350/07ef58e8-2b68-f827-0363-1ddd47f41640.jpg",
+        "large": "https://images.memorix.nl/ranh/thumb/640x480/07ef58e8-2b68-f827-0363-1ddd47f41640.jpg"
+      },
+      "download": "https://webservices.memorix.nl/mediabank/media/F7DDF7EEFB8E11DF9E4D523BC2E286E2/downloadoriginal/07ef58e8-2b68-f827-0363-1ddd47f41640?apiKey=81749016-5b7f-4e2f-a7b7-bba1be25f33f"
+    }
+  ],
+  "pdf": [],
+  "metadata": [
+    {
+      "field": "nummer",
+      "label": "Inventarisnummer",
+      "value": "410"
+    },
+    {
+      "field": "vervaardiger",
+      "label": "Vervaardiger",
+      "value": "Anoniem,"
+    },
+    {
+      "field": "beschrijving",
+      "label": "Beschrijving",
+      "value": "Portret van Cornelis van der Ploegh"
+    },
+    {
+      "field": "opmerkingen",
+      "label": "Opmerkingen",
+      "value": "*Jisp 1624 - \u2020Jisp 1697; Chirurgijn in het Kennemerland en Burgemeester in Jisp"
+    },
+    {
+      "field": "techniek",
+      "label": "Techniek",
+      "value": "Grafiek Drukwerk"
+    },
+    {
+      "field": "collectie",
+      "label": "Collectie",
+      "value": "587 - portretten van de Provinciale Atlas Noord-Holland, Collectie van"
+    },
+    {
+      "field": "pid",
+      "label": "Permanente link",
+      "value": "https://hdl.handle.net/21.12102/F7DDF7EEFB8E11DF9E4D523BC2E286E2"
+    },
+    {
+      "field": "datering",
+      "label": "Datering",
+      "value": "1680-1875"
+    },
+    {
+      "field": "literatuur",
+      "label": "Literatuur",
+      "value": "Muller, Frederik. Beschrijvende catalogus van 7000 portretten. Amsterdam: Frederik Muller, 1853. Cat.nr 4235"
+    },
+    {
+      "field": "afmetingen_hoogte",
+      "label": "Afmetingen hoogte",
+      "value": "270 mm"
+    },
+    {
+      "field": "afmetingen_breedte",
+      "label": "Afmetingen breedte",
+      "value": "191 mm"
+    },
+    {
+      "field": "toestemming",
+      "label": "Toestemming",
+      "value": "<span>PDM 1.0 Geen auteursrecht</span><br><a href=\"http://creativecommons.org/publicdomain/mark/1.0/deed.nl\" target=\"_blank\">Public Domain Mark</a>"
+    }
+  ],
+  "geodata": [],
+  "links": {
+    "media": "https://webservices.memorix.nl/mediabank/media/F7DDF7EEFB8E11DF9E4D523BC2E286E2"
+  },
+  "handle": "https://hdl.handle.net/21.12102/F7DDF7EEFB8E11DF9E4D523BC2E286E2"
+}

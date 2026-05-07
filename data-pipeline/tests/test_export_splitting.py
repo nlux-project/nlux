@@ -25,6 +25,11 @@ class DummyConfigs:
             "type": "internal",
             "matches": ["westfriesmuseum.com/detail/"],
         },
+        "nha-c587": {
+            "name": "nha-c587",
+            "type": "internal",
+            "matches": ["hdl.handle.net/21.12102/"],
+        },
     }
 
     def split_uri(self, uri):
@@ -75,16 +80,30 @@ class ExportSplittingTest(unittest.TestCase):
         )
         self.assertEqual(sources, ["wfm"])
 
+    def test_falls_back_to_nha_c587_equivalent_source_uri(self):
+        sources = collection_sources_for_record(
+            {},
+            {
+                "equivalent": [
+                    {
+                        "id": "https://hdl.handle.net/21.12102/F7DDF7EEFB8E11DF9E4D523BC2E286E2",
+                    }
+                ]
+            },
+            DummyConfigs(),
+        )
+        self.assertEqual(sources, ["nha-c587"])
+
     def test_shared_file_for_unassigned_records(self):
         sources = collection_sources_for_record({}, {"equivalent": []}, DummyConfigs())
         self.assertEqual(sources, ["shared"])
 
     def test_pop_source_filters_consumes_known_source_flags(self):
-        argv = ["run-export.py", "0", "1", "--wfm", "--export-entities"]
+        argv = ["run-export.py", "0", "1", "--wfm", "--nha-c587", "--export-entities"]
 
-        selected = pop_source_filters(argv, ["teylers", "hvh", "wfm"])
+        selected = pop_source_filters(argv, ["teylers", "hvh", "wfm", "nha-c587"])
 
-        self.assertEqual(selected, {"wfm"})
+        self.assertEqual(selected, {"wfm", "nha-c587"})
         self.assertEqual(argv, ["run-export.py", "0", "1", "--export-entities"])
 
     def test_filter_collection_sources_keeps_selected_sources(self):
