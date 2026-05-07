@@ -1,7 +1,9 @@
 import json
 import os
+import subprocess
 import unittest
 from pathlib import Path
+from urllib.parse import quote
 # suppress NotOpenSSLWarning: urllib3
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
@@ -210,6 +212,39 @@ class NhaC587PipelineIntegrationTest(unittest.TestCase):
                     return
 
         _skip_or_fail(self, "Record not found in export")
+
+    def _api_get_json(self, url):
+        try:
+            raw = subprocess.check_output(["curl", "-sf", url], text=True)
+        except Exception as exc:
+            _skip_or_fail(self, f"API endpoint is unavailable: {exc}")
+        return json.loads(raw)
+
+    def _api_get_data(self, uri):
+        path_part = uri.removeprefix("http://localhost:8000/data/")
+        return self._api_get_json(f"http://localhost:8000/data/{path_part}")
+
+    def _api_search(self, scope, query):
+        return self._api_get_json(
+            f"http://localhost:8000/api/search/{scope}?q={quote(query)}&page=1&pageLength=10"
+        )
+
+    def test_api_mvanheemskerk_person_record(self):
+        if not REQUIRE_LIVE:
+            self.skipTest("live API test")
+
+        results = self._api_search("agent", "Maarten van Heemskerk")
+        people = [
+            self._api_get_data(item["id"])
+            for item in results.get("orderedItems", [])
+            if item.get("type") == "Person" and item.get("id")
+        ]
+
+        self.assertTrue(people, "agent search should return a Person for Maarten van Heemskerk")
+        self.assertTrue(
+            any(person.get("_label") == "Maarten van Heemskerk" for person in people),
+            "Maarten van Heemskerk should have a matching Person label",
+        )
 
 
 if __name__ == "__main__":
