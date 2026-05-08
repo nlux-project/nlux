@@ -1,0 +1,49 @@
+{
+  "record_id": "https://example.org/data/object/1355",
+  "source": "teylers",
+  "generated_at": "2026-03-07T00:00:00Z",
+  "model": "claude-opus-4.6",
+  "prompt_version": "ai-research-v1",
+  "summary": "The complete first edition of the Encyclopedie edited by Diderot and initially co-edited by d'Alembert.",
+  "catalog_snapshot": {
+    "id": "https://example.org/data/object/1355",
+    "type": "HumanMadeObject",
+    "label": "Encyclopedie",
+    "identifiers": ["1355"],
+    "classifications": ["boek"]
+  },
+  "findings": [
+    {
+      "severity": "major",
+      "title": "No set description or volume count",
+      "detail": "The catalog does not state whether Teylers holds the complete 35-volume first edition.",
+      "catalog_value": null,
+      "suggested_value": "35 folio volumes: 17 text, 11 plates, 4 supplement text, 1 supplement plates, 2 analytical table volumes.",
+      "confidence": "high",
+      "source_indexes": [0]
+    },
+    {
+      "severity": "minor",
+      "title": "Language absent",
+      "detail": "The work is in French, but the catalog record has no language field.",
+      "catalog_value": null,
+      "suggested_value": "French",
+      "confidence": "high",
+      "source_indexes": [1]
+    }
+  ],
+  "sources": [
+    {
+      "title": "ARTFL Encyclopedie Project",
+      "url": "https://encyclopedie.uchicago.edu/",
+      "publisher": "University of Chicago"
+    },
+    {
+      "title": "Britannica: Encyclopedie",
+      "url": "https://www.britannica.com/topic/Encyclopedie",
+      "publisher": "Encyclopaedia Britannica"
+    }
+  ],
+  "raw_response_ref": "teylers-1355-analysis.md",
+  "status": "ok"
+}

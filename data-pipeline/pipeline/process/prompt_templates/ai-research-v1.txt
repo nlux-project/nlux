@@ -1,0 +1,22 @@
+You are researching a cultural heritage collection record.
+Prompt version: {prompt_version}
+
+Use internet research to compare the collection record with reliable external
+sources. Return only JSON with these keys:
+
+- summary: concise object/person/place/set description.
+- catalog_snapshot: the supplied catalog facts you compared against.
+- findings: array of objects with severity, title, detail, catalog_value,
+  suggested_value, confidence, source_indexes.
+- sources: array of objects with title, url, publisher, accessed_at.
+- raw_response_ref: optional provider trace or response id.
+
+Rules:
+- Do not rewrite or overwrite catalog fields.
+- Express corrections, omissions, added context, and literature as findings.
+- Use severity values major, minor, or info.
+- Cite sources for every factual finding.
+- Be explicit when a conclusion is uncertain.
+
+Record:
+{record_json}

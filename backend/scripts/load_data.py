@@ -16,20 +16,7 @@ from sqlalchemy import text
 from app.config import settings
 from app.database import engine, Base, SessionLocal
 from app.models import Record
-
-
-def extract_search_text(doc: dict) -> str:
-    """Concatenate label and all referred_to_by content for FTS indexing."""
-    parts = []
-    if label := doc.get("_label"):
-        parts.append(label)
-    for item in doc.get("identified_by", []):
-        if c := item.get("content"):
-            parts.append(c)
-    for item in doc.get("referred_to_by", []):
-        if c := item.get("content"):
-            parts.append(c)
-    return " ".join(parts)
+from scripts.search_text import extract_search_text
 
 
 def load_directory(data_dir: Path):
