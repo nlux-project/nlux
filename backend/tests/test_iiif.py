@@ -3,7 +3,7 @@ import unittest
 
 from fastapi import HTTPException
 
-from app.main import iiif_manifest
+from app.main import _append_generated_iiif_manifest, iiif_manifest
 
 
 def _token(url):
@@ -31,6 +31,79 @@ class IiifEndpointTest(unittest.TestCase):
         with self.assertRaises(HTTPException) as exc:
             iiif_manifest(_token("https://example.org/image.jpg"))
         self.assertEqual(exc.exception.status_code, 403)
+
+    def test_appends_manifest_for_boerhaave_image_representation(self):
+        record = {
+            "type": "HumanMadeObject",
+            "_label": "Oudste telefoon van Nederland",
+            "representation": [
+                {
+                    "type": "VisualItem",
+                    "digitally_shown_by": [
+                        {
+                            "type": "DigitalObject",
+                            "format": "image/jpeg",
+                            "access_point": [
+                                {
+                                    "id": (
+                                        "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx"
+                                        "?command=getcontent&server=images"
+                                        "&value=voorwerpen\\8200\\V08218-TH.JPG"
+                                        "&folderId=2&width=800&height=800&imageformat=jpg"
+                                    ),
+                                    "type": "DigitalObject",
+                                }
+                            ],
+                        }
+                    ],
+                }
+            ],
+        }
+
+        _append_generated_iiif_manifest(record)
+
+        manifest = record["subject_of"][0]["digitally_carried_by"][0]
+        self.assertEqual(manifest["conforms_to"][0]["id"], "http://iiif.io/api/presentation/3/context.json")
+        self.assertIn("/iiif/manifest/", manifest["access_point"][0]["id"])
+        self.assertIn("Oudste%20telefoon%20van%20Nederland", manifest["access_point"][0]["id"])
+
+    def test_does_not_duplicate_existing_manifest(self):
+        record = {
+            "type": "HumanMadeObject",
+            "subject_of": [
+                {
+                    "type": "LinguisticObject",
+                    "digitally_carried_by": [
+                        {
+                            "type": "DigitalObject",
+                            "conforms_to": [
+                                {"id": "http://iiif.io/api/presentation/3/context.json"}
+                            ],
+                        }
+                    ],
+                }
+            ],
+            "representation": [
+                {
+                    "type": "VisualItem",
+                    "digitally_shown_by": [
+                        {
+                            "type": "DigitalObject",
+                            "access_point": [
+                                {
+                                    "id": "https://mmb-web.adlibhosting.com/ais6/webapi/image.jpg",
+                                    "type": "DigitalObject",
+                                }
+                            ],
+                        }
+                    ],
+                }
+            ],
+        }
+
+        _append_generated_iiif_manifest(record)
+
+        self.assertEqual(len(record["subject_of"]), 1)
 
 
 if __name__ == "__main__":

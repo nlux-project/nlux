@@ -245,7 +245,12 @@ class RbhcPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(len(descriptions), 1)
         self.assertIn("Geelkoperen standaardmeter", descriptions[0]["content"])
         self.assertIn("mmb-web.adlibhosting.com/ais6/Details/collect/2", data["subject_of"][0]["digitally_carried_by"][0]["access_point"][0]["id"])
-        self.assertIn("Website%5CVoorwerpen", data["representation"][0]["digitally_shown_by"][0]["id"].replace("\\", "%5C"))
+        self.assertIn(
+            "localhost:8000/iiif/manifest/",
+            json.dumps(data["subject_of"], ensure_ascii=False),
+        )
+        image_url = data["representation"][0]["digitally_shown_by"][0]["access_point"][0]["id"]
+        self.assertIn("Website%5CVoorwerpen", image_url.replace("\\", "%5C"))
 
     def test_harvest_file(self):
         path = PIPELINE / "data" / "input" / "rbhc" / f"{TEST_PRIREF}.json"

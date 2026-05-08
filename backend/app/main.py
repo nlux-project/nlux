@@ -117,11 +117,99 @@ def _decode_image_token(token: str) -> str:
         raise HTTPException(status_code=400, detail="Invalid image token")
 
 
+def _image_token(url: str) -> str:
+    return base64.urlsafe_b64encode(url.encode("utf-8")).decode("ascii").rstrip("=")
+
+
 def _trusted_image_url(url: str) -> str:
     parsed = urlparse(url)
     if parsed.scheme not in {"http", "https"} or parsed.hostname not in TRUSTED_IMAGE_HOSTS:
         raise HTTPException(status_code=403, detail="Image host is not trusted")
     return url
+
+
+def _as_list(value: Any) -> list[Any]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    return [value]
+
+
+def _has_iiif_manifest(data: dict[str, Any]) -> bool:
+    for subject in _as_list(data.get("subject_of")):
+        if not isinstance(subject, dict):
+            continue
+        for digital in _as_list(subject.get("digitally_carried_by")):
+            if not isinstance(digital, dict):
+                continue
+            for protocol in _as_list(digital.get("conforms_to")):
+                if isinstance(protocol, dict) and protocol.get("id") in {
+                    "http://iiif.io/api/presentation/3/context.json",
+                    "http://iiif.io/api/presentation/2/context.json",
+                }:
+                    return True
+    return False
+
+
+def _iter_representation_image_urls(data: dict[str, Any]):
+    for representation in _as_list(data.get("representation")):
+        if not isinstance(representation, dict):
+            continue
+        for digital in _as_list(representation.get("digitally_shown_by")):
+            if not isinstance(digital, dict):
+                continue
+            candidates = []
+            if isinstance(digital.get("id"), str):
+                candidates.append(digital["id"])
+            for point in _as_list(digital.get("access_point")):
+                if isinstance(point, dict) and isinstance(point.get("id"), str):
+                    candidates.append(point["id"])
+            for url in candidates:
+                try:
+                    yield _trusted_image_url(url)
+                except HTTPException:
+                    continue
+
+
+def _append_generated_iiif_manifest(data: dict[str, Any]) -> None:
+    if _has_iiif_manifest(data):
+        return
+
+    image_url = next(_iter_representation_image_urls(data), None)
+    if not image_url:
+        return
+
+    manifest_url = (
+        f"{_public_base()}/iiif/manifest/{_image_token(image_url)}"
+        f"?label={quote(data.get('_label') or data.get('label') or 'Image')}"
+    )
+    data.setdefault("subject_of", []).append(
+        {
+            "type": "LinguisticObject",
+            "_label": "IIIF manifest",
+            "digitally_carried_by": [
+                {
+                    "type": "DigitalObject",
+                    "_label": "IIIF Presentation 3 manifest",
+                    "format": "application/ld+json",
+                    "conforms_to": [
+                        {
+                            "id": IIIF_PRESENTATION_3_CONTEXT,
+                            "type": "InformationObject",
+                            "_label": "IIIF Presentation API 3.0",
+                        }
+                    ],
+                    "access_point": [
+                        {
+                            "id": manifest_url,
+                            "type": "DigitalObject",
+                        }
+                    ],
+                }
+            ],
+        }
+    )
 
 
 def _search_url(scope: str, q: str, page: int, page_length: int) -> str:
@@ -399,6 +487,7 @@ def get_record(
         raise HTTPException(status_code=404, detail="Record not found")
 
     data = json.loads(record.data)
+    _append_generated_iiif_manifest(data)
 
     # Inject HAL _links when no profile is requested
     if profile is None:
