@@ -1,23 +1,36 @@
 #!/bin/bash
 set -euo pipefail
 
-SOURCE="${1:-nha-c587}"
+SOURCE="${1:-all}"
 OUTPUT_DIR="${2:-}"
 LIMIT="${3:-}"
 
-if [[ "$SOURCE" != nha-* ]]; then
+if [[ "$SOURCE" != nha-* && "$SOURCE" != "all" ]]; then
     OUTPUT_DIR="$SOURCE"
     SOURCE="nha-c587"
     LIMIT="${2:-}"
 fi
 
-if [[ -n "$OUTPUT_DIR" ]]; then
-    mkdir -p "$OUTPUT_DIR"
-fi
-if [[ -n "$LIMIT" ]]; then
-    uv run python harvest-nha.py "$SOURCE" "$OUTPUT_DIR" "$LIMIT"
-elif [[ -n "$OUTPUT_DIR" ]]; then
-    uv run python harvest-nha.py "$SOURCE" "$OUTPUT_DIR"
+run_source() {
+    local source="$1"
+    local output_dir="$2"
+    local limit="$3"
+
+    if [[ -n "$output_dir" ]]; then
+        mkdir -p "$output_dir"
+    fi
+    if [[ -n "$limit" ]]; then
+        uv run python harvest-nha.py "$source" "$output_dir" "$limit"
+    elif [[ -n "$output_dir" ]]; then
+        uv run python harvest-nha.py "$source" "$output_dir"
+    else
+        uv run python harvest-nha.py "$source"
+    fi
+}
+
+if [[ "$SOURCE" == "all" ]]; then
+    run_source "nha-c587" "" "$LIMIT"
+    run_source "nha-c480" "" "$LIMIT"
 else
-    uv run python harvest-nha.py "$SOURCE"
+    run_source "$SOURCE" "$OUTPUT_DIR" "$LIMIT"
 fi
