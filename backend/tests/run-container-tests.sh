@@ -8,6 +8,7 @@ TEST_DIR="/tmp/nlux-backend-tests"
 cd "$(dirname "$0")/.."
 
 docker exec "$CONTAINER" /bin/sh -c "rm -rf '$TEST_DIR' && mkdir -p '$TEST_DIR'"
+docker cp app/. "$CONTAINER:/app/app"
 for test_file in tests/test_*.py; do
     if [ "$(basename "$test_file")" = "test_search_scopes.py" ]; then
         continue

@@ -54,6 +54,25 @@ def _has_nested_id(value: Any, uri: str) -> bool:
     return any(node.get("id") == uri for node in _walk_json(value))
 
 
+def _text_matches(data: dict, text: str) -> bool:
+    haystack = json.dumps(data, ensure_ascii=False).lower()
+    return text.lower() in haystack
+
+
+def _has_digital_image(data: dict) -> bool:
+    for representation in data.get("representation", []) or []:
+        if not isinstance(representation, dict):
+            continue
+        shown_by = representation.get("digitally_shown_by")
+        shown_by = shown_by if isinstance(shown_by, list) else [shown_by]
+        for digital in shown_by:
+            if isinstance(digital, dict) and (
+                digital.get("id") or digital.get("access_point")
+            ):
+                return True
+    return False
+
+
 FIELD_PATHS: Dict[str, List[str]] = {
     "producedBy": ["produced_by"],
     "encounteredBy": ["produced_by"],
@@ -65,6 +84,7 @@ FIELD_PATHS: Dict[str, List[str]] = {
     "aboutAgent": ["about"],
     "classification": ["classified_as"],
     "material": ["made_of"],
+    "memberOf": ["member_of", "part_of"],
 }
 
 
@@ -90,6 +110,14 @@ def _matches_structured_query(data: dict, criteria: Any) -> bool:
         )
 
     for field, value in criteria.items():
+        if field in {"_lang", "_scope"}:
+            continue
+        if field == "text":
+            return isinstance(value, str) and _text_matches(data, value)
+        if field == "recordType":
+            return data.get("type") == value
+        if field == "hasDigitalImage":
+            return _has_digital_image(data) == bool(value)
         uri = _criteria_id(value)
         paths = FIELD_PATHS.get(field)
         if uri is None or paths is None:
@@ -104,7 +132,7 @@ def _is_structured_query(parsed: Any) -> bool:
         return False
     if "AND" in parsed or "OR" in parsed:
         return True
-    return any(key in FIELD_PATHS for key in parsed)
+    return any(key in FIELD_PATHS or key in {"recordType", "hasDigitalImage"} for key in parsed)
 
 
 def search_records(
