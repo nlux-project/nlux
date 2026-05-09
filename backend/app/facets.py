@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from collections import Counter
 from dataclasses import dataclass
+from collections.abc import Iterator
 from typing import Any, Callable, Union
 from urllib.parse import quote
 
@@ -112,22 +113,20 @@ def _record_matches(record: Record, data: dict[str, Any], parsed_query: Any) -> 
     return True
 
 
-def matching_records(db: Session, q: str | None, scope: str) -> list[tuple[Record, dict[str, Any]]]:
+def matching_records(db: Session, q: str | None, scope: str) -> Iterator[tuple[Record, dict[str, Any]]]:
     types = SCOPE_TYPES.get(scope, [])
     query = db.query(Record)
     if types:
         query = query.filter(Record.type.in_(types))
 
     parsed_query = _parse_query(q or "")
-    matches: list[tuple[Record, dict[str, Any]]] = []
-    for record in query.all():
+    for record in query.yield_per(500):
         try:
             data = json.loads(record.data)
         except (TypeError, json.JSONDecodeError):
             continue
         if _record_matches(record, data, parsed_query):
-            matches.append((record, data))
-    return matches
+            yield record, data
 
 
 def facet_page(

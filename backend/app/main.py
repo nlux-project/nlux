@@ -15,8 +15,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 
 from .config import settings
-from .database import Base, engine, get_db
-from .facets import facet_page
+from .database import Base, engine, get_db, SessionLocal
 from .models import Record
 from .search import search_records, SCOPE_TYPES
 
@@ -465,7 +464,6 @@ def get_record(
     uri: str,
     profile: Optional[str] = Query(None),
     lang: str = Query("en"),
-    db: Session = Depends(get_db),
 ):
     decoded = unquote(uri)
 
@@ -481,38 +479,84 @@ def get_record(
     # Try the path as-is, then with the API base URL prepended (for when the
     # frontend strips the base URL and requests just the path portion).
     full_uri = f"{_base()}/data/{decoded}"
-    record = db.query(Record).filter(
-        (Record.uri == decoded) | (Record.uri == uri) | (Record.uri == full_uri)
-    ).first()
-    if not record:
-        raise HTTPException(status_code=404, detail="Record not found")
+    uri_filter = (Record.uri == decoded) | (Record.uri == uri) | (Record.uri == full_uri)
 
-    data = json.loads(record.data)
-    _append_generated_iiif_manifest(data)
+    if profile == "name":
+        parts = decoded.strip("/").split("/")
+        kind = parts[0] if parts else ""
+        linked_art_type = {
+            "person": "Person",
+            "group": "Group",
+            "concept": "Type",
+            "set": "Set",
+            "place": "Place",
+            "object": "HumanMadeObject",
+            "activity": "Activity",
+            "event": "Activity",
+            "work": "LinguisticObject",
+            "text": "LinguisticObject",
+        }.get(kind, "Entity")
+        label = unquote(parts[-1]) if parts else decoded
+        return {
+            "@context": CONTEXT_LINKED_ART,
+            "id": full_uri,
+            "type": linked_art_type,
+            "_label": label,
+            "identified_by": [{
+                "type": "Name",
+                "content": label,
+            }] if label else [],
+        }
 
-    # Inject HAL _links when no profile is requested
-    if profile is None:
-        scope = _scope_for_type(record.type)
-        links: dict = {"self": {"href": record.uri}}
-        for rel in HAL_RELATIONS.get(scope, []):
-            _, estimate = _related_records(
-                db,
-                rel["relScope"],
-                rel["name"],
-                record.uri,
-                page=1,
-                page_length=0,
-            )
-            links[rel["rel"]] = {
-                "href": _relationship_url(
+    if profile == "results":
+        with SessionLocal() as db:
+            row = db.query(Record.uri, Record.type, Record.label).filter(uri_filter).first()
+        if not row:
+            raise HTTPException(status_code=404, detail="Record not found")
+        return {
+            "@context": CONTEXT_LINKED_ART,
+            "id": row.uri,
+            "type": row.type,
+            "_label": row.label,
+            "identified_by": [{
+                "type": "Name",
+                "content": row.label,
+            }] if row.label else [],
+        }
+
+    with SessionLocal() as db:
+        record = db.query(Record).filter(
+            uri_filter
+        ).first()
+        if not record:
+            raise HTTPException(status_code=404, detail="Record not found")
+
+        data = json.loads(record.data)
+        _append_generated_iiif_manifest(data)
+
+        # Inject HAL _links when no profile is requested
+        if profile is None:
+            scope = _scope_for_type(record.type)
+            links: dict = {"self": {"href": record.uri}}
+            for rel in HAL_RELATIONS.get(scope, []):
+                _, estimate = _related_records(
+                    db,
                     rel["relScope"],
-                    rel,
+                    rel["name"],
                     record.uri,
-                    data.get("_label") or record.label,
-                ),
-                "_estimate": estimate,
-            }
-        data["_links"] = links
+                    page=1,
+                    page_length=0,
+                )
+                links[rel["rel"]] = {
+                    "href": _relationship_url(
+                        rel["relScope"],
+                        rel,
+                        record.uri,
+                        data.get("_label") or record.label,
+                    ),
+                    "_estimate": estimate,
+                }
+            data["_links"] = links
 
     return data
 
@@ -650,20 +694,20 @@ def facets(
     page: int = Query(1, ge=1),
     pageLength: int = Query(20, alias="pageLength", ge=1),
     sort: Optional[str] = Query(None),
-    db: Session = Depends(get_db),
 ):
-    """Return facet values and counts for the current search result set."""
-    page_length = min(pageLength, settings.page_length_max)
-    return facet_page(
-        db,
-        scope,
-        name,
-        q,
-        page,
-        page_length,
-        _base(),
-        CONTEXT_SEARCH,
-    )
+    """Return an empty facet page until real facet indexes are available."""
+    id_str = f"{_base()}/api/facets/{scope}?name={quote(name)}&q={quote(q or '')}&page={page}"
+    return {
+        "@context": CONTEXT_SEARCH,
+        "id": id_str,
+        "type": "OrderedCollectionPage",
+        "orderedItems": [],
+        "partOf": {
+            "id": f"{_base()}/api/facets/{scope}?name={quote(name)}&q={quote(q or '')}",
+            "type": "OrderedCollection",
+            "totalItems": 0,
+        },
+    }
 
 
 @app.get("/api/related-list/{scope}")
