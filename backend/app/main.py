@@ -493,6 +493,20 @@ def get_record(
     uri_filter = (Record.uri == decoded) | (Record.uri == uri) | (Record.uri == full_uri)
 
     if profile == "name":
+        with SessionLocal() as db:
+            row = db.query(Record.uri, Record.type, Record.label).filter(uri_filter).first()
+        if row:
+            return {
+                "@context": CONTEXT_LINKED_ART,
+                "id": row.uri,
+                "type": row.type,
+                "_label": row.label,
+                "identified_by": [{
+                    "type": "Name",
+                    "content": row.label,
+                }] if row.label else [],
+            }
+
         parts = decoded.strip("/").split("/")
         kind = parts[0] if parts else ""
         linked_art_type = {
