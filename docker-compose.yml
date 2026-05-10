@@ -22,9 +22,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
+          memory: 4096M
         reservations:
-          memory: 1024M
+          memory: 2048M
 
   # lux-frontend: React app served by Node.js
   # UI available at http://localhost:8088
