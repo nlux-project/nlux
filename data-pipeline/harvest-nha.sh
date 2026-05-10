@@ -5,6 +5,12 @@ SOURCE="${1:-all}"
 OUTPUT_DIR="${2:-}"
 LIMIT="${3:-}"
 
+if [[ "$SOURCE" == "c587" || "$SOURCE" == "587" ]]; then
+    SOURCE="nha-c587"
+elif [[ "$SOURCE" == "c480" || "$SOURCE" == "480" ]]; then
+    SOURCE="nha-c480"
+fi
+
 if [[ "$SOURCE" != nha-* && "$SOURCE" != "all" ]]; then
     OUTPUT_DIR="$SOURCE"
     SOURCE="nha-c587"
