@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import base64
 import json
+from http.client import InvalidURL
 from typing import Any, Optional
 from urllib.error import HTTPError, URLError
-from urllib.parse import unquote, quote, urlparse
+from urllib.parse import unquote, quote, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 from fastapi import FastAPI, Depends, HTTPException, Query
@@ -127,6 +128,13 @@ def _trusted_image_url(url: str) -> str:
     if parsed.scheme not in {"http", "https"} or parsed.hostname not in TRUSTED_IMAGE_HOSTS:
         raise HTTPException(status_code=403, detail="Image host is not trusted")
     return url
+
+
+def _request_safe_url(url: str) -> str:
+    parsed = urlsplit(url)
+    path = quote(parsed.path, safe="/%")
+    query = quote(parsed.query, safe="=&%/:;+,@?$")
+    return urlunsplit((parsed.scheme, parsed.netloc, path, query, parsed.fragment))
 
 
 def _as_list(value: Any) -> list[Any]:
@@ -351,7 +359,7 @@ def health():
 @app.get("/iiif/image/{token}")
 def iiif_image(token: str):
     image_url = _trusted_image_url(_decode_image_token(token))
-    request = Request(image_url, headers={"User-Agent": "NLUX/0.1"})
+    request = Request(_request_safe_url(image_url), headers={"User-Agent": "NLUX/0.1"})
 
     try:
         with urlopen(request, timeout=20) as response:
@@ -359,6 +367,8 @@ def iiif_image(token: str):
             content_type = response.headers.get_content_type() or "image/jpeg"
     except HTTPError as exc:
         raise HTTPException(status_code=exc.code, detail="Source image request failed")
+    except (InvalidURL, ValueError):
+        raise HTTPException(status_code=400, detail="Source image URL is invalid")
     except URLError as exc:
         raise HTTPException(status_code=502, detail=f"Source image is unavailable: {exc.reason}")
 

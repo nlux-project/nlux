@@ -3,7 +3,7 @@ import unittest
 
 from fastapi import HTTPException
 
-from app.main import _append_generated_iiif_manifest, iiif_manifest
+from app.main import _append_generated_iiif_manifest, _request_safe_url, iiif_manifest
 
 
 def _token(url):
@@ -11,6 +11,18 @@ def _token(url):
 
 
 class IiifEndpointTest(unittest.TestCase):
+    def test_request_safe_url_quotes_adlib_image_path(self):
+        source_url = (
+            "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx"
+            "?command=getcontent&server=images&value=prenten Adlib\\P16650.jpg"
+            "&folderId=2&width=800&height=800&imageformat=jpg"
+        )
+
+        safe_url = _request_safe_url(source_url)
+
+        self.assertIn("value=prenten%20Adlib%5CP16650.jpg", safe_url)
+        self.assertNotIn(" ", safe_url)
+
     def test_manifest_wraps_trusted_source_image(self):
         source_url = (
             "https://teylers.adlibhosting.com/ais6/Content/GetContent"
