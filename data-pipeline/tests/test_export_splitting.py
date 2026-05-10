@@ -25,13 +25,13 @@ class DummyConfigs:
             "type": "internal",
             "matches": ["westfriesmuseum.com/detail/"],
         },
-        "nha-c587": {
-            "name": "nha-c587",
+        "nha-c480": {
+            "name": "nha-c480",
             "type": "internal",
             "matches": ["hdl.handle.net/21.12102/"],
         },
-        "nha-c480": {
-            "name": "nha-c480",
+        "nha-c587": {
+            "name": "nha-c587",
             "type": "internal",
             "matches": ["hdl.handle.net/21.12102/"],
         },
@@ -97,7 +97,45 @@ class ExportSplittingTest(unittest.TestCase):
             },
             DummyConfigs(),
         )
+        self.assertEqual(sources, ["nha-c480"])
+
+    def test_uses_nha_c587_member_of_label_before_ambiguous_handle_uri(self):
+        sources = collection_sources_for_record(
+            {},
+            {
+                "member_of": [
+                    {
+                        "_label": "587 - portretten van de Provinciale Atlas Noord-Holland, Collectie van",
+                    }
+                ],
+                "equivalent": [
+                    {
+                        "id": "https://hdl.handle.net/21.12102/F7DDF7EEFB8E11DF9E4D523BC2E286E2",
+                    }
+                ],
+            },
+            DummyConfigs(),
+        )
         self.assertEqual(sources, ["nha-c587"])
+
+    def test_uses_nha_c480_member_of_label_before_ambiguous_handle_uri(self):
+        sources = collection_sources_for_record(
+            {},
+            {
+                "member_of": [
+                    {
+                        "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van",
+                    }
+                ],
+                "equivalent": [
+                    {
+                        "id": "https://hdl.handle.net/21.12102/65B76D9AFB8F11DF9E4D523BC2E286E2",
+                    }
+                ],
+            },
+            DummyConfigs(),
+        )
+        self.assertEqual(sources, ["nha-c480"])
 
     def test_uses_record_source_for_nha_c480(self):
         sources = collection_sources_for_record(

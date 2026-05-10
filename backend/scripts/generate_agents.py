@@ -38,21 +38,23 @@ def _agent_uri(agent_type: str, label: str, base: str) -> str:
 
 
 def _assign_uris(obj, agents: dict, base: str) -> bool:
-    """Recursively find Person/Group nodes without ids, assign URIs.
+    """Recursively collect Person/Group nodes and assign missing ids.
     Returns True if any change was made."""
     changed = False
     if isinstance(obj, dict):
         atype = obj.get("type")
-        if atype in ("Person", "Group") and "id" not in obj:
+        if atype in ("Person", "Group"):
             label = obj.get("_label", "").strip()
-            if label:
+            uri = obj.get("id")
+            if label and not uri:
                 if atype == "Group" and label in KNOWN_GROUPS:
                     uri = KNOWN_GROUPS[label]
                 else:
                     uri = _agent_uri(atype, label, base)
                 obj["id"] = uri
-                agents.setdefault(uri, {"type": atype, "label": label})
                 changed = True
+            if label and uri:
+                agents.setdefault(uri, {"type": atype, "label": label})
         for v in obj.values():
             if _assign_uris(v, agents, base):
                 changed = True

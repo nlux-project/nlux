@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import base64
 import json
+from http.client import InvalidURL
 from typing import Any, Optional
 from urllib.error import HTTPError, URLError
-from urllib.parse import unquote, quote, urlparse
+from urllib.parse import unquote, quote, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 from fastapi import FastAPI, Depends, HTTPException, Query
@@ -15,7 +16,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 
 from .config import settings
-from .database import Base, engine, get_db
+from .database import Base, engine, get_db, SessionLocal
+from .facets import facet_page
 from .models import Record
 from .search import search_records, SCOPE_TYPES
 
@@ -126,6 +128,13 @@ def _trusted_image_url(url: str) -> str:
     if parsed.scheme not in {"http", "https"} or parsed.hostname not in TRUSTED_IMAGE_HOSTS:
         raise HTTPException(status_code=403, detail="Image host is not trusted")
     return url
+
+
+def _request_safe_url(url: str) -> str:
+    parsed = urlsplit(url)
+    path = quote(parsed.path, safe="/%")
+    query = quote(parsed.query, safe="=&%/:;+,@?$")
+    return urlunsplit((parsed.scheme, parsed.netloc, path, query, parsed.fragment))
 
 
 def _as_list(value: Any) -> list[Any]:
@@ -350,7 +359,7 @@ def health():
 @app.get("/iiif/image/{token}")
 def iiif_image(token: str):
     image_url = _trusted_image_url(_decode_image_token(token))
-    request = Request(image_url, headers={"User-Agent": "NLUX/0.1"})
+    request = Request(_request_safe_url(image_url), headers={"User-Agent": "NLUX/0.1"})
 
     try:
         with urlopen(request, timeout=20) as response:
@@ -358,6 +367,8 @@ def iiif_image(token: str):
             content_type = response.headers.get_content_type() or "image/jpeg"
     except HTTPError as exc:
         raise HTTPException(status_code=exc.code, detail="Source image request failed")
+    except (InvalidURL, ValueError):
+        raise HTTPException(status_code=400, detail="Source image URL is invalid")
     except URLError as exc:
         raise HTTPException(status_code=502, detail=f"Source image is unavailable: {exc.reason}")
 
@@ -464,7 +475,6 @@ def get_record(
     uri: str,
     profile: Optional[str] = Query(None),
     lang: str = Query("en"),
-    db: Session = Depends(get_db),
 ):
     decoded = unquote(uri)
 
@@ -480,38 +490,98 @@ def get_record(
     # Try the path as-is, then with the API base URL prepended (for when the
     # frontend strips the base URL and requests just the path portion).
     full_uri = f"{_base()}/data/{decoded}"
-    record = db.query(Record).filter(
-        (Record.uri == decoded) | (Record.uri == uri) | (Record.uri == full_uri)
-    ).first()
-    if not record:
-        raise HTTPException(status_code=404, detail="Record not found")
+    uri_filter = (Record.uri == decoded) | (Record.uri == uri) | (Record.uri == full_uri)
 
-    data = json.loads(record.data)
-    _append_generated_iiif_manifest(data)
-
-    # Inject HAL _links when no profile is requested
-    if profile is None:
-        scope = _scope_for_type(record.type)
-        links: dict = {"self": {"href": record.uri}}
-        for rel in HAL_RELATIONS.get(scope, []):
-            _, estimate = _related_records(
-                db,
-                rel["relScope"],
-                rel["name"],
-                record.uri,
-                page=1,
-                page_length=0,
-            )
-            links[rel["rel"]] = {
-                "href": _relationship_url(
-                    rel["relScope"],
-                    rel,
-                    record.uri,
-                    data.get("_label") or record.label,
-                ),
-                "_estimate": estimate,
+    if profile == "name":
+        with SessionLocal() as db:
+            row = db.query(Record.uri, Record.type, Record.label).filter(uri_filter).first()
+        if row:
+            return {
+                "@context": CONTEXT_LINKED_ART,
+                "id": row.uri,
+                "type": row.type,
+                "_label": row.label,
+                "identified_by": [{
+                    "type": "Name",
+                    "content": row.label,
+                }] if row.label else [],
             }
-        data["_links"] = links
+
+        parts = decoded.strip("/").split("/")
+        kind = parts[0] if parts else ""
+        linked_art_type = {
+            "person": "Person",
+            "group": "Group",
+            "concept": "Type",
+            "set": "Set",
+            "place": "Place",
+            "object": "HumanMadeObject",
+            "activity": "Activity",
+            "event": "Activity",
+            "work": "LinguisticObject",
+            "text": "LinguisticObject",
+        }.get(kind, "Entity")
+        label = unquote(parts[-1]) if parts else decoded
+        return {
+            "@context": CONTEXT_LINKED_ART,
+            "id": full_uri,
+            "type": linked_art_type,
+            "_label": label,
+            "identified_by": [{
+                "type": "Name",
+                "content": label,
+            }] if label else [],
+        }
+
+    if profile == "results":
+        with SessionLocal() as db:
+            row = db.query(Record.uri, Record.type, Record.label).filter(uri_filter).first()
+        if not row:
+            raise HTTPException(status_code=404, detail="Record not found")
+        return {
+            "@context": CONTEXT_LINKED_ART,
+            "id": row.uri,
+            "type": row.type,
+            "_label": row.label,
+            "identified_by": [{
+                "type": "Name",
+                "content": row.label,
+            }] if row.label else [],
+        }
+
+    with SessionLocal() as db:
+        record = db.query(Record).filter(
+            uri_filter
+        ).first()
+        if not record:
+            raise HTTPException(status_code=404, detail="Record not found")
+
+        data = json.loads(record.data)
+        _append_generated_iiif_manifest(data)
+
+        # Inject HAL _links when no profile is requested
+        if profile is None:
+            scope = _scope_for_type(record.type)
+            links: dict = {"self": {"href": record.uri}}
+            for rel in HAL_RELATIONS.get(scope, []):
+                _, estimate = _related_records(
+                    db,
+                    rel["relScope"],
+                    rel["name"],
+                    record.uri,
+                    page=1,
+                    page_length=0,
+                )
+                links[rel["rel"]] = {
+                    "href": _relationship_url(
+                        rel["relScope"],
+                        rel,
+                        record.uri,
+                        data.get("_label") or record.label,
+                    ),
+                    "_estimate": estimate,
+                }
+            data["_links"] = links
 
     return data
 
@@ -651,14 +721,8 @@ def facets(
     sort: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ):
-    """Returns empty facets — facet calculation not yet implemented."""
-    id_str = f"{_base()}/api/facets/{scope}?name={name}&q={q or ''}&page={page}"
-    return {
-        "@context": CONTEXT_SEARCH,
-        "id": id_str,
-        "type": "OrderedCollectionPage",
-        "orderedItems": [],
-    }
+    page_length = min(pageLength, settings.page_length_max)
+    return facet_page(db, scope, name, q, page, page_length, _base(), CONTEXT_SEARCH, sort)
 
 
 @app.get("/api/related-list/{scope}")

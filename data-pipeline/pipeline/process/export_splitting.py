@@ -1,6 +1,11 @@
 import re
 from collections.abc import Iterable
 
+NHA_COLLECTION_SOURCE_HINTS = {
+    "587 - portretten van de Provinciale Atlas Noord-Holland, Collectie van": "nha-c587",
+    "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van": "nha-c480",
+}
+
 
 def export_filename(source_name: str, my_slice: int) -> str:
     safe_name = re.sub(r"[^A-Za-z0-9_-]+", "_", source_name).strip("_").lower()
@@ -39,6 +44,22 @@ def _source_names_from_equivalents(data, cfgs) -> set[str]:
     return source_names
 
 
+def _source_names_from_member_of(data, internal_sources: set[str]) -> set[str]:
+    source_names = set()
+    if not isinstance(data, dict):
+        return source_names
+    member_of = data.get("member_of") or []
+    if isinstance(member_of, dict):
+        member_of = [member_of]
+    for member in member_of:
+        if not isinstance(member, dict):
+            continue
+        source_name = NHA_COLLECTION_SOURCE_HINTS.get(member.get("_label"))
+        if source_name in internal_sources:
+            source_names.add(source_name)
+    return source_names
+
+
 def collection_sources_for_record(record: dict, data: dict, cfgs) -> list[str]:
     internal_sources = set(cfgs.internal.keys())
     source_names = set()
@@ -52,6 +73,9 @@ def collection_sources_for_record(record: dict, data: dict, cfgs) -> list[str]:
     source = record.get("source")
     if source in internal_sources:
         source_names.add(source)
+
+    if not source_names:
+        source_names.update(_source_names_from_member_of(data, internal_sources))
 
     if not source_names:
         source_names.update(_source_names_from_equivalents(data, cfgs))

@@ -6,6 +6,10 @@ import sys
 import time
 from pathlib import Path
 
+# suppress NotOpenSSLWarning: urllib3
+import warnings
+warnings.filterwarnings("ignore", module="urllib3")
+
 from pipeline.sources.museums.nha.c480.fetcher import NhaC480Fetcher
 from pipeline.sources.museums.nha.c587.fetcher import NhaC587Fetcher
 

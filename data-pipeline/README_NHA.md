@@ -52,7 +52,7 @@ Copy `docs/sample_config/nha-c587.json` into your runtime `config/config_cache/`
 ```bash
 cd data-pipeline
 
-./harvest-nha.sh
+./harvest-nha.sh nha-c587
 uv run python manage-data.py --load --nha-c587
 uv run python run-reconcile.py 0 1 --nha-c587
 uv run python run-merge.py 0 1 --nha-c587
@@ -121,6 +121,8 @@ uv run python run-reconcile.py 0 1 --nha-c480
 uv run python run-merge.py 0 1 --nha-c480
 uv run python run-export.py 0 1 --nha-c480 --export-entities
 ```
+
+Bare `./harvest-nha.sh` harvests both `nha-c587` and `nha-c480`.
 
 For a small harvest smoke test:
 
