@@ -13,6 +13,7 @@ from app.search import search_records
 TYPE_PAINTING = "http://vocab.getty.edu/aat/300033618"
 TYPE_PRINT = "http://vocab.getty.edu/aat/300041273"
 MATERIAL_PAPER = "http://vocab.getty.edu/aat/300014109"
+TECHNIQUE_PRINTING = "http://localhost:8000/data/concept/technique-printing"
 COLLECTION_TEYLERS = "http://localhost:8000/data/set/teylers"
 COLLECTION_NHA = "http://localhost:8000/data/set/nha"
 
@@ -68,6 +69,19 @@ class FacetsTest(unittest.TestCase):
                     {
                         "classified_as": [{"id": TYPE_PRINT, "type": "Type"}],
                         "member_of": [{"id": COLLECTION_NHA, "type": "Set"}],
+                        "produced_by": {
+                            "type": "Production",
+                            "timespan": {
+                                "type": "TimeSpan",
+                                "begin_of_the_begin": "1787-01-01T00:00:00",
+                            },
+                        },
+                        "used_for": [
+                            {
+                                "type": "Activity",
+                                "technique": [{"id": TECHNIQUE_PRINTING, "type": "Type"}],
+                            }
+                        ],
                     },
                 ),
                 _record(
@@ -114,11 +128,15 @@ class FacetsTest(unittest.TestCase):
         material_page = facet_page(self.db, "item", "itemMaterialId", q, 1, 20, "http://localhost:8000", "ctx")
         collection_page = facet_page(self.db, "item", "responsibleCollections", q, 1, 20, "http://localhost:8000", "ctx")
         image_page = facet_page(self.db, "item", "itemHasDigitalImage", q, 1, 20, "http://localhost:8000", "ctx")
+        technique_page = facet_page(self.db, "item", "itemProductionTechniqueId", q, 1, 20, "http://localhost:8000", "ctx")
+        date_page = facet_page(self.db, "item", "itemProductionDate", q, 1, 20, "http://localhost:8000", "ctx", "asc")
 
         self.assertEqual(_values(type_page), {TYPE_PAINTING: 1, TYPE_PRINT: 1})
         self.assertEqual(_values(material_page), {MATERIAL_PAPER: 1})
         self.assertEqual(_values(collection_page), {COLLECTION_NHA: 1, COLLECTION_TEYLERS: 1})
         self.assertEqual(_values(image_page), {0: 1, 1: 1})
+        self.assertEqual(_values(technique_page), {TECHNIQUE_PRINTING: 1})
+        self.assertEqual(_values(date_page), {"1787-01-01T00:00:00": 1})
 
     def test_selected_facet_query_narrows_search_results(self):
         query = json.dumps(
@@ -136,7 +154,7 @@ class FacetsTest(unittest.TestCase):
         self.assertEqual(items[0]["id"], "http://localhost:8000/data/object/velsen-1")
 
     def test_unsupported_facet_returns_empty_page(self):
-        page = facet_page(self.db, "item", "itemProductionDate", "Velsen", 1, 20, "http://localhost:8000", "ctx")
+        page = facet_page(self.db, "item", "itemUnknownFacet", "Velsen", 1, 20, "http://localhost:8000", "ctx")
 
         self.assertEqual(page["orderedItems"], [])
         self.assertEqual(page["partOf"]["totalItems"], 0)

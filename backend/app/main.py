@@ -16,6 +16,7 @@ from sqlalchemy import text
 
 from .config import settings
 from .database import Base, engine, get_db, SessionLocal
+from .facets import facet_page
 from .models import Record
 from .search import search_records, SCOPE_TYPES
 
@@ -694,20 +695,10 @@ def facets(
     page: int = Query(1, ge=1),
     pageLength: int = Query(20, alias="pageLength", ge=1),
     sort: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
 ):
-    """Return an empty facet page until real facet indexes are available."""
-    id_str = f"{_base()}/api/facets/{scope}?name={quote(name)}&q={quote(q or '')}&page={page}"
-    return {
-        "@context": CONTEXT_SEARCH,
-        "id": id_str,
-        "type": "OrderedCollectionPage",
-        "orderedItems": [],
-        "partOf": {
-            "id": f"{_base()}/api/facets/{scope}?name={quote(name)}&q={quote(q or '')}",
-            "type": "OrderedCollection",
-            "totalItems": 0,
-        },
-    }
+    page_length = min(pageLength, settings.page_length_max)
+    return facet_page(db, scope, name, q, page, page_length, _base(), CONTEXT_SEARCH, sort)
 
 
 @app.get("/api/related-list/{scope}")
