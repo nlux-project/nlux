@@ -105,7 +105,7 @@ class ExportSplittingTest(unittest.TestCase):
             {
                 "member_of": [
                     {
-                        "_label": "587 - portretten van de Provinciale Atlas Noord-Holland, Collectie van",
+                        "_label": "587 - portretten van de Provinciale Atlas Noord-Holland",
                     }
                 ],
                 "equivalent": [
@@ -124,7 +124,7 @@ class ExportSplittingTest(unittest.TestCase):
             {
                 "member_of": [
                     {
-                        "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van",
+                        "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland",
                     }
                 ],
                 "equivalent": [

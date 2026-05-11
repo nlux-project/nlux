@@ -9,8 +9,8 @@
     "fetch": "https://webservices.memorix.nl/mediabank/media/{identifier}",
     "apiUrl": "https://webservices.memorix.nl/mediabank",
     "apiKey": "81749016-5b7f-4e2f-a7b7-bba1be25f33f",
-    "collectionFilter": "search_s_collectie:\"480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van\"",
-    "collectionLabel": "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van",
+    "collectionFilter": "search_s_collectie:\"480 - historieprenten van de Provinciale Atlas Noord-Holland\"",
+    "collectionLabel": "480 - historieprenten van de Provinciale Atlas Noord-Holland",
     "merge_order": 5,
 
     "harvesterClass": "process.base.harvester.Harvester",
