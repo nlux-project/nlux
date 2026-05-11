@@ -1,0 +1,20 @@
+{
+    "name": "nha-c1477",
+    "type": "internal",
+    "namespace": "https://hdl.handle.net/21.12102/",
+    "matches": [
+        "hdl.handle.net/21.12102/",
+        "webservices.memorix.nl/mediabank/media/"
+    ],
+    "fetch": "https://webservices.memorix.nl/mediabank/media/{identifier}",
+    "apiUrl": "https://webservices.memorix.nl/mediabank",
+    "apiKey": "81749016-5b7f-4e2f-a7b7-bba1be25f33f",
+    "collectionFilter": "search_s_collectie:\"1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem, Collectie van\"",
+    "collectionLabel": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem",
+    "merge_order": 5,
+
+    "harvesterClass": "process.base.harvester.Harvester",
+    "mapperClass": "sources.museums.nha.c1477.mapper.NhaC1477Mapper",
+    "loaderClass": "sources.museums.nha.c1477.loader.NhaC1477Loader",
+    "fetcherClass": "sources.museums.nha.c1477.fetcher.NhaC1477Fetcher"
+}

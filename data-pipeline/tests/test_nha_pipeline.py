@@ -11,6 +11,9 @@ warnings.filterwarnings("ignore", module="urllib3")
 from pipeline.sources.museums.nha.c480.fetcher import COLLECTION_FILTER as C480_COLLECTION_FILTER
 from pipeline.sources.museums.nha.c480.fetcher import NhaC480Fetcher
 from pipeline.sources.museums.nha.c480.mapper import NhaC480Mapper
+from pipeline.sources.museums.nha.c1477.fetcher import COLLECTION_FILTER as C1477_COLLECTION_FILTER
+from pipeline.sources.museums.nha.c1477.fetcher import NhaC1477Fetcher
+from pipeline.sources.museums.nha.c1477.mapper import NhaC1477Mapper
 from pipeline.sources.museums.nha.c587.fetcher import COLLECTION_FILTER as C587_COLLECTION_FILTER
 from pipeline.sources.museums.nha.c587.fetcher import NhaC587Fetcher
 from pipeline.sources.museums.nha.c587.mapper import NhaC587Mapper
@@ -20,10 +23,12 @@ PIPELINE = Path(os.environ.get("PIPELINE_DIR", "/Users/lux/data-pipeline"))
 FIXTURES = Path(__file__).parent / "fixtures"
 TEST_NHA_C587_ID = os.environ.get("TEST_NHA_C587_ID", "F7DDF7EEFB8E11DF9E4D523BC2E286E2")
 TEST_NHA_C480_ID = os.environ.get("TEST_NHA_C480_ID", "65B76D9AFB8F11DF9E4D523BC2E286E2")
+TEST_NHA_C1477_ID = os.environ.get("TEST_NHA_C1477_ID", "65B76D9AFB8F11DF9E4D523BC2E286E2")
 REQUIRE_LIVE = (
     os.environ.get("NHA_REQUIRE_LIVE") == "1"
     or os.environ.get("NHA_C587_REQUIRE_LIVE") == "1"
     or os.environ.get("NHA_C480_REQUIRE_LIVE") == "1"
+    or os.environ.get("NHA_C1477_REQUIRE_LIVE") == "1"
 )
 
 RAW_REQUIRED_FIELDS = [
@@ -392,6 +397,112 @@ class NhaC480PipelineIntegrationTest(unittest.TestCase):
             _skip_or_fail(self, f"Export file not found: {path}")
 
         source_uri = f"hdl.handle.net/21.12102/{TEST_NHA_C480_ID}"
+        with path.open(encoding="utf-8") as fh:
+            for line in fh:
+                if not line.strip():
+                    continue
+                record = _coerce_record(json.loads(line))
+                equivalents = record.get("equivalent", [])
+                if any(source_uri in eq.get("id", "") for eq in equivalents):
+                    self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+                    self.assertTrue(record["member_of"][0].get("id"), "member_of should have a resolvable id")
+                    image = record["representation"][0]["digitally_shown_by"][0]
+                    self.assertIn("images.memorix.nl/ranh", image["access_point"][0]["id"])
+                    return
+
+        _skip_or_fail(self, "Record not found in export")
+
+
+class NhaC1477PipelineIntegrationTest(unittest.TestCase):
+    def setUp(self):
+        self.record = _load_json(FIXTURES / "nha-c480-record-65B76D.json")
+        self.mapper = NhaC1477Mapper(
+            {
+                "name": "nha-c1477",
+                "namespace": "https://hdl.handle.net/21.12102/",
+                "all_configs": DummyConfigs(),
+            }
+        )
+
+    def test_fetcher_builds_filtered_memorix_requests(self):
+        fetcher = NhaC1477Fetcher(
+            {
+                "name": "nha-c1477",
+                "fetch": "",
+                "apiUrl": "https://webservices.memorix.nl/mediabank",
+                "apiKey": "test-key",
+                "all_configs": DummyConfigs(),
+            }
+        )
+
+        self.assertTrue(fetcher.validate_identifier(TEST_NHA_C1477_ID))
+        self.assertEqual(
+            fetcher.make_fetch_uri(TEST_NHA_C1477_ID),
+            f"https://webservices.memorix.nl/mediabank/media/{TEST_NHA_C1477_ID}",
+        )
+        params = fetcher._params(include_filter=True, page=1, rows=25)
+        self.assertEqual(params["apiKey"], "test-key")
+        self.assertEqual(params["fq[]"], C1477_COLLECTION_FILTER)
+
+    def test_mapper_transforms_record_with_c1477_collection_label(self):
+        mapped = self.mapper.transform({"data": self.record})
+        self.assertEqual(mapped["identifier"], TEST_NHA_C480_ID)
+        self.assertEqual(mapped["source"], "nha-c1477")
+
+        data = mapped["data"]
+        self.assertEqual(data["type"], "HumanMadeObject")
+        self.assertEqual(
+            data["member_of"][0]["_label"],
+            "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem",
+        )
+        self.assertEqual(data["current_owner"][0]["_label"], "Noord-Hollands Archief")
+        self.assertEqual(data["current_location"]["_label"], "Noord-Hollands Archief")
+
+    def test_harvest_file(self):
+        path = PIPELINE / "data" / "input" / "nha" / "c1477" / f"{TEST_NHA_C1477_ID}.json"
+        if not path.exists():
+            _skip_or_fail(self, f"Harvest file not found: {path}")
+
+        record = _load_json(path)
+        self.assertEqual(_missing_fields(record, RAW_REQUIRED_FIELDS), [])
+        self.assertEqual(str(record.get("id")), TEST_NHA_C1477_ID)
+
+    def test_datacache_record(self):
+        try:
+            with _connect_pg(self) as conn:
+                with conn.cursor() as cur:
+                    cur.execute("SELECT data FROM nha_c1477_data_cache WHERE data->>'id' = %s", (TEST_NHA_C1477_ID,))
+                    row = cur.fetchone()
+        except Exception as exc:
+            _skip_or_fail(self, f"NHA C1477 datacache table is unavailable: {exc}")
+
+        if not row:
+            _skip_or_fail(self, "Record not found in nha_c1477_data_cache")
+
+        record = _coerce_record(row[0])
+        self.assertEqual(_missing_fields(record, RAW_REQUIRED_FIELDS), [])
+
+    def test_reconciled_record(self):
+        try:
+            with _connect_pg(self) as conn:
+                with conn.cursor() as cur:
+                    cur.execute("SELECT data FROM nha_c1477_record_cache WHERE identifier = %s", (TEST_NHA_C1477_ID,))
+                    row = cur.fetchone()
+        except Exception as exc:
+            _skip_or_fail(self, f"NHA C1477 record cache table is unavailable: {exc}")
+
+        if not row:
+            _skip_or_fail(self, "Record not found in nha_c1477_record_cache")
+
+        record = _coerce_record(row[0])
+        self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+
+    def test_export_record(self):
+        path = PIPELINE / "data" / "output" / "latest" / "export_nha-c1477_0.jsonl"
+        if not path.exists():
+            _skip_or_fail(self, f"Export file not found: {path}")
+
+        source_uri = f"hdl.handle.net/21.12102/{TEST_NHA_C1477_ID}"
         with path.open(encoding="utf-8") as fh:
             for line in fh:
                 if not line.strip():

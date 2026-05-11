@@ -3,7 +3,11 @@ from collections.abc import Iterable
 
 NHA_COLLECTION_SOURCE_HINTS = {
     "587 - portretten van de Provinciale Atlas Noord-Holland, Collectie van": "nha-c587",
+    "587 - portretten van de Provinciale Atlas Noord-Holland": "nha-c587",
     "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van": "nha-c480",
+    "480 - historieprenten van de Provinciale Atlas Noord-Holland": "nha-c480",
+    "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem, Collectie van": "nha-c1477",
+    "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem": "nha-c1477",
 }
 
 

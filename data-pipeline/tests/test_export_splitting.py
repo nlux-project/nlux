@@ -30,6 +30,11 @@ class DummyConfigs:
             "type": "internal",
             "matches": ["hdl.handle.net/21.12102/"],
         },
+        "nha-c1477": {
+            "name": "nha-c1477",
+            "type": "internal",
+            "matches": ["hdl.handle.net/21.12102/"],
+        },
         "nha-c587": {
             "name": "nha-c587",
             "type": "internal",
@@ -137,6 +142,25 @@ class ExportSplittingTest(unittest.TestCase):
         )
         self.assertEqual(sources, ["nha-c480"])
 
+    def test_uses_nha_c1477_member_of_label_before_ambiguous_handle_uri(self):
+        sources = collection_sources_for_record(
+            {},
+            {
+                "member_of": [
+                    {
+                        "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem",
+                    }
+                ],
+                "equivalent": [
+                    {
+                        "id": "https://hdl.handle.net/21.12102/65B76D9AFB8F11DF9E4D523BC2E286E2",
+                    }
+                ],
+            },
+            DummyConfigs(),
+        )
+        self.assertEqual(sources, ["nha-c1477"])
+
     def test_uses_record_source_for_nha_c480(self):
         sources = collection_sources_for_record(
             {"source": "nha-c480"},
@@ -156,11 +180,11 @@ class ExportSplittingTest(unittest.TestCase):
         self.assertEqual(sources, ["shared"])
 
     def test_pop_source_filters_consumes_known_source_flags(self):
-        argv = ["run-export.py", "0", "1", "--wfm", "--nha-c587", "--nha-c480", "--export-entities"]
+        argv = ["run-export.py", "0", "1", "--wfm", "--nha-c587", "--nha-c480", "--nha-c1477", "--export-entities"]
 
-        selected = pop_source_filters(argv, ["teylers", "hvh", "wfm", "nha-c587", "nha-c480"])
+        selected = pop_source_filters(argv, ["teylers", "hvh", "wfm", "nha-c587", "nha-c480", "nha-c1477"])
 
-        self.assertEqual(selected, {"wfm", "nha-c587", "nha-c480"})
+        self.assertEqual(selected, {"wfm", "nha-c587", "nha-c480", "nha-c1477"})
         self.assertEqual(argv, ["run-export.py", "0", "1", "--export-entities"])
 
     def test_filter_collection_sources_keeps_selected_sources(self):
