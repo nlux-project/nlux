@@ -73,6 +73,12 @@ if "--load" in sys.argv:
         if "recordcache2" in cfgs.internal["wfm"]:
             cfgs.internal["wfm"]["recordcache2"].clear()
         cfgs.internal["wfm"]["loader"].load()
+    if "--rma" in sys.argv or "--all" in sys.argv:
+        cfgs.internal["rma"]["datacache"].clear()
+        cfgs.internal["rma"]["recordcache"].clear()
+        if "recordcache2" in cfgs.internal["rma"]:
+            cfgs.internal["rma"]["recordcache2"].clear()
+        cfgs.internal["rma"]["loader"].load()
     if "--nha-c587" in sys.argv or "--all" in sys.argv:
         cfgs.internal["nha-c587"]["datacache"].clear()
         cfgs.internal["nha-c587"]["recordcache"].clear()
