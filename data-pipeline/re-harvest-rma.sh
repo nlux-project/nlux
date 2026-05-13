@@ -5,7 +5,7 @@ set -euo pipefail
 
 cd /Users/lux/data-pipeline
 
-TEST_OBJECTID="${1:-3}"
+TEST_OBJECTID="${1:-200508343}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 
 pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
@@ -13,12 +13,12 @@ fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
 check() { echo -e "${YELLOW}  ▸ Validating objectid=$TEST_OBJECTID ...${NC}"; }
 run_rma_test() {
     TEST_OBJECTID="$TEST_OBJECTID" RMA_REQUIRE_LIVE=1 \
-        uv run python -m unittest "tests.test_rma_pipeline.FhmPipelineIntegrationTest.$1"
+        uv run python -m unittest "tests.test_rma_pipeline.RmaPipelineIntegrationTest.$1"
 }
 
 # -- Step 1: Re-harvest -------------------------------------------------------
-echo "==> Harvesting Frans Hals Museum from CollectionConnection ..."
-./harvest-rma.sh
+echo "==> Harvesting RijksMuseum Amsterdam Collection ..."
+#./harvest-rma.sh
 
 check
 FILE="data/input/rma/${TEST_OBJECTID}.json"
