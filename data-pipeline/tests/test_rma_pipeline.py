@@ -192,6 +192,16 @@ class RmaPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(data["equivalent"][0]["id"], "http://hdl.handle.net/10934/RM0001.COLLECT.5216")
         self.assertEqual(data["equivalent"][0]["type"], "HumanMadeObject")
         self.assertIn("SK-C-5", _identified_by_content(data))
+        self.assertNotIn(
+            '"id": "https://id.rijksmuseum.nl/301234479"',
+            json.dumps(data, ensure_ascii=False),
+            "unsupported BIBFRAME references should not be queued for reconciliation",
+        )
+        self.assertNotIn(
+            '"id": "https://id.rijksmuseum.nl/301234480"',
+            json.dumps(data, ensure_ascii=False),
+            "list-valued types should not be queued for reconciliation",
+        )
 
     def test_harvest_file(self):
         path = PIPELINE / "data" / "input" / "rma" / f"{TEST_RMA_ID}.json"

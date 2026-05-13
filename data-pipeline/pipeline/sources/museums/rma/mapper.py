@@ -79,6 +79,26 @@ def _walk_labels(node):
             _walk_labels(value)
 
 
+def _has_supported_type(node_type, ok_types):
+    if isinstance(node_type, list):
+        return False
+    return node_type in ok_types
+
+
+def _drop_unsupported_reference_ids(node, ok_types, top=False):
+    if isinstance(node, dict):
+        node_type = node.get("type")
+        if not top and node.get("id") and node_type and not _has_supported_type(node_type, ok_types):
+            del node["id"]
+        for key, value in node.items():
+            if key in ["equivalent", "access_point", "conforms_to"]:
+                continue
+            _drop_unsupported_reference_ids(value, ok_types)
+    elif isinstance(node, list):
+        for value in node:
+            _drop_unsupported_reference_ids(value, ok_types)
+
+
 class RmaMapper(Mapper):
     def __init__(self, config):
         Mapper.__init__(self, config)
@@ -88,6 +108,10 @@ class RmaMapper(Mapper):
 
     def fix_identifier(self, identifier):
         return str(identifier or "").strip().rstrip("/").rsplit("/", 1)[-1]
+
+    def post_reconcile(self, record):
+        super().post_reconcile(record)
+        _drop_unsupported_reference_ids(record.get("data"), getattr(self.configs, "ok_record_types", {}), top=True)
 
     def transform(self, record, rectype=None, reference=False):
         rec = record.get("data", {})
@@ -106,5 +130,6 @@ class RmaMapper(Mapper):
         data.setdefault("member_of", []).append({"type": "Set", "_label": self.collection_label})
         _normalize_equivalents(data)
         _walk_labels(data)
+        _drop_unsupported_reference_ids(data, getattr(self.configs, "ok_record_types", {}), top=True)
 
         return {"identifier": record_id, "data": data, "source": "rma"}

@@ -62,5 +62,24 @@
   ],
   "equivalent": [
     "http://hdl.handle.net/10934/RM0001.COLLECT.5216"
+  ],
+  "assigned_by": [
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "id": "https://id.rijksmuseum.nl/301234479",
+          "type": "http://id.loc.gov/ontologies/bibframe/Instance"
+        },
+        {
+          "id": "https://id.rijksmuseum.nl/301234480",
+          "type": [
+            "http://id.loc.gov/ontologies/bibframe/Instance",
+            "LinguisticObject"
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by"
+    }
   ]
 }
