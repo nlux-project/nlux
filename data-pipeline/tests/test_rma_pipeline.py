@@ -10,6 +10,7 @@ import warnings
 warnings.filterwarnings("ignore", module="urllib3")
 
 from pipeline.sources.museums.rma.fetcher import RmaFetcher
+from pipeline.sources.museums.rma.loader import RmaLoader
 from pipeline.sources.museums.rma.mapper import RmaMapper
 
 
@@ -88,9 +89,15 @@ class DummyIdMap(dict):
     update_token = "__test__"
 
 
+class DummyCache(dict):
+    def commit(self):
+        pass
+
+
 class DummyConfigs:
     def __init__(self):
         self.data_dir = str(FIXTURES)
+        self.dumps_dir = str(FIXTURES)
         self.allow_network = False
         self.globals = {}
         self.results = {"merged": {}}
@@ -102,6 +109,24 @@ class DummyConfigs:
 
     def canonicalize(self, uri):
         return uri
+
+
+class RmaLoaderTest(unittest.TestCase):
+    def test_load_records_loads_selected_harvest_file(self):
+        cache = DummyCache()
+        loader = RmaLoader(
+            {
+                "name": "rma",
+                "datacache": cache,
+                "all_configs": DummyConfigs(),
+            }
+        )
+        loader.input_dir = str(FIXTURES)
+
+        loader.load_records(["rma-record-200107928"])
+
+        self.assertIn("200107928", cache)
+        self.assertEqual(cache["200107928"]["identifier"], "200107928")
 
 
 class RmaPipelineIntegrationTest(unittest.TestCase):

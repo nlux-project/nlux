@@ -25,6 +25,49 @@ update_mgr = UpdateManager(cfgs, idmap)
 ref_mgr = ReferenceManager(cfgs, idmap)
 
 
+def _pop_recids():
+    recids = []
+    while "--recid" in sys.argv:
+        idx = sys.argv.index("--recid")
+        recids.append(sys.argv[idx + 1])
+        sys.argv.pop(idx)
+        sys.argv.pop(idx)
+    return recids
+
+
+LOAD_RECIDS = _pop_recids()
+
+
+def _delete_cache_record(cache, key):
+    try:
+        cache.delete(key)
+    except Exception:
+        try:
+            del cache[key]
+        except Exception:
+            pass
+
+
+def _load_internal_source(name):
+    cfg = cfgs.internal[name]
+    if LOAD_RECIDS:
+        loader = cfg["loader"]
+        if not hasattr(loader, "load_records"):
+            raise SystemExit(f"--recid loading is not implemented for {name}")
+        print(f"{name}: loading selected records: {', '.join(LOAD_RECIDS)}")
+        for recid in LOAD_RECIDS:
+            _delete_cache_record(cfg["datacache"], recid)
+            _delete_cache_record(cfg["recordcache"], recid)
+        loader.load_records(LOAD_RECIDS)
+        return
+
+    cfg["datacache"].clear()
+    cfg["recordcache"].clear()
+    if "recordcache2" in cfg:
+        cfg["recordcache2"].clear()
+    cfg["loader"].load()
+
+
 ### LOAD DATABASES
 if "--load" in sys.argv:
     if "--ycba" in sys.argv or "--all" in sys.argv:
@@ -74,11 +117,7 @@ if "--load" in sys.argv:
             cfgs.internal["wfm"]["recordcache2"].clear()
         cfgs.internal["wfm"]["loader"].load()
     if "--rma" in sys.argv or "--all" in sys.argv:
-        cfgs.internal["rma"]["datacache"].clear()
-        cfgs.internal["rma"]["recordcache"].clear()
-        if "recordcache2" in cfgs.internal["rma"]:
-            cfgs.internal["rma"]["recordcache2"].clear()
-        cfgs.internal["rma"]["loader"].load()
+        _load_internal_source("rma")
     if "--nha-c587" in sys.argv or "--all" in sys.argv:
         cfgs.internal["nha-c587"]["datacache"].clear()
         cfgs.internal["nha-c587"]["recordcache"].clear()

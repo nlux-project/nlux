@@ -13,6 +13,35 @@ class RmaLoader(Loader):
         cfgs = config["all_configs"]
         self.input_dir = os.path.join(cfgs.dumps_dir, "rma")
 
+    def _load_file(self, path):
+        with open(path, encoding="utf-8") as fh:
+            rec = json.load(fh)
+
+        record_id = str(rec.get("id", "")).rstrip("/").rsplit("/", 1)[-1]
+        if not record_id:
+            return None
+
+        self.out_cache[record_id] = {"data": rec, "identifier": record_id}
+        return record_id
+
+    def load_records(self, recids):
+        if not os.path.isdir(self.input_dir):
+            raise FileNotFoundError(
+                f"Harvest directory not found: {self.input_dir}\n"
+                "Run ./harvest-rma.sh first."
+            )
+
+        loaded = 0
+        for recid in recids:
+            path = os.path.join(self.input_dir, f"{recid}.json")
+            if not os.path.exists(path):
+                raise FileNotFoundError(f"Harvest file not found: {path}")
+            if self._load_file(path):
+                loaded += 1
+
+        self.out_cache.commit()
+        print(f"RMA: loaded {loaded} selected records from {self.input_dir}")
+
     def load(self):
         start = time.time()
 
@@ -29,15 +58,8 @@ class RmaLoader(Loader):
         loaded = 0
         for fn in files:
             path = os.path.join(self.input_dir, fn)
-            with open(path, encoding="utf-8") as fh:
-                rec = json.load(fh)
-
-            record_id = str(rec.get("id", "")).rstrip("/").rsplit("/", 1)[-1]
-            if not record_id:
-                continue
-
-            self.out_cache[record_id] = {"data": rec, "identifier": record_id}
-            loaded += 1
+            if self._load_file(path):
+                loaded += 1
 
             if loaded % 1000 == 0:
                 elapsed = time.time() - start
