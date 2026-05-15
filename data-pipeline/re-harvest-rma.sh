@@ -33,7 +33,7 @@ rm -f data/logs/flags/export_is_done-0.txt
 
 # -- Step 3: Load into PostgreSQL datacache ----------------------------------
 echo "==> Step 3: Loading into PostgreSQL ..."
-uv run python ./manage-data.py --load --rma
+uv run python ./manage-data.py --load --rma --verbose
 
 check
 run_rma_test test_datacache_record || fail "Datacache validation failed"

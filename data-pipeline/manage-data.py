@@ -12,15 +12,33 @@ from pipeline.process.update_manager import UpdateManager
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
 
+
+VERBOSE = "--verbose" in sys.argv
+if VERBOSE:
+    sys.argv.remove("--verbose")
+
+
+def vprint(message):
+    if VERBOSE:
+        print(f"[{datetime.datetime.now().isoformat(timespec='seconds')}] {message}", flush=True)
+
+
+vprint("Loading environment")
 load_dotenv()
 basepath = os.getenv("LUX_BASEPATH", "")
+vprint(f"Building Config from {basepath or '<default>'}")
 cfgs = Config(basepath=basepath)
+vprint("Opening idmap")
 idmap = cfgs.get_idmap()
+vprint("Opening reference maps")
 all_refs = cfgs.instantiate_map("all_refs")["store"]
 done_refs = cfgs.instantiate_map("done_refs")["store"]
+vprint("Caching globals")
 cfgs.cache_globals()
+vprint("Instantiating configured sources")
 cfgs.instantiate_all()
 
+vprint("Creating managers")
 update_mgr = UpdateManager(cfgs, idmap)
 ref_mgr = ReferenceManager(cfgs, idmap)
 
@@ -39,6 +57,7 @@ LOAD_RECIDS = _pop_recids()
 
 
 def _delete_cache_record(cache, key):
+    vprint(f"Deleting {key} from {getattr(cache, 'name', cache.__class__.__name__)}")
     try:
         cache.delete(key)
     except Exception:
@@ -50,6 +69,7 @@ def _delete_cache_record(cache, key):
 
 def _load_internal_source(name):
     cfg = cfgs.internal[name]
+    vprint(f"Preparing load for internal source {name}")
     if LOAD_RECIDS:
         loader = cfg["loader"]
         if not hasattr(loader, "load_records"):
@@ -58,14 +78,18 @@ def _load_internal_source(name):
         for recid in LOAD_RECIDS:
             _delete_cache_record(cfg["datacache"], recid)
             _delete_cache_record(cfg["recordcache"], recid)
-        loader.load_records(LOAD_RECIDS)
+        loader.load_records(LOAD_RECIDS, verbose=VERBOSE)
         return
 
+    vprint(f"Clearing {name} datacache")
     cfg["datacache"].clear()
+    vprint(f"Clearing {name} recordcache")
     cfg["recordcache"].clear()
     if "recordcache2" in cfg:
+        vprint(f"Clearing {name} rewritten recordcache")
         cfg["recordcache2"].clear()
-    cfg["loader"].load()
+    vprint(f"Running {name} loader")
+    cfg["loader"].load(verbose=VERBOSE)
 
 
 ### LOAD DATABASES
