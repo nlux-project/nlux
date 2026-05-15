@@ -55,16 +55,29 @@ def _best_label(node):
     return node.get("_label") or _notation_label(node) or _identified_by_label(node) or node.get("content")
 
 
-def _normalize_equivalents(data):
-    equivalents = []
-    for equivalent in data.get("equivalent", []) or []:
-        if isinstance(equivalent, str):
-            equivalents.append({"id": equivalent, "type": data.get("type", "HumanMadeObject"), "_label": data.get("_label", "Equivalent")})
-        elif isinstance(equivalent, dict) and equivalent.get("id"):
-            equivalent.setdefault("type", data.get("type", "HumanMadeObject"))
-            equivalent.setdefault("_label", data.get("_label", "Equivalent"))
-            equivalents.append(equivalent)
-    data["equivalent"] = equivalents
+def _normalize_equivalents(node):
+    if isinstance(node, dict):
+        if "equivalent" in node:
+            equivalents = []
+            for equivalent in node.get("equivalent", []) or []:
+                if isinstance(equivalent, str):
+                    equivalents.append(
+                        {
+                            "id": equivalent,
+                            "type": node.get("type", "HumanMadeObject"),
+                            "_label": node.get("_label", "Equivalent"),
+                        }
+                    )
+                elif isinstance(equivalent, dict) and equivalent.get("id"):
+                    equivalent.setdefault("type", node.get("type", "HumanMadeObject"))
+                    equivalent.setdefault("_label", node.get("_label", "Equivalent"))
+                    equivalents.append(equivalent)
+            node["equivalent"] = equivalents
+        for value in node.values():
+            _normalize_equivalents(value)
+    elif isinstance(node, list):
+        for value in node:
+            _normalize_equivalents(value)
 
 
 def _walk_labels(node):
@@ -111,6 +124,7 @@ class RmaMapper(Mapper):
 
     def post_reconcile(self, record):
         super().post_reconcile(record)
+        _normalize_equivalents(record.get("data"))
         _drop_unsupported_reference_ids(record.get("data"), getattr(self.configs, "ok_record_types", {}), top=True)
 
     def transform(self, record, rectype=None, reference=False):

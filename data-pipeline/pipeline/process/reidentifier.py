@@ -27,6 +27,16 @@ class Reidentifier(object):
 
         self.redirects = {}
 
+    @staticmethod
+    def equivalent_ids(equivalents):
+        ids = []
+        for equivalent in equivalents or []:
+            if isinstance(equivalent, dict) and "id" in equivalent:
+                ids.append(equivalent["id"])
+            elif isinstance(equivalent, str):
+                ids.append(equivalent)
+        return ids
+
     def should_process_uri(self, uri):
         if uri.startswith("_") or not uri:
             # Don't process bnodes
@@ -82,7 +92,7 @@ class Reidentifier(object):
             # get equivalents and uri first for this
             equiv_map = {}
             if equivs:
-                equivs = [q["id"] for q in equivs if "id" in q]
+                equivs = self.equivalent_ids(equivs)
                 uu = None
                 for eq in equivs:
                     qeq = self.configs.make_qua(eq, qcls)
@@ -132,7 +142,7 @@ class Reidentifier(object):
                     return result
                 all_equivs = [self.configs.split_qua(x)[0] for x in all_equivs]
                 all_equivs = [x for x in all_equivs if not x.startswith("__")]
-                my_equivs = [x["id"] for x in record.get("equivalent", [])]
+                my_equivs = self.equivalent_ids(record.get("equivalent", []))
                 if set(all_equivs) != set(my_equivs):
                     lbl = record.get("_label", "")
                     for eq in all_equivs:

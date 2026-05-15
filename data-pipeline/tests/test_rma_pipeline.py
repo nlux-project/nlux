@@ -12,6 +12,7 @@ warnings.filterwarnings("ignore", module="urllib3")
 from pipeline.sources.museums.rma.fetcher import RmaFetcher
 from pipeline.sources.museums.rma.loader import RmaLoader
 from pipeline.sources.museums.rma.mapper import RmaMapper
+from pipeline.process.reidentifier import Reidentifier
 
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -129,6 +130,21 @@ class RmaLoaderTest(unittest.TestCase):
         self.assertEqual(cache["200107928"]["identifier"], "200107928")
 
 
+class ReidentifierEquivalentTest(unittest.TestCase):
+    def test_equivalent_ids_accepts_string_and_object_equivalents(self):
+        self.assertEqual(
+            Reidentifier.equivalent_ids([
+                {"id": "https://example.org/object-equivalent"},
+                "https://example.org/string-equivalent",
+                {},
+            ]),
+            [
+                "https://example.org/object-equivalent",
+                "https://example.org/string-equivalent",
+            ],
+        )
+
+
 class RmaPipelineIntegrationTest(unittest.TestCase):
     def setUp(self):
         self.record = _load_json(FIXTURES / "rma-record-200107928.json")
@@ -202,6 +218,7 @@ class RmaPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(fetcher.make_fetch_uri("200107928"), "https://id.rijksmuseum.nl/200107928")
 
     def test_mapper_normalizes_linked_art_record(self):
+        self.record["classified_as"][0]["equivalent"] = ["https://example.org/type/painting"]
         mapped = self.mapper.transform({"data": self.record})
         self.assertEqual(mapped["identifier"], "200107928")
         self.assertEqual(mapped["source"], "rma")
@@ -214,6 +231,8 @@ class RmaPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(data["current_owner"][0]["_label"], RMA_COLLECTION_LABEL)
         self.assertEqual(data["member_of"][-1]["_label"], RMA_COLLECTION_LABEL)
         self.assertEqual(data["classified_as"][0]["_label"], "painting")
+        self.assertEqual(data["classified_as"][0]["equivalent"][0]["id"], "https://example.org/type/painting")
+        self.assertEqual(data["classified_as"][0]["equivalent"][0]["type"], "Type")
         self.assertEqual(data["equivalent"][0]["id"], "http://hdl.handle.net/10934/RM0001.COLLECT.5216")
         self.assertEqual(data["equivalent"][0]["type"], "HumanMadeObject")
         self.assertIn("SK-C-5", _identified_by_content(data))
