@@ -18,16 +18,35 @@ from app.database import engine, Base, SessionLocal
 from app.models import Record
 
 
+def text_value(value) -> str:
+    """Return a stable text representation for values stored in SQL text columns."""
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value
+    if isinstance(value, list):
+        parts = [text_value(item) for item in value]
+        return " ".join(part for part in parts if part)
+    if isinstance(value, dict):
+        for key in ("content", "_label", "label", "value", "id", "@id"):
+            if key in value:
+                text = text_value(value.get(key))
+                if text:
+                    return text
+        return json.dumps(value, ensure_ascii=False)
+    return str(value)
+
+
 def extract_search_text(doc: dict) -> str:
     """Concatenate label and all referred_to_by content for FTS indexing."""
     parts = []
-    if label := doc.get("_label"):
+    if label := text_value(doc.get("_label")):
         parts.append(label)
     for item in doc.get("identified_by", []):
-        if c := item.get("content"):
+        if c := text_value(item.get("content")):
             parts.append(c)
     for item in doc.get("referred_to_by", []):
-        if c := item.get("content"):
+        if c := text_value(item.get("content")):
             parts.append(c)
     return " ".join(parts)
 
@@ -102,7 +121,7 @@ def load_path(data_path: Path):
         search_text = extract_search_text(doc)
         if existing:
             existing.type = doc.get("type", "")
-            existing.label = doc.get("_label")
+            existing.label = text_value(doc.get("_label"))
             existing.search_text = search_text
             existing.data = raw
             updated += 1
@@ -110,7 +129,7 @@ def load_path(data_path: Path):
             db.add(Record(
                 uri=uri,
                 type=doc.get("type", ""),
-                label=doc.get("_label"),
+                label=text_value(doc.get("_label")),
                 search_text=search_text,
                 data=raw,
             ))
