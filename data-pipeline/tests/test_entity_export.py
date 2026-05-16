@@ -77,6 +77,63 @@ class EntityExportTest(unittest.TestCase):
         self.assertEqual(entities[owner_uri]["type"], "Group")
         self.assertEqual(entities[owner_uri]["label"], "Frans Hals Museum")
 
+    def test_assign_entity_uris_skips_list_valued_type_nodes(self):
+        base_uri = "http://localhost:8000/"
+        data = {
+            "type": "HumanMadeObject",
+            "assigned_by": [
+                {
+                    "type": "AttributeAssignment",
+                    "assigned": [
+                        {
+                            "id": "https://example.org/bibframe-instance",
+                            "type": [
+                                "http://id.loc.gov/ontologies/bibframe/Instance",
+                                "LinguisticObject",
+                            ],
+                            "_label": "Unsupported nested reference",
+                            "classified_as": [{"type": "Type", "_label": "Nested type"}],
+                        }
+                    ],
+                }
+            ],
+        }
+        entities = {}
+
+        assign_entity_uris(data, entities, base_uri)
+
+        self.assertEqual(
+            data["assigned_by"][0]["assigned"][0]["id"],
+            "https://example.org/bibframe-instance",
+        )
+        self.assertEqual(
+            data["assigned_by"][0]["assigned"][0]["type"],
+            ["http://id.loc.gov/ontologies/bibframe/Instance", "LinguisticObject"],
+        )
+        self.assertIn("Nested type", {info["label"] for info in entities.values()})
+
+    def test_assign_entity_uris_accepts_list_valued_event_timespan(self):
+        base_uri = "http://localhost:8000/"
+        data = {
+            "type": "HumanMadeObject",
+            "produced_by": {
+                "type": "Production",
+                "carried_out_by": [{"type": "Person", "_label": "Maker"}],
+                "timespan": [
+                    {
+                        "type": "TimeSpan",
+                        "identified_by": [{"type": "Name", "content": "1900"}],
+                    }
+                ],
+            },
+        }
+        entities = {}
+
+        assign_entity_uris(data, entities, base_uri)
+
+        labels = {info["label"] for info in entities.values()}
+        self.assertIn("Production: Maker, 1900", labels)
+
     def test_build_entity_record_creates_concept_place_set_and_event_records(self):
         base_uri = "http://localhost:8000/"
         cases = [
