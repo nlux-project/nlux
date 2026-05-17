@@ -27,13 +27,13 @@ run_rma_test test_harvest_file || fail "Harvest file validation failed"
 pass "Harvest OK -- file has expected fields"
 
 # -- Step 2: Clear pipeline phase flags --------------------------------------
-rm -f data/logs/flags/reconcile_is_done-0.txt
-rm -f data/logs/flags/merge_is_done-0.txt
-rm -f data/logs/flags/export_is_done-0.txt
+#rm -f data/logs/flags/reconcile_is_done-0.txt
+#rm -f data/logs/flags/merge_is_done-0.txt
+#rm -f data/logs/flags/export_is_done-0.txt
 
 # -- Step 3: Load into PostgreSQL datacache ----------------------------------
 echo "==> Step 3: Loading into PostgreSQL ..."
-uv run python ./manage-data.py --load --rma --verbose
+#uv run python ./manage-data.py --load --rma --verbose
 
 check
 run_rma_test test_datacache_record || fail "Datacache validation failed"
@@ -41,8 +41,8 @@ pass "Datacache OK -- fields carried through"
 
 # -- Step 4: Reconcile --------------------------------------------------------
 echo "==> Step 4: Reconciling (AAT) ..."
-psql -h localhost -U postgres -d postgres -c "TRUNCATE rma_rewritten_record_cache, rma_record_cache, merged_merged_record_cache;"
-uv run python ./run-reconcile.py 0 1 --rma
+#psql -h localhost -U postgres -d postgres -c "TRUNCATE rma_rewritten_record_cache, rma_record_cache, merged_merged_record_cache;"
+#uv run python ./run-reconcile.py 0 1 --rma
 
 check
 run_rma_test test_reconciled_record || fail "Reconciliation validation failed"

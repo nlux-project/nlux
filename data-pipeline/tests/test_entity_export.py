@@ -39,6 +39,24 @@ class EntityExportTest(unittest.TestCase):
         self.assertTrue(data["member_of"][0]["id"].startswith(f"{base_uri}data/set/"))
         self.assertTrue(data["produced_by"]["id"].startswith(f"{base_uri}data/event/"))
 
+    def test_assign_entity_uris_removes_blank_member_of_sets(self):
+        base_uri = "http://localhost:8000/"
+        data = {
+            "type": "HumanMadeObject",
+            "member_of": [
+                {"type": "Set"},
+                {"type": "Set"},
+                {"type": "Set", "_label": "Rijksmuseum Amsterdam"},
+            ],
+        }
+        entities = {}
+
+        assign_entity_uris(data, entities, base_uri)
+
+        self.assertEqual(len(data["member_of"]), 1)
+        self.assertEqual(data["member_of"][0]["_label"], "Rijksmuseum Amsterdam")
+        self.assertTrue(data["member_of"][0]["id"].startswith(f"{base_uri}data/set/"))
+
     def test_assign_entity_uris_preserves_external_equivalent(self):
         base_uri = "http://localhost:8000/"
         data = {

@@ -7,6 +7,14 @@ RMA_LABEL = "Rijksmuseum Amsterdam"
 RMA_COLLECTION_LABEL = "Rijksmuseum Amsterdam"
 
 
+def _is_blank_set(node):
+    return isinstance(node, dict) and node.get("type") == "Set" and not _best_label(node) and not node.get("id")
+
+
+def _same_collection(node, label):
+    return isinstance(node, dict) and node.get("type") == "Set" and _best_label(node) == label
+
+
 def _language_code(language):
     if isinstance(language, dict):
         lang_id = language.get("id", "")
@@ -141,7 +149,17 @@ class RmaMapper(Mapper):
         data.setdefault("type", "HumanMadeObject")
         data["_label"] = _best_label(data) or record_id
         data.setdefault("current_owner", [{"type": "Group", "_label": self.owner_label}])
-        data.setdefault("member_of", []).append({"type": "Set", "_label": self.collection_label})
+        member_of = data.get("member_of") or []
+        if isinstance(member_of, dict):
+            member_of = [member_of]
+        member_of = [
+            member
+            for member in member_of
+            if isinstance(member, dict)
+            and not _is_blank_set(member)
+            and not _same_collection(member, self.collection_label)
+        ]
+        data["member_of"] = [{"type": "Set", "_label": self.collection_label}, *member_of]
         _normalize_equivalents(data)
         _walk_labels(data)
         _drop_unsupported_reference_ids(data, getattr(self.configs, "ok_record_types", {}), top=True)

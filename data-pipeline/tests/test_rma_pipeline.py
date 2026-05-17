@@ -229,7 +229,7 @@ class RmaPipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(data["_label"], "The Night Watch")
         self.assertEqual(_missing_fields(data, LINKED_ART_REQUIRED_FIELDS), [])
         self.assertEqual(data["current_owner"][0]["_label"], RMA_COLLECTION_LABEL)
-        self.assertEqual(data["member_of"][-1]["_label"], RMA_COLLECTION_LABEL)
+        self.assertEqual(data["member_of"][0]["_label"], RMA_COLLECTION_LABEL)
         self.assertEqual(data["classified_as"][0]["_label"], "painting")
         self.assertEqual(data["classified_as"][0]["equivalent"][0]["id"], "https://example.org/type/painting")
         self.assertEqual(data["classified_as"][0]["equivalent"][0]["type"], "Type")
@@ -245,6 +245,25 @@ class RmaPipelineIntegrationTest(unittest.TestCase):
             '"id": "https://id.rijksmuseum.nl/301234480"',
             json.dumps(data, ensure_ascii=False),
             "list-valued types should not be queued for reconciliation",
+        )
+
+    def test_mapper_removes_blank_member_of_sets_before_collection(self):
+        record = json.loads(json.dumps(self.record))
+        record["member_of"] = [
+            {"type": "Set"},
+            {"type": "Set"},
+            {"type": "Set", "_label": "Existing collection"},
+        ]
+
+        data = self.mapper.transform({"data": record})["data"]
+
+        self.assertEqual(data["member_of"][0]["_label"], RMA_COLLECTION_LABEL)
+        self.assertEqual(
+            data["member_of"],
+            [
+                {"type": "Set", "_label": RMA_COLLECTION_LABEL},
+                {"type": "Set", "_label": "Existing collection"},
+            ],
         )
 
     def test_harvest_file(self):
