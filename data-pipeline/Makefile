@@ -7,6 +7,7 @@ SYNC_CONFIG_FILES := \
 SYNC_FILES := \
 	harvest-nha.py \
 	harvest-nha.sh \
+	manage-data.py \
 	pipeline/process/export_splitting.py \
 	pipeline/sources/museums/nha/mapper.py \
 	pipeline/sources/museums/nha/c359/__init__.py \
