@@ -13,6 +13,41 @@ LUX_BASEPATH="/path/to/lux/config"
 
 `LUX_BASEPATH` must point to a directory that contains `data/config/config_cache/` with the JSON config files. All other paths in `base.json` are relative to this.
 
+## Repo vs Working Directory
+
+The GitHub/repo copy of this pipeline lives at:
+```
+/Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline
+```
+
+The active working copy used for pipeline runs lives at:
+```
+/Users/lux/data-pipeline
+```
+
+Do not use `LUX_BASEPATH` as the sync target. In the working copy,
+`/Users/lux/data-pipeline/.env` sets:
+```
+LUX_BASEPATH=/Users/lux/data-pipeline/config
+```
+That value is the pipeline configuration base path, not the work directory.
+
+Use the repo-side `Makefile` to copy selected changed files into the working copy:
+```bash
+cd /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline
+make dry-run
+make sync
+```
+
+The Makefile target directory variable is `LUX_WORKDIR`, defaulting to
+`/Users/lux/data-pipeline`. Override it with:
+```bash
+make sync LUX_WORKDIR=/path/to/workdir
+```
+
+When adding or changing repo files that need to be mirrored into the working
+copy, add their relative paths to `SYNC_FILES` or `SYNC_DIRS` in the Makefile.
+
 **Runtime dependencies:** PostgreSQL (record caches), Redis (idmap, ref maps), LMDB (alternate idmap backend), Python 3.9+ with venv at `.venv/`.
 
 **Before running merge:** `run-merge.py` requires `data/files/idmap_update_token.txt` to exist with a token of the form `__YYYYMMDD__`. Generate it with:
