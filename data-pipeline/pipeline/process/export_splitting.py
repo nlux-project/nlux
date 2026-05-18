@@ -3,6 +3,8 @@ from collections.abc import Iterable
 
 NHA_COLLECTION_SOURCE_HINTS = {
     "Rijksmuseum Amsterdam": "rma",
+    "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland, Collectie van": "nha-c359",
+    "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland": "nha-c359",
     "587 - portretten van de Provinciale Atlas Noord-Holland, Collectie van": "nha-c587",
     "587 - portretten van de Provinciale Atlas Noord-Holland": "nha-c587",
     "480 - historieprenten van de Provinciale Atlas Noord-Holland, Collectie van": "nha-c480",

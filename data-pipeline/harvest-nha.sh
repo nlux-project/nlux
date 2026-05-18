@@ -40,6 +40,7 @@ run_source() {
 
 if [[ "$SOURCE" == "all" ]]; then
     run_source "nha-c587" "" "$LIMIT"
+    run_source "nha-c359" "" "$LIMIT"
     run_source "nha-c480" "" "$LIMIT"
     run_source "nha-c1477" "" "$LIMIT"
 else
