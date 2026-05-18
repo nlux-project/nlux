@@ -7,6 +7,8 @@ LIMIT="${3:-}"
 
 if [[ "$SOURCE" == "c587" || "$SOURCE" == "587" ]]; then
     SOURCE="nha-c587"
+elif [[ "$SOURCE" == "c359" || "$SOURCE" == "359" ]]; then
+    SOURCE="nha-c359"
 elif [[ "$SOURCE" == "c480" || "$SOURCE" == "480" ]]; then
     SOURCE="nha-c480"
 elif [[ "$SOURCE" == "c1477" || "$SOURCE" == "1477" ]]; then
