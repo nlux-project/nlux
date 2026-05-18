@@ -1,7 +1,15 @@
 LUX_WORKDIR ?= /Users/lux/data-pipeline
 
 SYNC_FILES := \
+	docs/sample_config/nha-c359.json \
+	harvest-nha.py \
+	harvest-nha.sh \
+	pipeline/process/export_splitting.py \
 	pipeline/sources/museums/nha/mapper.py \
+	pipeline/sources/museums/nha/c359/__init__.py \
+	pipeline/sources/museums/nha/c359/fetcher.py \
+	pipeline/sources/museums/nha/c359/loader.py \
+	pipeline/sources/museums/nha/c359/mapper.py \
 	pipeline/sources/museums/nha/c1477/mapper.py \
 	pipeline/sources/museums/nha/c480/mapper.py \
 	pipeline/sources/museums/nha/c587/mapper.py \

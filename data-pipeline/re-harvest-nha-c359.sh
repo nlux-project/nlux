@@ -5,7 +5,7 @@ set -euo pipefail
 
 cd /Users/lux/data-pipeline
 
-TEST_NHA_ID="${1:-65682604FB8F11DF9E4D523BC2E286E2}"
+TEST_NHA_ID="${1:-200251067}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 
 pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
@@ -22,7 +22,7 @@ run_nha_test() {
 #mkdir -p data/input/teylers/
 
 echo "==> Harvesting NHA Collection 359 ..."
-#./harvest-nha.sh nha-c359
+./harvest-nha.sh nha-c359
 
 check
 FILE="data/input/nha/c359/${TEST_NHA_ID}.json"
