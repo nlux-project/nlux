@@ -80,6 +80,12 @@ def _about_people(record):
     ]
 
 
+def _as_list(value):
+    if value is None:
+        return []
+    return value if isinstance(value, list) else [value]
+
+
 def _connect_pg(testcase):
     try:
         import psycopg2
@@ -197,6 +203,57 @@ class NhaC587PipelineIntegrationTest(unittest.TestCase):
                     any(person.get("_label") == expected for person in people),
                     f"{title!r} should link {expected!r} as an about Person",
                 )
+
+    def test_mapper_splits_nha_agent_strings_and_preserves_life_dates(self):
+        record = json.loads(json.dumps(self.record))
+        for item in record["metadata"]:
+            if item["field"] == "vervaardiger":
+                item["value"] = "Matham, Adriaen A. *1589 †1660 Olis, Jacob J. *1610 †1676"
+                break
+
+        data = self.mapper.transform({"data": record})["data"]
+        produced_by = _as_list(data["produced_by"])[0]
+        agents = _as_list(produced_by["carried_out_by"])
+        labels = [agent["_label"] for agent in agents]
+
+        self.assertEqual(labels, ["Matham, Adriaen A.", "Olis, Jacob J."])
+        self.assertEqual(
+            agents[0]["born"]["timespan"]["begin_of_the_begin"],
+            "1589-01-01T00:00:00",
+        )
+        self.assertEqual(
+            agents[0]["died"]["timespan"]["end_of_the_end"],
+            "1660-12-31T23:59:59",
+        )
+        self.assertEqual(
+            agents[1]["born"]["timespan"]["begin_of_the_begin"],
+            "1610-01-01T00:00:00",
+        )
+        self.assertEqual(
+            agents[1]["died"]["timespan"]["end_of_the_end"],
+            "1676-12-31T23:59:59",
+        )
+
+    def test_mapper_removes_life_dates_from_single_agent_label(self):
+        record = json.loads(json.dumps(self.record))
+        for item in record["metadata"]:
+            if item["field"] == "vervaardiger":
+                item["value"] = "Sallieth, Mathias M. de *1749 †1791"
+                break
+
+        data = self.mapper.transform({"data": record})["data"]
+        produced_by = _as_list(data["produced_by"])[0]
+        agent = _as_list(produced_by["carried_out_by"])[0]
+
+        self.assertEqual(agent["_label"], "Sallieth, Mathias M. de")
+        self.assertEqual(
+            agent["born"]["timespan"]["begin_of_the_begin"],
+            "1749-01-01T00:00:00",
+        )
+        self.assertEqual(
+            agent["died"]["timespan"]["end_of_the_end"],
+            "1791-12-31T23:59:59",
+        )
 
     def test_harvest_file(self):
         path = PIPELINE / "data" / "input" / "nha" / "c587" / f"{TEST_NHA_C587_ID}.json"

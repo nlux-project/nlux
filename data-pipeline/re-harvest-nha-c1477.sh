@@ -5,7 +5,7 @@ set -euo pipefail
 
 cd /Users/lux/data-pipeline
 
-TEST_NHA_ID="${1:-65682604FB8F11DF9E4D523BC2E286E2}"
+TEST_NHA_ID="${1:-CAE9E08E3647C6F6037DA0F98C56D590}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 
 pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
@@ -22,7 +22,7 @@ run_nha_test() {
 #mkdir -p data/input/teylers/
 
 echo "==> Harvesting NHA Collection 1477 ..."
-./harvest-nha.sh nha-c1477
+#./harvest-nha.sh nha-c1477
 
 check
 FILE="data/input/nha/c1477/${TEST_NHA_ID}.json"
@@ -75,7 +75,7 @@ pass "Export OK"
 # -- Step 7: Reload into Docker API ------------------------------------------
 echo "==> Step 7: Resetting and reloading Docker API database ..."
 docker cp data/output/latest/export_nha-c1477_0.jsonl nlux-api-1:/tmp/export_nha-c1477_0.jsonl
-docker exec nlux-api-1 python3 scripts/reset.py
+#docker exec nlux-api-1 python3 scripts/reset.py
 docker exec nlux-api-1 python3 scripts/load_data.py /tmp/export_nha-c1477_0.jsonl
 docker exec nlux-api-1 python3 scripts/generate_agents.py
 docker exec nlux-api-1 python3 scripts/generate_concepts.py
