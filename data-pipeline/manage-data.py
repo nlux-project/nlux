@@ -148,6 +148,12 @@ if "--load" in sys.argv:
         if "recordcache2" in cfgs.internal["nha-c587"]:
             cfgs.internal["nha-c587"]["recordcache2"].clear()
         cfgs.internal["nha-c587"]["loader"].load()
+    if "--nha-c359" in sys.argv or "--all" in sys.argv:
+        cfgs.internal["nha-c359"]["datacache"].clear()
+        cfgs.internal["nha-c359"]["recordcache"].clear()
+        if "recordcache2" in cfgs.internal["nha-c359"]:
+            cfgs.internal["nha-c359"]["recordcache2"].clear()
+        cfgs.internal["nha-c359"]["loader"].load()
     if "--nha-c480" in sys.argv or "--all" in sys.argv:
         cfgs.internal["nha-c480"]["datacache"].clear()
         cfgs.internal["nha-c480"]["recordcache"].clear()

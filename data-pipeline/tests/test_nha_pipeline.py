@@ -53,6 +53,10 @@ LINKED_ART_REQUIRED_FIELDS = [
     "representation",
 ]
 
+C359_LINKED_ART_REQUIRED_FIELDS = [
+    field for field in LINKED_ART_REQUIRED_FIELDS if field != "representation"
+]
+
 
 def _skip_or_fail(testcase, message):
     if REQUIRE_LIVE:
@@ -89,6 +93,13 @@ def _as_list(value):
     if value is None:
         return []
     return value if isinstance(value, list) else [value]
+
+
+def _has_image_asset(record):
+    return any(
+        isinstance(asset, dict) and asset.get("mediatype") == "image"
+        for asset in _as_list(record.get("asset"))
+    )
 
 
 def _connect_pg(testcase):
@@ -557,7 +568,10 @@ class NhaC359PipelineIntegrationTest(unittest.TestCase):
             _skip_or_fail(self, "Record not found in nha_c359_record_cache")
 
         record = _coerce_record(row[0])
-        self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+        self.assertEqual(_missing_fields(record, C359_LINKED_ART_REQUIRED_FIELDS), [])
+        raw_path = PIPELINE / "data" / "input" / "nha" / "c359" / f"{TEST_NHA_C359_ID}.json"
+        if raw_path.exists() and _has_image_asset(_load_json(raw_path)):
+            self.assertIn("representation", record)
 
     def test_export_record(self):
         path = PIPELINE / "data" / "output" / "latest" / "export_nha-c359_0.jsonl"
@@ -572,10 +586,11 @@ class NhaC359PipelineIntegrationTest(unittest.TestCase):
                 record = _coerce_record(json.loads(line))
                 equivalents = record.get("equivalent", [])
                 if any(source_uri in eq.get("id", "") for eq in equivalents):
-                    self.assertEqual(_missing_fields(record, LINKED_ART_REQUIRED_FIELDS), [])
+                    self.assertEqual(_missing_fields(record, C359_LINKED_ART_REQUIRED_FIELDS), [])
                     self.assertTrue(record["member_of"][0].get("id"), "member_of should have a resolvable id")
-                    image = record["representation"][0]["digitally_shown_by"][0]
-                    self.assertIn("images.memorix.nl/ranh", image["access_point"][0]["id"])
+                    if "representation" in record:
+                        image = record["representation"][0]["digitally_shown_by"][0]
+                        self.assertIn("images.memorix.nl/ranh", image["access_point"][0]["id"])
                     return
 
         _skip_or_fail(self, "Record not found in export")

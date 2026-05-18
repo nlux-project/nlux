@@ -11,6 +11,7 @@ SYNC_FILES := \
 	experiments/ai-enrichment/prompt.md \
 	harvest-nha.py \
 	harvest-nha.sh \
+	manage-data.py \
 	pipeline/process/ai_enrichment.py \
 	pipeline/process/export_splitting.py \
 	pipeline/sources/museums/nha/mapper.py \
