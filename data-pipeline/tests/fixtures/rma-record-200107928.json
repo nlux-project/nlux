@@ -1,0 +1,85 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://id.rijksmuseum.nl/200107928",
+  "type": "HumanMadeObject",
+  "identified_by": [
+    {
+      "type": "Identifier",
+      "content": "SK-C-5",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/22015218",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "en",
+              "@value": "object number"
+            },
+            {
+              "@language": "nl",
+              "@value": "objectnummer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "De Nachtwacht",
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "The Night Watch",
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "id": "https://id.rijksmuseum.nl/2208",
+      "type": "Type",
+      "notation": [
+        {
+          "@language": "nl",
+          "@value": "schilderij"
+        },
+        {
+          "@language": "en",
+          "@value": "painting"
+        }
+      ]
+    }
+  ],
+  "equivalent": [
+    "http://hdl.handle.net/10934/RM0001.COLLECT.5216"
+  ],
+  "assigned_by": [
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "id": "https://id.rijksmuseum.nl/301234479",
+          "type": "http://id.loc.gov/ontologies/bibframe/Instance"
+        },
+        {
+          "id": "https://id.rijksmuseum.nl/301234480",
+          "type": [
+            "http://id.loc.gov/ontologies/bibframe/Instance",
+            "LinguisticObject"
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by"
+    }
+  ]
+}

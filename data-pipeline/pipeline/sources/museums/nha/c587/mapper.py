@@ -9,7 +9,7 @@ from pipeline.process.base.mapper import Mapper
 
 
 NHA_LABEL = "Noord-Hollands Archief"
-NHA_COLLECTION_LABEL = "587 - portretten van de Provinciale Atlas Noord-Holland, Collectie van"
+NHA_COLLECTION_LABEL = "587 - portretten van de Provinciale Atlas Noord-Holland"
 NHA_DETAIL_BASE = "https://noord-hollandsarchief.nl/beelden/beeldbank/detail/{record_id}"
 IIIF_PRESENTATION_3_CONTEXT = "http://iiif.io/api/presentation/3/context.json"
 

@@ -12,17 +12,84 @@ from pipeline.process.update_manager import UpdateManager
 import warnings
 warnings.filterwarnings("ignore", module="urllib3")
 
+
+VERBOSE = "--verbose" in sys.argv
+if VERBOSE:
+    sys.argv.remove("--verbose")
+
+
+def vprint(message):
+    if VERBOSE:
+        print(f"[{datetime.datetime.now().isoformat(timespec='seconds')}] {message}", flush=True)
+
+
+vprint("Loading environment")
 load_dotenv()
 basepath = os.getenv("LUX_BASEPATH", "")
+vprint(f"Building Config from {basepath or '<default>'}")
 cfgs = Config(basepath=basepath)
+vprint("Opening idmap")
 idmap = cfgs.get_idmap()
+vprint("Opening reference maps")
 all_refs = cfgs.instantiate_map("all_refs")["store"]
 done_refs = cfgs.instantiate_map("done_refs")["store"]
+vprint("Caching globals")
 cfgs.cache_globals()
+vprint("Instantiating configured sources")
 cfgs.instantiate_all()
 
+vprint("Creating managers")
 update_mgr = UpdateManager(cfgs, idmap)
 ref_mgr = ReferenceManager(cfgs, idmap)
+
+
+def _pop_recids():
+    recids = []
+    while "--recid" in sys.argv:
+        idx = sys.argv.index("--recid")
+        recids.append(sys.argv[idx + 1])
+        sys.argv.pop(idx)
+        sys.argv.pop(idx)
+    return recids
+
+
+LOAD_RECIDS = _pop_recids()
+
+
+def _delete_cache_record(cache, key):
+    vprint(f"Deleting {key} from {getattr(cache, 'name', cache.__class__.__name__)}")
+    try:
+        cache.delete(key)
+    except Exception:
+        try:
+            del cache[key]
+        except Exception:
+            pass
+
+
+def _load_internal_source(name):
+    cfg = cfgs.internal[name]
+    vprint(f"Preparing load for internal source {name}")
+    if LOAD_RECIDS:
+        loader = cfg["loader"]
+        if not hasattr(loader, "load_records"):
+            raise SystemExit(f"--recid loading is not implemented for {name}")
+        print(f"{name}: loading selected records: {', '.join(LOAD_RECIDS)}")
+        for recid in LOAD_RECIDS:
+            _delete_cache_record(cfg["datacache"], recid)
+            _delete_cache_record(cfg["recordcache"], recid)
+        loader.load_records(LOAD_RECIDS, verbose=VERBOSE)
+        return
+
+    vprint(f"Clearing {name} datacache")
+    cfg["datacache"].clear()
+    vprint(f"Clearing {name} recordcache")
+    cfg["recordcache"].clear()
+    if "recordcache2" in cfg:
+        vprint(f"Clearing {name} rewritten recordcache")
+        cfg["recordcache2"].clear()
+    vprint(f"Running {name} loader")
+    cfg["loader"].load(verbose=VERBOSE)
 
 
 ### LOAD DATABASES
@@ -73,6 +140,8 @@ if "--load" in sys.argv:
         if "recordcache2" in cfgs.internal["wfm"]:
             cfgs.internal["wfm"]["recordcache2"].clear()
         cfgs.internal["wfm"]["loader"].load()
+    if "--rma" in sys.argv or "--all" in sys.argv:
+        _load_internal_source("rma")
     if "--nha-c587" in sys.argv or "--all" in sys.argv:
         cfgs.internal["nha-c587"]["datacache"].clear()
         cfgs.internal["nha-c587"]["recordcache"].clear()
@@ -85,6 +154,12 @@ if "--load" in sys.argv:
         if "recordcache2" in cfgs.internal["nha-c480"]:
             cfgs.internal["nha-c480"]["recordcache2"].clear()
         cfgs.internal["nha-c480"]["loader"].load()
+    if "--nha-c1477" in sys.argv or "--all" in sys.argv:
+        cfgs.internal["nha-c1477"]["datacache"].clear()
+        cfgs.internal["nha-c1477"]["recordcache"].clear()
+        if "recordcache2" in cfgs.internal["nha-c1477"]:
+            cfgs.internal["nha-c1477"]["recordcache2"].clear()
+        cfgs.internal["nha-c1477"]["loader"].load()
     if "--cht" in sys.argv or "--all" in sys.argv:
         cfgs.external["cht"]["datacache"].clear()
         cfgs.external["cht"]["loader"].load()

@@ -16,7 +16,7 @@ from sqlalchemy import text
 from app.config import settings
 from app.database import engine, Base, SessionLocal
 from app.models import Record
-from scripts.search_text import extract_search_text
+from scripts.search_text import extract_search_text, text_value
 
 
 def load_directory(data_dir: Path):
@@ -89,7 +89,7 @@ def load_path(data_path: Path):
         search_text = extract_search_text(doc)
         if existing:
             existing.type = doc.get("type", "")
-            existing.label = doc.get("_label")
+            existing.label = text_value(doc.get("_label"))
             existing.search_text = search_text
             existing.data = raw
             updated += 1
@@ -97,7 +97,7 @@ def load_path(data_path: Path):
             db.add(Record(
                 uri=uri,
                 type=doc.get("type", ""),
-                label=doc.get("_label"),
+                label=text_value(doc.get("_label")),
                 search_text=search_text,
                 data=raw,
             ))

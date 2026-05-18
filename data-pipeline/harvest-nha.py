@@ -11,6 +11,7 @@ import warnings
 warnings.filterwarnings("ignore", module="urllib3")
 
 from pipeline.sources.museums.nha.c480.fetcher import NhaC480Fetcher
+from pipeline.sources.museums.nha.c1477.fetcher import NhaC1477Fetcher
 from pipeline.sources.museums.nha.c587.fetcher import NhaC587Fetcher
 
 
@@ -19,6 +20,7 @@ class HarvestConfigs:
 
 
 SOURCES = {
+    "nha-c1477": (NhaC1477Fetcher, "data/input/nha/c1477"),
     "nha-c480": (NhaC480Fetcher, "data/input/nha/c480"),
     "nha-c587": (NhaC587Fetcher, "data/input/nha/c587"),
 }
@@ -32,8 +34,11 @@ def _source_from_args(args):
         if arg in SOURCES:
             args.remove(arg)
             return arg
-    if args and "c480" in args[0]:
-        return "nha-c480"
+    if args:
+        if "c1477" in args[0] or "1477" in args[0]:
+            return "nha-c1477"
+        if "c480" in args[0]:
+            return "nha-c480"
     return "nha-c587"
 
 

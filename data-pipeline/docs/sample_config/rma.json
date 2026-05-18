@@ -1,0 +1,19 @@
+{
+    "name": "rma",
+    "type": "internal",
+    "namespace": "https://id.rijksmuseum.nl/",
+    "matches": [
+        "id.rijksmuseum.nl/",
+        "data.rijksmuseum.nl/"
+    ],
+    "fetch": "https://id.rijksmuseum.nl/{identifier}",
+    "searchUrl": "https://data.rijksmuseum.nl/search/collection",
+    "resolverBase": "https://id.rijksmuseum.nl",
+    "collectionLabel": "Rijksmuseum Amsterdam",
+    "merge_order": 5,
+
+    "harvesterClass": "process.base.harvester.Harvester",
+    "mapperClass": "sources.museums.rma.mapper.RmaMapper",
+    "loaderClass": "sources.museums.rma.loader.RmaLoader",
+    "fetcherClass": "sources.museums.rma.fetcher.RmaFetcher"
+}

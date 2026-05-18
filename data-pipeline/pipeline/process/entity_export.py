@@ -57,7 +57,11 @@ def _is_local_uri(uri: str, base_uri: str) -> bool:
 
 
 def _name_from_identified_by(value: dict) -> str:
+    if not isinstance(value, dict):
+        return ""
     for identifier in value.get("identified_by", []) or []:
+        if not isinstance(identifier, dict):
+            continue
         content = identifier.get("content")
         if content:
             return content.strip()
@@ -71,13 +75,19 @@ def _event_label(value: dict) -> str:
 
     pieces = []
     for agent in value.get("carried_out_by", []) or []:
+        if not isinstance(agent, dict):
+            continue
         agent_label = agent.get("_label") or _name_from_identified_by(agent)
         if agent_label:
             pieces.append(agent_label.strip())
-    timespan = value.get("timespan") or {}
-    timespan_label = _name_from_identified_by(timespan)
-    if timespan_label:
-        pieces.append(timespan_label)
+    timespans = value.get("timespan") or []
+    if isinstance(timespans, dict):
+        timespans = [timespans]
+    if isinstance(timespans, list):
+        for timespan in timespans:
+            timespan_label = _name_from_identified_by(timespan)
+            if timespan_label:
+                pieces.append(timespan_label)
 
     suffix = ": " + ", ".join(pieces) if pieces else ""
     return f"{value.get('type', 'Event')}{suffix}"
@@ -87,6 +97,30 @@ def _entity_label(value: dict) -> str:
     if value.get("type") in EVENT_TYPES:
         return _event_label(value)
     return (value.get("_label") or _name_from_identified_by(value)).strip()
+
+
+def _compact_member_of(value: dict) -> None:
+    member_of = value.get("member_of")
+    if not member_of:
+        return
+    if isinstance(member_of, dict):
+        member_of = [member_of]
+    if not isinstance(member_of, list):
+        return
+    members = [
+        member
+        for member in member_of
+        if not (
+            isinstance(member, dict)
+            and member.get("type") == "Set"
+            and not member.get("id")
+            and not _entity_label(member)
+        )
+    ]
+    if members:
+        value["member_of"] = members
+    else:
+        value.pop("member_of", None)
 
 
 def _should_localize(entity_type: str, uri: str | None, base_uri: str) -> bool:
@@ -101,8 +135,9 @@ def _should_localize(entity_type: str, uri: str | None, base_uri: str) -> bool:
 
 def assign_entity_uris(value: Any, entities: dict[str, dict], base_uri: str) -> None:
     if isinstance(value, dict):
+        _compact_member_of(value)
         entity_type = value.get("type")
-        if entity_type in EXPORTABLE_TYPES:
+        if isinstance(entity_type, str) and entity_type in EXPORTABLE_TYPES:
             label = _entity_label(value)
             if label:
                 original_uri = value.get("id")
