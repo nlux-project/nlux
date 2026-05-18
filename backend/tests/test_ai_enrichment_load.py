@@ -2,6 +2,7 @@ import os
 import unittest
 
 from scripts.search_text import AI_RESEARCH_CONCEPT, extract_search_text
+from scripts.load_ai_enrichment import candidate_record_uris
 
 
 class AIEnrichmentLoadTest(unittest.TestCase):
@@ -39,6 +40,18 @@ class AIEnrichmentLoadTest(unittest.TestCase):
         text = extract_search_text(self.doc)
 
         self.assertIn("AI-only research finding", text)
+
+    def test_candidate_record_uris_matches_local_api_base(self):
+        self.assertEqual(
+            candidate_record_uris(
+                "https://nlux.local/data/object/05477c72-b195-413c-afc6-1473fd31d317",
+                "http://localhost:8000",
+            ),
+            [
+                "https://nlux.local/data/object/05477c72-b195-413c-afc6-1473fd31d317",
+                "http://localhost:8000/data/object/05477c72-b195-413c-afc6-1473fd31d317",
+            ],
+        )
 
 
 if __name__ == "__main__":

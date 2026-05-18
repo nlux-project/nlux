@@ -1,10 +1,15 @@
 LUX_WORKDIR ?= /Users/lux/data-pipeline
 
 SYNC_FILES := \
+	experiments/ai-enrichment/README.md \
+	experiments/ai-enrichment/ai-enrichment.py \
+	experiments/ai-enrichment/objects.example.txt \
+	experiments/ai-enrichment/prompt.md \
 	pipeline/sources/museums/nha/mapper.py \
 	pipeline/sources/museums/nha/c1477/mapper.py \
 	pipeline/sources/museums/nha/c480/mapper.py \
 	pipeline/sources/museums/nha/c587/mapper.py \
+	tests/test_ai_enrichment_cli.py \
 	tests/test_nha_pipeline.py
 
 SYNC_DIRS :=
