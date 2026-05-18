@@ -22,7 +22,7 @@ run_nha_test() {
 #mkdir -p data/input/teylers/
 
 echo "==> Harvesting NHA Collection 359 ..."
-./harvest-nha.sh nha-c359
+#./harvest-nha.sh nha-c359
 
 check
 FILE="data/input/nha/c359/${TEST_NHA_ID}.json"
