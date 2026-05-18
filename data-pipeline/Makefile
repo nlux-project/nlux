@@ -5,6 +5,7 @@ SYNC_FILES := \
 	experiments/ai-enrichment/ai-enrichment.py \
 	experiments/ai-enrichment/objects.example.txt \
 	experiments/ai-enrichment/prompt.md \
+	pipeline/process/ai_enrichment.py \
 	pipeline/sources/museums/nha/mapper.py \
 	pipeline/sources/museums/nha/c1477/mapper.py \
 	pipeline/sources/museums/nha/c480/mapper.py \
