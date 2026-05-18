@@ -18,6 +18,20 @@ default. Full API URLs are also accepted.
 
 ## Generate sidecars
 
+Run this checklist-based sidecar **after** the target records have been loaded
+into the API database and are available through `localhost:8000`. The script
+uses the API record as its known-data source:
+
+```text
+normal pipeline export
+  -> load exported records into the Docker/API database
+  -> verify http://localhost:8000/data/object/{id}
+  -> run this checklist sidecar
+  -> review generated JSONL/Markdown reports
+  -> load accepted sidecars into the API database
+  -> refresh the frontend object page
+```
+
 ```bash
 python data-pipeline/experiments/ai-enrichment/ai-enrichment.py objects.txt \
   --api-base http://localhost:8000 \
@@ -47,3 +61,8 @@ python backend/scripts/load_ai_enrichment.py data/output/ai-enrichment/results.j
 The loader appends a Linked Art `referred_to_by` note classified as
 `AI Research Analysis`. The frontend already detects this note and displays it
 in the object details page as a separate AI Research box.
+
+If the API database is later reloaded from exported JSONL, this direct DB-loaded
+AI note will be overwritten. To make enrichment survive a full reload, merge the
+sidecar into exported JSONL with `merge-ai-enrichment.py` before running
+`backend/scripts/load_data.py`.

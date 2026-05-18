@@ -7,6 +7,35 @@ exported records without changing harvested catalog fields.
 
 ## Flow
 
+There are two supported ways to apply AI enrichment:
+
+- **Export merge flow**: generate sidecars from exported JSONL, merge them into
+  exported JSONL, then load that enriched export into the API database. Use this
+  when enrichment should survive a full database reload.
+- **Checklist/API flow**: load the normal export into the API database first,
+  run `experiments/ai-enrichment/ai-enrichment.py` against selected object IDs
+  through `localhost:8000`, review the output, then load accepted sidecars into
+  the current API database with `backend/scripts/load_ai_enrichment.py`.
+
+For the checklist/API flow, the sidecar step runs **after** the Docker/API load,
+because the script fetches known data from
+`http://localhost:8000/data/object/{id}`.
+
+```text
+run-export.py
+  -> backend/scripts/load_data.py
+  -> verify http://localhost:8000/data/object/{id}
+  -> experiments/ai-enrichment/ai-enrichment.py
+  -> backend/scripts/load_ai_enrichment.py
+  -> frontend object detail page shows AI Research
+```
+
+Reloading the API database from normal exported JSONL later will remove
+directly loaded sidecar notes. Merge sidecars into the export first when the
+enrichment must be part of the reloadable dataset.
+
+### Export Merge Flow
+
 ```text
 run-export.py
   -> data/output/latest/*.jsonl
@@ -15,6 +44,24 @@ run-export.py
   -> merge-ai-enrichment.py
   -> data/output/latest-ai-enriched/*.jsonl
   -> backend/scripts/load_data.py
+```
+
+### Checklist/API Flow
+
+```bash
+cd data-pipeline
+python experiments/ai-enrichment/ai-enrichment.py \
+  experiments/ai-enrichment/objects.example.txt \
+  --api-base http://localhost:8000
+```
+
+After reviewing the generated sidecar and Markdown report:
+
+```bash
+cd ..
+python backend/scripts/load_ai_enrichment.py \
+  data-pipeline/data/output/ai-enrichment/results.jsonl \
+  --base-uri http://localhost:8000
 ```
 
 ## Generate Sidecar Rows
@@ -151,4 +198,3 @@ Frontend parser/component behavior:
 cd ../lux-frontend/client
 npm run test -- --run -t "getAiResearch|AiResearch" EntityParser.spec.ts AiResearch.spec.tsx
 ```
-
