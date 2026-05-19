@@ -186,6 +186,59 @@ class EntityExportTest(unittest.TestCase):
         ]
         self.assertIn("http://vocab.getty.edu/aat/300456764", equivalents)
 
+    def test_generated_person_record_preserves_embedded_life_dates(self):
+        base_uri = "http://localhost:8000/"
+        data = {
+            "type": "HumanMadeObject",
+            "produced_by": {
+                "type": "Production",
+                "carried_out_by": [
+                    {
+                        "type": "Person",
+                        "_label": "Kittensteyn, Cornelis C. van",
+                        "born": {
+                            "type": "Birth",
+                            "timespan": {
+                                "type": "TimeSpan",
+                                "begin_of_the_begin": "1598-01-01T00:00:00",
+                                "end_of_the_end": "1598-12-31T23:59:59",
+                            },
+                        },
+                        "died": {
+                            "type": "Death",
+                            "timespan": {
+                                "type": "TimeSpan",
+                                "begin_of_the_begin": "1652-01-01T00:00:00",
+                                "end_of_the_end": "1652-12-31T23:59:59",
+                            },
+                        },
+                    }
+                ],
+            },
+        }
+        entities = {}
+
+        assign_entity_uris(data, entities, base_uri)
+        person_uri = data["produced_by"]["carried_out_by"][0]["id"]
+        person_info = entities[person_uri]
+        person_record = build_entity_record(
+            person_uri,
+            person_info["type"],
+            person_info["label"],
+            person_info.get("equivalent"),
+            person_info.get("details"),
+        )
+
+        self.assertEqual(person_record["_label"], "Kittensteyn, Cornelis C. van")
+        self.assertEqual(
+            person_record["born"]["timespan"]["begin_of_the_begin"],
+            "1598-01-01T00:00:00",
+        )
+        self.assertEqual(
+            person_record["died"]["timespan"]["end_of_the_end"],
+            "1652-12-31T23:59:59",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

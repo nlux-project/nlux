@@ -152,3 +152,6 @@ data/
 - **Status flags**: Filesystem marker files in `data/logs/flags/` track completion of each phase per slice — used by parallel scripts to skip already-completed work and by `run-all.sh` to poll for completion.
 - **idmap**: Maps source-namespace URIs to internal UUIDs. Redis-backed by default; `prefix_map_out` in `map_idmap.json` controls UUID-to-URI prefix substitution on output.
 - **`debug_reconciliation`**: Set `cfgs.debug_reconciliation = True` (or in `base.json`) to enable per-record reconciliation tracing and graph output.
+
+### Development
+- When fixing an issue for a certain collection, always verify if these change can/should also be applied to all other collections.
