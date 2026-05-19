@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+import copy
 from typing import Any
 
 CONTEXT = "https://linked.art/ns/v1/linked-art.json"
@@ -13,6 +14,23 @@ SET_TYPES = {"Set"}
 CONCEPT_TYPES = {"Type", "Material", "Language", "MeasurementUnit", "Currency", "Concept"}
 EVENT_TYPES = {"Activity", "Period", "Event", "Move", "Acquisition", "Production", "Encounter"}
 EXPORTABLE_TYPES = AGENT_TYPES | PLACE_TYPES | SET_TYPES | CONCEPT_TYPES | EVENT_TYPES
+
+ENTITY_DETAIL_KEYS = {
+    "born",
+    "died",
+    "formed_by",
+    "dissolved_by",
+    "referred_to_by",
+    "classified_as",
+    "equivalent",
+    "member_of",
+    "residence",
+    "carried_out",
+    "participated_in",
+    "current_location",
+    "current_owner",
+    "part_of",
+}
 
 KNOWN_GROUPS = {
     "Teylers Museum": "http://www.wikidata.org/entity/Q751582",
@@ -156,7 +174,14 @@ def assign_entity_uris(value: Any, entities: dict[str, dict], base_uri: str) -> 
                     info = {"type": entity_type, "label": label}
                     if original_uri and original_uri != uri:
                         info["equivalent"] = original_uri
+                    details = entity_details(value)
+                    if details:
+                        info["details"] = details
                     entities[uri] = info
+                else:
+                    details = entity_details(value)
+                    if details:
+                        merge_entity_info(entities[uri].setdefault("details", {}), details)
         for key, child in value.items():
             if key == "equivalent":
                 continue
@@ -204,7 +229,67 @@ def _classifications(entity_type: str) -> list[dict]:
     return []
 
 
-def build_entity_record(uri: str, entity_type: str, label: str, equivalent: str | None = None) -> dict:
+def _as_list(value: Any) -> list[Any]:
+    if value is None:
+        return []
+    return value if isinstance(value, list) else [value]
+
+
+def _merge_unique_list(existing: Any, incoming: Any) -> list[Any]:
+    merged = []
+    seen = set()
+    for item in _as_list(existing) + _as_list(incoming):
+        key = json_key(item)
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(item)
+    return merged
+
+
+def json_key(value: Any) -> str:
+    try:
+        import json
+
+        return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    except TypeError:
+        return str(value)
+
+
+def entity_details(value: dict) -> dict:
+    return {
+        key: copy.deepcopy(value[key])
+        for key in ENTITY_DETAIL_KEYS
+        if key in value and value[key] not in (None, [], {})
+    }
+
+
+def merge_entity_info(existing: dict, incoming: dict) -> None:
+    for key, value in incoming.items():
+        if key not in existing:
+            existing[key] = copy.deepcopy(value)
+            continue
+        if isinstance(existing[key], list) or isinstance(value, list):
+            existing[key] = _merge_unique_list(existing[key], value)
+
+
+def _apply_entity_details(record: dict, details: dict) -> None:
+    for key, value in details.items():
+        if key in {"id", "type", "_label", "identified_by"}:
+            continue
+        if key not in record:
+            record[key] = copy.deepcopy(value)
+        elif isinstance(record[key], list) or isinstance(value, list):
+            record[key] = _merge_unique_list(record[key], value)
+
+
+def build_entity_record(
+    uri: str,
+    entity_type: str,
+    label: str,
+    equivalent: str | None = None,
+    details: dict | None = None,
+) -> dict:
     record = {
         "@context": CONTEXT,
         "id": uri,
@@ -216,7 +301,12 @@ def build_entity_record(uri: str, entity_type: str, label: str, equivalent: str 
     if classifications:
         record["classified_as"] = classifications
     if equivalent:
-        record["equivalent"] = [{"id": equivalent, "type": entity_type, "_label": label}]
+        record["equivalent"] = _merge_unique_list(
+            record.get("equivalent"),
+            [{"id": equivalent, "type": entity_type, "_label": label}],
+        )
+    if details:
+        _apply_entity_details(record, details)
     return record
 
 

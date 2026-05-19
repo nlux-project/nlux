@@ -7,6 +7,7 @@ from pipeline.process.biography_enrichment import (
     has_biography_note,
     label_variants,
     normalise_label,
+    wikipedia_sitelink,
 )
 
 
@@ -15,6 +16,16 @@ class BiographyEnrichmentTest(unittest.TestCase):
         self.assertEqual(
             label_variants("Bailliu, Pieter de"),
             ["Bailliu, Pieter de", "Pieter de Bailliu"],
+        )
+
+    def test_label_variants_include_inverted_name_without_initials(self):
+        self.assertEqual(
+            label_variants("Kittensteyn, Cornelis C. van"),
+            [
+                "Kittensteyn, Cornelis C. van",
+                "Cornelis C. van Kittensteyn",
+                "Cornelis van Kittensteyn",
+            ],
         )
 
     def test_normalise_label_removes_punctuation_and_case(self):
@@ -47,6 +58,34 @@ class BiographyEnrichmentTest(unittest.TestCase):
         self.assertEqual(
             note["subject_of"][0]["digitally_carried_by"][0]["access_point"][0]["id"],
             "https://en.wikipedia.org/wiki/Pieter_de_Bailliu",
+        )
+
+    def test_biography_note_supports_non_aat_language_fallbacks(self):
+        note = biography_note(
+            {
+                "extract": "Cornelis van Kittensteyn è stato un incisore olandese.",
+                "page_url": "https://it.wikipedia.org/wiki/Cornelis_van_Kittensteyn",
+                "title": "Cornelis van Kittensteyn",
+                "language": "it",
+            },
+            "http://localhost:8000/",
+        )
+
+        self.assertEqual(note["language"][0]["_label"], "Italian")
+        self.assertNotIn("equivalent", note["language"][0])
+
+    def test_wikipedia_sitelink_falls_back_when_requested_languages_are_missing(self):
+        entity = {
+            "sitelinks": {
+                "commonswiki": {"title": "Category:Cornelis van Kittensteyn"},
+                "itwiki": {"title": "Cornelis van Kittensteyn"},
+                "lawiki": {"title": "Cornelius de Kittensteyn"},
+            }
+        }
+
+        self.assertEqual(
+            wikipedia_sitelink(entity, ["nl", "en"]),
+            ("it", "Cornelis van Kittensteyn"),
         )
 
     def test_add_life_dates_uses_wikidata_birth_and_death_claims(self):

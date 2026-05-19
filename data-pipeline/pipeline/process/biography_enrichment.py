@@ -21,6 +21,8 @@ AAT_LANG_NL = "http://vocab.getty.edu/aat/300388256"
 LANGUAGE_AATS = {
     "en": ("english-language", "English", AAT_LANG_EN),
     "nl": ("dutch-language", "Dutch", AAT_LANG_NL),
+    "it": ("italian-language", "Italian", None),
+    "la": ("latin-language", "Latin", None),
 }
 
 
@@ -51,7 +53,12 @@ def label_variants(label: str) -> list[str]:
     if "," in label:
         surname, rest = [part.strip() for part in label.split(",", 1)]
         if surname and rest:
-            variants.append(f"{rest} {surname}")
+            uninverted = f"{rest} {surname}"
+            variants.append(uninverted)
+            without_initials = re.sub(r"\b[A-Z]\.\s*", "", uninverted).strip()
+            without_initials = re.sub(r"\s+", " ", without_initials)
+            if without_initials and without_initials != uninverted:
+                variants.append(without_initials)
     seen: set[str] = set()
     return [
         variant
@@ -140,6 +147,9 @@ def wikipedia_sitelink(entity: dict, languages: list[str]) -> tuple[str, str] | 
         link = sitelinks.get(site)
         if link and link.get("title"):
             return language, link["title"]
+    for site, link in sorted(sitelinks.items()):
+        if site.endswith("wiki") and site != "commonswiki" and link.get("title"):
+            return site.removesuffix("wiki"), link["title"]
     return None
 
 
@@ -214,7 +224,17 @@ def has_biography_note(doc: dict) -> bool:
 def biography_note(summary: dict, base_uri: str) -> dict:
     base = base_uri.rstrip("/") + "/"
     language_code = summary["language"]
-    slug, label, aat = LANGUAGE_AATS.get(language_code, LANGUAGE_AATS["en"])
+    slug, label, aat = LANGUAGE_AATS.get(
+        language_code,
+        (f"{language_code}-language", language_code, None),
+    )
+    language = {
+        "id": f"{base}data/concept/{slug}",
+        "type": "Language",
+        "_label": label,
+    }
+    if aat:
+        language["equivalent"] = [{"id": aat, "type": "Language", "_label": label}]
     note = {
         "type": "LinguisticObject",
         "content": summary["extract"],
@@ -232,14 +252,7 @@ def biography_note(summary: dict, base_uri: str) -> dict:
                 ],
             }
         ],
-        "language": [
-            {
-                "id": f"{base}data/concept/{slug}",
-                "type": "Language",
-                "_label": label,
-                "equivalent": [{"id": aat, "type": "Language", "_label": label}],
-            }
-        ],
+        "language": [language],
         "identified_by": [
             {"type": "Name", "content": f"Wikipedia summary: {summary['title']}"}
         ],

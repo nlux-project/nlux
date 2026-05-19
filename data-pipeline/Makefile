@@ -8,6 +8,9 @@ SYNC_FILES := \
 	harvest-nha.py \
 	harvest-nha.sh \
 	manage-data.py \
+	run-export.py \
+	pipeline/process/biography_enrichment.py \
+	pipeline/process/entity_export.py \
 	pipeline/process/export_splitting.py \
 	pipeline/sources/museums/nha/mapper.py \
 	pipeline/sources/museums/nha/c359/__init__.py \
@@ -17,6 +20,8 @@ SYNC_FILES := \
 	pipeline/sources/museums/nha/c1477/mapper.py \
 	pipeline/sources/museums/nha/c480/mapper.py \
 	pipeline/sources/museums/nha/c587/mapper.py \
+	tests/test_biography_enrichment.py \
+	tests/test_entity_export.py \
 	tests/test_nha_pipeline.py
 
 SYNC_DIRS :=

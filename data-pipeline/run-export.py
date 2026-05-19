@@ -171,7 +171,13 @@ try:
             outh = get_writer(source_name)
             print(f"\nExporting {len(entities)} generated entity records for {source_name}")
             for entity_count, (uri, info) in enumerate(sorted(entities.items()), start=1):
-                data = build_entity_record(uri, info["type"], info["label"], info.get("equivalent"))
+                data = build_entity_record(
+                    uri,
+                    info["type"],
+                    info["label"],
+                    info.get("equivalent"),
+                    info.get("details"),
+                )
                 if enrich_biographies and data.get("type") == "Person":
                     try:
                         data, qid = enrich_person_record(
