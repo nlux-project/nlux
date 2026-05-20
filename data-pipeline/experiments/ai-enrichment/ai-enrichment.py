@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from dataclasses import dataclass
@@ -268,7 +269,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--prompt", default=str(Path(__file__).with_name("prompt.md")), help="Prompt template path.")
     parser.add_argument("--output-jsonl", default="data/output/ai-enrichment/results.jsonl", help="Sidecar JSONL output path.")
     parser.add_argument("--reports-dir", default="data/output/ai-enrichment/reports", help="Markdown report output directory.")
-    parser.add_argument("--model", default=DEFAULT_MODEL, help="Provider model name.")
+    parser.add_argument(
+        "--model",
+        default=None,
+        help="Provider model name. Defaults to NLUX_AI_ENRICH_MODEL or a dry-run placeholder.",
+    )
     parser.add_argument("--prompt-version", default=DEFAULT_PROMPT_VERSION, help="Prompt version label.")
     parser.add_argument("--source", default="nlux-ai-enrichment", help="Source label stored in sidecar output.")
     parser.add_argument("--dry-run", action="store_true", help="Do not call an AI provider; write a placeholder sidecar.")
@@ -296,6 +301,7 @@ def main() -> int:
         return 0
 
     prompt_template = load_prompt_template(args.prompt)
+    model = args.model or os.getenv("NLUX_AI_ENRICH_MODEL") or DEFAULT_MODEL
     output_jsonl = Path(args.output_jsonl)
     reports_dir = Path(args.reports_dir)
     completed: set[str] = set()
@@ -323,18 +329,18 @@ def main() -> int:
                 analysis = dry_run_response(record)
                 status = "skipped"
             else:
-                analysis = request_provider(prompt, args.model, timeout=args.timeout)
+                analysis = request_provider(prompt, model, timeout=args.timeout)
                 status = "ok"
-            sidecar = sidecar_record(record, args.source, args.model, args.prompt_version, analysis, status=status)
+            sidecar = sidecar_record(record, args.source, model, args.prompt_version, analysis, status=status)
             if sidecar["status"] == "ok":
                 completed.add(item.object_id)
         except (HTTPError, URLError, TimeoutError, AIEnrichmentError, json.JSONDecodeError) as exc:
             fallback_record = {"id": api_url, "type": "HumanMadeObject", "_label": item.object_id}
-            sidecar = error_sidecar_record(fallback_record, args.source, args.model, args.prompt_version, exc)
+            sidecar = error_sidecar_record(fallback_record, args.source, model, args.prompt_version, exc)
             print(f"ERROR {item.object_id}: {exc}", file=sys.stderr)
         except Exception as exc:
             fallback_record = {"id": api_url, "type": "HumanMadeObject", "_label": item.object_id}
-            sidecar = error_sidecar_record(fallback_record, args.source, args.model, args.prompt_version, exc)
+            sidecar = error_sidecar_record(fallback_record, args.source, model, args.prompt_version, exc)
             print(f"ERROR {item.object_id}: {exc}", file=sys.stderr)
 
         write_jsonl(output_jsonl, sidecar)

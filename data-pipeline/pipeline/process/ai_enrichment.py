@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 AI_RESEARCH_CONCEPT = "9df7d6d7-88d5-48fd-81f7-8f12dc2d43bb"
@@ -126,6 +127,88 @@ def dry_run_response(record: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _openai_payload(prompt: str, model: str) -> dict[str, Any]:
+    return {
+        "model": model,
+        "input": prompt,
+        "text": {"format": {"type": "json_object"}},
+    }
+
+
+def _generic_payload(prompt: str, model: str) -> dict[str, Any]:
+    return {"model": model, "prompt": prompt}
+
+
+def _response_text(data: dict[str, Any]) -> str | None:
+    text = data.get("output_text")
+    if isinstance(text, str) and text.strip():
+        return text
+    for item in as_list(data.get("output")):
+        if not isinstance(item, dict):
+            continue
+        for content in as_list(item.get("content")):
+            if not isinstance(content, dict):
+                continue
+            text = content.get("text")
+            if isinstance(text, str) and text.strip():
+                return text
+    return None
+
+
+def _parse_provider_response(data: dict[str, Any], endpoint: str) -> dict[str, Any]:
+    if isinstance(data.get("analysis"), dict):
+        return data["analysis"]
+    if "api.openai.com/v1/responses" in endpoint:
+        text = _response_text(data)
+        if not text:
+            raise AIEnrichmentError("OpenAI response did not include output text")
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as exc:
+            raise AIEnrichmentError(f"OpenAI response output was not valid JSON: {exc}") from exc
+    return data
+
+
+def _http_error_detail(exc: HTTPError) -> str:
+    try:
+        body = exc.read().decode("utf-8")
+    except Exception:
+        return ""
+    if not body:
+        return ""
+    try:
+        data = json.loads(body)
+    except json.JSONDecodeError:
+        return body.strip()
+    error = data.get("error") if isinstance(data, dict) else None
+    if isinstance(error, dict):
+        parts = [
+            str(error.get(key))
+            for key in ("message", "type", "code")
+            if error.get(key)
+        ]
+        return " | ".join(parts)
+    return body.strip()
+
+
+def _provider_http_error(endpoint: str, exc: HTTPError) -> AIEnrichmentError:
+    detail = _http_error_detail(exc)
+    suffix = f": {detail}" if detail else ""
+    if "api.openai.com/v1/responses" in endpoint:
+        if exc.code == 429:
+            return AIEnrichmentError(
+                f"OpenAI provider request failed with HTTP 429{suffix}. "
+                "Check project billing/quota, rate limits, and model access."
+            )
+        return AIEnrichmentError(f"OpenAI provider request failed with HTTP {exc.code}{suffix}.")
+    if endpoint.rstrip("/") in {"http://localhost:8000", "http://127.0.0.1:8000"}:
+        return AIEnrichmentError(
+            f"Provider request to {endpoint} failed with HTTP {exc.code}{suffix}. "
+            "NLUX_AI_ENRICH_ENDPOINT must be an AI provider endpoint, not the NLUX data API base URL."
+        )
+    return AIEnrichmentError(f"Provider request to {endpoint} failed with HTTP {exc.code}{suffix}.")
+
+
 def request_provider(prompt: str, model: str, timeout: int = 120) -> dict[str, Any]:
     endpoint = os.getenv("NLUX_AI_ENRICH_ENDPOINT")
     api_key = os.getenv("NLUX_AI_ENRICH_API_KEY")
@@ -134,18 +217,26 @@ def request_provider(prompt: str, model: str, timeout: int = 120) -> dict[str, A
             "NLUX_AI_ENRICH_ENDPOINT is not set. Use --dry-run or configure a provider endpoint."
         )
 
-    payload = json.dumps({"model": model, "prompt": prompt}).encode("utf-8")
+    payload_dict = (
+        _openai_payload(prompt, model)
+        if "api.openai.com/v1/responses" in endpoint
+        else _generic_payload(prompt, model)
+    )
+    payload = json.dumps(payload_dict).encode("utf-8")
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
     if api_key:
         headers["Authorization"] = f"Bearer {api_key}"
     request = Request(endpoint, data=payload, headers=headers, method="POST")
-    with urlopen(request, timeout=timeout) as response:
-        data = json.loads(response.read().decode("utf-8"))
+    try:
+        with urlopen(request, timeout=timeout) as response:
+            data = json.loads(response.read().decode("utf-8"))
+    except HTTPError as exc:
+        raise _provider_http_error(endpoint, exc) from exc
+    except URLError as exc:
+        raise AIEnrichmentError(f"Provider request to {endpoint} failed: {exc.reason}") from exc
 
-    if isinstance(data, dict) and isinstance(data.get("analysis"), dict):
-        return data["analysis"]
     if isinstance(data, dict):
-        return data
+        return _parse_provider_response(data, endpoint)
     raise AIEnrichmentError("Provider returned a non-object JSON response")
 
 

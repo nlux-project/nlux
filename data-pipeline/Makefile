@@ -7,6 +7,7 @@ SYNC_CONFIG_FILES := \
 SYNC_FILES := \
 	experiments/ai-enrichment/README.md \
 	experiments/ai-enrichment/ai-enrichment.py \
+	experiments/ai-enrichment/experimental_ai_enrichment.sh \
 	experiments/ai-enrichment/objects.example.txt \
 	experiments/ai-enrichment/prompt.md \
 	harvest-nha.py \
