@@ -3,7 +3,7 @@
 # Validates a test record after each step -- exits on first failure.
 set -euo pipefail
 
-cd /Users/lux/data-pipeline
+cd $LUX_BASEPATH
 
 TEST_NHA_ID="${1:-CAE9E08E3647C6F6037DA0F98C56D590}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'

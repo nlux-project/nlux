@@ -3,7 +3,7 @@
 # Validates a test record after each step -- exits on first failure.
 set -euo pipefail
 
-cd /Users/lux/data-pipeline
+cd $LUX_BASEPATH
 
 TEST_WFM_ID="${1:-c396d24a-de49-11e6-836d-d89d6717b464}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'

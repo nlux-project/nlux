@@ -3,7 +3,7 @@
 # Validates a test record after each step -- exits on first failure.
 set -euo pipefail
 
-cd /Users/lux/data-pipeline
+cd $LUX_BASEPATH
 
 #uv run python -m unittest tests.test_rma_pipeline
 #uv run python ./run-reconcile.py --rma --recid 20010
@@ -22,7 +22,7 @@ run_rma_test() {
 # -- test : harvested file ----------------------------------
 echo "==> Step: harvested file ..."
 check
-FILE="/Users/lux/data-pipeline/data/input/rma/${TEST_OBJECTID}.json"
+FILE="$LUX_BASEPATH/data/input/rma/${TEST_OBJECTID}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
 run_rma_test test_harvest_file || fail "Harvest file validation failed"
 pass "Harvest OK -- file has expected fields"
