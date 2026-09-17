@@ -80,8 +80,8 @@ def load_path(data_path: Path):
             print(f"Unsupported data file type: {data_path}")
             sys.exit(1)
     else:
-        json_files = sorted(data_path.glob("*.json"))
-        jsonl_files = sorted(data_path.glob("*.jsonl"))
+        json_files = sorted(data_path.rglob("*.json"))
+        jsonl_files = sorted(data_path.rglob("*.jsonl"))
     if not json_files and not jsonl_files:
         print(f"No JSON files found in {data_path}")
         sys.exit(1)

@@ -9,3 +9,5 @@ backend/harvested/state.db
 track_load_db.sh
 .env
 site
+backend/app/__pycache__/
+backend/backend.log

@@ -8,7 +8,11 @@ SYNC_FILES := \
 	*.sh \
 	*.py \
 	pipeline/process/*.py \
+	pipeline/process/base/*.py \
+	pipeline/process/utils/*.py \
+	pipeline/sources/museums/wfm/*.py \
 	pipeline/sources/museums/rma/*.py \
+	pipeline/sources/museums/rbhc/*.py \
 	pipeline/sources/museums/nha/mapper.py \
 	pipeline/sources/museums/nha/c359/__init__.py \
 	pipeline/sources/museums/nha/c359/fetcher.py \
