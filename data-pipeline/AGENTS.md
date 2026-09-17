@@ -22,13 +22,13 @@ The GitHub/repo copy of this pipeline lives at:
 
 The active working copy used for pipeline runs lives at:
 ```
-/Users/lux/data-pipeline
+/home/data/data-pipeline
 ```
 
 Do not use `LUX_BASEPATH` as the sync target. In the working copy,
-`/Users/lux/data-pipeline/.env` sets:
+`/home/data/data-pipeline/.env` sets:
 ```
-LUX_BASEPATH=/Users/lux/data-pipeline/config
+LUX_BASEPATH=/home/data/data-pipeline/config
 ```
 That value is the pipeline configuration base path, not the work directory.
 
@@ -40,7 +40,7 @@ make sync
 ```
 
 The Makefile target directory variable is `LUX_WORKDIR`, defaulting to
-`/Users/lux/data-pipeline`. Override it with:
+`/home/data/data-pipeline`. Override it with:
 ```bash
 make sync LUX_WORKDIR=/path/to/workdir
 ```

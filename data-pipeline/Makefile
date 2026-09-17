@@ -1,17 +1,14 @@
-LUX_WORKDIR ?= /Users/lux/data-pipeline
+LUX_WORKDIR ?= /home/data/data-pipeline
 CONFIG_CACHE_DIR ?= $(LUX_WORKDIR)/config/config_cache
 
 SYNC_CONFIG_FILES := \
 	docs/sample_config/nha-c359.json \
 
 SYNC_FILES := \
-	harvest-nha.py \
-	harvest-nha.sh \
-	manage-data.py \
-	run-export.py \
-	pipeline/process/biography_enrichment.py \
-	pipeline/process/entity_export.py \
-	pipeline/process/export_splitting.py \
+	*.sh \
+	*.py \
+	pipeline/process/*.py \
+	pipeline/sources/museums/rma/*.py \
 	pipeline/sources/museums/nha/mapper.py \
 	pipeline/sources/museums/nha/c359/__init__.py \
 	pipeline/sources/museums/nha/c359/fetcher.py \
