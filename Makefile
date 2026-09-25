@@ -6,6 +6,8 @@
 
 
 # install target
+#   make symlink to data storage volume (ie. external disk)
+#     $LUX_BASEPATH/data/output ->  {volume/path}/data
 # TBA
 
 # run pipeline target
