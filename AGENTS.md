@@ -1,14 +1,18 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance when working with code in this repository.
 
 ## Project Overview
 
-**NLUX** is a Collections Discovery platform for the Dutch Cultural Heritage sector, built as a drop-in backend replacement for `lux-marklogic`. It implements the `lux-middletier` REST API contract, making it fully compatible with the `lux-frontend` (React, in sibling repo `../lux-frontend`). Data is stored as [Linked Art](https://linked.art/) JSON-LD following CIDOC-CRM standards.
+**NLUX** is a Collections Discovery platform for the Dutch Cultural Heritage sector. Data is stored as [Linked Art](https://linked.art/) JSON-LD following CIDOC-CRM standards.
 
 ## Commands
 
 ### Local Development
+#### Install backend
+
+##### Important!
+set ENV variable $LUX_BASEPATH (default: /Users/lux/data-pipeline) in any bash shell, script or command
 
 ```bash
 cd backend
@@ -22,8 +26,6 @@ uvicorn app.main:app --reload
 docker compose up
 ```
 
-The `docker-compose.yml` references the `lux-frontend` from the sibling directory `../lux-frontend`.
-
 ### Docker (pipeline services — PostgreSQL + Redis)
 
 ```bash
@@ -33,8 +35,6 @@ docker compose --profile pipeline up
 This adds `db` (PostgreSQL on 5432) and `redis` (on 6379) needed by the data-pipeline's reconcile/merge/export phases. Default `docker compose up` (api + frontend only) is unchanged.
 
 ### Data Pipeline (`data-pipeline/`)
-
-The pipeline is a Yale LUX-based ETL system. See `data-pipeline/README_TEYLERS.md` for the Teylers-specific setup and `data-pipeline/CLAUDE.md` for the full pipeline reference.
 
 ```bash
 cd data-pipeline
