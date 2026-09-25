@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Image Carousel</title>
-  
-  <!-- Load vanilla settings modal (for user settings) -->
-  <script src="src/VanillaSettingsModal.js" defer></script>
-  
-  <!-- Main carousel app -->
-  <script type="module" src="src/CarouselApp.js"></script>
-  
-  <!-- Inline CSS -->
-  <style>
-    @import './styles/carousel.css';
-  </style>
+  <title>NLUX Carousel — Teylers Museum</title>
+  <link rel="stylesheet" href="./styles/carousel.css">
 </head>
 <body>
   <div id="app-container">
-    <!-- Carousel will be initialized here -->
+    <div class="boot">
+      <div class="boot-spinner"></div>
+      <p class="boot-text">Collectie wordt geladen …</p>
+    </div>
   </div>
+  <script type="module" src="./src/CarouselApp.js"></script>
 </body>
 </html>

@@ -1,406 +1,215 @@
-// Carousel.js - Vanilla JS carousel
-import { settingsStore } from '../store/CarouselController.js'
+/**
+ * Carousel — renders slides and handles navigation for the NLUX carousel.
+ *
+ * A carousel consists of stacked .slide elements; the active one fades in.
+ * Images are lazily assigned to slide <img> tags when the slide is within
+ * one step of the active index. Includes prev/next buttons, slide counter,
+ * a per-slide progress bar, touch swipe navigation and a pause state.
+ */
 
-export class Carousel {
-  constructor(slide, totalSlides, onSlideChange, config) {
-    this.slide = slide
-    this.totalSlides = totalSlides
-    this.onSlideChange = onSlideChange
-    this.config = config
-    this.currentSlide = 0
-    this.slidesContainer = null
-    this.slideNav = null
-    this.slideNumber = null
-    this.slideProgress = null
-    this.activeSlide = null
-    this.prevSlide = null
-    this.nextSlide = null
-    this.slideElements = {}
+const PRELOAD_DISTANCE = 1;
 
-    // Override config with store values if not provided
-    this.effectiveConfig = {
-      ...this.config,
-      ...settingsStore.config,
-    }
+export default class Carousel {
+  constructor(container, { interval = 10, getItems = null } = {}) {
+    this.container = container;
+    this.interval = interval;
+    this.getItems = getItems;
+    this.items = [];
+    this.index = 0;
+    this.paused = false;
+    this.onPauseChange = null;
 
-    this.init()
-    this.setupNavigation()
-  }
+    container.classList.add('carousel-root');
+    container.innerHTML = `
+      <div class="slides" aria-live="polite"></div>
+      <div class="progress-track"><div class="progress-fill"></div></div>
+      <div class="carousel-topbar">
+        <div class="brand">
+          <span class="brand-title">NLUX</span>
+          <span class="brand-sub">Teylers Museum</span>
+        </div>
+        <div class="topbar-buttons">
+          <button class="btn icon-btn pause-btn" title="Pauze (spatie)" aria-label="Pauze"></button>
+          <button class="btn icon-btn fullscreen-btn" title="Volledig scherm (F)" aria-label="Volledig scherm"></button>
+        </div>
+      </div>
+      <div class="carousel-bottombar">
+        <button class="btn icon-btn prev-btn" title="Vorige (←)" aria-label="Vorige"></button>
+        <div class="counter" role="status"></div>
+        <button class="btn icon-btn next-btn" title="Volgende (→)" aria-label="Volgende"></button>
+      </div>`;
 
-  init() {
-    // Create container
-    this.slidesContainer = document.createElement('div')
-    this.slidesContainer.className = 'carousel-container'
-    this.slidesContainer.style.cssText = `
-      width: ${this.effectiveConfig.fullscreen ? '100vw' : '800px'};
-      height: ${this.effectiveConfig.fullscreen ? '100vh' : '600px'};
-      overflow: hidden;
-      position: relative;
-    `
+    this.slidesEl = container.querySelector('.slides');
+    this.progressFill = container.querySelector('.progress-fill');
+    this.counterEl = container.querySelector('.counter');
+    this.pauseBtn = container.querySelector('.pause-btn');
+    this.fullscreenBtn = container.querySelector('.fullscreen-btn');
+    this.prevBtn = container.querySelector('.prev-btn');
+    this.nextBtn = container.querySelector('.next-btn');
 
-    document.body.appendChild(this.slidesContainer)
-
-    this.render()
-  }
-
-  render() {
-    this.slidesContainer.innerHTML = ''
-
-    // Render slide navigation
-    if (!this.effectiveConfig.fullscreen) {
-      this.renderSlideNav()
-      this.renderSlideNumber()
-      this.renderSlideProgress()
-    }
-
-    // Render slides
-    this.slide.forEach((item, index) => {
-      const slideElement = this.createSlideElement(item, index)
-      this.slideElements[index] = slideElement
-      this.slidesContainer.appendChild(slideElement)
-    })
-  }
-
-  renderSlideNav() {
-    this.slideNav = document.createElement('div')
-    this.slideNav.className = 'slide-nav carousel-nav'
-    this.slideNav.style.cssText = `
-      position: absolute;
-      left: ${this.currentSlide === 0 ? '20px' : '50px'};
-      right: ${this.currentSlide === this.totalSlides - 1 ? '20px' : '50px'};
-      top: '50%';
-      transform: translateY(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 30;
-    `
-
-    const prevButton = document.createElement('button')
-    prevButton.textContent = '⬅️'
-    prevButton.className = 'slide-nav-prev'
-    prevButton.disabled = this.currentSlide === 0 || this.effectiveConfig.lock
-    prevButton.style.cssText = 'padding: 8px 16px; cursor: pointer; background: #2c5282; color: white; border: none; border-radius: 4px; font-size: 14px;'
-    prevButton.addEventListener('click', () => this.prev())
-
-    const nextButton = document.createElement('button')
-    nextButton.textContent = '➡️'
-    nextButton.className = 'slide-nav-next'
-    nextButton.disabled = this.currentSlide === this.totalSlides - 1 || this.effectiveConfig.lock
-    nextButton.style.cssText = 'padding: 8px 16px; cursor: pointer; background: #2c5282; color: white; border: none; border-radius: 4px; font-size: 14px;'
-    nextButton.addEventListener('click', () => this.next())
-
-    this.slideNav.appendChild(prevButton)
-    this.slideNav.appendChild(nextButton)
-    this.slidesContainer.appendChild(this.slideNav)
-  }
-
-  renderSlideNumber() {
-    this.slideNumber = document.createElement('div')
-    this.slideNumber.className = 'slide-number'
-    this.slideNumber.style.cssText = `
-      position: absolute;
-      right: ${this.currentSlide === 0 ? '20px' : '50px'};
-      top: '50%';
-      transform: translateY(-50%);
-      font-weight: bold;
-      font-size: 18px;
-      color: white;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 8px 16px;
-      border-radius: 4px;
-      z-index: 30;
-    `
-    this.slideNumber.textContent = `📸 ${this.currentSlide + 1} / ${this.totalSlides}`
-    this.slidesContainer.appendChild(this.slideNumber)
-  }
-
-  renderSlideProgress() {
-    this.slideProgress = document.createElement('div')
-    this.slideProgress.className = 'slide-progress progress-indicator'
-    this.slideProgress.style.cssText = `
-      position: absolute;
-      top: '10px';
-      left: '50%';
-      transform: translateX(-50%);
-      display: flex;
-      gap: 4px;
-      z-index: 25;
-    `
-
-    for (let i = 0; i < this.totalSlides; i++) {
-      const dot = document.createElement('div')
-      dot.className = `progress-dot ${i === this.currentSlide ? 'active' : ''}`
-      dot.style.cssText = 'width: 8px; height: 8px; border-radius: 50%; background: #cbd5e0;'
-      if (i === this.currentSlide) {
-        dot.style.backgroundColor = '#3182ce'
+    this.pauseBtn.addEventListener('click', () => this.togglePause());
+    this.prevBtn.addEventListener('click', () => this.previous());
+    this.nextBtn.addEventListener('click', () => this.next());
+    this.fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen?.();
+      } else {
+        document.exitFullscreen?.();
       }
-      return dot
-    })
+    });
 
-    this.slideProgress.appendChild(...Array.from({ length: this.totalSlides }, (_, i) => {
-      const dot = document.createElement('div')
-      dot.className = `progress-dot ${i === this.currentSlide ? 'active' : ''}`
-      dot.style.cssText = 'width: 8px; height: 8px; border-radius: 50%; background: #cbd5e0;'
-      if (i === this.currentSlide) {
-        dot.style.backgroundColor = '#3182ce'
-      }
-      return dot
-    }))
-
-    this.slidesContainer.appendChild(this.slideProgress)
+    this._bindSwipe();
   }
 
-  createSlideElement(item, index) {
-    const slide = document.createElement('div')
-    slide.className = 'slide'
-    slide.style.cssText = `
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-      opacity: ${this.currentSlide === index ? 1 : 0.4};
-      transform: translateX(${this.currentSlide === index ? '0' : this.currentSlide - index} * 100%);
-    `
-
-    const card = document.createElement('div')
-    card.className = 'carousel-card'
-    card.style.cssText = `
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    `
-
-    // Image container
-    if (item.thumbnail?.url) {
-      const imageContainer = document.createElement('div')
-      imageContainer.className = 'image-container'
-      const maxWidth = item.hasFullUrl ? '90vw' : '600px'
-      const maxHeight = item.hasFullUrl ? '60vh' : '400px'
-      imageContainer.style.cssText = `
-        max-width: ${maxWidth};
-        max-height: ${maxHeight};
-        top: 40px;
-        z-index: 10;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        border-radius: 8px;
-      `
-      const img = document.createElement('img')
-      img.src = item.thumbnail.url
-      img.alt = item.title?.value || 'Object'
-      img.style.cssText = 'max-width: 100%; max-height: 100%; border-radius: 4px; display: block;'
-      img.loading = 'lazy'
-      imageContainer.appendChild(img)
-      card.appendChild(imageContainer)
-    }
-
-    // Title
-    const title = document.createElement('div')
-    title.className = 'object-title'
-    title.textContent = `${item.title?.value || 'Untitled'}`
-    title.style.cssText = 'font-weight: bold; font-size: 18px; margin-bottom: 12px; line-height: 1.3; color: #2d3748;'
-    card.appendChild(title)
-
-    // Description
-    if (item.description?.text) {
-      const desc = document.createElement('div')
-      desc.className = 'object-description'
-      desc.textContent = item.description.text
-      desc.style.cssText = 'font-size: 14px; line-height: 1.5; color: #4a5568;'
-      card.appendChild(desc)
-    }
-
-    // Credits
-    if (item.credits?.text) {
-      const credits = document.createElement('div')
-      credits.className = 'object-credits'
-      credits.textContent = item.credits.text
-      credits.style.cssText = 'font-size: 12px; color: #718096;'
-      card.appendChild(credits)
-    }
-
-    // Date
-    if (item.startDate) {
-      const date = document.createElement('div')
-      date.className = 'object-date'
-      date.textContent = `📅 ${item.startDate}`
-      date.style.cssText = 'font-size: 13px; color: #718096;'
-      card.appendChild(date)
-    }
-
-    // Type
-    if (item.type) {
-      const type = document.createElement('div')
-      type.className = 'object-type'
-      type.textContent = `${item.type}`
-      type.style.cssText = 'font-size: 12px; color: #718096; margin-top: 8px;'
-      card.appendChild(type)
-    }
-
-    // Links
-    if (item.links && item.links.length > 0) {
-      const links = document.createElement('div')
-      links.className = 'object-links'
-      const ul = document.createElement('ul')
-      links.appendChild(ul)
-      ul.style.cssText = 'list-style: none; padding: 0; margin: 0;'
-
-      item.links.slice(0, 3).forEach((link, idx) => {
-        const li = document.createElement('li')
-        li.textContent = link.label || 'Link'
-        li.className = link.isExternal ? 'external' : 'internal'
-        li.style.cssText = 'display: block; padding: 4px 8px; border-radius: 4px; margin-bottom: 4px; font-weight: 500;'
-        if (link.isExternal) {
-          li.style.backgroundColor = '#f7fafc'
-          li.style.color = '#ed8936'
-          li.style.border = '1px dashed #ed8936'
-        } else {
-          li.style.backgroundColor = '#ebf8ff'
-          li.style.color = '#3182ce'
-          li.style.border = '1px solid #3182ce'
-        }
-        ul.appendChild(li)
-      })
-      card.appendChild(links)
-    }
-
-    slide.appendChild(card)
-    return slide
+  focus() {
+    this.container.focus?.();
   }
 
-  setupNavigation() {
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (this.effectiveConfig.lock) return
+  setInterval(seconds) {
+    this.interval = Math.max(2, seconds);
+    this._restartProgress();
+  }
 
-      if (e.key === 'ArrowRight') {
-        this.next()
-      } else if (e.key === 'ArrowLeft') {
-        this.prev()
-      } else if (e.key === 'ArrowDown' || e.key === ' ') {
-        this.next()
-      } else if (e.key === 'ArrowUp') {
-        this.prev()
-      }
-    })
+  setPaused(paused) {
+    if (this.paused === paused) return;
+    this.paused = paused;
+    this.container.classList.toggle('paused', paused);
+    this.pauseBtn.textContent = paused ? '▶' : '❚❚';
+    this.pauseBtn.title = paused ? 'Verder (spatie)' : 'Pauze (spatie)';
+    this.progressFill.style.animationPlayState = paused ? 'paused' : 'running';
+    if (this.onPauseChange) this.onPauseChange(paused);
+  }
 
-    // Touch navigation
-    if (this.slidesContainer) {
-      const handleTouchStart = (e) => {
-        this.touchStart = { x: e.touches[0].clientX }
-      }
+  togglePause() {
+    this.setPaused(!this.paused);
+  }
 
-      const handleTouchMove = (e) => {
-        if (this.touchStart) {
-          const diff = this.touchStart.x - e.touches[0].clientX
-          if (diff > 50) {
-            this.next()
-          } else if (diff < -50) {
-            this.prev()
-          }
-          this.touchStart = null
-        }
-      }
+  setItems(items, { silent = false } = {}) {
+    this.items = items || [];
+    this.slidesEl.innerHTML = '';
+    this._slideEls = this.items.map((item, i) => this._buildSlide(item, i));
+    for (const el of this._slideEls) this.slidesEl.appendChild(el);
+    if (this.index >= this.items.length) this.index = 0;
+    this.renderSlide(this.index, { silent });
+  }
 
-      const handleTouchEnd = () => {
-        this.touchStart = null
-      }
-
-      this.slidesContainer.addEventListener('touchstart', handleTouchStart)
-      this.slidesContainer.addEventListener('touchmove', handleTouchMove)
-      this.slidesContainer.addEventListener('touchend', handleTouchEnd)
-    }
+  goTo(index) {
+    const count = this.items.length;
+    if (!count) return;
+    this.renderSlide(((index % count) + count) % count);
   }
 
   next() {
-    if (this.currentSlide < this.totalSlides - 1 && !this.effectiveConfig.lock) {
-      this.currentSlide++
-      this.onSlideChange?.(this.currentSlide)
-      this.update()
-    }
+    const count = this.items.length;
+    if (!count) return;
+    this.renderSlide((this.index + 1) % count);
   }
 
-  prev() {
-    if (this.currentSlide > 0 && !this.effectiveConfig.lock) {
-      this.currentSlide--
-      this.onSlideChange?.(this.currentSlide)
-      this.update()
-    }
+  previous() {
+    const count = this.items.length;
+    if (!count) return;
+    this.renderSlide((this.index - 1 + count) % count);
   }
 
-  goToSlide(index) {
-    if (index >= 0 && index < this.totalSlides && !this.effectiveConfig.lock) {
-      this.currentSlide = index
-      this.onSlideChange?.(this.currentSlide)
-      this.update()
-    }
+  renderSlide(index, { silent = false } = {}) {
+    const count = this.items.length;
+    if (!count) return;
+    index = ((index % count) + count) % count;
+    this.index = index;
+
+    this._slideEls.forEach((el, i) => {
+      el.classList.toggle('active', i === index);
+      if (Math.abs(i - index) <= PRELOAD_DISTANCE) this._assignImage(i);
+    });
+    this.counterEl.textContent = `${index + 1} / ${count}`;
+    this._restartProgress();
   }
 
-  update() {
-    if (!this.slidesContainer) return
+  // -- internals ----------------------------------------------------------
 
-    // Update navigation buttons
-    const prevBtn = this.slidesContainer.querySelector('.slide-nav-prev')
-    const nextBtn = this.slidesContainer.querySelector('.slide-nav-next')
-    const slideNumber = this.slidesContainer.querySelector('.slide-number')
-    const slideProgress = this.slidesContainer.querySelector('.progress-indicator')
+  _buildSlide(item, index) {
+    const slide = document.createElement('figure');
+    slide.className = 'slide';
+    slide.dataset.index = index;
 
-    if (prevBtn) {
-      prevBtn.disabled = this.currentSlide === 0 || this.effectiveConfig.lock
-      if (this.effectiveConfig.lock) {
-        prevBtn.title = 'Navigation locked'
-      }
-    }
+    const meta = [
+      item.classification,
+      item.technique,
+      item.material,
+      item.accession,
+    ].filter(Boolean).join(' · ');
 
-    if (nextBtn) {
-      nextBtn.disabled = this.currentSlide === this.totalSlides - 1 || this.effectiveConfig.lock
-      if (this.effectiveConfig.lock) {
-        nextBtn.title = 'Navigation locked'
-      }
-    }
+    const linkAttrs = item.detail_url
+      ? ` href="${item.detail_url}" target="_blank" rel="noopener"`
+      : '';
 
-    // Update slide number
-    if (slideNumber) {
-      slideNumber.textContent = `📸 ${this.currentSlide + 1} / ${this.totalSlides}`
-    }
+    slide.innerHTML = `
+      <div class="slide-media"><img alt="" loading="eager" decoding="async"></div>
+      <figcaption class="slide-caption">
+        <div class="caption-body">
+          <p class="slide-title"></p>
+          <p class="slide-creator"></p>
+          <p class="slide-meta"></p>
+          <p class="slide-credit"></p>
+        </div>
+        ${item.detail_url
+          ? `<a class="slide-link"${linkAttrs}>Bekijk bij Teylers Museum ↗</a>`
+          : ''}
+      </figcaption>`;
 
-    // Update progress dots
-    if (this.slideProgress) {
-      Array.from(this.slideProgress.children).forEach((dot, i) => {
-        dot.className = `progress-dot ${i === this.currentSlide ? 'active' : ''}`
-      })
-    }
+    const titleEl = slide.querySelector('.slide-title');
+    const creatorEl = slide.querySelector('.slide-creator');
+    const metaEl = slide.querySelector('.slide-meta');
+    const creditEl = slide.querySelector('.slide-credit');
+    const img = slide.querySelector('img');
 
-    // Update all slides
-    this.slideElements.forEach((element, index) => {
-      element.style.cssText = `
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-        opacity: ${this.currentSlide === index ? 1 : 0.4};
-        transform: translateX(${this.currentSlide === index ? '0' : this.currentSlide - index} * 100%);
-      `
-    })
+    titleEl.textContent = item.title || 'Zonder titel';
+    creatorEl.textContent = item.creator || '';
+    metaEl.textContent = meta;
+    creditEl.textContent = item.credit || '';
+    img.alt = item.title || item.accession || 'Object';
+
+    img.addEventListener('error', () => {
+      slide.classList.add('image-failed');
+      img.removeAttribute('src');
+    });
+
+    return slide;
   }
 
-  destroy() {
-    if (this.slidesContainer && this.slidesContainer.parentNode) {
-      this.slidesContainer.parentNode.removeChild(this.slidesContainer)
+  _assignImage(index) {
+    const el = this._slideEls[index];
+    const img = el?.querySelector('img');
+    if (!img || img.dataset.assigned) return;
+    const item = this.items[index];
+    if (!item?.image) {
+      el.classList.add('image-failed');
+      return;
     }
+    img.dataset.assigned = '1';
+    img.src = item.image;
   }
 
-  show() {
-    if (this.slidesContainer && !this.slidesContainer.parentNode) {
-      this.init()
-    }
+  _restartProgress() {
+    const fill = this.progressFill;
+    fill.style.animation = 'none';
+    // force reflow so the animation restarts
+    void fill.offsetWidth;
+    fill.style.animation = `slide-progress ${this.interval}s linear forwards`;
+    if (this.paused) fill.style.animationPlayState = 'paused';
   }
 
-  hide() {
-    this.destroy()
+  _bindSwipe() {
+    let startX = null;
+    this.container.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+    this.container.addEventListener('touchend', (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      startX = null;
+      if (Math.abs(dx) < 40) return;
+      if (dx < 0) this.next(); else this.previous();
+    }, { passive: true });
   }
 }

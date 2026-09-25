@@ -1,144 +1,240 @@
-// CarouselApp.js - Main Vanilla JS carousel app with settings
-// Simplified version - uses static data for demo purposes
+/**
+ * CarouselApp — main controller for the NLUX carousel display.
+ *
+ * Fetches carousel configuration and slide items from the carousel server
+ * (same origin; the dev server proxies /api), then hands them to the
+ * Carousel renderer. Refreshes the item batch each time a full cycle
+ * completes. Handles settings, fullscreen and keyboard shortcuts.
+ */
 
-import { Carousel } from './components/Carousel.js'
+import Carousel from './components/Carousel.js';
+import VanillaSettingsModal from './VanillaSettingsModal.js';
 
-// Static fallback data - mock carousel items
-const staticCarouselItems = [
-  {
-    title: "Rembrandt - The Storm on the Sea of Galilee",
-    artist: "Rembrandt Harmenszoon van Rijn",
-    date: "1668",
-    copyright: "Teylers Museum / Teylers",
-    image: {
-      src: "https://www.teylersmuseum.nl/sites/teylers/files/styles/hero_image/public/36f082a6-365f-454b-b01d-40966580405a.jpg?itok=vFpEJ8Qo",
-      width: 2048,
-      height: 2560
-    }
-  },
-  {
-    title: "Vincent van Gogh - The Potato Eaters",
-    artist: "Vincent Willem van Gogh",
-    date: "1885",
-    copyright: "Teylers Museum / Teylers",
-    image: {
-      src: "https://www.teylersmuseum.nl/sites/teylers/files/styles/image/public/a23a23c2-1390-4843-b91d-7667e335755a.jpg?itok=8kLj5X2Y",
-      width: 1536,
-      height: 2048
-    }
-  },
-  {
-    title: "Pablo Picasso - The Weeping Woman",
-    artist: "Pablo Picasso",
-    date: "1937",
-    copyright: "Teylers Museum / Teylers",
-    image: {
-      src: "https://www.teylersmuseum.nl/sites/teylers/files/styles/image/public/b4a7a654-953e-4b2a-8c1f-3d5e4f6a8b2c.jpg?itok=9mNk7LpQ",
-      width: 1920,
-      height: 2560
-    }
+// API base: same-origin by default (prod dist is served by the carousel
+// server; dev uses the vite proxy). Override with ?api=http://host:port
+const params = new URLSearchParams(location.search);
+export const API_BASE = (params.get('api') || window.CAROUSEL_API || '').replace(/\/+$/, '');
+
+const DEFAULTS = { interval: 10, count: 5, scope: 'item' };
+
+const state = {
+  config: null,
+  settings: VanillaSettingsModal.getSettings(),
+  carousel: null,
+  timer: null,
+  items: [],
+};
+
+// ---------------------------------------------------------------------------
+// Fetch helpers
+// ---------------------------------------------------------------------------
+
+async function fetchJSON(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    let detail = `${response.status} ${response.statusText}`;
+    try {
+      const body = await response.json();
+      if (body && body.detail) detail = body.detail;
+    } catch { /* not JSON */ }
+    throw new Error(detail);
   }
-]
+  return response.json();
+}
 
-// Initialize settings store
-const settingsStore = {
-  config: {
-    fullscreen: false,
-    lock: true,
-    interval: 4000,
-    showControls: true
-  },
-  settings: {
-    collectionId: 'teylers',
-    scope: 'objects',
-    sort: 'alphabetical',
-    showMetadata: false
-  },
-  state: {
-    totalItems: staticCarouselItems.length,
-    isLoading: false,
-    items: staticCarouselItems,
-    currentIndex: 0
+async function fetchConfig() {
+  return fetchJSON(`${API_BASE}/api/config`);
+}
+
+async function fetchItems(settings) {
+  const url = new URL(`${API_BASE}/api/carousel`, location.href);
+  url.searchParams.set('count', settings.count);
+  url.searchParams.set('scope', settings.scope);
+  if (settings.seed) url.searchParams.set('seed', settings.seed);
+  const data = await fetchJSON(url.pathname + url.search);
+  return data;
+}
+
+// ---------------------------------------------------------------------------
+// Theme
+// ---------------------------------------------------------------------------
+
+function applyTheme(theme = {}) {
+  const root = document.documentElement;
+  for (const key of ['primary', 'background', 'text', 'accent', 'textColor']) {
+    if (theme[key]) root.style.setProperty(`--${key}`, theme[key]);
   }
 }
 
-// Retrieve slides from items
-async function getSlides(items, options = {}) {
-  const { 
-    baseUrl = '',
-    teylersApiUrl = '',
-    showMetadata = false,
-    maxSlides = 100
-  } = options
+// ---------------------------------------------------------------------------
+// Boot / render
+// ---------------------------------------------------------------------------
 
-  const slides = []
-  
-  // Use static data for demo
-  slides.push({
-    id: 'slide-demo-1',
-    title: 'Rembrandt - The Storm on the Sea of Galilee',
-    artist: 'Rembrandt Harmenszoon van Rijn',
-    date: '1668',
-    image: {
-      src: 'https://www.teylersmuseum.nl/sites/teylers/files/styles/hero_image/public/36f082a6-365f-454b-b01d-40966580405a.jpg?itok=vFpEJ8Qo',
-      width: 2048,
-      height: 2560
-    },
-    copyright: 'Teylers Museum / Teylers'
-  })
-  
-  slides.push({
-    id: 'slide-demo-2',
-    title: 'Vincent van Gogh - The Potato Eaters',
-    artist: 'Vincent Willem van Gogh',
-    date: '1885',
-    image: {
-      src: 'https://www.teylersmuseum.nl/sites/teylers/files/styles/image/public/a23a23c2-1390-4843-b91d-7667e335755a.jpg?itok=8kLj5X2Y',
-      width: 1536,
-      height: 2048
-    },
-    copyright: 'Teylers Museum / Teylers'
-  })
-  
-  slides.push({
-    id: 'slide-demo-3',
-    title: 'Pablo Picasso - The Weeping Woman',
-    artist: 'Pablo Picasso',
-    date: '1937',
-    image: {
-      src: 'https://www.teylersmuseum.nl/sites/teylers/files/styles/image/public/b4a7a654-953e-4b2a-8c1f-3d5e4f6a8b2c.jpg?itok=9mNk7LpQ',
-      width: 1920,
-      height: 2560
-    },
-    copyright: 'Teylers Museum / Teylers'
-  })
-
-  return slides
+function showError(message) {
+  const container = document.getElementById('app-container');
+  container.innerHTML = `
+    <div class="boot error">
+      <p class="boot-title">⚠ Carousel kon niet laden</p>
+      <p class="boot-text">${message}</p>
+      <button class="btn retry" type="button">Opnieuw proberen</button>
+    </div>`;
+  container.querySelector('.retry').addEventListener('click', () => {
+    container.innerHTML = '<div class="boot"><div class="boot-spinner"></div></div>';
+    start();
+  });
 }
 
-// Create carousel with settings
-function createCarousel(collectionId, scope, sortBy, slideData, totalSlides) {
-  const settings = settingsStore.settings
-  const config = {
-    container: document.getElementById('app-container') || document.body,
-    settings: settings,
-    totalSlides: totalSlides || 1,
-    initialIndex: 0
+async function loadItems({ silent = false } = {}) {
+  const settings = state.settings;
+  const data = await fetchItems(settings);
+  if (!data.items || data.items.length === 0) {
+    throw new Error('Geen objecten met afbeeldingen gevonden.');
   }
-  
-  // Initialize carousel
-  const carousel = new Carousel(config)
-  
-  return { carousel, settingsStore }
+  state.items = data.items;
+  if (state.carousel) {
+    state.carousel.setItems(state.items, { silent });
+  }
+  return data;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('CarouselApp loaded with', staticCarouselItems.length, 'static items')
-  
-  // Auto-initialize carousel
-  const appContainer = document.getElementById('app-container')
-  if (appContainer) {
-    createCarousel('teylers', 'objects', 'alphabetical', staticCarouselItems, staticCarouselItems.length)
-  }
-})
+function scheduleAdvance() {
+  if (state.timer) clearTimeout(state.timer);
+  const intervalMs = Math.max(2, state.settings.interval) * 1000;
+  state.timer = setTimeout(async () => {
+    if (document.hidden) { // retry when the display becomes visible again
+      scheduleAdvance();
+      return;
+    }
+    const carousel = state.carousel;
+    const atEnd = carousel.index >= carousel.items.length - 1;
+    if (atEnd && state.settings.refresh !== false) {
+      // Cycle finished: fetch a fresh batch, then start over. On failure,
+      // keep looping the current items.
+      try {
+        await loadItems({ silent: true });
+      } catch { /* keep current items */ }
+      carousel.goTo(0);
+    } else {
+      carousel.next();
+    }
+    scheduleAdvance();
+  }, intervalMs);
+}
 
+function createCarousel(container) {
+  const carousel = new Carousel(container, {
+    interval: state.settings.interval,
+    getItems: () => state.items,
+  });
+  // Pause/resume on hover
+  container.addEventListener('mouseenter', () => carousel.setPaused(true));
+  container.addEventListener('mouseleave', () => carousel.setPaused(false));
+  // Stop the timer while paused, resume cleanly after
+  carousel.onPauseChange = (paused) => {
+    if (paused) {
+      if (state.timer) clearTimeout(state.timer);
+    } else {
+      scheduleAdvance();
+    }
+  };
+  return carousel;
+}
+
+// ---------------------------------------------------------------------------
+// Fullscreen & keyboard
+// ---------------------------------------------------------------------------
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen?.();
+  } else {
+    document.exitFullscreen?.();
+  }
+}
+
+function bindKeyboard(carousel, modal) {
+  document.addEventListener('keydown', (event) => {
+    if (modal.isOpen) {
+      if (event.key === 'Escape') modal.close();
+      return;
+    }
+    switch (event.key) {
+      case 'ArrowLeft': carousel.previous(); break;
+      case 'ArrowRight': case 'Enter': carousel.next(); break;
+      case ' ': carousel.togglePause(); event.preventDefault(); break;
+      case 'f': case 'F': toggleFullscreen(); break;
+      case 's': case 'S': modal.open(); break;
+      case 'Escape':
+        if (document.fullscreenElement) document.exitFullscreen?.();
+        break;
+    }
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Settings modal integration
+// ---------------------------------------------------------------------------
+
+function createSettingsModal(container, carousel) {
+  const modal = new VanillaSettingsModal(container, {
+    settings: state.settings,
+    config: state.config,
+    onChange: async (settings) => {
+      state.settings = settings;
+      carousel.setInterval(settings.interval);
+      try {
+        await loadItems();
+      } catch (error) {
+        showError(error.message);
+        return;
+      }
+      carousel.goTo(0);
+      scheduleAdvance();
+    },
+  });
+  return modal;
+}
+
+// ---------------------------------------------------------------------------
+// Start
+// ---------------------------------------------------------------------------
+
+export async function start() {
+  try {
+    const config = await fetchConfig();
+    state.config = config;
+    applyTheme(config.theme);
+
+    // Server config is the base; stored user settings take precedence
+    const carouselCfg = config.carousel || {};
+    const stored = VanillaSettingsModal.getSettings();
+    state.settings = {
+      interval: stored.interval ?? carouselCfg.interval ?? DEFAULTS.interval,
+      count: stored.count ?? carouselCfg.count ?? DEFAULTS.count,
+      scope: stored.scope ?? config.collection?.scope ?? DEFAULTS.scope,
+      seed: stored.seed ?? config.collection?.seed ?? null,
+    };
+    VanillaSettingsModal.saveSettings(state.settings);
+
+    const data = await loadItems();
+    const container = document.getElementById('app-container');
+    container.innerHTML = '<div class="carousel" tabindex="0"></div>';
+    const carouselEl = container.firstElementChild;
+    state.carousel = createCarousel(carouselEl);
+    state.carousel.setItems(state.items);
+    state.carousel.renderSlide(0);
+
+    const modal = createSettingsModal(carouselEl, state.carousel);
+    bindKeyboard(state.carousel, modal);
+    scheduleAdvance();
+    state.carousel.focus();
+
+    console.info(
+      `NLUX carousel gestart: ${data.count}/${data.total_available} objecten, ` +
+      `${state.settings.interval}s per object.`);
+  } catch (error) {
+    showError(error.message || String(error));
+  }
+}
+
+start();

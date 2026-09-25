@@ -1,26 +1,22 @@
 import { defineConfig } from 'vite'
 
-// https://vitejs.dev/config/
+// Run from caroussel/frontend/:  npm run dev | npm run build
 export default defineConfig({
-  root: 'frontend',
-  publicDir: 'frontend/public',
-  resolve: {
-    alias: {
-      '@': './frontend/src'
-    }
-  },
+  root: '.',
+  publicDir: 'public',
   server: {
     port: 5173,
     strictPort: true,
+    proxy: {
+      // Carousel API -> carousel server (:8089)
+      '/api': 'http://localhost:8089',
+      // Image proxy passthrough -> nlux backend (:8000)
+      '/iiif': 'http://localhost:8000',
+    },
   },
   build: {
-    outDir: 'frontend/dist',
+    outDir: 'dist',
     emptyOutDir: true,
     assetsDir: 'assets',
-    rollupOptions: {
-      input: {
-        index: 'frontend/index.html'
-      }
-    }
-  }
+  },
 })

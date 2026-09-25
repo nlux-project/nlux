@@ -1,476 +1,320 @@
 #!/usr/bin/env python3
 """
-NLUX-Carousell Backend Server
+NLUX Carousel server.
 
-Provides a carousel API that randomly selects objects from a collection
-and serves them with full-screen display support.
+Serves a carousel API on top of the nlux backend API: it picks random
+objects (with images) from a collection and normalises them into simple
+slide items for the carousel frontend.
 
 Usage:
-    python server.py --port 8089 --collection teylers
-    python server.py --port 8089 --collection item --config myconfig.json
-"""
+    uvicorn server:app --port 8089        (from caroussel/server/)
+    python server.py                      (equivalent)
 
+Environment variables:
+    NLUX_API            Base URL of the nlux backend (default http://localhost:8000)
+    CAROUSEL_CONFIG     Path to carousel config JSON (default ../config/default.json)
+"""
+from __future__ import annotations
+
+import base64
 import json
 import os
 import random
-import uuid
-from datetime import datetime, timedelta
+import sys
 from pathlib import Path
-from typing import Optional, Any
+from typing import Any, Optional
 
-from fastapi import FastAPI, Query, Request, HTTPException, BackgroundTasks
+import httpx
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
-from pydantic_settings import BaseSettings
-import aiohttp
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
+SERVER_DIR = Path(__file__).resolve().parent
+CAROUSEL_ROOT = SERVER_DIR.parent
 
-# Settings
-class Settings(BaseSettings):
-    PORT: int = 8089
-    HOST: str = "0.0.0.0"
-    COLLECTION: str = "teylers"
-    CONFIG_PATH: str = "config/current.json"
-    DEFAULT_CONFIG: str = "config/default.json"
-    NLUX_API: str = "http://localhost:8000"
-    NLUX_API_TOKEN: Optional[str] = None
-    TIMEOUT: float = 30.0
-    DEFAULT_SEED: Optional[str] = None
-    
-    # Carousel settings
-    INTERVAL: int = 10  # seconds between slides
-    COUNT: int = 5  # objects per slide
-    MAX_AGE: int = 30  # seconds before forcing reseed
-    
-    # Collections
-    AVAILABLE_COLLECTIONS: list[str] = []
-    
-    # Default config
-    def __post_init__(self):
-        if not os.path.exists(self.CONFIG_PATH):
-            self.load_default_config()
-            
-        # Load available collections from NLUX API
-        if os.getenv("ENABLE_COLLECTIONS", "true").lower() == "true":
-            self.load_collections()
+NLUX_API = os.getenv("NLUX_API", "http://localhost:8000").rstrip("/")
+CONFIG_PATH = Path(os.getenv(
+    "CAROUSEL_CONFIG", CAROUSEL_ROOT / "config" / "default.json"))
 
-class CarouselItem(BaseModel):
-    """Individual carousel slide data"""
-    uri: str
-    uri_short: str
-    scope: str
-    label: str
-    title: Optional[str] = None
-    creator: Optional[str] = None
-    creator_name: Optional[str] = None
-    date: Optional[str] = None
-    media_type: Optional[str] = None
-    thumbnail: Optional[str] = None
-    full_url: Optional[str] = None
-    description: Optional[str] = None
-    language: str = "en"
-    display_order: int = 0
-    added_at: str = ""
-    object_number: Optional[str] = None
-    location: Optional[str] = None
-    material: Optional[str] = None
-    technique: Optional[str] = None
+DEFAULT_CONFIG: dict[str, Any] = {
+    "server": {"port": 8089, "host": "0.0.0.0"},
+    "carousel": {"interval": 10, "count": 5, "maxAge": 30,
+                 "fullscreen": True, "lock": True},
+    "collection": {"name": "teylers", "scope": "item",
+                   "random": True, "seed": None},
+    "theme": {
+        "primary": "#2c5282", "background": "#f7fafc", "text": "#2d3748",
+        "accent": "#ed8936", "card": "#ffffff", "cardBg": "#1a202c",
+        "textColor": "#e2e8f0",
+    },
+}
 
-
-class CarouselSlide(BaseModel):
-    """A slide containing multiple carousel items"""
-    index: int
-    items: list[CarouselItem]
-    slide_number: int
-
-
-class CarouselResponse(BaseModel):
-    """Full carousel response with all slides"""
-    seed: str
-    total_slides: int
-    slides: list[CarouselSlide]
-    next_refresh: str
-    last_updated: str
-
-
-# Initialize FastAPI app
-app = FastAPI(
-    title="NLUX-Carousell API",
-    description="Museum carousel display API - shows random collection objects",
-    version="1.0.0",
-)
-
-# CORS middleware
+app = FastAPI(title="NLUX Carousel API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET"],
     allow_headers=["*"],
 )
 
 
-def load_config() -> Settings:
-    """Load configuration from file or use defaults"""
-    settings = Settings()
-    
-    if os.path.exists(settings.CONFIG_PATH):
-        config_data = json.load(open(settings.CONFIG_PATH))
-        for key, value in config_data.items():
-            if hasattr(settings, key):
-                setattr(settings, key, value)
-    
-    return settings
-
-
-# Singleton settings instance
-settings = load_config()
-
-
-# Initialize NLUX API session
-nlux_session = None
-
-
-def get_nlux_api() -> aiohttp.ClientSession:
-    """Get or create NLUX API session"""
-    global nlux_session
-    
-    if nlux_session is None:
-        headers = {}
-        if settings.NLUX_API_TOKEN:
-            headers["Authorization"] = f"Bearer {settings.NLUX_API_TOKEN}"
-            
-        timeout = aiohttp.Timeout(total=settings.TIMEOUT)
-        nlux_session = aiohttp.ClientSession(
-            headers=headers,
-            timeout=timeout
-        )
-    
-    return nlux_session
-
-
-async def fetch_nlux_record(uri: str) -> dict:
-    """Fetch a record from NLUX API"""
-    async with get_nlux_api() as session:
-        url = f"{settings.NLUX_API}/data/{uri}"
-        try:
-            async with session.get(url) as response:
-                response.raise_for_status()
-                return await response.json()
-        except aiohttp.ClientError as e:
-            return {"error": f"Failed to fetch: {str(e)}"}
-
-
-async def generate_random_objects(
-    count: int,
-    scope: str,
-    collection: str,
-    seed: Optional[str] = None,
-    max_age: Optional[int] = None
-) -> dict:
-    """Generate random objects from collection"""
-    return_code = random.getstate()
-    
-    # Apply seed if provided
-    if seed:
-        random.setstate(seed)
-    
-    # Filter for collection
-    collection_prefix = f"{collection}/"
-    prefix_match = []
-    no_prefix = []
-    
-    # Get object count estimate
-    estimate_url = f"{settings.NLUX_API}/api/search-estimate/{scope}?collection={collection}"
+def load_config() -> dict[str, Any]:
+    """Load the carousel config, falling back to built-in defaults."""
+    config = json.loads(json.dumps(DEFAULT_CONFIG))  # deep copy
     try:
-        async with get_nlux_api() as session:
-            async with session.get(estimate_url) as est:
-                est_data = await est.json()
-                total = est_data.get("totalItems", 0)
-                estimated = min(count, total)
-    except Exception:
-        estimated = count
-    
-    # Generate random URIs
-    selected_uris = set()
-    attempts = 0
-    max_attempts = count * 10
-    
-    while len(selected_uris) < min(count, estimated) and attempts < max_attempts:
-        random_obj_id = random.randint(1, 10000)
-        random_obj = f"{collection_prefix}{random_obj_id}"
-        
-        if random_obj not in selected_uris:
-            selected_uris.add(random_obj)
-        
-        attempts += 1
-    
-    # Fetch records
-    records = []
-    for uri in selected_uris:
-        data = await fetch_nlux_record(uri)
-        if isinstance(data, dict) and "error" not in data:
-            records.append(data)
-    
-    # Reset random state
-    random.setstate(return_code)
-    
-    # Filter by scope
-    filtered = []
-    for rec in records:
-        record_type = rec.get("@type", [])
-        if isinstance(record_type, list):
-            type_values = [t.get("@value", "") for t in record_type if isinstance(t, dict)]
+        data = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return config
+    for section, values in data.items():
+        if isinstance(values, dict) and isinstance(config.get(section), dict):
+            config[section].update(values)
         else:
-            type_values = [record_type.get("@value", "")] if isinstance(record_type, dict) else []
-        
-        if scope in type_values:
-            filtered.append(rec)
-    
-    # Limit to count
+            config[section] = values
+    return config
+
+
+CONFIG = load_config()
+
+# A single lazily-created HTTP client (httpx clients are safe to reuse)
+_client: Optional[httpx.Client] = None
+
+
+def api() -> httpx.Client:
+    global _client
+    if _client is None or _client.is_closed:
+        _client = httpx.Client(base_url=NLUX_API, timeout=20.0,
+                               headers={"User-Agent": "nlux-carousel/1.0"})
+    return _client
+
+
+def image_token(image_url: str) -> str:
+    """Encode an image URL the same way the nlux backend expects for /iiif/image."""
+    return base64.urlsafe_b64encode(
+        image_url.encode("utf-8")).decode("ascii").rstrip("=")
+
+
+def proxied_image_url(image_url: str) -> str:
+    return f"{NLUX_API}/iiif/image/{image_token(image_url)}"
+
+
+# ---------------------------------------------------------------------------
+# Linked Art -> carousel item normalisation
+# ---------------------------------------------------------------------------
+
+def _texts(nodes: Any) -> list[str]:
+    """Collect non-empty _label values from a node or list of nodes."""
+    if not isinstance(nodes, list):
+        nodes = [nodes]
+    out = []
+    for node in nodes:
+        if isinstance(node, dict):
+            label = node.get("_label")
+            if label:
+                out.append(label)
+    return out
+
+
+def _first_image_url(doc: dict) -> Optional[str]:
+    for rep in doc.get("representation", []) or []:
+        for digital in rep.get("digitally_shown_by", []) or []:
+            for ap in digital.get("access_point", []) or []:
+                if isinstance(ap, dict) and ap.get("id"):
+                    return ap["id"]
+    return None
+
+
+def _display_date(doc: dict) -> Optional[str]:
+    prod = doc.get("produced_by") or {}
+    ts = prod.get("timespan") if isinstance(prod, dict) else None
+    if not isinstance(ts, dict):
+        return None
+    # Prefer the "Display Title" name the mapper attaches to the timespan
+    for name in ts.get("identified_by", []) or []:
+        if name.get("content"):
+            return name["content"]
+    # Fall back to the year of the start boundary
+    start = ts.get("begin_of_the_begin")
+    if isinstance(start, str) and len(start) >= 4:
+        return start[:4]
+    return None
+
+
+def _detail_url(doc: dict) -> Optional[str]:
+    """The museum's own object page, if the pipeline attached one."""
+    for subject in doc.get("subject_of", []) or []:
+        for digital in subject.get("digitally_carried_by", []) or []:
+            for ap in digital.get("access_point", []) or []:
+                if isinstance(ap, dict) and ap.get("id"):
+                    return ap["id"]
+    return None
+
+
+def normalize_item(doc: dict) -> Optional[dict[str, Any]]:
+    """Turn a Linked Art record into a flat carousel item."""
+    uri = doc.get("id")
+    if not uri:
+        return None
+    image_url = _first_image_url(doc)
+    if not image_url:
+        return None  # the carousel needs images
+
+    prod = doc.get("produced_by") if isinstance(doc.get("produced_by"), dict) else {}
+
+    creators = _texts(prod.get("carried_out_by"))
+    seen: set[str] = set()
+    unique_creators = [c for c in creators if not (c in seen or seen.add(c))]
+
+    title = doc.get("_label") or "Zonder titel"
+    classification = _texts(doc.get("classified_as"))
+    materials = _texts(doc.get("made_of"))
+    techniques = _texts(prod.get("technique"))
+    date = _display_date(doc)
+
+    # Accession number, if present
+    accession = None
+    for ident in doc.get("identified_by", []) or []:
+        if isinstance(ident, dict) and ident.get("classified_as"):
+            for cls in ident["classified_as"]:
+                if cls.get("id") == "http://vocab.getty.edu/aat/300312355":
+                    accession = ident.get("content")
+
     return {
-        "objects": filtered[:count],
-        "count": count,
-        "actually_fetched": len(filtered),
-        "seed": random.getstate()
+        "uri": uri,
+        "id": uri.rsplit("/", 1)[-1],
+        "type": doc.get("type"),
+        "title": title,
+        "creator": "; ".join(unique_creators[:3]) if unique_creators else None,
+        "date": date,
+        "classification": "; ".join(classification[:2]) if classification else None,
+        "material": "; ".join(materials[:3]) if materials else None,
+        "technique": "; ".join(techniques[:3]) if techniques else None,
+        "accession": accession,
+        "image": proxied_image_url(image_url),
+        "detail_url": _detail_url(doc),
+        "credit": "Teylers Museum, Haarlem",
     }
 
 
-@app.get("/api/seed")
-async def generate_seed():
-    """Generate a new random seed"""
-    return {"seed": str(uuid.uuid4())}
+# ---------------------------------------------------------------------------
+# NLUX API helpers
+# ---------------------------------------------------------------------------
+
+def search_item_uris(scope: str) -> list[dict[str, str]]:
+    """Return all image-bearing {id,type} stubs for a scope (paginates)."""
+    query = json.dumps({"hasDigitalImage": True, "_scope": scope})
+    stubs: list[dict[str, str]] = []
+    page = 1
+    try:
+        while True:
+            resp = api().get(f"/api/search/{scope}", params={
+                "q": query, "page": page, "pageLength": 100})
+            resp.raise_for_status()
+            data = resp.json()
+            page_items = data.get("orderedItems", [])
+            stubs.extend(page_items)
+            total = data.get("partOf", [{}])[0].get("totalItems", len(stubs))
+            if len(stubs) >= total or not page_items:
+                break
+            page += 1
+    except httpx.HTTPError as exc:
+        raise HTTPException(status_code=502, detail=f"NLUX API unreachable: {exc}")
+    return stubs
 
 
-@app.post("/api/generate")
-async def generate_carousel(
-    config: dict = Query(..., description="Carousel configuration"),
-):
-    """Generate carousel with random objects"""
-    count = config.get("count", 5)
-    scope = config.get("scope", "item")
-    collection = config.get("collection", settings.COLLECTION)
-    seed = config.get("seed")
-    
-    # Validate collection exists
-    if not os.getenv("ENABLE_COLLECTIONS", "true").lower() == "true":
-        collections = [
-            "all",
-            "taylor",
-            "teylers",
-            "rma",
-            "nha",
-            "wfm",
-            "fhm",
-            "hvh",
-            "nha",
-        ]
-        if collection not in collections:
-            raise HTTPException(
-                status_code=400,
-                detail=f"Collection '{collection}' not available. Use one of: {', '.join(collections)}"
-            )
-    
-    result = await generate_random_objects(count, scope, collection, seed)
-    
+def fetch_record(uri: str) -> Optional[dict]:
+    try:
+        resp = api().get(f"/data/{uri}")
+        if resp.status_code != 200:
+            return None
+        return resp.json()
+    except httpx.HTTPError:
+        return None
+
+
+# ---------------------------------------------------------------------------
+# Routes
+# ---------------------------------------------------------------------------
+
+@app.get("/health")
+def health():
+    try:
+        resp = api().get("/health")
+        ok = resp.status_code == 200
+        nlux = resp.json() if ok else {}
+    except httpx.HTTPError:
+        ok, nlux = False, {}
+    return {"status": "ok" if ok else "degraded", "nlux_api": nlux}
+
+
+@app.get("/api/config")
+def get_config():
+    """Carousel configuration for the frontend."""
     return {
-        "seed": result["seed"],
-        "requested": count,
-        "available": result["actually_fetched"],
-        "objects": [normalize_object(obj, collection) for obj in result["objects"]]
+        "carousel": CONFIG.get("carousel", {}),
+        "collection": CONFIG.get("collection", {}),
+        "theme": CONFIG.get("theme", {}),
+        "nlux_api": NLUX_API,
+        "total_items": _total_cache["items"],
     }
 
 
-@app.get("/api/generate")
-async def generate_carousel_endpoint(
-    count: int = Query(default=5, ge=1, le=50),
-    scope: str = Query(default="item"),
-    collection: str = Query(default="teylers"),
-    seed: Optional[str] = Query(default=None),
+_total_cache: dict[str, Any] = {"items": 0}
+
+
+@app.get("/api/carousel")
+def get_carousel(
+    count: int = Query(None, ge=1, le=50),
+    scope: str = Query(None),
+    seed: str = Query(None),
 ):
-    """Generate carousel with random objects via GET"""
-    return await generate_carousel(config={
-        "count": count,
+    """Return `count` random image-bearing objects for the carousel."""
+    cfg = CONFIG.get("collection", {})
+    scope = scope or cfg.get("scope", "item")
+    count = count or CONFIG.get("carousel", {}).get("count", 5)
+
+    stubs = search_item_uris(scope)
+    _total_cache["items"] = len(stubs)
+    if not stubs:
+        raise HTTPException(status_code=502,
+                            detail=f"No image-bearing objects found for scope '{scope}'")
+
+    rng = random.Random(seed if seed is not None else None)
+    picked = rng.sample(stubs, min(count, len(stubs)))
+
+    items = []
+    for stub in picked:
+        doc = fetch_record(stub["id"])
+        if doc is None:
+            continue
+        item = normalize_item(doc)
+        if item:
+            items.append(item)
+
+    return {
+        "collection": cfg.get("name", "teylers"),
         "scope": scope,
-        "collection": collection,
-        "seed": seed
-    })
-
-
-@app.post("/api/generate-seed/{seed}")
-async def generate_with_seed(seed: str, count: int = 5):
-    """Generate carousel using a specific seed"""
-    result = await generate_random_objects(count, "item", settings.COLLECTION, seed)
-    return result
-
-
-@app.get("/data/{uri:path}")
-async def get_record(uri: str, profile: str = Query("search")):
-    """Fetch a single record from NLUX API"""
-    return await fetch_nlux_record(uri)
-
-
-@app.get("/api/collections")
-async def get_collections():
-    """Get available collection names"""
-    if not os.getenv("ENABLE_COLLECTIONS", "true").lower() == "true":
-        return {
-            "collections": [
-                "all",  # All available collections
-                "taylor",  # Taylor Institution (University of Oxford)
-                "teylers",  # Teylers Museum
-                "rma",  # Rijksmuseum (partial Adlib)
-                "wfm",  # Worldwide Museums Foundation
-                "fhm",  # Flanders Heritage Agents
-                "hvh",  # Herencia Virtual de las Humanidades
-                "nha",  # Nationale Historische Archief
-            ]
-        }
-    
-    # Get from NLUX API
-    try:
-        async with get_nlux_api() as session:
-            url = f"{settings.NLUX_API}/api/stats"
-            async with session.get(url) as response:
-                data = await response.json()
-                return {
-                    "collections": [
-                        {
-                            "name": name,
-                            "item_count": item_count,
-                            "enabled": True
-                        }
-                        for name, item_count in data.get("estimates", {}).get("searchScopes", {}).items()
-                        if item_count > 0
-                    ]
-                }
-    except Exception as e:
-        return {"collections": [], "error": str(e)}
-
-
-def normalize_object(obj: dict, collection: str) -> CarouselItem:
-    """Normalize a fetched object into carousel item format"""
-    uri = obj.get("@id", "")
-    
-    # Extract basic fields
-    label = extract_field(obj, ["label"], "en")
-    title = extract_field(obj, ["title"])
-    creator = extract_field(obj, ["creator"])
-    creator_name = extract_field(obj, ["creator.name"], [])
-    date = extract_field(obj, ["production.date.start"])
-    media_type = extract_field(obj, ["hasMediaType"])
-    location = extract_field(obj, ["location.default.name"])
-    material = extract_field(obj, ["material"])
-    technique = extract_field(obj, ["technique"])
-    description = extract_field(obj, ["description"])
-    object_number = extract_field(obj, ["object_number"])
-    
-    # Build labels
-    labels = {}
-    if isinstance(label, list):
-        labels = label
-    elif isinstance(label, dict):
-        labels = [label]
-    else:
-        labels = [str(label)]
-    
-    # Build metadata
-    metadata = {
-        "title": list(title) if title else None,
-        "hasCreator": list(creator) if creator else None,
-        "hasDate": date,
-        "hasMediaType": media_type,
-        "hasLocation": location,
-        "hasMaterial": material,
-        "hasTechnique": technique,
+        "count": len(items),
+        "total_available": len(stubs),
+        "seed": seed,
+        "items": items,
     }
-    
-    # Extract thumbnail
-    thumbnail = None
-    has_img = False
-    
-    if "hasImage" in obj or "image" in obj:
-        has_img = True
-        for href_obj in obj.get("hasImage", []):
-            if isinstance(href_obj, dict):
-                for link in href_obj.get("hasWebOrEmbeddedResource", []):
-                    if isinstance(link, dict) and "rel" in link:
-                        thumbnail = link.get("@id")
-                        break
-            elif isinstance(href_obj, str):
-                thumbnail = href_obj
-                break
-    
-    # Build full URL
-    full_url = None
-    if "hasImage" in obj:
-        for href_obj in obj.get("hasImage", []):
-            for link in href_obj.get("hasWebOrEmbeddedResource", []):
-                if isinstance(link, dict) and "rel" in link:
-                    full_url = link.get("@id")
-                    break
-    
-    return CarouselItem(
-        uri=uri,
-        uri_short=uri.split("/")[-1] if uri else "",
-        scope="item",
-        label=labels[0] if labels else "Untitled",
-        title=title if title else None,
-        creator=list(creator)[0] if creator and len(creator) > 0 else None,
-        creator_name=creator_name if creator_name else None,
-        date=date,
-        media_type=media_type,
-        thumbnail=thumbnail,
-        full_url=full_url,
-        description=description[:500] if description and len(description) > 500 else description,
-        language="en",
-        display_order=0,
-        added_at=datetime.utcnow().isoformat(),
-        object_number=object_number,
-    )
 
 
-def extract_field(obj: dict, path: list, default=None):
-    """Extract field value from nested object structure"""
-    value = obj
-    for key in path:
-        if isinstance(value, dict):
-            value = value.get(key)
-            if value is None:
-                return default
-        elif isinstance(value, list):
-            if key.isdigit():
-                index = int(key)
-                value = value[index] if index < len(value) else default
-                break
-            elif key == "*":
-                value = [v for v in value if v is not None]
-        else:
-            return default
-    return value
+# Serve the built frontend (caroussel/frontend/dist) when it exists.
+DIST_DIR = CAROUSEL_ROOT / "frontend" / "dist"
+if DIST_DIR.is_dir():
+    app.mount("/", StaticFiles(directory=DIST_DIR, html=True), name="dist")
 
 
 if __name__ == "__main__":
     import uvicorn
-    
-    # Initialize
-    settings = load_config()
-    
-    # Check for NLUX API
-    if settings.NLUX_API:
-        # Verify connection
-        try:
-            import urllib.request
-            urllib.request.urlopen(f"{settings.NLUX_API}/health", timeout=5)
-            print(f"✓ Connected to NLUX API at {settings.NLUX_API}")
-        except urllib.error.URLError as e:
-            print(f"⚠ Warning: Could not connect to NLUX API ({settings.NLUX_API})")
-            print("  The carousell will only work with local collection data")
-            os.environ["ENABLE_COLLECTIONS"] = "false"
-            settings = load_config()
-    
-    uvicorn.run(
-        "server:app",
-        host=settings.HOST,
-        port=settings.PORT,
-        reload=True if os.getenv("DEV", "false") == "true" else False,
-    )
+
+    server_cfg = CONFIG.get("server", {})
+    port = int(os.getenv("PORT", server_cfg.get("port", 8089)))
+    host = os.getenv("HOST", server_cfg.get("host", "0.0.0.0"))
+    print(f"NLUX Carousel server -> http://{host}:{port}")
+    print(f"  NLUX API:  {NLUX_API}")
+    print(f"  Config:    {CONFIG_PATH}")
+    print(f"  Frontend:  {'built (dist served)' if DIST_DIR.is_dir() else 'not built (use vite dev server)'}")
+    uvicorn.run(app, host=host, port=port, log_level="info")
