@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digital museum carousel for NLUX collections">
+  <title>Carousel</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles/carousel.css">
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="/styles/carousel.css" as="style">
+  <link rel="preload" href="/styles/index.css" as="style">
+
+  <!-- Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalytics']=i['GoogleAnalytics']||function(){(i.ga=q[i++]=[]),q[i].push(arguments),q[i].l=+new Date();a=s.createElement(o),m=s.createElement(o),a.async=1,a.src='//'+g,m.src='//'+m.src;q[i]=a,q[i].onload=function(){var b=q[i]._f;return q[i]._f=function(){b?b.apply(q[i],arguments):[]};m.onload=b;onerror=m.onerror;i['GoogleAnalytics'].l>m['GoogleAnalytics'].l+30;if(typeof b==='function'){a.onload=m.onload;a.onerror=function(){var j=Error('GoogleAnalytics '+i+' Error: '+e.join(' ')+' '+c);m.onerror(j);b.apply(q[i],[j])};b.apply(q[i])},q[i].push({_f:b});}});var q={};a.id='GA-JavaScript-1';s=a;s.getElementsByTagName('head')[0]||s.parentNode==='body'&&s.parentNode.appendChild(a);})(window,document,'script','www.google-analytics.com/ga.js','//www.google-analytics.com/tracker.js');
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+  <!-- App Container -->
+  <div id="app-container"></div>
+
+  <!-- Background with overlay for visibility -->
+  <div id="background-overlay"></div>
+
+  <!-- Preload app -->
+  <script>
+    // Preload app before loading
+    const preloadImages = () => {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        const imgObject = new Image();
+        imgObject.src = img.src;
+      });
+    };
+
+    // Load app
+    const appScript = document.getElementById('app');
+    if (appScript) {
+      appScript.src = 'src/App.js';
+      preloadImages();
+    }
+
+    // Load settings modal
+    const settingsScript = document.getElementById('settings');
+    if (settingsScript) {
+      settingsScript.src = 'src/components/SettingsModal.js';
+    }
+  </script>
+
+  <!-- Load app -->
+  <script type="module" src="/index.js"></script>
+</body>
+</html>

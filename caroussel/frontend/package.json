@@ -1,0 +1,19 @@
+{
+  "name": "nlux-carousell",
+  "version": "1.0.0",
+  "description": "Museum kiosk carousel display for NLUX collections",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "tsc && vite build",
+    "preview": "vite preview --port 5173"
+  },
+  "dependencies": {
+    "util": "^0.12.5"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
+  }
+}
