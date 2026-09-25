@@ -1,0 +1,62 @@
+[
+  {
+    "key": "APP_PORT",
+    "value": 8080
+  },
+  {
+    "key": "NUM_INSTANCES",
+    "value": 2
+  },
+  {
+    "key": "DATA_API_BASE_URL",
+    "value": "",
+  },
+  {
+    "key": "FACETS_API_BASE_URL",
+    "value": "",
+  },
+  {
+    "key": "CMS_API_BASE_URL",
+    "value": "",
+  },
+  {
+    "key": "WIKIDATA_IMAGE_PATHNAME",
+    "value": "",
+  },
+  {
+    "key": "LUX_WIKIDATA_MANIFEST_PREFIX",
+    "value": "",
+  },
+  {
+    "key": "LUX_FEEDBACK_URL",
+    "value": "",
+  },
+  {
+    "key": "LUX_ENVIRONMENT",
+    "value": "development"
+  },
+  {
+    "key": "MAINTENANCE_MODE",
+    "value": false
+  },
+  {
+    "key": "MAINTENANCE_MESSAGE",
+    "value": "LUX is down for maintenance. Please come back later."
+  },
+  {
+    "key": "NLUX_LOGO",
+    "value": "/nlux-logo.png"
+  },
+  {
+    "key": "NLUX_PRIMARY_COLOR",
+    "value": "#FFFFFF"
+  },
+  {
+    "key": "NLUX_SECONDARY_COLOR",
+    "value": "#D1D5DB"
+  },
+  {
+    "key": "NLUX_FONT_COLOR",
+    "value": "#222222"
+  }
+]

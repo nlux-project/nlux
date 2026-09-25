@@ -1,0 +1,48 @@
+import { Button } from 'react-bootstrap'
+import styled from 'styled-components'
+
+import theme from '../theme'
+
+interface IProps {
+  $borderRadius?: string
+  $marginTop?: string
+}
+
+const CollapseButton = styled(Button)<IProps>`
+  border: 1px solid ${theme.color.black};
+  border-radius: ${(props) =>
+    props.$borderRadius ? props.$borderRadius : '5px'};
+  background-color: ${theme.color.white};
+  color: ${theme.color.black};
+  margin-top: ${(props) => (props.$marginTop ? props.$marginTop : '10px')};
+  height: 22px;
+  width: 20px;
+  text-align: center;
+  line-height: 50%;
+  vertical-align: middle;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+
+  &.collapseNestedAdvancedSearch {
+    border-color: ${theme.color.link};
+    color: ${theme.color.link};
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: ${theme.color.white};
+      color: ${theme.color.link};
+      border-color: ${theme.color.link};
+    }
+  }
+
+  &.collapseArchiveHierarchyChild {
+    &:hover,
+    &:focus {
+      background-color: ${theme.color.white};
+      color: ${theme.color.black};
+    }
+  }
+`
+
+export default CollapseButton

@@ -1,0 +1,60 @@
+import React from 'react'
+import { useLocation } from 'react-router-dom'
+import { useAuth } from 'react-oidc-context'
+import styled from 'styled-components'
+
+import useApiText from '../../lib/hooks/useApiText'
+import { forceArray } from '../../lib/parse/data/helper'
+import theme from '../../styles/theme'
+import { IAgentSnippet } from '../../types/derived-data/IAgentSnippet'
+
+interface IAgents {
+  data: IAgentSnippet
+}
+
+const StyledSpan = styled.span`
+  font-size: 24px;
+  color: ${theme.color.black};
+  letter-spacing: 0;
+  text-align: left;
+  font-weight: 500;
+`
+
+/**
+ * Renders the data retrieved in the AgentData component
+ * @param {IAgentSnippet} data the agent's data from the AgentData component
+ * @returns {JSX.Element}
+ */
+const AgentInHeader: React.FC<IAgents> = ({ data }) => {
+  const { name, birthYear, deathYear, nationalities } = data
+  const auth = useAuth()
+  const loc = useLocation()
+  const nationalityStr = forceArray(nationalities)[0] || ''
+  const { value: nationality, isReady: nationalityIsReady } = useApiText({
+    textOrUri: nationalityStr,
+    pageUri: loc.pathname,
+    auth,
+  })
+  const hasLifeYears = Boolean(birthYear || deathYear)
+  const hasNationality = nationalityIsReady && Boolean(nationality)
+
+  return (
+    <React.Fragment>
+      {name !== undefined && name !== '' && (
+        <StyledSpan data-testid="agent-in-header-name">{name}</StyledSpan>
+      )}
+      {hasLifeYears && (
+        <StyledSpan data-testid="agent-in-header-years">
+          , {birthYear || ''}-{deathYear || ''}
+        </StyledSpan>
+      )}
+      {hasNationality && (
+        <StyledSpan data-testid="agent-in-header-nationality">
+          , {nationality}
+        </StyledSpan>
+      )}
+    </React.Fragment>
+  )
+}
+
+export default AgentInHeader

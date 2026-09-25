@@ -1,0 +1,31 @@
+<!-- This file is a template and should be used to begin configuration of the index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Place your <title>, <style>, <meta>, <link>, and <script> tags here -->
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Place your optional additional elements here -->
+    <!-- div with id="root" is necessary for React -->
+    <div id="root"></div>
+    <script>
+      // Suppress specific CssSelectorGenerator shadow-root warning from third-party scripts
+      (function () {
+        try {
+          var _warn = console.warn
+          console.warn = function () {
+            try {
+              var a0 = arguments[0]
+              if (typeof a0 === 'string' && a0.indexOf('CssSelectorGenerator: shadow root inferred') !== -1) {
+                return
+              }
+            } catch (e) {}
+            return _warn.apply(console, arguments)
+          }
+        } catch (e) {}
+      })()
+    </script>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>
