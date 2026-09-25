@@ -88,7 +88,7 @@ def load_path(data_path: Path):
 
     # Rewrite pipeline placeholder URIs to match this API's base URL.
     # The pipeline uses internal_uri as a placeholder (e.g. https://your.local.domain/data/)
-    # which must match DATA_API_BASE_URL in the lux-frontend config.
+    # which must match DATA_API_BASE_URL in the frontend/ config.
     api_base = (settings.base_url.rstrip("/") + "/") if settings.base_url else "http://localhost:8000/"
     _URI_REWRITES = [
         ("https://your.local.domain/data/", api_base + "data/"),

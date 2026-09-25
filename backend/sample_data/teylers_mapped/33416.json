@@ -1,0 +1,299 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/HumanMadeObject/teylers33416",
+  "type": "HumanMadeObject",
+  "_label": "Bacchus op een wijnvat",
+  "classified_as": [
+    {
+      "id": "http://vocab.getty.edu/aat/300041273",
+      "type": "Type",
+      "_label": "prints (visual works)"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Bacchus op een wijnvat",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KG 17555",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Peiroleri, Pedro"
+      },
+      {
+        "type": "Person",
+        "_label": "Rubens, Peter Paul"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1758-01-01T00:00:00",
+      "end_of_the_begin": "1758-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1758",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "kopergravure"
+      }
+    ]
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 360.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 256.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 600.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 400.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "De god Bachus op een wijnvat, zijn kelk wordt ingeschonken door een vrouw wat uit de kelk valt wordt door een jongetje op de grond opgevangen. Aan de andere kant staat een man uit een kruik te drinken en er staat een jongetje te plassen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>Rubens Dip. / Dalla Galleria del Signor Barone di Thiers, in Parigi</SPAN></SPAN></P></DIV>"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>P. Peiroleri Inc. 1758 / in Torino App. Peiroleri .m. 2</SPAN></SPAN></P></DIV>"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>Spezza i saldi cuor dolor : punge amore [...] [...] Di duol , d' amor , dell 'Or, di vita e scoglio .</SPAN></SPAN></P></DIV>"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "man"
+    },
+    {
+      "type": "Type",
+      "_label": "vrouw"
+    },
+    {
+      "type": "Type",
+      "_label": "goden (mythologische)"
+    },
+    {
+      "type": "Type",
+      "_label": "druif"
+    },
+    {
+      "type": "Type",
+      "_label": "faun"
+    },
+    {
+      "type": "Type",
+      "_label": "kind"
+    },
+    {
+      "type": "Type",
+      "_label": "dier: tijger"
+    },
+    {
+      "type": "Type",
+      "_label": "wijnvat"
+    },
+    {
+      "type": "Type",
+      "_label": "kelk"
+    },
+    {
+      "type": "Type",
+      "_label": "boom"
+    },
+    {
+      "type": "Type",
+      "_label": "kruik"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q751582",
+      "type": "Group",
+      "_label": "Teylers Museum"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Teylers Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Teylers Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/33416",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9S0clMjAxNzU1NS5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Bacchus%20op%20een%20wijnvat",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value=KG%2017555.jpg&folderId=1&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

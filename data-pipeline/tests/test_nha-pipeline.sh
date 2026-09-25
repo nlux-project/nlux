@@ -4,7 +4,14 @@
 # Validates an NHA C1477 test record after each step -- exits on first failure.
 set -euo pipefail
 
-cd /Users/lux/data-pipeline
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Run the repo's tests with the repo's requirements; point PIPELINE_DIR at the
+# deployed data location (harvest input, caches, export output).
+cd "$SCRIPT_DIR/.."
+export PIPELINE_DIR="${LUX_BASEPATH:-/Users/lux/data-pipeline}"
+PYTHON_VERSION="${PYTHON_VERSION:-3.12}"
+TEST_PY="uv run --python $PYTHON_VERSION --with-requirements requirements.txt python"
 
 TEST_NHA_C587_ID="${1:-F7DDF7EEFB8E11DF9E4D523BC2E286E2}"
 TEST_NHA_C480_ID="${2:-FDA34069BFB4CEAE7E0C6F209BA0105D}"
@@ -18,30 +25,30 @@ check_C587() { echo -e "${YELLOW}  ▸ Validating nha-c587 id=$TEST_NHA_C587_ID 
 check_C1477() { echo -e "${YELLOW}  ▸ Validating nha-c1477 id=$TEST_NHA_C1477_ID ...${NC}"; }
 run_nha_c480_test() {
     TEST_NHA_C480_ID="$TEST_NHA_C480_ID" NHA_C480_REQUIRE_LIVE=1 \
-        uv run python -m unittest "tests.test_nha_pipeline.NhaC480PipelineIntegrationTest.$1"
+        $TEST_PY -m unittest "tests.test_nha_pipeline.NhaC480PipelineIntegrationTest.$1"
 }
 run_nha_c587_test() {
     TEST_NHA_C587_ID="$TEST_NHA_C587_ID" NHA_C587_REQUIRE_LIVE=1 \
-        uv run python -m unittest "tests.test_nha_pipeline.NhaC587PipelineIntegrationTest.$1"
+        $TEST_PY -m unittest "tests.test_nha_pipeline.NhaC587PipelineIntegrationTest.$1"
 }
 run_nha_c1477_test() {
     TEST_NHA_C1477_ID="$TEST_NHA_C1477_ID" NHA_C1477_REQUIRE_LIVE=1 \
-        uv run python -m unittest "tests.test_nha_pipeline.NhaC1477PipelineIntegrationTest.$1"
+        $TEST_PY -m unittest "tests.test_nha_pipeline.NhaC1477PipelineIntegrationTest.$1"
 }
 
 echo "==> Testing Step 1: harvest file validation ..."
 check_C480
-FILE="data/input/nha/c480/${TEST_NHA_C480_ID}.json"
+FILE="$PIPELINE_DIR/data/input/nha/c480/${TEST_NHA_C480_ID}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
 run_nha_c480_test test_harvest_file || fail "Harvest file validation failed"
 pass "Harvest OK -- file has expected fields"
 check_C587
-FILE="data/input/nha/c587/${TEST_NHA_C587_ID}.json"
+FILE="$PIPELINE_DIR/data/input/nha/c587/${TEST_NHA_C587_ID}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
 run_nha_c587_test test_harvest_file || fail "Harvest file validation failed"
 pass "Harvest OK -- file has expected fields"
 check_C1477
-FILE="data/input/nha/c1477/${TEST_NHA_C1477_ID}.json"
+FILE="$PIPELINE_DIR/data/input/nha/c1477/${TEST_NHA_C1477_ID}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
 run_nha_c1477_test test_harvest_file || fail "Harvest file validation failed"
 pass "Harvest OK -- file has expected fields"

@@ -1,0 +1,251 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/HumanMadeObject/teylers36243",
+  "type": "HumanMadeObject",
+  "_label": "St. Cunera-kerk te Rhenen",
+  "classified_as": [
+    {
+      "id": "http://vocab.getty.edu/aat/300033973",
+      "type": "Type",
+      "_label": "drawings (visual works)"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "St. Cunera-kerk te Rhenen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "O 081",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Saenredam, Pieter"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1644-06-28-01-01T00:00:00",
+      "end_of_the_begin": "1644-06-28-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1644-06-28",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "pen in bruin"
+      }
+    ]
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 354.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 465.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 418.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 598.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Stadsgezicht te Rhenen met in het midden de toren en rechts de kerk, links het huis van de Winterkoning, op de voorgrond verschillende figuren, w.o. boeren met een hooiwagen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>Pieter Saenredam dese gemaeckt den 27 en 28 Jun.. int Jaer 1644.</SPAN></SPAN></P></DIV>"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "topografie (NL): Rhenen: Cunerakerktoren"
+    },
+    {
+      "type": "Type",
+      "_label": "stadsgezicht"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q751582",
+      "type": "Group",
+      "_label": "Teylers Museum"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Teylers Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Teylers Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/36243",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9TyUyMDA4MS5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=St.%20Cunera-kerk%20te%20Rhenen",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value=O%20081.jpg&folderId=1&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

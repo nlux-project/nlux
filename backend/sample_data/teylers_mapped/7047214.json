@@ -1,0 +1,309 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/HumanMadeObject/teylers7047214",
+  "type": "HumanMadeObject",
+  "_label": "Gildepenning van de schoenmakers, looiers en leerkopers te ’s-Gravenhage",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Gildepenning van de schoenmakers, looiers en leerkopers te ’s-Gravenhage",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 05533",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Republiek der Zeven Verenigde Nederlanden, republiek"
+      },
+      {
+        "type": "Person"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1774-01-01T00:00:00",
+      "end_of_the_begin": "1774-12-31T23:59:59",
+      "begin_of_the_end": "1774-01-01T00:00:00",
+      "end_of_the_end": "1774-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1774",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "ongerand"
+      }
+    ]
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Messing"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 52.8,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055624",
+          "type": "Type",
+          "_label": "diameter"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 45.1405,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "g"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 78.09,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 1.3,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.8,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 19.22,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.08,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.37,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.1,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.02,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.02,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.37,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "voorzijde: ooievaar, op een tafel met afhangend (leren) kleed met franjes (met daarop een ossekop), staan twee schoenen en een laars.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "keerzijde: tak, om- en opschrift, deels gegraveerd",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "SCHOENMAAKERS * LOOYERS * EN LEER * KOOPERS * GILDE * / 17 - 74"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "VRYMEESTER / N 73"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "[geen]"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "[geen]"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "[geen]"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q751582",
+      "type": "Group",
+      "_label": "Teylers Museum"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Teylers Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Teylers Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7047214",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9VE1OSzA1NTMzYS5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Gildepenning%20van%20de%20schoenmakers%2C%20looiers%20en%20leerkopers%20te%20%E2%80%99s-Gravenhage",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value=TMNK05533a.jpg&folderId=1&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

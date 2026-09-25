@@ -9,7 +9,7 @@ Run after loading records and generating agents:
 The script updates API database records in place. It first reuses existing
 Wikidata equivalents when present; otherwise it searches Wikidata by label.
 Wikipedia page summaries are stored as Linked Art referred_to_by notes
-classified as Display Biography so the lux-frontend Biography/Notes area can
+classified as Display Biography so the frontend Biography/Notes area can
 render them without frontend changes.
 """
 from __future__ import annotations

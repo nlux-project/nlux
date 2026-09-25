@@ -1,0 +1,269 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/HumanMadeObject/teylers34455",
+  "type": "HumanMadeObject",
+  "_label": "Ferdinand II",
+  "classified_as": [
+    {
+      "id": "http://vocab.getty.edu/aat/300041273",
+      "type": "Type",
+      "_label": "prints (visual works)"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Ferdinand II",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KG 17807",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Prenner, Anton Joseph von"
+      },
+      {
+        "type": "Person",
+        "_label": "Rubens, Peter Paul"
+      }
+    ],
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "gravure"
+      }
+    ]
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 225.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 163.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 423.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 299.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Portret van Ferdinand II aartshertog van Oostenrijk, hij kijkt naar rechts. Hij staat in een nis met een hoed op, een hand op zijn zwaard en in zijn andere hand een soort staf. Hij heeft een cape om en sporen aan zijn laarzen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>P. P. Rubens pinx.</SPAN></SPAN></P></DIV>"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>Scipiadum taceas gentem (...) &amp; Divum Genitor:</SPAN></SPAN></P></DIV>"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>v. Prenner del. et inv.</SPAN></SPAN></P></DIV>"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "keizer: Ferdinand II"
+    },
+    {
+      "type": "Type",
+      "_label": "portret"
+    },
+    {
+      "type": "Type",
+      "_label": "nis"
+    },
+    {
+      "type": "Type",
+      "_label": "zwaard"
+    },
+    {
+      "type": "Type",
+      "_label": "sporen"
+    },
+    {
+      "type": "Type",
+      "_label": "cape"
+    },
+    {
+      "type": "Type",
+      "_label": "hoed"
+    },
+    {
+      "type": "Type",
+      "_label": "staf"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q751582",
+      "type": "Group",
+      "_label": "Teylers Museum"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Teylers Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Teylers Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/34455",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9S0clMjAxNzgwNy5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Ferdinand%20II",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value=KG%2017807.jpg&folderId=1&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/HumanMadeObject/teylers39168",
+  "type": "HumanMadeObject",
+  "_label": "In memoriam voor Samuel Johannes van den Bergh",
+  "classified_as": [
+    {
+      "id": "http://vocab.getty.edu/aat/300041273",
+      "type": "Type",
+      "_label": "prints (visual works)"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "In memoriam voor Samuel Johannes van den Bergh",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "PP 0083",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "onbekend"
+      },
+      {
+        "type": "Person",
+        "_label": "Dr. Wap"
+      }
+    ],
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "gravure"
+      }
+    ]
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 229.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 149.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 338.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 228.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "In memoriam voor dichter Samuel Johannes van den Bergh. Het blad bevat een klein portret boven een uitgebreide tekst over zijn leven en verdiensten, geschreven door Dr. Wap.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P STYLE=\"font-family:Tahoma;font-size:11.333333333333332;margin:0 0 0 0;\"><SPAN><SPAN>SAMUEL JOHANNES VAN DEN BERGH</SPAN></SPAN></P><P /><P STYLE=\"font-family:Tahoma;font-size:11.333333333333332;margin:0 0 0 0;\"><SPAN><SPAN>geboren en overleden te 's Gravenhage</SPAN></SPAN></P><P STYLE=\"font-family:Tahoma;font-size:11.333333333333332;margin:0 0 0 0;\"><SPAN><SPAN>(10Januarij, 1814 - 24 December, 1868)</SPAN></SPAN></P></DIV>"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "dichter"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q751582",
+      "type": "Group",
+      "_label": "Teylers Museum"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Teylers Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Teylers Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/39168",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9UFAlMjAwMDgzLmpwZyZmb2xkZXJJZD0xJndpZHRoPTgwMCZoZWlnaHQ9ODAwJmltYWdlZm9ybWF0PWpwZw?label=In%20memoriam%20voor%20Samuel%20Johannes%20van%20den%20Bergh",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value=PP%200083.jpg&folderId=1&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

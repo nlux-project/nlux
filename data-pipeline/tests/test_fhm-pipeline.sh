@@ -2,7 +2,14 @@
 # Validates a Frans Hals Museum test record after each step — exits on first failure.
 set -euo pipefail
 
-cd /Users/lux/data-pipeline
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Run the repo's tests with the repo's requirements; point PIPELINE_DIR at the
+# deployed data location (harvest input, caches, export output).
+cd "$SCRIPT_DIR/.."
+export PIPELINE_DIR="${LUX_BASEPATH:-/Users/lux/data-pipeline}"
+PYTHON_VERSION="${PYTHON_VERSION:-3.12}"
+TEST_PY="uv run --python $PYTHON_VERSION --with-requirements requirements.txt python"
 
 TEST_OBJECTID="${1:-3}"
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
@@ -12,13 +19,13 @@ fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
 check() { echo -e "${YELLOW}  ▸ Validating objectid=$TEST_OBJECTID ...${NC}"; }
 run_fhm_test() {
     TEST_OBJECTID="$TEST_OBJECTID" FHM_REQUIRE_LIVE=1 \
-        uv run python -m unittest "tests.test_fhm_pipeline.FhmPipelineIntegrationTest.$1"
+        $TEST_PY -m unittest "tests.test_fhm_pipeline.FhmPipelineIntegrationTest.$1"
 }
 
 echo "==> Testing FHM ..."
 echo "==> Testing Step 1: harvest file validation ..."
 check
-FILE="data/input/fhm/${TEST_OBJECTID}.json"
+FILE="$PIPELINE_DIR/data/input/fhm/${TEST_OBJECTID}.json"
 [ -f "$FILE" ] || fail "Harvest file not found: $FILE"
 run_fhm_test test_harvest_file || fail "Harvest file validation failed"
 pass "Harvest OK — file has expected fields"

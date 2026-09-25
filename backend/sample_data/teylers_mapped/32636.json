@@ -1,0 +1,251 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/HumanMadeObject/teylers32636",
+  "type": "HumanMadeObject",
+  "_label": "Dansende figuren in arcadisch landschap",
+  "classified_as": [
+    {
+      "id": "http://vocab.getty.edu/aat/300033973",
+      "type": "Type",
+      "_label": "drawings (visual works)"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Dansende figuren in arcadisch landschap",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TvB T 655",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Rademaker, Abraham"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1697-01-01T00:00:00",
+      "end_of_the_begin": "1697-12-31T23:59:59",
+      "begin_of_the_end": "1735-01-01T00:00:00",
+      "end_of_the_end": "1735-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "na 1697 - voor 1735",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "pen in bruin"
+      }
+    ]
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "papier"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 279.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 397.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "breedte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Landschap met classicistische gebouwen en grote bomen. Op de voorgrond is een aantal figuren in klassieke kledij aan het dansen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>TvB</SPAN></SPAN></P></DIV>"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>[..]5</SPAN></SPAN></P></DIV>"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>28</SPAN></SPAN></P></DIV>"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>Rademaker</SPAN></SPAN></P></DIV>"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "<DIV STYLE=\"text-align:Justify;font-family:Georgia;font-style:normal;font-weight:normal;font-size:16;color:#000000;\"><P><SPAN><SPAN>W</SPAN></SPAN></P></DIV>"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "landschap (arcadisch)"
+    },
+    {
+      "type": "Type",
+      "_label": "gebouwen"
+    },
+    {
+      "type": "Type",
+      "_label": "klassiek landschap"
+    },
+    {
+      "type": "Type",
+      "_label": "figuren"
+    },
+    {
+      "type": "Type",
+      "_label": "dansen"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q751582",
+      "type": "Group",
+      "_label": "Teylers Museum"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Teylers Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Teylers Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/32636",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9VHZCJTIwVCUyMDA2NTUuanBnJmZvbGRlcklkPTEmd2lkdGg9ODAwJmhlaWdodD04MDAmaW1hZ2Vmb3JtYXQ9anBn?label=Dansende%20figuren%20in%20arcadisch%20landschap",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value=TvB%20T%200655.jpg&folderId=1&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

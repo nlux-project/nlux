@@ -1,0 +1,294 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/HumanMadeObject/teylers7053098",
+  "type": "HumanMadeObject",
+  "_label": "Statenoord uit Gelre",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Statenoord uit Gelre",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 11558",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Gelre, hertogdom"
+      },
+      {
+        "type": "Person"
+      },
+      {
+        "type": "Person",
+        "_label": "Noster, Hendrik"
+      },
+      {
+        "type": "Person",
+        "_label": "Habsburg, Philips II van"
+      },
+      {
+        "type": "Person",
+        "_label": "Staten van Gelderland"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1577-01-01T00:00:00",
+      "end_of_the_begin": "1577-12-31T23:59:59",
+      "begin_of_the_end": "1577-01-01T00:00:00",
+      "end_of_the_end": "1577-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1577",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "koper"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 27.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055624",
+          "type": "Type",
+          "_label": "diameter"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 5.8916,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "g"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 98.83,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.41,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.07,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.13,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.08,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.43,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    },
+    {
+      "type": "Dimension",
+      "value": 0.13,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "%"
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "voorzijde: borstbeeld Philips II met geplooide kraag",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "keerzijde: gekroond wapenschild van Philips II omhangen met de Orde van het Gulden Vlies",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "(klaver) + PHS . D : G (. HI)SP Z REX . DVX GEL (klaver)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PACE .: ET - IVT(ITIA) “PHS”"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "[geen]"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "0"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q751582",
+      "type": "Group",
+      "_label": "Teylers Museum"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Teylers Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Teylers Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7053098",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9VE1OSzExNTU4YS5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Statenoord%20uit%20Gelre",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value=TMNK11558a.jpg&folderId=1&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

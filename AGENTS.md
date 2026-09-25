@@ -132,7 +132,7 @@ Teylers Adlib API
   → backend/scripts/load_data.py      (imports into nlux API database)
   → SQLite (dev) / PostgreSQL (prod)
   → FastAPI REST API
-  → lux-frontend (React)
+  → frontend/ (React)
 ```
 
 ### Backend (`backend/app/`)

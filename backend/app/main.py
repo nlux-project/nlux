@@ -2,11 +2,17 @@ from __future__ import annotations
 
 import base64
 import json
+import ssl
 from http.client import InvalidURL
 from typing import Any, Optional
 from urllib.error import HTTPError, URLError
 from urllib.parse import unquote, quote, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
+
+try:
+    import certifi
+except ImportError:  # pragma: no cover
+    certifi = None
 
 from fastapi import FastAPI, Depends, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -22,6 +28,12 @@ from .models import Record
 from .search import search_records, SCOPE_TYPES
 
 app = FastAPI(title="nlux-backend", version="0.1.0")
+
+# SSL context for outbound image fetching. Prefer certifi's CA bundle
+# (bundled Pythons may lack default verify paths, e.g. on macOS).
+_ssl_kwargs: dict[str, Any] = {}
+if certifi is not None:
+    _ssl_kwargs["context"] = ssl.create_default_context(cafile=certifi.where())
 
 app.add_middleware(
     CORSMiddleware,
@@ -362,7 +374,7 @@ def iiif_image(token: str):
     request = Request(_request_safe_url(image_url), headers={"User-Agent": "NLUX/0.1"})
 
     try:
-        with urlopen(request, timeout=20) as response:
+        with urlopen(request, timeout=20, **_ssl_kwargs) as response:
             content = response.read()
             content_type = response.headers.get_content_type() or "image/jpeg"
     except HTTPError as exc:
@@ -791,7 +803,7 @@ def translate(
 def search_info():
     """
     Describes available search terms, facet names, and sort options per scope.
-    Minimal implementation — enough for lux-frontend to initialise.
+    Minimal implementation — enough for frontend/ to initialise.
     """
     scopes = list(SCOPE_TYPES.keys())
     search_by: dict = {}

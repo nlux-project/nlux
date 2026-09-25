@@ -1,0 +1,238 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://teylers.adlibhosting.com/nlux/HumanMadeObject/teylers7053341",
+  "type": "HumanMadeObject",
+  "_label": "Derde stater uit Lydië op naam van Ardys II, koning (-680/-631) / Sadyattes, koning (-631/-619) / Alyattes II, koning (-619/-561)",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Derde stater uit Lydië op naam van Ardys II, koning (-680/-631) / Sadyattes, koning (-631/-619) / Alyattes II, koning (-619/-561)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "TMNK 11803",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Lydië, koninkrijk"
+      },
+      {
+        "type": "Person",
+        "_label": "Sadyattes"
+      },
+      {
+        "type": "Person",
+        "_label": "Alyattes II"
+      },
+      {
+        "type": "Person",
+        "_label": "Ardys II"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "-0650-01-01T00:00:00",
+      "end_of_the_begin": "-0650-12-31T23:59:59",
+      "begin_of_the_end": "-0610-01-01T00:00:00",
+      "end_of_the_end": "-0610-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "-0650 - -0610",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    },
+    "technique": [
+      {
+        "type": "Type",
+        "_label": "geslagen"
+      }
+    ]
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "elektrum"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 13.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "mm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055624",
+          "type": "Type",
+          "_label": "diameter"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 4.7581,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "g"
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "voorzijde: leeuwenkop naar rechts, stralende globe voor kop",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "keerzijde: achthoekig incusum in twee segmenten",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "(geen)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "(geen)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "[geen]"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "head of a lion to the right"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "incuse with two squares"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q751582",
+      "type": "Group",
+      "_label": "Teylers Museum"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Teylers Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Teylers Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Details/museum/7053341",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9VE1OSzExODAzYS5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Derde%20stater%20uit%20Lydi%C3%AB%20op%20naam%20van%20Ardys%20II%2C%20koning%20%28-680/-631%29%20/%20Sadyattes%2C%20koning%20%28-631/-619%29%20/%20Alyattes%20II%2C%20koning%20%28-619/-561%29",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://teylers.adlibhosting.com/ais6/Content/GetContent?command=getcontent&server=images&value=TMNK11803a.jpg&folderId=1&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

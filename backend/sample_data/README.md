@@ -21,7 +21,7 @@ Every record must have:
 
 ## Entity types and search scopes
 
-| Linked Art type(s) | lux-frontend scope | Tab |
+| Linked Art type(s) | frontend scope | Tab |
 |--------------------|--------------------|-----|
 | `HumanMadeObject`, `DigitalObject` | `item` | Objects |
 | `LinguisticObject`, `VisualItem` | `work` | Works |
@@ -34,7 +34,7 @@ Every record must have:
 ## Set (Collection)
 
 A `Set` groups related objects into a named collection. Required to populate
-the "Collections" tab in lux-frontend.
+the "Collections" tab in frontend/.
 
 See [`set_example.json`](set_example.json) for a full example.
 
@@ -79,4 +79,4 @@ Key fields:
 - URIs must be globally unique and stable
 - Use `https://your-institution.nl/data/{type}/{id}` as the pattern
 - The `id` field is the primary key in nlux-backend's database
-- lux-frontend constructs record detail URLs from the `id` field
+- frontend/ constructs record detail URLs from the `id` field

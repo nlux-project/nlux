@@ -1,7 +1,14 @@
 #!/bin/bash
 set -euo pipefail
 
-cd /Users/lux/data-pipeline
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Run the repo's tests with the repo's requirements; point PIPELINE_DIR at the
+# deployed data location (harvest input, caches, export output).
+cd "$SCRIPT_DIR/.."
+export PIPELINE_DIR="${LUX_BASEPATH:-/Users/lux/data-pipeline}"
+PYTHON_VERSION="${PYTHON_VERSION:-3.12}"
+TEST_PY="uv run --python $PYTHON_VERSION --with-requirements requirements.txt python"
 
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 
@@ -9,7 +16,7 @@ pass() { echo -e "  ${GREEN}✓ $1${NC}"; }
 fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
 check() { echo -e "${YELLOW}  ▸ $1${NC}"; }
 run_test() {
-    PYTHONDONTWRITEBYTECODE=1 uv run python -m unittest "$1"
+    PYTHONDONTWRITEBYTECODE=1 $TEST_PY -m unittest "$1"
 }
 api_total_items() {
     local scope="$1"

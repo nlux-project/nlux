@@ -1,13 +1,15 @@
 #!/bin/bash
-# Validates WFM test records after each step — exits on first failure.
+# Runs every per-source validation suite — exits on the first failure.
+# Note: the per-source suites expect a running environment
+# (API container, pipeline services and $LUX_BASEPATH data).
 
 set -euo pipefail
 
-cd /Users/lux/data-pipeline
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_fhm.sh
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_hvh.sh
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_nha.sh
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_rbhc.sh
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_teylers.sh
-/bin/bash /Users/jsoeterbroek/Development/nlux-project/nlux/data-pipeline/tests/test_wfm.sh
+/bin/bash "$SCRIPT_DIR/test_fhm.sh"
+/bin/bash "$SCRIPT_DIR/test_hvh.sh"
+/bin/bash "$SCRIPT_DIR/test_nha.sh"
+/bin/bash "$SCRIPT_DIR/test_rbhc.sh"
+/bin/bash "$SCRIPT_DIR/test_teylers.sh"
+/bin/bash "$SCRIPT_DIR/test_wfm.sh"
