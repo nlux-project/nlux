@@ -8,6 +8,18 @@ This file provides guidance when working with code in this repository.
 
 ## Commands
 
+### Task Runner
+
+A top-level `Makefile` wraps all common commands with the correct environment
+(`LUX_BASEPATH`, pinned Python 3.12 via `uv`):
+
+```bash
+make help           # list all targets
+make backend-run    # API dev server on :8000
+make pipeline       # full Teylers pipeline (harvest → load → reconcile → merge → export)
+make test-backend   # backend test suite
+```
+
 ### Local Development
 #### Install backend
 
@@ -63,16 +75,15 @@ python ./manage-data.py --load-index --aat
 
 ### API Database Loading
 
-After the pipeline exports JSONL to `data-pipeline/output/latest/`:
+After the pipeline exports JSONL to `$LUX_BASEPATH/data/output/latest/`:
 
 ```bash
 # Load exported records into the nlux API database
-python backend/scripts/load_data.py data-pipeline/output/latest/
+python backend/scripts/load_data.py $LUX_BASEPATH/data/output/latest/
 
-# Generate synthetic entity records (persons, places, groups)
-python backend/scripts/generate_persons.py
-python backend/scripts/generate_places.py
-python backend/scripts/generate_groups.py
+# Generate synthetic entity records
+python backend/scripts/generate_agents.py     # persons + groups referenced by objects
+python backend/scripts/generate_concepts.py   # concepts referenced by objects
 
 # Reset the API database
 python backend/scripts/reset.py
@@ -82,6 +93,22 @@ Convenience Docker loaders:
 ```bash
 bash backend/scripts/load_all_to_docker.sh
 ```
+
+### Carousel Display (`caroussel/`)
+
+Full-screen slideshow of Teylers objects **with images**, served on :8089.
+
+```bash
+make carousel-load    # map raw Adlib records (image-bearing) into the API DB
+make carousel-run    # build frontend, start backend :8000 + carousel server :8089
+make carousel-test   # jsdom smoke test
+# then open http://localhost:8089/
+```
+
+`backend/scripts/load_teylers_from_raw.py` runs the real pipeline mapper
+(`pipeline/sources/museums/teylers/mapper.py`) over the raw Adlib harvest
+(`$LUX_BASEPATH/data/input/teylers`), producing Linked Art with image
+representations and IIIF manifests; see `caroussel/README.md`.
 
 ### Documentation
 
@@ -101,7 +128,7 @@ Teylers Adlib API
   → manage-data.py --load             (PostgreSQL datacache)
   → run-reconcile.py                  (AAT + authority linking)
   → run-merge.py                      (entity deduplication)
-  → run-export.py                     (Linked Art JSONL → data-pipeline/output/)
+  → run-export.py                     (Linked Art JSONL → $LUX_BASEPATH/data/output/latest/)
   → backend/scripts/load_data.py      (imports into nlux API database)
   → SQLite (dev) / PostgreSQL (prod)
   → FastAPI REST API

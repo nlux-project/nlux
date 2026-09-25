@@ -1,17 +1,304 @@
-# Makefile
+# =========================================================================
+# NLUX — top-level task runner
+#
+# LUX_BASEPATH : data storage root used by the data-pipeline
+#                (harvested input, datacache, exports and config_cache)
+#                  default: /Users/lux/data-pipeline   (macOS)
+#                           /home/lux/data-pipeline    (Linux)
+#                Override: make <target> LUX_BASEPATH=/path/to/storage
+#
+# make install VOLUME=/Volumes/<disk>
+#     Symlinks $(LUX_BASEPATH)/data/output -> $(VOLUME)/data so heavy
+#     pipeline output lives on an external data volume.
+#
+# Pipeline knobs:
+#     make reconcile SOURCE=teylers    pick the collection source
+#     make export    SLICE=2 MAXSLICE=8   run one parallel slice
+#
+# Run `make help` for the full target list.
+# =========================================================================
 
-# set Bash VAR 'LUX_BASEPATH'
-# defaults to /Users/lux/data-pipeline on MacOS
-# defaults to /home/lux/data-pipeline on Linux
+SHELL := /bin/bash
+.DEFAULT_GOAL := help
 
+# --- Environment -----------------------------------------------------------
 
-# install target
-#   make symlink to data storage volume (ie. external disk)
-#     $LUX_BASEPATH/data/output ->  {volume/path}/data
-# TBA
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+DEFAULT_LUX_BASEPATH := /Users/lux/data-pipeline
+else
+DEFAULT_LUX_BASEPATH := /home/lux/data-pipeline
+endif
 
-# run pipeline target
-# TBA
+LUX_BASEPATH ?= $(DEFAULT_LUX_BASEPATH)
+export LUX_BASEPATH
 
+# Backend code requires Python >= 3.10 (PEP 604 unions); the API Docker image
+# uses 3.12, so pin the uv-managed interpreter to match. uv resolves and
+# caches each requirements.txt on first use.
+PYTHON_VERSION ?= 3.12
 
-# etc.
+# Carousel display (caroussel/) knobs
+CAROUSEL_COUNT ?= 200
+CAROUSEL_SEED ?= 42
+
+# Run from repo root; requirements path relative to root.
+BACKEND_PY := uv run --python $(PYTHON_VERSION) --with-requirements backend/requirements.txt python
+
+# Run from inside data-pipeline/; requirements path relative to that dir.
+PIPELINE_PY := uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt python
+
+# --- Knobs -----------------------------------------------------------------
+
+# Pipeline collection source to process (teylers, fhm, hvh, rbhc, wfm, ...)
+SOURCE ?= teylers
+# Parallel slice control for reconcile / merge / export
+SLICE ?= 0
+MAXSLICE ?= 1
+# Pipeline export location used by api-load
+EXPORT_DIR ?= $(LUX_BASEPATH)/data/output/latest
+
+# --- Meta ------------------------------------------------------------------
+
+.PHONY: help
+help:
+	@printf '\n'
+	@printf 'Setup ======================================================================\n'
+	@printf '  install                 symlink $$(LUX_BASEPATH)/data/output to an external disk\n'
+	@printf '                          (usage: make install VOLUME=/Volumes/<disk>)\n\n'
+	@printf 'Backend (FastAPI API) =======================================================\n'
+	@printf '  backend-install         provision the pinned Python env for backend/requirements.txt\n'
+	@printf '  backend-run             run the API dev server on :8000 (uvicorn --reload)\n'
+	@printf '  backend-reset           drop and recreate the API database\n'
+	@printf '  api-load                load exported Linked Art JSONL into the API DB\n'
+	@printf '                          (EXPORT_DIR=$$(LUX_BASEPATH)/data/output/latest)\n'
+	@printf '  api-generate-agents     generate Person/Group records from object data\n'
+	@printf '  api-generate-concepts   generate concept records from object data\n\n'
+	@printf 'Data pipeline ==============================================================\n'
+	@printf '  pipeline-install        provision the pinned Python env for data-pipeline/requirements.txt\n'
+	@printf '  harvest-teylers         step 1: harvest Teylers records from the Adlib API\n'
+	@printf '  pipeline-load           step 2: load harvested records into the datacache (SOURCE=teylers)\n'
+	@printf '  reconcile               step 3: reconcile against authority data (SOURCE, SLICE, MAXSLICE)\n'
+	@printf '  merge                   step 4: merge/deduplicate entities (SOURCE, SLICE, MAXSLICE)\n'
+	@printf '  export                  step 5: export Linked Art JSONL (SLICE, MAXSLICE)\n'
+	@printf '  pipeline                steps 1-5 in sequence for SOURCE=teylers\n'
+	@printf '  harvest-aat             harvest AAT authority data (run once before first reconcile)\n'
+	@printf '  index-aat               load AAT into the reference index (after harvest-aat)\n\n'
+	@printf 'Testing ====================================================================\n'
+	@printf '  test-backend            backend test suite (container tests need the API container up)\n'
+	@printf '  test-pipeline           data-pipeline unit tests (mappers, exporters)\n'
+	@printf '  test-pipeline-integration  per-source validation suites (needs live services)\n'
+	@printf '  test-frontend           frontend unit + integration tests (vitest)\n'
+	@printf '  test                    all of the above\n\n'
+	@printf 'Docker =====================================================================\n'
+	@printf '  docker-up               start api + frontend (compose up)\n'
+	@printf '  docker-up-pipeline      also start PostgreSQL + Redis (pipeline profile)\n'
+	@printf '  docker-down             stop all compose services\n'
+	@printf '  docker-load-all         load all Teylers data into the running API container\n\n'
+	@printf 'Frontend ===================================================================\n'
+	@printf '  frontend-install        npm ci (use after cloning / pulling)\n'
+	@printf '  frontend-dev            vite dev server\n'
+	@printf '  frontend-build          type-check + production build\n'
+	@printf '  frontend-lint           eslint\n\n'
+	@printf 'Carousel display (caroussel/) ===============================================\n'
+	@printf '  carousel-install        npm ci for the carousel frontend\n'
+	@printf '  carousel-build          production build (served by the carousel server)\n'
+	@printf '  carousel-dev            vite dev server on :5173 (proxies /api)\n'
+	@printf '  carousel-run            start backend :8000 + carousel server :8089\n'
+	@printf '  carousel-test           jsdom smoke test of the carousel frontend\n'
+	@printf '  carousel-load           (re)map Teylers objects with images into the API DB\n'
+	@printf '                          (CAROUSEL_COUNT=200 CAROUSEL_SEED=42)\n\n'
+	@printf 'Docs =======================================================================\n'
+	@printf '  docs-serve              mkdocs local preview on :8001\n'
+	@printf '  docs-deploy             deploy docs to GitHub Pages\n\n'
+	@printf 'Knobs (override on the command line):\n'
+	@printf '  LUX_BASEPATH=<path>     data storage root   (default: $(LUX_BASEPATH))\n'
+	@printf '  PYTHON_VERSION=<ver>    interpreter pin     (default: $(PYTHON_VERSION))\n'
+	@printf '  SOURCE=<source>          pipeline collection  (default: $(SOURCE))\n'
+	@printf '  SLICE=<n> MAXSLICE=<n>   parallel slice control (default: $(SLICE) / $(MAXSLICE))\n'
+	@printf '  EXPORT_DIR=<path>       export location for api-load (default: $(EXPORT_DIR))\n'
+	@printf '  CAROUSEL_COUNT=<n>      objects to map for the carousel (default: $(CAROUSEL_COUNT))\n'
+	@printf '  CAROUSEL_SEED=<n>       sampling seed for carousel-load (default: $(CAROUSEL_SEED))\n\n'
+
+# --- Storage setup ----------------------------------------------------------
+
+.PHONY: install
+install:
+	@test -n "$(VOLUME)" || { echo "usage: make install VOLUME=/Volumes/<external-disk>"; exit 2; }
+	@if [ -e "$(LUX_BASEPATH)/data/output" ] && [ ! -L "$(LUX_BASEPATH)/data/output" ]; then \
+		echo "refusing: $(LUX_BASEPATH)/data/output exists and is not a symlink"; exit 1; \
+	fi
+	@test -e "$(VOLUME)/data" || echo "note: $(VOLUME)/data does not exist yet — it will be created on first write"
+	mkdir -p "$(LUX_BASEPATH)/data"
+	ln -sfn "$(VOLUME)/data" "$(LUX_BASEPATH)/data/output"
+	@echo "$(LUX_BASEPATH)/data/output -> $(VOLUME)/data"
+
+# --- Backend ----------------------------------------------------------------
+
+.PHONY: backend-install
+backend-install:
+	cd backend && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt \
+		python -c "import fastapi, sqlalchemy, pydantic_settings; print('backend environment ready (python $(PYTHON_VERSION))')"
+
+.PHONY: backend-run
+backend-run:
+	cd backend && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt \
+		uvicorn app.main:app --reload
+
+.PHONY: backend-reset
+backend-reset:
+	$(BACKEND_PY) backend/scripts/reset.py
+
+.PHONY: api-load
+api-load:
+	$(BACKEND_PY) backend/scripts/load_data.py "$(EXPORT_DIR)"
+
+.PHONY: api-generate-agents
+api-generate-agents:
+	$(BACKEND_PY) backend/scripts/generate_agents.py
+
+.PHONY: api-generate-concepts
+api-generate-concepts:
+	$(BACKEND_PY) backend/scripts/generate_concepts.py
+
+# --- Data pipeline ------------------------------------------------------------
+
+.PHONY: pipeline-install
+pipeline-install:
+	cd data-pipeline && $(PIPELINE_PY) -c "import dotenv, psycopg2, redis, ujson; print('pipeline environment ready (python $(PYTHON_VERSION))')"
+
+.PHONY: harvest-teylers
+harvest-teylers:
+	cd data-pipeline && mkdir -p data/input/teylers && \
+		$(PIPELINE_PY) ./harvest-teylers.py data/input/teylers
+
+.PHONY: harvest-aat
+harvest-aat:
+	cd data-pipeline && $(PIPELINE_PY) ./run-harvest.py --aat
+
+.PHONY: index-aat
+index-aat:
+	cd data-pipeline && $(PIPELINE_PY) ./manage-data.py --load-index --aat
+
+.PHONY: pipeline-load
+pipeline-load:
+	cd data-pipeline && $(PIPELINE_PY) ./manage-data.py --load --$(SOURCE)
+
+.PHONY: reconcile
+reconcile:
+	cd data-pipeline && $(PIPELINE_PY) ./run-reconcile.py $(SLICE) $(MAXSLICE) --$(SOURCE)
+
+.PHONY: merge
+merge:
+	cd data-pipeline && $(PIPELINE_PY) ./run-merge.py $(SLICE) $(MAXSLICE) --$(SOURCE)
+
+.PHONY: export
+export:
+	cd data-pipeline && $(PIPELINE_PY) ./run-export.py $(SLICE) $(MAXSLICE)
+
+.PHONY: pipeline
+pipeline: harvest-teylers pipeline-load reconcile merge export
+
+# --- Testing -------------------------------------------------------------------
+
+.PHONY: test-backend
+test-backend:
+	bash backend/tests/test-backend.sh
+
+.PHONY: test-pipeline
+test-pipeline:
+	cd data-pipeline && $(PIPELINE_PY) -m unittest tests.test_agent_export tests.test_biography_enrichment tests.test_entity_export tests.test_export_splitting tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.test_mapper_extracts_portrait_subject_person
+
+# Full per-source validation suites: expect a live pipeline environment
+# (PostgreSQL + Redis via `make docker-up-pipeline`) and $LUX_BASEPATH data.
+.PHONY: test-pipeline-integration
+test-pipeline-integration:
+	bash data-pipeline/tests/test_all.sh
+
+.PHONY: test-frontend
+test-frontend:
+	cd frontend/client && npm test
+
+.PHONY: test
+test: test-backend test-pipeline test-frontend carousel-test
+
+# --- Docker --------------------------------------------------------------------
+
+.PHONY: docker-up
+docker-up:
+	docker compose up
+
+.PHONY: docker-up-pipeline
+docker-up-pipeline:
+	docker compose --profile pipeline up
+
+.PHONY: docker-down
+docker-down:
+	docker compose down
+
+.PHONY: docker-load-all
+docker-load-all:
+	bash backend/scripts/load_all_to_docker.sh
+
+# --- Frontend --------------------------------------------------------------------
+
+.PHONY: frontend-install
+frontend-install:
+	cd frontend/client && npm ci --legacy-peer-deps
+
+.PHONY: frontend-dev
+frontend-dev:
+	cd frontend/client && npm start
+
+.PHONY: frontend-build
+frontend-build:
+	cd frontend/client && npm run build
+
+.PHONY: frontend-lint
+frontend-lint:
+	cd frontend/client && npm run lint
+
+# --- Carousel display ------------------------------------------------------------
+
+.PHONY: carousel-install
+carousel-install:
+	cd caroussel/frontend && npm ci
+
+.PHONY: carousel-build
+carousel-build:
+	cd caroussel/frontend && npm run build
+
+.PHONY: carousel-dev
+carousel-dev:
+	cd caroussel/frontend && npm run dev
+
+.PHONY: carousel-test
+carousel-test:
+	cd caroussel/frontend && npm test
+
+.PHONY: carousel-run
+carousel-run:
+	$(MAKE) -s carousel-build
+	@echo 'Starting backend :8000 and carousel server :8089 ...'
+	@bash -c '\
+		trap "kill 0" EXIT; \
+		(cd backend && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt python -m uvicorn app.main:app --port 8000) & \
+		(cd caroussel/server && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt python server.py) & \
+		wait'
+
+.PHONY: carousel-load
+carousel-load:
+	cd backend && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt \
+		--with-requirements ../data-pipeline/requirements.txt \
+		python scripts/load_teylers_from_raw.py \
+		--count $(CAROUSEL_COUNT) --seed $(CAROUSEL_SEED) --reset
+
+# --- Docs -----------------------------------------------------------------------
+
+.PHONY: docs-serve
+docs-serve:
+	uv run --python $(PYTHON_VERSION) --with mkdocs --with mkdocs-material mkdocs serve
+
+.PHONY: docs-deploy
+docs-deploy:
+	uv run --python $(PYTHON_VERSION) --with mkdocs --with mkdocs-material mkdocs gh-deploy --force
