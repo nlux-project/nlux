@@ -165,7 +165,9 @@ def normalize_item(doc: dict) -> Optional[dict[str, Any]]:
     seen: set[str] = set()
     unique_creators = [c for c in creators if not (c in seen or seen.add(c))]
 
-    title = doc.get("_label") or "Zonder titel"
+    title = (doc.get("_label") or "").strip()
+    if not title or title.lower() == "zonder titel":
+        return None  # untitled objects are not shown in the carousel
     classification = _texts(doc.get("classified_as"))
     materials = _texts(doc.get("made_of"))
     techniques = _texts(prod.get("technique"))
@@ -200,9 +202,36 @@ def normalize_item(doc: dict) -> Optional[dict[str, Any]]:
 # NLUX API helpers
 # ---------------------------------------------------------------------------
 
-def search_item_uris(scope: str) -> list[dict[str, str]]:
+def collections_config() -> dict[str, Any]:
+    """Named collections from the config; falls back to the legacy flat
+    single-collection block for older config files."""
+    cols = CONFIG.get("collections")
+    if isinstance(cols, dict) and cols:
+        return cols
+    flat = CONFIG.get("collection") or {}
+    return {flat.get("name", "default"): flat}
+
+
+def resolve_collection(name: Optional[str]) -> tuple[str, dict[str, Any]]:
+    """Resolve a collection by name (None -> configured default)."""
+    cols = collections_config()
+    if name is None:
+        name = CONFIG.get("default_collection") or next(iter(cols))
+    if name not in cols:
+        available = ", ".join(sorted(cols))
+        raise HTTPException(
+            status_code=404,
+            detail=f"Onbekende collectie: '{name}'. Beschikbare collecties: {available}",
+        )
+    return name, cols[name]
+
+
+def search_item_uris(scope: str, query: Optional[dict[str, Any]] = None) -> list[dict[str, str]]:
     """Return all image-bearing {id,type} stubs for a scope (paginates)."""
-    query = json.dumps({"hasDigitalImage": True, "_scope": scope})
+    criteria = dict(query or {})
+    criteria.setdefault("hasDigitalImage", True)
+    criteria["_scope"] = scope
+    query = json.dumps(criteria)
     stubs: list[dict[str, str]] = []
     page = 1
     try:
@@ -250,9 +279,12 @@ def health():
 @app.get("/api/config")
 def get_config():
     """Carousel configuration for the frontend."""
+    default = CONFIG.get("default_collection") or next(iter(collections_config()))
     return {
         "carousel": CONFIG.get("carousel", {}),
-        "collection": CONFIG.get("collection", {}),
+        "collection": collections_config().get(default, {}),
+        "collections": collections_config(),
+        "default_collection": default,
         "theme": CONFIG.get("theme", {}),
         "nlux_api": NLUX_API,
         "total_items": _total_cache["items"],
@@ -267,23 +299,33 @@ def get_carousel(
     count: int = Query(None, ge=1, le=50),
     scope: str = Query(None),
     seed: str = Query(None),
+    collection: str = Query(None),
 ):
-    """Return `count` random image-bearing objects for the carousel."""
-    cfg = CONFIG.get("collection", {})
-    scope = scope or cfg.get("scope", "item")
+    """Return `count` random image-bearing objects for the carousel.
+
+    The collection is chosen by name (see the `collections` config section);
+    without a `collection` parameter the configured default is used.
+    """
+    collection_name, col = resolve_collection(collection)
+    scope = scope or col.get("scope", "item")
     count = count or CONFIG.get("carousel", {}).get("count", 5)
 
-    stubs = search_item_uris(scope)
+    stubs = search_item_uris(scope, col.get("query"))
     _total_cache["items"] = len(stubs)
     if not stubs:
         raise HTTPException(status_code=502,
                             detail=f"No image-bearing objects found for scope '{scope}'")
 
     rng = random.Random(seed if seed is not None else None)
-    picked = rng.sample(stubs, min(count, len(stubs)))
+    rng.shuffle(stubs)
 
+    # Walk the shuffled stubs until we have `count` displayable items.
+    # Untitled objects (no _label / "Zonder titel") and records without a
+    # usable image are skipped, so we may need to look at more than `count`.
     items = []
-    for stub in picked:
+    for stub in stubs:
+        if len(items) >= count:
+            break
         doc = fetch_record(stub["id"])
         if doc is None:
             continue
@@ -292,7 +334,8 @@ def get_carousel(
             items.append(item)
 
     return {
-        "collection": cfg.get("name", "teylers"),
+        "collection": collection_name,
+        "label": col.get("label"),
         "scope": scope,
         "count": len(items),
         "total_available": len(stubs),

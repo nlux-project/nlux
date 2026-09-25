@@ -3,14 +3,14 @@
  *
  * A carousel consists of stacked .slide elements; the active one fades in.
  * Images are lazily assigned to slide <img> tags when the slide is within
- * one step of the active index. Includes prev/next buttons, slide counter,
- * a per-slide progress bar, touch swipe navigation and a pause state.
+ * one step of the active index. Includes a per-slide progress bar, keyboard
+ * and touch swipe navigation and a pause state.
  */
 
 const PRELOAD_DISTANCE = 1;
 
 export default class Carousel {
-  constructor(container, { interval = 10, getItems = null } = {}) {
+  constructor(container, { interval = 10, getItems = null, brandSub = null } = {}) {
     this.container = container;
     this.interval = interval;
     this.getItems = getItems;
@@ -26,30 +26,24 @@ export default class Carousel {
       <div class="carousel-topbar">
         <div class="brand">
           <span class="brand-title">NLUX</span>
-          <span class="brand-sub">Teylers Museum</span>
+          <span class="brand-sub"></span>
         </div>
         <div class="topbar-buttons">
           <button class="btn icon-btn pause-btn" title="Pauze (spatie)" aria-label="Pauze"></button>
           <button class="btn icon-btn fullscreen-btn" title="Volledig scherm (F)" aria-label="Volledig scherm"></button>
         </div>
-      </div>
-      <div class="carousel-bottombar">
-        <button class="btn icon-btn prev-btn" title="Vorige (←)" aria-label="Vorige"></button>
-        <div class="counter" role="status"></div>
-        <button class="btn icon-btn next-btn" title="Volgende (→)" aria-label="Volgende"></button>
       </div>`;
+
+    const brandSubEl = container.querySelector('.brand-sub');
+    if (brandSub) brandSubEl.textContent = brandSub;
+    else brandSubEl.remove(); // hide the subtitle when no collection label
 
     this.slidesEl = container.querySelector('.slides');
     this.progressFill = container.querySelector('.progress-fill');
-    this.counterEl = container.querySelector('.counter');
     this.pauseBtn = container.querySelector('.pause-btn');
     this.fullscreenBtn = container.querySelector('.fullscreen-btn');
-    this.prevBtn = container.querySelector('.prev-btn');
-    this.nextBtn = container.querySelector('.next-btn');
 
     this.pauseBtn.addEventListener('click', () => this.togglePause());
-    this.prevBtn.addEventListener('click', () => this.previous());
-    this.nextBtn.addEventListener('click', () => this.next());
     this.fullscreenBtn.addEventListener('click', () => {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen?.();
@@ -121,7 +115,6 @@ export default class Carousel {
       el.classList.toggle('active', i === index);
       if (Math.abs(i - index) <= PRELOAD_DISTANCE) this._assignImage(i);
     });
-    this.counterEl.textContent = `${index + 1} / ${count}`;
     this._restartProgress();
   }
 

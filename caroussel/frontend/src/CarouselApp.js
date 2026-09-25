@@ -14,6 +14,8 @@ import VanillaSettingsModal from './VanillaSettingsModal.js';
 // server; dev uses the vite proxy). Override with ?api=http://host:port
 const params = new URLSearchParams(location.search);
 export const API_BASE = (params.get('api') || window.CAROUSEL_API || '').replace(/\/+$/, '');
+// Collection is selected via the URL: /?collection=teylers
+export const COLLECTION_PARAM = params.get('collection');
 
 const DEFAULTS = { interval: 10, count: 5, scope: 'item' };
 
@@ -51,6 +53,7 @@ async function fetchItems(settings) {
   url.searchParams.set('count', settings.count);
   url.searchParams.set('scope', settings.scope);
   if (settings.seed) url.searchParams.set('seed', settings.seed);
+  if (COLLECTION_PARAM) url.searchParams.set('collection', COLLECTION_PARAM);
   const data = await fetchJSON(url.pathname + url.search);
   return data;
 }
@@ -61,8 +64,14 @@ async function fetchItems(settings) {
 
 function applyTheme(theme = {}) {
   const root = document.documentElement;
-  for (const key of ['primary', 'background', 'text', 'accent', 'textColor']) {
-    if (theme[key]) root.style.setProperty(`--${key}`, theme[key]);
+  const mapping = {
+    primary: '--primary',
+    accent: '--accent',
+    background: '--bg',
+    text: '--textColor',
+  };
+  for (const [key, cssVar] of Object.entries(mapping)) {
+    if (theme[key]) root.style.setProperty(cssVar, theme[key]);
   }
 }
 
@@ -121,10 +130,11 @@ function scheduleAdvance() {
   }, intervalMs);
 }
 
-function createCarousel(container) {
+function createCarousel(container, brandSub = null) {
   const carousel = new Carousel(container, {
     interval: state.settings.interval,
     getItems: () => state.items,
+    brandSub,
   });
   // Pause/resume on hover
   container.addEventListener('mouseenter', () => carousel.setPaused(true));
@@ -205,14 +215,26 @@ export async function start() {
     state.config = config;
     applyTheme(config.theme);
 
+    // Collection: ?collection=<name> from the URL, else the server default
+    const collections = config.collections || {};
+    const selectedName = COLLECTION_PARAM
+      || config.default_collection
+      || Object.keys(collections)[0];
+    const selected = collections[selectedName] || config.collection || {};
+    if (COLLECTION_PARAM && !collections[selectedName]) {
+      throw new Error(
+        `Onbekende collectie: '${selectedName}'. ` +
+        `Beschikbare collecties: ${Object.keys(collections).join(', ')}`);
+    }
+
     // Server config is the base; stored user settings take precedence
     const carouselCfg = config.carousel || {};
     const stored = VanillaSettingsModal.getSettings();
     state.settings = {
       interval: stored.interval ?? carouselCfg.interval ?? DEFAULTS.interval,
       count: stored.count ?? carouselCfg.count ?? DEFAULTS.count,
-      scope: stored.scope ?? config.collection?.scope ?? DEFAULTS.scope,
-      seed: stored.seed ?? config.collection?.seed ?? null,
+      scope: stored.scope ?? selected.scope ?? DEFAULTS.scope,
+      seed: stored.seed ?? selected.seed ?? null,
     };
     VanillaSettingsModal.saveSettings(state.settings);
 
@@ -220,7 +242,7 @@ export async function start() {
     const container = document.getElementById('app-container');
     container.innerHTML = '<div class="carousel" tabindex="0"></div>';
     const carouselEl = container.firstElementChild;
-    state.carousel = createCarousel(carouselEl);
+    state.carousel = createCarousel(carouselEl, selected.label);
     state.carousel.setItems(state.items);
     state.carousel.renderSlide(0);
 
@@ -230,7 +252,8 @@ export async function start() {
     state.carousel.focus();
 
     console.info(
-      `NLUX carousel gestart: ${data.count}/${data.total_available} objecten, ` +
+      `NLUX carousel gestart (collectie '${selectedName}'): ` +
+      `${data.count}/${data.total_available} objecten, ` +
       `${state.settings.interval}s per object.`);
   } catch (error) {
     showError(error.message || String(error));

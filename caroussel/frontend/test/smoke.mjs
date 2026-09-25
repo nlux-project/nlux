@@ -11,7 +11,7 @@ process.env.NODE_ENV = 'test';
 
 const here = new URL('.', import.meta.url);
 const dom = new JSDOM(readFileSync(new URL('../index.html', here), 'utf8'), {
-  url: 'http://localhost:8089/',
+  url: 'http://localhost:8089/?collection=teylers',
   runScripts: 'outside-only',
   pretendToBeVisual: true,
 });
@@ -34,6 +34,15 @@ window.fetch = global.fetch = async (url) => {
       json: async () => ({
         carousel: { interval: 10, count: 5, maxAge: 30 },
         collection: { name: 'teylers', scope: 'item' },
+        collections: {
+          teylers: {
+            label: 'Teylers Museum',
+            scope: 'item',
+            query: { hasDigitalImage: true },
+            seed: null,
+          },
+        },
+        default_collection: 'teylers',
         theme: { primary: '#2c5282', accent: '#ed8936' },
         nlux_api: 'http://localhost:8000',
         total_items: 200,
@@ -43,6 +52,7 @@ window.fetch = global.fetch = async (url) => {
   if (u.includes('/api/carousel')) {
     assert.match(u, /count=5/, 'count param passed');
     assert.match(u, /scope=item/, 'scope param passed');
+    assert.match(u, /collection=teylers/, 'collection param from URL passed through');
     return {
       ok: true,
       status: 200,
@@ -103,6 +113,10 @@ assert.equal(slides.length, 2, 'both slides rendered');
 // First slide active with correct content
 assert.ok(slides[0].classList.contains('active'), 'first slide active');
 assert.equal(
+  document.querySelector('.brand-sub').textContent,
+  'Teylers Museum',
+  'brand subtitle shows the collection label');
+assert.equal(
   slides[0].querySelector('.slide-title').textContent,
   'Feesten van Hollandse boeren');
 assert.equal(
@@ -112,17 +126,18 @@ assert.equal(slides[0].querySelector('img').src, 'http://localhost:8089/iiif/ima
 assert.ok(slides[0].querySelector('.slide-link'), 'detail link rendered');
 assert.equal(slides[1].querySelector('.slide-link'), null, 'no link without detail_url');
 
-// Counter and progress bar
-assert.equal(document.querySelector('.counter').textContent, '1 / 2');
+// Progress bar + removed chrome (no prev/next buttons, no counter)
 assert.match(document.querySelector('.progress-fill').style.animation, /slide-progress 10s/);
+assert.equal(document.querySelector('.carousel-bottombar'), null, 'bottom bar removed');
+assert.equal(document.querySelector('.prev-btn'), null, 'prev button removed');
+assert.equal(document.querySelector('.next-btn'), null, 'next button removed');
+assert.equal(document.querySelector('.counter'), null, 'counter removed');
 
-// Navigation
-const nextBtn = document.querySelector('.next-btn');
-nextBtn.click();
+// Navigation via keyboard
+document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
 await delay(50);
-assert.ok(slides[1].classList.contains('active'), 'second slide active after next');
-assert.equal(document.querySelector('.counter').textContent, '2 / 2');
-document.querySelector('.prev-btn').click();
+assert.ok(slides[1].classList.contains('active'), 'second slide active after ArrowRight');
+document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }));
 await delay(50);
 assert.ok(slides[0].classList.contains('active'), 'wrap-around to first slide');
 

@@ -10,21 +10,19 @@
     "fullscreen": true,
     "lock": true
   },
-  "collection": {
-    "name": "teylers",
-    "scope": "item",
-    "random": true,
-    "seed": null
+  "collections": {
+    "teylers": {
+      "label": "Teylers Museum",
+      "scope": "item",
+      "query": { "hasDigitalImage": true },
+      "seed": null
+    }
   },
+  "default_collection": "teylers",
   "theme": {
     "primary": "#2c5282",
-    "background": "#f7fafc",
+    "background": "#ffffff",
     "text": "#2d3748",
-    "accent": "#ed8936",
-    "card": "#ffffff",
-    "cardBg": "#1a202c",
-    "textColor": "#e2e8f0",
-    "logoLight": "#000000",
-    "logoDark": "#ffffff"
+    "accent": "#ed8936"
   }
 }

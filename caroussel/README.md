@@ -15,7 +15,7 @@ caroussel/frontend (Vite, vanilla JS)
   src/CarouselApp.js       controller: fetch config/items, timers, fullscreen, keyboard
   src/components/Carousel.js  renderer: slides, captions, progress bar, swipe, pause
   src/VanillaSettingsModal.js  settings dialog (interval, count, scope)
-  styles/carousel.css      dark kiosk theme (CSS vars from config theme)
+  styles/carousel.css      light kiosk theme (CSS vars from config theme)
   test/smoke.mjs          jsdom smoke test (npm test)
 ```
 
@@ -55,11 +55,35 @@ cd caroussel/frontend && npm run dev   # vite dev server on :5173 (proxies /api 
    `F` fullscreen, `S` settings. Settings (interval, object count, scope)
    persist in `localStorage`.
 
+## URL parameters
+
+| Parameter | Example | Effect |
+|-----------|---------|--------|
+| `collection` | `http://localhost:8089/?collection=teylers` | Selects which collection to display (name from the `collections` config block). Without it, the configured `default_collection` is used. The brand subtitle in the top bar shows the collection label. |
+| `api` | `/?api=http://localhost:8089` | Point the frontend at another carousel server. |
+
+Unknown collection names result in an error screen listing the available
+collections.
+
 ## Configuration
 
 `caroussel/config/default.json` — server port, carousel interval/count,
-collection scope, theme colors. Environment overrides for the server:
-`NLUX_API` (default `http://localhost:8000`), `CAROUSEL_CONFIG` (config path).
+named `collections` (per collection: `label` for the top bar, `scope`,
+`query` for the backend search filter) plus `default_collection` and theme
+colors. Adding a second institution is a matter of adding a block:
+
+```json
+"collections": {
+  "teylers": {
+    "label": "Teylers Museum",
+    "scope": "item",
+    "query": { "hasDigitalImage": true }
+  }
+}
+```
+
+Environment overrides for the server: `NLUX_API` (default
+`http://localhost:8000`), `CAROUSEL_CONFIG` (config path).
 
 ## Tests
 
