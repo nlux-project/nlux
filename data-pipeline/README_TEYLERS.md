@@ -29,7 +29,7 @@ pipeline/sources/museums/teylers/
 ```
 
 ```
-config/config_cache/teylers.json   # pipeline source config
+config_cache/teylers.json   # pipeline source config
 harvest-teylers.py                 # standalone bulk harvest script
 harvest-teylers.sh                 # wrapper shell script
 enrich-teylers.py                  # re-fetches each record individually to fill missing fields
@@ -38,7 +38,7 @@ re-harvest-teylers.sh              # full pipeline: harvest + enrich + load + re
 
 ## Configuration
 
-`config/config_cache/teylers.json`:
+`config_cache/teylers.json`:
 
 ```json
 {

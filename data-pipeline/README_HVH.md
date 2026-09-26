@@ -39,7 +39,12 @@ tests/test_hvh_pipeline.py
 
 ## Config
 
-Copy `docs/sample_config/hvh.json` into your runtime `config/config_cache/` alongside the other source configs.
+Set up the runtime config once — the pipeline reads all JSON configs
+from `{LUX_BASEPATH}/config_cache/` (top level, next to `manage-data.py`):
+
+```bash
+mkdir -p config_cache && cp docs/sample_config/*.json config_cache/
+```
 
 ## Run
 

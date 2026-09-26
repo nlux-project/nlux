@@ -45,7 +45,12 @@ tests/fixtures/nha-c587-record-F7DDF7.json
 
 ### Config
 
-Copy `docs/sample_config/nha-c587.json` into your runtime `config/config_cache/` alongside the other source configs.
+Set up the runtime config once — the pipeline reads all JSON configs
+from `{LUX_BASEPATH}/config_cache/` (top level, next to `manage-data.py`):
+
+```bash
+mkdir -p config_cache && cp docs/sample_config/*.json config_cache/
+```
 
 ### Run
 
@@ -108,7 +113,12 @@ tests/fixtures/nha-c480-record-65B76D.json
 
 ### Config
 
-Copy `docs/sample_config/nha-c480.json` into your runtime `config/config_cache/` alongside the other source configs.
+Set up the runtime config once — the pipeline reads all JSON configs
+from `{LUX_BASEPATH}/config_cache/` (top level, next to `manage-data.py`):
+
+```bash
+mkdir -p config_cache && cp docs/sample_config/*.json config_cache/
+```
 
 ### Run
 
@@ -166,7 +176,12 @@ tests/test_nha_pipeline.py
 
 ### Config
 
-Copy `docs/sample_config/nha-c1477.json` into your runtime `config/config_cache/` alongside the other source configs.
+Set up the runtime config once — the pipeline reads all JSON configs
+from `{LUX_BASEPATH}/config_cache/` (top level, next to `manage-data.py`):
+
+```bash
+mkdir -p config_cache && cp docs/sample_config/*.json config_cache/
+```
 
 ### Run
 
