@@ -1,0 +1,314 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://collectie.huisvanhilde.nl/resource/10064-04",
+  "type": "HumanMadeObject",
+  "_label": "Pot/kookpot/voorraadpot",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Pot/kookpot/voorraadpot",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "10064-04",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "Pot",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300264273",
+          "type": "Type",
+          "_label": "Alternate Name"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Pot; type Diederik F-Ia; inheems-romeins aardewerk; kleine bolvormige pot met vier uitgeknepen oren aan de rand; standvlak; organische magering",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "19.0/15.5/7.0",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "_label": "Dimension Statement",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Uitvoerder onderzoek: Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vindplaats: Beatrixlaan",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note"
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Aardewerk"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "0200-01-01T00:00:00",
+      "end_of_the_end": "0300-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "200-300",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "object"
+    },
+    {
+      "type": "Type",
+      "_label": "Pot/kookpot/voorraadpot"
+    },
+    {
+      "type": "Type",
+      "_label": "Aardewerk, handgevormd"
+    },
+    {
+      "type": "Type",
+      "_label": "Keramiek"
+    },
+    {
+      "type": "Type",
+      "_label": "Aardewerk, inheems, Fries"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd: 12 vC - 450 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd laat: 270 - 450 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd midden B: 150 - 270 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd laat A: 270 - 350 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd midden: 70 - 270 nC"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland",
+      "type": "Group",
+      "_label": "Provinciaal Depot voor Archeologie Noord-Holland"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Huis van Hilde"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Depot B"
+  },
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "took_place_at": [
+        {
+          "type": "Place",
+          "_label": "Beatrixlaan, Den Burg, Texel, Noordkop en Texel"
+        }
+      ],
+      "classified_as": [
+        {
+          "type": "Type",
+          "_label": "archeologisch: opgraving"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1967-01-01T00:00:00",
+        "end_of_the_end": "1975-12-31T23:59:59",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1967-1975",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300404669",
+                "type": "Type",
+                "_label": "Display Title"
+              }
+            ]
+          }
+        ]
+      },
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB)",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB) (Uitvoerder onderzoek)",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300404669",
+                  "type": "Type",
+                  "_label": "Display Title"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "_label": "Site page at Huis van Hilde: Beatrixlaan",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Findspot page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.huisvanhilde.nl/?query=Records/relatedid=[Site371]&label=Zoekopdracht&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12153/obj54848",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images52//texel\\den_burg\\beatrixlaan_1967_1975\\objecten\\10064-04(1).jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

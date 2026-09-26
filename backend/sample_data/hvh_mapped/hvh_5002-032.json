@@ -1,0 +1,331 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://collectie.huisvanhilde.nl/resource/5002-032",
+  "type": "HumanMadeObject",
+  "_label": "Mes (onderdeel)",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Mes (onderdeel)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "5002-032",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Mes; fe-mes-; versmalde angel en taps toelopend, houten opschuifheft, messing band als heftbeschermer, het heft is aan het einde vastgezet met een stervormig stukje messing aan de angel vastgezet. Op de heftbeschermer zijn twee groeven ingegraveerd; vondstdatum: 27-09-1934",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "2.5/13.6/-",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "_label": "Dimension Statement",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Uitvoerder onderzoek: PWN Waterleidingbedrijf Noord-Holland",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Uitvoerder onderzoek: Rijksmuseum van Oudheden",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vindplaats: Slot op den Hoef",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note"
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "IJzer; hout; messing"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1600-01-01T00:00:00",
+      "end_of_the_end": "1700-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1600-1700",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "object"
+    },
+    {
+      "type": "Type",
+      "_label": "Mes (onderdeel)"
+    },
+    {
+      "type": "Type",
+      "_label": "Metaalsoorten"
+    },
+    {
+      "type": "Type",
+      "_label": "IJzer"
+    },
+    {
+      "type": "Type",
+      "_label": "Organisch"
+    },
+    {
+      "type": "Type",
+      "_label": "Hout/houtskool"
+    },
+    {
+      "type": "Type",
+      "_label": "Nieuwe tijd: 1500 - heden"
+    },
+    {
+      "type": "Type",
+      "_label": "Nieuwe tijd A: 1500 - 1650 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Nieuwe tijd B: 1650 - 1850 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Composiet"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland",
+      "type": "Group",
+      "_label": "Provinciaal Depot voor Archeologie Noord-Holland"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Huis van Hilde"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Depot C"
+  },
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "took_place_at": [
+        {
+          "type": "Place",
+          "_label": "Slot op den Hoef, Egmond aan den Hoef, Bergen, Kennemerland"
+        }
+      ],
+      "classified_as": [
+        {
+          "type": "Type",
+          "_label": "archeologisch: opgraving"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1932-01-01T00:00:00",
+        "end_of_the_end": "1935-12-31T23:59:59",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1932-1935",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300404669",
+                "type": "Type",
+                "_label": "Display Title"
+              }
+            ]
+          }
+        ]
+      },
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "PWN Waterleidingbedrijf Noord-Holland",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "PWN Waterleidingbedrijf Noord-Holland (Uitvoerder onderzoek)",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300404669",
+                  "type": "Type",
+                  "_label": "Display Title"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "_label": "Rijksmuseum van Oudheden",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksmuseum van Oudheden (Uitvoerder onderzoek)",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300404669",
+                  "type": "Type",
+                  "_label": "Display Title"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "_label": "Site page at Huis van Hilde: Slot op den Hoef",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Findspot page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.huisvanhilde.nl/?query=Records/relatedid=[Site203]&label=Zoekopdracht&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12153/obj38438",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images59/\\Bergen/egmond\\egmond aan den hoef\\kasteel\\doosnummers-objecten-ladenkast metaal\\5002-032.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://collectie.huisvanhilde.nl/resource/5281-1256",
+  "type": "HumanMadeObject",
+  "_label": "Cent",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Cent",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "5281-1256",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Cent; Nederland Koninkrijk (1813-heden); Wilhelmina (1890-1948); vz.: klimmende leeuw naar links met zwaard en pijlenbundel op een veld van azuur met zeventien blokken binnen parelcirkel, met omschrift (druiventros) KONINGRIJK DER NEDERLANDEN (mercuriusstaf) 1938; kz.: binnen een krans van twee samengebonden oranjetakken in twee regels: 1 / CENT; muntplaats: Utrecht; 2.17 gram; referentie: Schulman 995",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "-/-/1.9",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "_label": "Dimension Statement",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vinder, particulier: H. Zomerdijk",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Brons"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1938-01-01T00:00:00",
+      "end_of_the_end": "1938-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1938",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "object"
+    },
+    {
+      "type": "Type",
+      "_label": "Cent"
+    },
+    {
+      "type": "Type",
+      "_label": "Metaalsoorten"
+    },
+    {
+      "type": "Type",
+      "_label": "Brons"
+    },
+    {
+      "type": "Type",
+      "_label": "Munt"
+    },
+    {
+      "type": "Type",
+      "_label": "Nieuwe tijd C: 1850 - heden"
+    },
+    {
+      "type": "Type",
+      "_label": "Nieuwe tijd: 1500 - heden"
+    },
+    {
+      "type": "Type",
+      "_label": "Metaal"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland",
+      "type": "Group",
+      "_label": "Provinciaal Depot voor Archeologie Noord-Holland"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Huis van Hilde"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Depot C"
+  },
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12153/obj50728",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images59//collectie zomerdijk\\doosnummers-objecten\\5281-1256kz.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

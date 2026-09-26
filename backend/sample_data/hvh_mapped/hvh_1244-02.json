@@ -1,0 +1,315 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://collectie.huisvanhilde.nl/resource/1244-02",
+  "type": "HumanMadeObject",
+  "_label": "Kacheltegel",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Kacheltegel",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1244-02",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Kacheltegel; reliëftegel type A; loodglazuur. vierkante tegel, aan de achterzijde is hij voorzien van een kleine, op schijf gedraaide van roodbakkende klei vervaardige schaalvorm van ongeveer 10.5 cm doorsnede bij een hoogte van 4 cm. Het reliëf toont Delila, de vrouw van Samson zittend op een leeuw en met een afgebroken zuil in haar arm. Haar rechterhand rust op het nog overeind staand zuilgedeelte. De tegels dragen het opschrift 'FORTITUDO'; productieplaats: Enkhuizen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "15.0/15.0/-",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "_label": "Dimension Statement",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Handelaar: Dierck Claesz Spiegel",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Uitvoerder onderzoek: Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vindplaats: Spaans Leger",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note"
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Aardewerk; loodglazuur; koperoxide"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1602-01-01T00:00:00",
+      "end_of_the_end": "1613-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1602-1613",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "object"
+    },
+    {
+      "type": "Type",
+      "_label": "Kacheltegel"
+    },
+    {
+      "type": "Type",
+      "_label": "Werra/Wanfried/Enkhuizer/Hessisch"
+    },
+    {
+      "type": "Type",
+      "_label": "Keramiek"
+    },
+    {
+      "type": "Type",
+      "_label": "Nieuwe tijd A: 1500 - 1650 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Nieuwe tijd: 1500 - heden"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland",
+      "type": "Group",
+      "_label": "Provinciaal Depot voor Archeologie Noord-Holland"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Huis van Hilde"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Depot B"
+  },
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "took_place_at": [
+        {
+          "type": "Place",
+          "_label": "Spaans Leger, Enkhuizen, West-Friesland"
+        }
+      ],
+      "classified_as": [
+        {
+          "type": "Type",
+          "_label": "archeologisch: opgraving"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1979-01-01T00:00:00",
+        "end_of_the_end": "1979-12-31T23:59:59",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1979",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300404669",
+                "type": "Type",
+                "_label": "Display Title"
+              }
+            ]
+          }
+        ]
+      },
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "Dierck Claesz Spiegel",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Dierck Claesz Spiegel (Handelaar)",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300404669",
+                  "type": "Type",
+                  "_label": "Display Title"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "_label": "Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB)",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB) (Uitvoerder onderzoek)",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300404669",
+                  "type": "Type",
+                  "_label": "Display Title"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "_label": "Site page at Huis van Hilde: Spaans Leger",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Findspot page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.huisvanhilde.nl/?query=Records/relatedid=[Site122]&label=Zoekopdracht&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12153/obj44193",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images52//enkhuizen\\spaans_leger_1979\\objecten\\1244-02 (1).jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

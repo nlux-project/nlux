@@ -1,0 +1,306 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://collectie.huisvanhilde.nl/resource/269-26",
+  "type": "HumanMadeObject",
+  "_label": "Geribde hoge kelk/stengelglas:Foy b2",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Geribde hoge kelk/stengelglas:Foy b2",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "269-26",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "Kelk-/stengelglas",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300264273",
+          "type": "Type",
+          "_label": "Alternate Name"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Kelk- of stengelglas; type Foy b2; tweedelig glas; trechtervormige kelk, hoge holle stam, brede schijfvormige voet; kleurloos glas met groene zweem; onderzijde kelk versierd met ribben; herkomst: Maas-Rijnstreek",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "14.4/10.8/10.6",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "_label": "Dimension Statement",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Uitvoerder onderzoek: Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vindplaats: Kasteel Nieuwendoorn",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note"
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Glas"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1275-01-01T00:00:00",
+      "end_of_the_end": "1325-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1275-1325",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "object"
+    },
+    {
+      "type": "Type",
+      "_label": "Geribde hoge kelk/stengelglas:Foy b2"
+    },
+    {
+      "type": "Type",
+      "_label": "Glas"
+    },
+    {
+      "type": "Type",
+      "_label": "Kelk"
+    },
+    {
+      "type": "Type",
+      "_label": "geribde hoge kelk/stengelglas:Foy b2"
+    },
+    {
+      "type": "Type",
+      "_label": "Middeleeuwen laat B: 1250 - 1500 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Middeleeuwen laat: 1050 - 1500 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Middeleeuwen: 450 - 1500 nC"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland",
+      "type": "Group",
+      "_label": "Provinciaal Depot voor Archeologie Noord-Holland"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Huis van Hilde"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Tentoonstelling Huis van Hilde"
+  },
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "took_place_at": [
+        {
+          "type": "Place",
+          "_label": "Kasteel Nieuwendoorn, Krabbendam, Harenkarspel, West-Friesland"
+        }
+      ],
+      "classified_as": [
+        {
+          "type": "Type",
+          "_label": "archeologisch: opgraving"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1960-01-01T00:00:00",
+        "end_of_the_end": "1963-12-31T23:59:59",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1960-1963",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300404669",
+                "type": "Type",
+                "_label": "Display Title"
+              }
+            ]
+          }
+        ]
+      },
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB)",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Rijksdienst voor het Oudheidkundig Bodemonderzoek (ROB) (Uitvoerder onderzoek)",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300404669",
+                  "type": "Type",
+                  "_label": "Display Title"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "_label": "Site page at Huis van Hilde: Kasteel Nieuwendoorn",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Findspot page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.huisvanhilde.nl/?query=Records/relatedid=[Site43]&label=Zoekopdracht&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12153/obj40818",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images52//harenkarspel\\krabbendam\\kasteel_nieuwendoorn_1960_1963\\objecten\\269-26(1).jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://collectie.huisvanhilde.nl/resource/9527-01",
+  "type": "HumanMadeObject",
+  "_label": "Dolk (onderdeel)",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Dolk (onderdeel)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "9527-01",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "Dolk",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300264273",
+          "type": "Type",
+          "_label": "Alternate Name"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Dolk; grijs vuursteen; geretoucheerd; herkomst Scandinavië",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "2.4/13.8/-",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "_label": "Dimension Statement",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vinder, particulier: G. Oud",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vindplaats: Zuiderweg Oost",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note"
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Vuursteen"
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "object"
+    },
+    {
+      "type": "Type",
+      "_label": "Dolk (onderdeel)"
+    },
+    {
+      "type": "Type",
+      "_label": "Steensoorten"
+    },
+    {
+      "type": "Type",
+      "_label": "Vuursteen"
+    },
+    {
+      "type": "Type",
+      "_label": "Bronstijd midden A: 1800 - 1500 vC"
+    },
+    {
+      "type": "Type",
+      "_label": "Bronstijd: 2000 - 800 vC"
+    },
+    {
+      "type": "Type",
+      "_label": "Bronstijd midden: 1800 - 1100 vC"
+    },
+    {
+      "type": "Type",
+      "_label": "Steen of mineraal"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland",
+      "type": "Group",
+      "_label": "Provinciaal Depot voor Archeologie Noord-Holland"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Huis van Hilde"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Tentoonstelling Huis van Hilde"
+  },
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "took_place_at": [
+        {
+          "type": "Place",
+          "_label": "Zuiderweg Oost, Twisk, Noorder-Koggenland"
+        }
+      ],
+      "classified_as": [
+        {
+          "type": "Type",
+          "_label": "toevalsvondst/vondstmelding"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1975-01-01T00:00:00",
+        "end_of_the_end": "1975-12-31T23:59:59",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1975",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300404669",
+                "type": "Type",
+                "_label": "Display Title"
+              }
+            ]
+          }
+        ]
+      },
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "G. Oud",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "G. Oud (Vinder, particulier)",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300404669",
+                  "type": "Type",
+                  "_label": "Display Title"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "_label": "Site page at Huis van Hilde: Zuiderweg Oost",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Findspot page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.huisvanhilde.nl/?query=Records/relatedid=[Site1462]&label=Zoekopdracht&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12153/obj51665",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images59//bruiklenen_ingekomen\\objecten\\9527-01.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

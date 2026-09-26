@@ -1,0 +1,293 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://collectie.huisvanhilde.nl/resource/5254-069",
+  "type": "HumanMadeObject",
+  "_label": "Draadfibula",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Draadfibula",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "5254-069",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "Fibula/mantelspeld",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300264273",
+          "type": "Type",
+          "_label": "Alternate Name"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Draadfibula; type als vnr 116; relatief hoge bolle beugel en een opengewerkte naaldhouder",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "1.3/4.8/-",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "_label": "Dimension Statement",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Uitvoerder onderzoek: Universiteit van Amsterdam, Albert Egges van Giffen Instituut voor Prae- en Protohistorie (IPP)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vindplaats: Broekerwerf, B6",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027200",
+          "type": "Type",
+          "_label": "Note"
+        }
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Koperlegering"
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "object"
+    },
+    {
+      "type": "Type",
+      "_label": "Draadfibula"
+    },
+    {
+      "type": "Type",
+      "_label": "Metaalsoorten"
+    },
+    {
+      "type": "Type",
+      "_label": "Fibula/mantelspeld"
+    },
+    {
+      "type": "Type",
+      "_label": "Koperlegering"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd: 12 vC - 450 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd midden: 70 - 270 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd vroeg: 12 vC - 70 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Romeinse tijd vroeg B: 25 - 70 nC"
+    },
+    {
+      "type": "Type",
+      "_label": "Metaal"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "https://collectie.huisvanhilde.nl/resource/organization/provinciaal-depot-voor-archeologie-noord-holland",
+      "type": "Group",
+      "_label": "Provinciaal Depot voor Archeologie Noord-Holland"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Huis van Hilde"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Depot C"
+  },
+  "encountered_by": [
+    {
+      "type": "Encounter",
+      "took_place_at": [
+        {
+          "type": "Place",
+          "_label": "Broekerwerf, B6, Velserbroek, Velsen, Kennemerland"
+        }
+      ],
+      "classified_as": [
+        {
+          "type": "Type",
+          "_label": "archeologisch: opgraving"
+        }
+      ],
+      "timespan": {
+        "type": "TimeSpan",
+        "begin_of_the_begin": "1991-01-01T00:00:00",
+        "end_of_the_end": "1991-12-31T23:59:59",
+        "identified_by": [
+          {
+            "type": "Name",
+            "content": "1991",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300404669",
+                "type": "Type",
+                "_label": "Display Title"
+              }
+            ]
+          }
+        ]
+      },
+      "carried_out_by": [
+        {
+          "type": "Group",
+          "_label": "Universiteit van Amsterdam, Albert Egges van Giffen Instituut voor Prae- en Protohistorie (IPP)",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "Universiteit van Amsterdam, Albert Egges van Giffen Instituut voor Prae- en Protohistorie (IPP) (Uitvoerder onderzoek)",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300404669",
+                  "type": "Type",
+                  "_label": "Display Title"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "_label": "Site page at Huis van Hilde: Broekerwerf, B6",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Findspot page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.huisvanhilde.nl/?query=Records/relatedid=[Site783]&label=Zoekopdracht&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Huis van Hilde",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12153/obj45576",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.huisvanhilde.nl/cc/imageproxy.aspx?filename=images59/\\Velsen/bedrijventerrein broekerwerf (plandeel b6)\\doosnummers-objecten\\5254-069.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

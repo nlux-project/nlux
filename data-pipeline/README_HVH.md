@@ -93,14 +93,15 @@ The hvh source has a named carousel collection
 - URI prefix: `https://collectie.huisvanhilde.nl/resource/`
 - Credit line: Huis van Hilde, Castricum
 
-Records with images and titles under that URI namespace are displayed once
-they are loaded into the backend DB (upserts by URI, no reset needed):
+Load route into the carousel backend DB (upserts by URI, no reset
+needed) — from raw harvest files via the mapper, which mints URIs under
+the namespace above (pipeline exports use different ids and will not
+match the collection's URI prefix):
 
 ```bash
-cd backend
-uv run --python 3.12 --with-requirements requirements.txt \
-    python scripts/load_data.py ../data-pipeline/data/output/latest/
+make carousel-load-hvh             # 400 image+title objects
+# knobs: CAROUSEL_HVH_COUNT / CAROUSEL_HVH_SEED
 ```
 
-Until its records are loaded, `?collection=hvh` returns a "no objects yet"
-message naming the collection.
+Of the 19,514 raw records, 19,047 have an image and a title, so larger
+`CAROUSEL_HVH_COUNT` values work fine.

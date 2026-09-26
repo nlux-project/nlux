@@ -141,13 +141,21 @@ def _display_date(doc: dict) -> Optional[str]:
 
 
 def _detail_url(doc: dict) -> Optional[str]:
-    """The museum's own object page, if the pipeline attached one."""
+    """The museum's own object page, if the pipeline attached one.
+
+    Some mappers (Huis van Hilde) also attach a findspot or site page;
+    webpages labelled "Object page at …" are preferred over those.
+    """
+    fallback: Optional[str] = None
     for subject in doc.get("subject_of", []) or []:
         for digital in subject.get("digitally_carried_by", []) or []:
             for ap in digital.get("access_point", []) or []:
                 if isinstance(ap, dict) and ap.get("id"):
-                    return ap["id"]
-    return None
+                    if (digital.get("_label") or "").startswith("Object page"):
+                        return ap["id"]
+                    if fallback is None:
+                        fallback = ap["id"]
+    return fallback
 
 
 def normalize_item(doc: dict, credit: Optional[str] = None) -> Optional[dict[str, Any]]:
