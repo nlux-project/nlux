@@ -86,14 +86,19 @@ skip-if-exists). Export slice files are overwritten in `"w"` mode and
 `manage-data.py --load --wfm` clears the wfm datacache first, so
 downstream cleanup is never needed.
 
-Load records with images and titles under the URI prefix into the backend
-DB (upserts by URI, no reset needed):
+Load route into the carousel backend DB (upserts by URI, no reset
+needed) — from raw harvest files via the mapper, which mints URIs under
+the namespace above (pipeline exports use different ids and will not
+match the collection's URI prefix):
 
 ```bash
-cd backend
-uv run --python 3.12 --with-requirements requirements.txt \
-    python scripts/load_data.py ../data-pipeline/data/output/latest/
+make carousel-load-wfm             # 400 image+title objects
+# knobs: CAROUSEL_WFM_COUNT / CAROUSEL_WFM_SEED
 ```
+
+Of the 5,433 raw records, 5,179 have an image and a title, so larger
+`CAROUSEL_WFM_COUNT` values work fine. Images are served from
+images.memorix.nl, already in the backend's trusted image hosts.
 
 Until its records are loaded, `?collection=wfm` returns a "no objects yet"
 message naming the collection.

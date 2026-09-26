@@ -1,0 +1,235 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/74abeb62-de48-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Schilderij, olieverf op doek, in geprofileerde lijst met robberand, bekroond door naambord met aan weerszijden vleugels omringd door wapen trofeeën en kwabwerk.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Schilderij, olieverf op doek, in geprofileerde lijst met robberand, bekroond door naambord met aan weerszijden vleugels omringd door wapen trofeeën en kwabwerk.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "01383",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "schilderij"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Schilderijen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Groep van 10 schutters, staand weergegeven, met geweren, sabels en spontons. Links het witte vaandel met het wapen van Hoorn en onderaan een ander rood heraldisch wapen met oranje appels en balderen en het opschrift \"Honi soit qui mal y pense\". Op de achtergrond twee doorzichten en links op de voorgrond een hond.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "schutterij"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Jager, Claes Willemsz (kapitein)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Schacht, Pieter Jansz"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Sander, Willem van"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Elslant, Boethius van"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Lambertsz, Pauwel (vaandrig)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Gaarman, Hendrik"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Rotius, Jan Albertsz (sergeant)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Goyer, Pieter de"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Groot de Jonghe, Jan J (sergeant)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Tijsz, Pieter"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: geweven, linnen",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geweven, linnen"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: geschilderd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geschilderd"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: gefineerd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gefineerd"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Rotius, Jan Albertsz. (schilder) (m)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1655-01-01T00:00:00",
+      "end_of_the_begin": "1655-12-31T23:59:59",
+      "begin_of_the_end": "1655-01-01T00:00:00",
+      "end_of_the_end": "1655-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Hoorn"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/74abeb62-de48-11e6-836d-d89d6717b464/media/7c2848f6-718c-686e-83f0-78ad132cce1c",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC83YzI4NDhmNi03MThjLTY4NmUtODNmMC03OGFkMTMyY2NlMWMuanBn?label=Schilderij%2C%20olieverf%20op%20doek%2C%20in%20geprofileerde%20lijst%20met%20robberand%2C%20bekroond%20door%20naambord%20met%20aan%20weerszijden%20vleugels%20omringd%20door%20wapen%20trofee%C3%ABn%20en%20kwabwerk.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/7c2848f6-718c-686e-83f0-78ad132cce1c.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

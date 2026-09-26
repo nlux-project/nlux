@@ -1,0 +1,183 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/a8b446ac-de48-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "in passe-partout",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "in passe-partout",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "03286",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "bidprentje"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "vz:'De Samenbspraak van Jezus met de Zamaritaansche Vrouw', man zit op een putrand, staande vrouw ernaast;kz:'Bid voor de ziel van zaliger Joanna Helena Uhrmeester ...'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Christus"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Samaritaanse vrouw"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: gravure",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gravure"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: boekdruk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "boekdruk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1700-01-01T00:00:00",
+      "end_of_the_begin": "1700-12-31T23:59:59",
+      "begin_of_the_end": "1750-01-01T00:00:00",
+      "end_of_the_end": "1750-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederlanden"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/a8b446ac-de48-11e6-836d-d89d6717b464/media/5f77afe7-feed-eb4c-b173-179e4e7aa87a",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC81Zjc3YWZlNy1mZWVkLWViNGMtYjE3My0xNzllNGU3YWE4N2EuanBn?label=in%20passe-partout",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/5f77afe7-feed-eb4c-b173-179e4e7aa87a.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

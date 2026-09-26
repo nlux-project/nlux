@@ -1,0 +1,141 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/4148e9e4-de4a-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "prent",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "prent",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "13338",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "prent"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Prent met de naam Het leven op zee No. 2. vijf afbeeldingen van walvisvaart, walrussen, narwal en schipbreuk.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "walvisvaart"
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/4148e9e4-de4a-11e6-836d-d89d6717b464/media/babf03ea-f20c-992b-021e-853b4cb18d7f",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9iYWJmMDNlYS1mMjBjLTk5MmItMDIxZS04NTNiNGNiMThkN2YuanBn?label=prent",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/babf03ea-f20c-992b-021e-853b4cb18d7f.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

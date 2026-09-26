@@ -1,0 +1,168 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/1b574970-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Prent van Tityus die in de hel aan de rotsen in geketend terwijl een adelaar zijn lever uit zijn lichaam pikt, in passepartout",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Prent van Tityus die in de hel aan de rotsen in geketend terwijl een adelaar zijn lever uit zijn lichaam pikt, in passepartout",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "08249",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "prent"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Tityus"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: kopergravure",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "kopergravure"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Titiaan (schilder) (m)"
+      },
+      {
+        "type": "Person",
+        "_label": "Cort, Cornelis (graveur) (m)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1566-01-01T00:00:00",
+      "end_of_the_begin": "1566-12-31T23:59:59",
+      "begin_of_the_end": "1566-01-01T00:00:00",
+      "end_of_the_end": "1566-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Venetië"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/1b574970-de49-11e6-836d-d89d6717b464/media/dd360d0b-c34c-436f-bdfa-50e682a6fbbb",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9kZDM2MGQwYi1jMzRjLTQzNmYtYmRmYS01MGU2ODJhNmZiYmIuanBn?label=Prent%20van%20Tityus%20die%20in%20de%20hel%20aan%20de%20rotsen%20in%20geketend%20terwijl%20een%20adelaar%20zijn%20lever%20uit%20zijn%20lichaam%20pikt%2C%20in%20passepartout",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/dd360d0b-c34c-436f-bdfa-50e682a6fbbb.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

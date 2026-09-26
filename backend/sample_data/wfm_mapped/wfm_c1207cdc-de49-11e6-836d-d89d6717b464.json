@@ -1,0 +1,171 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/c1207cdc-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "lichtgrijs papier:gipsen tekenvoorbeeld:druivenrank, 2 bladeren, druiventros",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "lichtgrijs papier:gipsen tekenvoorbeeld:druivenrank, 2 bladeren, druiventros",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "09418.067",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "tekening"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "lichtgrijs papier:gipsen tekenvoorbeeld:druivenrank, 2 bladeren, druiventros",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: houtskool",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "houtskool"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Johannes Kaat"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1867-01-01T00:00:00",
+      "end_of_the_begin": "1867-12-31T23:59:59",
+      "begin_of_the_end": "1899-01-01T00:00:00",
+      "end_of_the_end": "1899-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Hoorn"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/c1207cdc-de49-11e6-836d-d89d6717b464/media/c8137530-eada-c428-e4f9-51fa933e4956",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9jODEzNzUzMC1lYWRhLWM0MjgtZTRmOS01MWZhOTMzZTQ5NTYuanBn?label=lichtgrijs%20papier%3Agipsen%20tekenvoorbeeld%3Adruivenrank%2C%202%20bladeren%2C%20druiventros",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/c8137530-eada-c428-e4f9-51fa933e4956.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

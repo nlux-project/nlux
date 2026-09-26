@@ -1,0 +1,172 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/75fba96c-de48-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Schilderij, olieverf op doek, portret, in ovalen, vergulde houten lijst. Portret van een vrouw ten halve lijve, borststuk naar links, gekleed in een witte jurk met roze accenten. Om haar schouders hangt een zalmroze doek. Ze heeft grijs krullend haar dat van achter is samengebonden en waarvan een lok op haar rechter schouder valt. In het haar draagt ze druppelvormige accessoires, net als haar oorbellen en om haar hals een parelketting. Op haar schoot houdt ze een bruin hondje bij haar linker schouder een grijze roodstaartpapegaai op de voet van een stenen tuinvaas. In de achtergrond een tuin of park en links achter haar een terracotta tuinvaas voor een stenen muur met boogpoort, waarachter een buitenhuis ligt.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Schilderij, olieverf op doek, portret, in ovalen, vergulde houten lijst. Portret van een vrouw ten halve lijve, borststuk naar links, gekleed in een witte jurk met roze accenten. Om haar schouders hangt een zalmroze doek. Ze heeft grijs krullend haar dat van achter is samengebonden en waarvan een lok op haar rechter schouder valt. In het haar draagt ze druppelvormige accessoires, net als haar oorbellen en om haar hals een parelketting. Op haar schoot houdt ze een bruin hondje bij haar linker schouder een grijze roodstaartpapegaai op de voet van een stenen tuinvaas. In de achtergrond een tuin of park en links achter haar een terracotta tuinvaas voor een stenen muur met boogpoort, waarachter een buitenhuis ligt.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "01458",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "schilderij"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Schilderijen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Foreest, Eva Maria van (1706-1770)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Neck-Merens, Lucas van (1698-1776)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "pendant inv.nr. 01457"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: geschilderd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geschilderd"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Verkolje, Nicolaas (schilder) (m)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1700-01-01T00:00:00",
+      "end_of_the_begin": "1700-12-31T23:59:59",
+      "begin_of_the_end": "1799-01-01T00:00:00",
+      "end_of_the_end": "1799-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "West-Friesland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/75fba96c-de48-11e6-836d-d89d6717b464/media/7f7d42cc-0030-2a03-e938-6ff1ba81d714",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC83ZjdkNDJjYy0wMDMwLTJhMDMtZTkzOC02ZmYxYmE4MWQ3MTQuanBn?label=Schilderij%2C%20olieverf%20op%20doek%2C%20portret%2C%20in%20ovalen%2C%20vergulde%20houten%20lijst.%20Portret%20van%20een%20vrouw%20ten%20halve%20lijve%2C%20borststuk%20naar%20links%2C%20gekleed%20in%20een%20witte%20jurk%20met%20roze%20accenten.%20Om%20haar%20schouders%20hangt%20een%20zalmroze%20doek.%20Ze%20heeft%20grijs%20krullend%20haar%20dat%20van%20achter%20is%20samengebonden%20en%20waarvan%20een%20lok%20op%20haar%20rechter%20schouder%20valt.%20In%20het%20haar%20draagt%20ze%20druppelvormige%20accessoires%2C%20net%20als%20haar%20oorbellen%20en%20om%20haar%20hals%20een%20parelketting.%20Op%20haar%20schoot%20houdt%20ze%20een%20bruin%20hondje%20bij%20haar%20linker%20schouder%20een%20grijze%20roodstaartpapegaai%20op%20de%20voet%20van%20een%20stenen%20tuinvaas.%20In%20de%20achtergrond%20een%20tuin%20of%20park%20en%20links%20achter%20haar%20een%20terracotta%20tuinvaas%20voor%20een%20stenen%20muur%20met%20boogpoort%2C%20waarachter%20een%20buitenhuis%20ligt.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/7f7d42cc-0030-2a03-e938-6ff1ba81d714.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

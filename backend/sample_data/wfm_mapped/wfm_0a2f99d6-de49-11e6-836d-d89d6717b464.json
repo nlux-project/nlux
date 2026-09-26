@@ -1,0 +1,179 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/0a2f99d6-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "gevelsteen met 2 figuren, ter weerszijden een blok met tekst en blok met gestileerde plantenmotieven",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "gevelsteen met 2 figuren, ter weerszijden een blok met tekst en blok met gestileerde plantenmotieven",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "07046.44",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "tekening"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "gevelsteen met 2 figuren, ter weerszijden een blok met tekst en blok met gestileerde plantenmotieven",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hoorn, Nieuwe Noord, Turfhaven, gevelstenen"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Jacobus I, Anna van Denemarken"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: pen, zwarte inkt",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "pen, zwarte inkt"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Paulus Jolly"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1849-01-01T00:00:00",
+      "end_of_the_begin": "1849-12-31T23:59:59",
+      "begin_of_the_end": "1849-01-01T00:00:00",
+      "end_of_the_end": "1849-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Hoorn"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/0a2f99d6-de49-11e6-836d-d89d6717b464/media/65246d99-f7a7-34d6-735b-db535cb0fab8",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC82NTI0NmQ5OS1mN2E3LTM0ZDYtNzM1Yi1kYjUzNWNiMGZhYjguanBn?label=gevelsteen%20met%202%20figuren%2C%20ter%20weerszijden%20een%20blok%20met%20tekst%20en%20blok%20met%20gestileerde%20plantenmotieven",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/65246d99-f7a7-34d6-735b-db535cb0fab8.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

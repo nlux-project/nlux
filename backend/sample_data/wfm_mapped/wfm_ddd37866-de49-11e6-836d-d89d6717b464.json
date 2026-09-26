@@ -1,0 +1,183 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/ddd37866-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "links man ten halve lijve, frontaal, met Duitse pijp, daaronder 'P.G. van Os Pictor Amstelaed.', rechts man ten halve lijve naar links, de beschouwer aanziend, daaronder 'A.J. Brandt Pictor Amstelaed.'",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "links man ten halve lijve, frontaal, met Duitse pijp, daaronder 'P.G. van Os Pictor Amstelaed.', rechts man ten halve lijve naar links, de beschouwer aanziend, daaronder 'A.J. Brandt Pictor Amstelaed.'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "10927.102",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "prent"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "links man ten halve lijve, frontaal, met Duitse pijp, daaronder 'P.G. van Os Pictor Amstelaed.', rechts man ten halve lijve naar links, de beschouwer aanziend, daaronder 'A.J. Brandt Pictor Amstelaed.'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Os, Pieter Gerardus van"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Brandt, Albertus Jonas"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: kopergravure",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "kopergravure"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Hendrik Willem Caspari"
+      },
+      {
+        "type": "Person",
+        "_label": "Jacob Ernst Marcus"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1816-01-01T00:00:00",
+      "end_of_the_begin": "1816-12-31T23:59:59",
+      "begin_of_the_end": "1816-01-01T00:00:00",
+      "end_of_the_end": "1816-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Amsterdam"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/ddd37866-de49-11e6-836d-d89d6717b464/media/afb41f50-f1ed-1115-fade-2f6efb51e93a",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9hZmI0MWY1MC1mMWVkLTExMTUtZmFkZS0yZjZlZmI1MWU5M2EuanBn?label=links%20man%20ten%20halve%20lijve%2C%20frontaal%2C%20met%20Duitse%20pijp%2C%20daaronder%20%27P.G.%20van%20Os%20Pictor%20Amstelaed.%27%2C%20rechts%20man%20ten%20halve%20lijve%20naar%20links%2C%20de%20beschouwer%20aanziend%2C%20daaronder%20%27A.J.%20Brandt%20Pictor%20Amstelaed.%27",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/afb41f50-f1ed-1115-fade-2f6efb51e93a.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

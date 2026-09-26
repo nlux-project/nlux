@@ -1,0 +1,175 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/5c9c817a-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Prent in lijst, achter glas, verbeeldende de Brand in Grootebroek 1694. Op de voorgrond een kanaal met schepen, waarin toeschouwers, op achtergrond brandende gebouwen, 2 molens op de oever, middenboven gekroond heraldisch wapen: boom met 3 sterren; wapen omgeven door banderol.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Prent in lijst, achter glas, verbeeldende de Brand in Grootebroek 1694. Op de voorgrond een kanaal met schepen, waarin toeschouwers, op achtergrond brandende gebouwen, 2 molens op de oever, middenboven gekroond heraldisch wapen: boom met 3 sterren; wapen omgeven door banderol.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "53258",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "prent"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "middenboven; banderol waarop 'GROOTEBROEK'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "brand Grootebroek 1694"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: gegraveerd, kopergravure",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gegraveerd, kopergravure"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Luyken, Jan (graveur) (m)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1694-01-01T00:00:00",
+      "end_of_the_begin": "1694-12-31T23:59:59",
+      "begin_of_the_end": "1695-01-01T00:00:00",
+      "end_of_the_end": "1695-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/5c9c817a-de49-11e6-836d-d89d6717b464/media/cf57a3c9-272a-66e7-fbf4-1eb6c2f7e79f",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9jZjU3YTNjOS0yNzJhLTY2ZTctZmJmNC0xZWI2YzJmN2U3OWYuanBn?label=Prent%20in%20lijst%2C%20achter%20glas%2C%20verbeeldende%20de%20Brand%20in%20Grootebroek%201694.%20Op%20de%20voorgrond%20een%20kanaal%20met%20schepen%2C%20waarin%20toeschouwers%2C%20op%20achtergrond%20brandende%20gebouwen%2C%202%20molens%20op%20de%20oever%2C%20middenboven%20gekroond%20heraldisch%20wapen%3A%20boom%20met%203%20sterren%3B%20wapen%20omgeven%20door%20banderol.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/cf57a3c9-272a-66e7-fbf4-1eb6c2f7e79f.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

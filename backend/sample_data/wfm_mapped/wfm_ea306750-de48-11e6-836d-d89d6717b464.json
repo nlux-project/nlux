@@ -1,0 +1,181 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/ea306750-de48-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "schilderij, olieverf op doek, in geornamenteerde, vergulde lijst",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "schilderij, olieverf op doek, in geornamenteerde, vergulde lijst",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "11834",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "schilderij"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Schilderijen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "man ten halve lijve, in de achtergrond links een gordijn, rechts een schip op zee met gehesen zeilen en Nederlandse vlaggen; linksboven, voor het gordijn een familiewapen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Mr. Adriaan van Bleijswijk (1709-1779), Raad en Burgemeester van Enkhuizen, Bewindhebber van de VOC"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Petronella Sibregta Codde van der Burg, echtgenote (pendant: inv nr 11835)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Enkhuizen"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "VOC"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: geschilderd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geschilderd"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Serin, Harmanus (schilder) (m)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1750-01-01T00:00:00",
+      "end_of_the_begin": "1750-12-31T23:59:59",
+      "begin_of_the_end": "1750-01-01T00:00:00",
+      "end_of_the_end": "1750-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/ea306750-de48-11e6-836d-d89d6717b464/media/020a1ed8-3335-d2c3-c095-1cb99ecf916b",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC8wMjBhMWVkOC0zMzM1LWQyYzMtYzA5NS0xY2I5OWVjZjkxNmIuanBn?label=schilderij%2C%20olieverf%20op%20doek%2C%20in%20geornamenteerde%2C%20vergulde%20lijst",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/020a1ed8-3335-d2c3-c095-1cb99ecf916b.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

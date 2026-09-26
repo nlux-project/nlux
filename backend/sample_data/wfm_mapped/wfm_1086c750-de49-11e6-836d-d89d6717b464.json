@@ -1,0 +1,179 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/1086c750-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Plattegrond, in passe-partout, parallelprojectie, schaal 1:5200, westen boven.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Plattegrond, in passe-partout, parallelprojectie, schaal 1:5200, westen boven.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "07890",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "kaart"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Plattegronden"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "'Die stadt Enchuijsen, La ville denchuijsen situe en la comte 'dhollande comme elle seporte a presente', linksonder wapen met 3 vissen, rechtsonder legende",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Enkhuizen"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: gegraveerd, kopergravure",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gegraveerd, kopergravure"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: gedrukt",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gedrukt"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1582-01-01T00:00:00",
+      "end_of_the_begin": "1582-12-31T23:59:59",
+      "begin_of_the_end": "1582-01-01T00:00:00",
+      "end_of_the_end": "1582-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Antwerpen"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/1086c750-de49-11e6-836d-d89d6717b464/media/79081ff3-9096-d40b-53cd-0236a670424c",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC83OTA4MWZmMy05MDk2LWQ0MGItNTNjZC0wMjM2YTY3MDQyNGMuanBn?label=Plattegrond%2C%20in%20passe-partout%2C%20parallelprojectie%2C%20schaal%201%3A5200%2C%20westen%20boven.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/79081ff3-9096-d40b-53cd-0236a670424c.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

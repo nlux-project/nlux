@@ -1,0 +1,149 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/4dd5648a-de4a-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Vier aparte afbeeldingen. 1ste: afbeelding van een gracht met boten. Langs de gracht huizen in de achtergrond een grote kerk. Onderschrift: Haarlem. 2de afbeelding: Haven met boten, in het midden een stenen vuurtoren. Op de achtergrond heuvels met daarop huizen. Onderschrift: Ancona. 3de afbeelding: landschap met een grote berg op achtergrond. Een rivier op de voorgrond met daarlangs huizen en bomen. Onderschrift: Glarona. 4de afbeelding: Zicht op een dorp, in de voorgrond bomen, daarachter huizen. Onderschrift: Hall in Svevia.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Vier aparte afbeeldingen. 1ste: afbeelding van een gracht met boten. Langs de gracht huizen in de achtergrond een grote kerk. Onderschrift: Haarlem. 2de afbeelding: Haven met boten, in het midden een stenen vuurtoren. Op de achtergrond heuvels met daarop huizen. Onderschrift: Ancona. 3de afbeelding: landschap met een grote berg op achtergrond. Een rivier op de voorgrond met daarlangs huizen en bomen. Onderschrift: Glarona. 4de afbeelding: Zicht op een dorp, in de voorgrond bomen, daarachter huizen. Onderschrift: Hall in Svevia.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "13857",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "prent"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Vier aparte afbeeldingen. 1ste: afbeelding van een gracht met boten. Langs de gracht huizen in de achtergrond een grote kerk. Onderschrift: Haarlem. 2de afbeelding: Haven met boten, in het midden een stenen vuurtoren. Op de achtergrond heuvels met daarop huizen. Onderschrift: Ancona. 3de afbeelding: landschap met een grote berg op achtergrond. Een rivier op de voorgrond met daarlangs huizen en bomen. Onderschrift: Glarona. 4de afbeelding: Zicht op een dorp, in de voorgrond bomen, daarachter huizen. Onderschrift: Hall in Svevia.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: gedrukt, drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gedrukt, drukwerk"
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/4dd5648a-de4a-11e6-836d-d89d6717b464/media/c48caf21-8c10-04d7-9e01-af5d304bc5b0",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9jNDhjYWYyMS04YzEwLTA0ZDctOWUwMS1hZjVkMzA0YmM1YjAuanBn?label=Vier%20aparte%20afbeeldingen.%201ste%3A%20afbeelding%20van%20een%20gracht%20met%20boten.%20Langs%20de%20gracht%20huizen%20in%20de%20achtergrond%20een%20grote%20kerk.%20Onderschrift%3A%20Haarlem.%202de%20afbeelding%3A%20Haven%20met%20boten%2C%20in%20het%20midden%20een%20stenen%20vuurtoren.%20Op%20de%20achtergrond%20heuvels%20met%20daarop%20huizen.%20Onderschrift%3A%20Ancona.%203de%20afbeelding%3A%20landschap%20met%20een%20grote%20berg%20op%20achtergrond.%20Een%20rivier%20op%20de%20voorgrond%20met%20daarlangs%20huizen%20en%20bomen.%20Onderschrift%3A%20Glarona.%204de%20afbeelding%3A%20Zicht%20op%20een%20dorp%2C%20in%20de%20voorgrond%20bomen%2C%20daarachter%20huizen.%20Onderschrift%3A%20Hall%20in%20Svevia.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/c48caf21-8c10-04d7-9e01-af5d304bc5b0.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

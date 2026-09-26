@@ -1,0 +1,195 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/dd930650-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Kaart van Gallië, schaal 'gemeene duytsche mijlen 25', 1:2500.000",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Kaart van Gallië, schaal 'gemeene duytsche mijlen 25', 1:2500.000",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "07828",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "kaart"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Plattegronden"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "'Galliae sen Franciae tabula, qua omnes provinciae ...', linksonder man met drietand, vrouw met lans en voet op bol, putti met wapenschild waarop 3 Franse lelies, man met staf met slangen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Frankrijk"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Romeinse Rijk"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Mercurius"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Neptunus"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: kopergravure",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "kopergravure"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: ingekleurd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "ingekleurd"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Visscher, Claes Jansz (graveur) (m)"
+      },
+      {
+        "type": "Person",
+        "_label": "Schenk, Pieter II (uitgever) (m)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1680-01-01T00:00:00",
+      "end_of_the_begin": "1680-12-31T23:59:59",
+      "begin_of_the_end": "1720-01-01T00:00:00",
+      "end_of_the_end": "1720-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/dd930650-de49-11e6-836d-d89d6717b464/media/f7bff93d-2575-f95b-23c1-cc8e88e3e92a",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9mN2JmZjkzZC0yNTc1LWY5NWItMjNjMS1jYzhlODhlM2U5MmEuanBn?label=Kaart%20van%20Galli%C3%AB%2C%20schaal%20%27gemeene%20duytsche%20mijlen%2025%27%2C%201%3A2500.000",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/f7bff93d-2575-f95b-23c1-cc8e88e3e92a.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

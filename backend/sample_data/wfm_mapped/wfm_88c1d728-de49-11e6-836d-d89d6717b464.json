@@ -1,0 +1,152 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/88c1d728-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Schilderij, olieverf op doek, in lijst met decoratie. Winterlandschap met een bevroren vaart onder een grijze bewolkte lucht en enkele schaatsers. Op de voorgrond een slede gevuld met takken en op de achtergrond een gevuld met stro. Op de linkeroever twee kale wilgen, op de rechteroever een gebouwtje op palen en erachter een gebouw met rieten dak. In de achtergrond een kerktoren.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Schilderij, olieverf op doek, in lijst met decoratie. Winterlandschap met een bevroren vaart onder een grijze bewolkte lucht en enkele schaatsers. Op de voorgrond een slede gevuld met takken en op de achtergrond een gevuld met stro. Op de linkeroever twee kale wilgen, op de rechteroever een gebouwtje op palen en erachter een gebouw met rieten dak. In de achtergrond een kerktoren.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "54999",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "schilderij"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Schilderijen"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: geschilderd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geschilderd"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Heidenrijk, Johanna (schilder) (v)"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1890-01-01T00:00:00",
+      "end_of_the_begin": "1890-12-31T23:59:59",
+      "begin_of_the_end": "1918-01-01T00:00:00",
+      "end_of_the_end": "1918-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/88c1d728-de49-11e6-836d-d89d6717b464/media/e348546e-ec3a-f6bd-ed4f-a785d02827ce",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9lMzQ4NTQ2ZS1lYzNhLWY2YmQtZWQ0Zi1hNzg1ZDAyODI3Y2UuanBn?label=Schilderij%2C%20olieverf%20op%20doek%2C%20in%20lijst%20met%20decoratie.%20Winterlandschap%20met%20een%20bevroren%20vaart%20onder%20een%20grijze%20bewolkte%20lucht%20en%20enkele%20schaatsers.%20Op%20de%20voorgrond%20een%20slede%20gevuld%20met%20takken%20en%20op%20de%20achtergrond%20een%20gevuld%20met%20stro.%20Op%20de%20linkeroever%20twee%20kale%20wilgen%2C%20op%20de%20rechteroever%20een%20gebouwtje%20op%20palen%20en%20erachter%20een%20gebouw%20met%20rieten%20dak.%20In%20de%20achtergrond%20een%20kerktoren.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/e348546e-ec3a-f6bd-ed4f-a785d02827ce.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

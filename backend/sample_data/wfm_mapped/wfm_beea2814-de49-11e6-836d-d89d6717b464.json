@@ -1,0 +1,195 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/beea2814-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "toneel in schouwburg, 'DE HOLLANDSCHE STRAAT. Met de Afbeelding van het Veertiende Toneel, des Tweeden Bedrijfs, uit het Blyspel DE LISTIGE VRIJSTER, OF DE VERSCHALKTE VOOGD', straat waarin 2 mannen met vrouw, man met steek op achtergrond",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "toneel in schouwburg, 'DE HOLLANDSCHE STRAAT. Met de Afbeelding van het Veertiende Toneel, des Tweeden Bedrijfs, uit het Blyspel DE LISTIGE VRIJSTER, OF DE VERSCHALKTE VOOGD', straat waarin 2 mannen met vrouw, man met steek op achtergrond",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "08753",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "prent"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "toneel in schouwburg, 'DE HOLLANDSCHE STRAAT. Met de Afbeelding van het Veertiende Toneel, des Tweeden Bedrijfs, uit het Blyspel DE LISTIGE VRIJSTER, OF DE VERSCHALKTE VOOGD', straat waarin 2 mannen met vrouw, man met steek op achtergrond",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Listige vrijster of de verschalkte voogd"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Nieuwe Amsterdamse Schouwburg"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Amsterdam"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: kopergravure",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "kopergravure"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Jan Gerhard Waldorp"
+      },
+      {
+        "type": "Person",
+        "_label": "Jan Bulthuis"
+      },
+      {
+        "type": "Person",
+        "_label": "Cornelis Brouwer"
+      },
+      {
+        "type": "Person",
+        "_label": "uitgever J.W. Smit"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1774-01-01T00:00:00",
+      "end_of_the_begin": "1774-12-31T23:59:59",
+      "begin_of_the_end": "1791-01-01T00:00:00",
+      "end_of_the_end": "1791-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Amsterdam"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/beea2814-de49-11e6-836d-d89d6717b464/media/18faa77f-bd00-3e85-bcbc-6e97be2f931f",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC8xOGZhYTc3Zi1iZDAwLTNlODUtYmNiYy02ZTk3YmUyZjkzMWYuanBn?label=toneel%20in%20schouwburg%2C%20%27DE%20HOLLANDSCHE%20STRAAT.%20Met%20de%20Afbeelding%20van%20het%20Veertiende%20Toneel%2C%20des%20Tweeden%20Bedrijfs%2C%20uit%20het%20Blyspel%20DE%20LISTIGE%20VRIJSTER%2C%20OF%20DE%20VERSCHALKTE%20VOOGD%27%2C%20straat%20waarin%202%20mannen%20met%20vrouw%2C%20man%20met%20steek%20op%20achtergrond",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/18faa77f-bd00-3e85-bcbc-6e97be2f931f.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

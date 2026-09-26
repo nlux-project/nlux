@@ -1,0 +1,193 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/92e122e6-de48-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "smalle hoge wand met twee panelen boven elkaar, in het onderste paneel een ruitvormige voorstelling met vrouw bij bijenkorf en putti, ranken in de hoeken;boven paneel:putto met mercuriushoed en twee putti met tonnen",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "smalle hoge wand met twee panelen boven elkaar, in het onderste paneel een ruitvormige voorstelling met vrouw bij bijenkorf en putti, ranken in de hoeken;boven paneel:putto met mercuriushoed en twee putti met tonnen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "02777",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "aquarel"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "smalle hoge wand met twee panelen boven elkaar, in het onderste paneel een ruitvormige voorstelling met vrouw bij bijenkorf en putti, ranken in de hoeken;boven paneel:putto met mercuriushoed en twee putti met tonnen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Vaderlandsche Maatschappij van Reederij en Koophandel, ter Liefde van 't Gemeenebest"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Schilder-, Druk- en Behangselfabriek"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: getekend",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "getekend"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: gewassen",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gewassen"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: geschilderd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geschilderd"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1775-01-01T00:00:00",
+      "end_of_the_begin": "1775-12-31T23:59:59",
+      "begin_of_the_end": "1825-01-01T00:00:00",
+      "end_of_the_end": "1825-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/92e122e6-de48-11e6-836d-d89d6717b464/media/9d7f15c4-7ac7-6ac4-0ed4-0d1dc29dbc7e",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC85ZDdmMTVjNC03YWM3LTZhYzQtMGVkNC0wZDFkYzI5ZGJjN2UuanBn?label=smalle%20hoge%20wand%20met%20twee%20panelen%20boven%20elkaar%2C%20in%20het%20onderste%20paneel%20een%20ruitvormige%20voorstelling%20met%20vrouw%20bij%20bijenkorf%20en%20putti%2C%20ranken%20in%20de%20hoeken%3Bboven%20paneel%3Aputto%20met%20mercuriushoed%20en%20twee%20putti%20met%20tonnen",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/9d7f15c4-7ac7-6ac4-0ed4-0d1dc29dbc7e.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

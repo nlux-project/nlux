@@ -1,0 +1,197 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/ae2873d2-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "binnen rechthoekig kader: 'Gedachtenis aan de afgelegde geloofsbelijdenis ...' boven 4 bijbelteksten;onder 2 bijbelteksten",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "binnen rechthoekig kader: 'Gedachtenis aan de afgelegde geloofsbelijdenis ...' boven 4 bijbelteksten;onder 2 bijbelteksten",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "10027",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "akte van belijdenis"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Informatievormen"
+    },
+    {
+      "type": "Type",
+      "_label": "Religie"
+    },
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "binnen rechthoekig kader: 'Gedachtenis aan de afgelegde geloofsbelijdenis ...' boven 4 bijbelteksten;onder 2 bijbelteksten",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Liefhebber, Catharina, Anna"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: boekdruk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "boekdruk"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: handschrift",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "handschrift"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: lithografie",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "lithografie"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1924-01-01T00:00:00",
+      "end_of_the_begin": "1924-12-31T23:59:59",
+      "begin_of_the_end": "1924-01-01T00:00:00",
+      "end_of_the_end": "1924-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "'s- Gravenhage"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/ae2873d2-de49-11e6-836d-d89d6717b464/media/722e3d8e-26ac-afa3-e73b-ab06d5cb3ebe",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC83MjJlM2Q4ZS0yNmFjLWFmYTMtZTczYi1hYjA2ZDVjYjNlYmUuanBn?label=binnen%20rechthoekig%20kader%3A%20%27Gedachtenis%20aan%20de%20afgelegde%20geloofsbelijdenis%20...%27%20boven%204%20bijbelteksten%3Bonder%202%20bijbelteksten",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/722e3d8e-26ac-afa3-e73b-ab06d5cb3ebe.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

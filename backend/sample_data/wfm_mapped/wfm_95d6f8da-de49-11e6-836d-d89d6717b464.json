@@ -1,0 +1,191 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/95d6f8da-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "'Verkiest, ì kinderen! uit de onderstaande Beelden, uw smaak, of zij misschien uw keuze en zinnen streelden no. 50', 12 afbeeldingen met onderschriften",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "'Verkiest, ì kinderen! uit de onderstaande Beelden, uw smaak, of zij misschien uw keuze en zinnen streelden no. 50', 12 afbeeldingen met onderschriften",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "05590",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "volksprent"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "'Verkiest, ì kinderen! uit de onderstaande Beelden, uw smaak, of zij misschien uw keuze en zinnen streelden no. 50', 12 afbeeldingen met onderschriften",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: houtsnede",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "houtsnede"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: ingekleurd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "ingekleurd"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: boekdruk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "boekdruk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "uitgever Erfgenamen van de wed. C. Stichter"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1788-01-01T00:00:00",
+      "end_of_the_begin": "1788-12-31T23:59:59",
+      "begin_of_the_end": "1813-01-01T00:00:00",
+      "end_of_the_end": "1813-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Amsterdam"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/95d6f8da-de49-11e6-836d-d89d6717b464/media/92d98b36-a4aa-bd00-1dac-0807db84c963",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC85MmQ5OGIzNi1hNGFhLWJkMDAtMWRhYy0wODA3ZGI4NGM5NjMuanBn?label=%27Verkiest%2C%20%C3%AC%20kinderen%21%20uit%20de%20onderstaande%20Beelden%2C%20uw%20smaak%2C%20of%20zij%20misschien%20uw%20keuze%20en%20zinnen%20streelden%20no.%2050%27%2C%2012%20afbeeldingen%20met%20onderschriften",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/92d98b36-a4aa-bd00-1dac-0807db84c963.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

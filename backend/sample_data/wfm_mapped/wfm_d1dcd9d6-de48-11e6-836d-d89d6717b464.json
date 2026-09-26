@@ -1,0 +1,207 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/d1dcd9d6-de48-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "2 tamboers aan weerszijden van boom met oranje-appels, op achtergrond 2 gebouwen, schutter met vaandel, schutter met lans, op voorgrond in cartouche wapenschild met 2 leeuwen en wapenschild met hoorn, 'Tamboers, Nieuwe-Jaars opdragt, ...neem ons den haast tot u'",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "2 tamboers aan weerszijden van boom met oranje-appels, op achtergrond 2 gebouwen, schutter met vaandel, schutter met lans, op voorgrond in cartouche wapenschild met 2 leeuwen en wapenschild met hoorn, 'Tamboers, Nieuwe-Jaars opdragt, ...neem ons den haast tot u'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "04951",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "nieuwjaarswens"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "2 tamboers aan weerszijden van boom met oranje-appels, op achtergrond 2 gebouwen, schutter met vaandel, schutter met lans, op voorgrond in cartouche wapenschild met 2 leeuwen en wapenschild met hoorn, 'Tamboers, Nieuwe-Jaars opdragt, ...neem ons den haast tot u'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "schutterij"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hoorn, waag"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hoorn, stadhuis"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Nieuwjaar"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: houtsnede",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "houtsnede"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: boekdruk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "boekdruk"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: ingekleurd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "ingekleurd"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "drukker Poelenburg, Jan"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1763-01-01T00:00:00",
+      "end_of_the_begin": "1763-12-31T23:59:59",
+      "begin_of_the_end": "1763-01-01T00:00:00",
+      "end_of_the_end": "1763-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Hoorn"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/d1dcd9d6-de48-11e6-836d-d89d6717b464/media/26b545a7-6bbf-5dae-df9c-2eb56ffbb5c6",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC8yNmI1NDVhNy02YmJmLTVkYWUtZGY5Yy0yZWI1NmZmYmI1YzYuanBn?label=2%20tamboers%20aan%20weerszijden%20van%20boom%20met%20oranje-appels%2C%20op%20achtergrond%202%20gebouwen%2C%20schutter%20met%20vaandel%2C%20schutter%20met%20lans%2C%20op%20voorgrond%20in%20cartouche%20wapenschild%20met%202%20leeuwen%20en%20wapenschild%20met%20hoorn%2C%20%27Tamboers%2C%20Nieuwe-Jaars%20opdragt%2C%20...neem%20ons%20den%20haast%20tot%20u%27",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/26b545a7-6bbf-5dae-df9c-2eb56ffbb5c6.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

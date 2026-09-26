@@ -1,0 +1,209 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/2f83dc92-de49-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Pasteltekening, in zwart passe-partout met ovaal binnenkader op achterzijde van het glas geschilderd, achter glas, in geprofileerde, met koper beklede lijst; een houten plank als achterzijde.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Pasteltekening, in zwart passe-partout met ovaal binnenkader op achterzijde van het glas geschilderd, achter glas, in geprofileerde, met koper beklede lijst; een houten plank als achterzijde.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "51453",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "pasteltekening"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "portret, borstbeeld van een man naar links ziende, in zwarte jas met omhoog geslagen kraag, witte jabot, grijze staartpruik; achterzijde etiket 'Merens IV'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Merens"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "portretminiaturen"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: getekend, pastel",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "getekend, pastel"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: geschilderd, (glas?)verf, verre églomisé",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geschilderd, (glas?)verf, verre églomisé"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: gezaagd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gezaagd"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: getimmerd",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "getimmerd"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Anspach, Johannes"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1808-01-01T00:00:00",
+      "end_of_the_begin": "1808-12-31T23:59:59",
+      "begin_of_the_end": "1808-01-01T00:00:00",
+      "end_of_the_end": "1808-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Holland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/2f83dc92-de49-11e6-836d-d89d6717b464/media/80037fb4-0b0d-de55-aecc-1bf8522b50c8",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC84MDAzN2ZiNC0wYjBkLWRlNTUtYWVjYy0xYmY4NTIyYjUwYzguanBn?label=Pasteltekening%2C%20in%20zwart%20passe-partout%20met%20ovaal%20binnenkader%20op%20achterzijde%20van%20het%20glas%20geschilderd%2C%20achter%20glas%2C%20in%20geprofileerde%2C%20met%20koper%20beklede%20lijst%3B%20een%20houten%20plank%20als%20achterzijde.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/80037fb4-0b0d-de55-aecc-1bf8522b50c8.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

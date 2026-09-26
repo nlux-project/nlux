@@ -1,0 +1,175 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/ed42a494-de48-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "riviergezicht met zeilschepen, op de voorgrond de oever met 2 figuren, over het water kijkend, midden boven kader 'Stil te sijn is ...', midden onder kader 'onbesmet is heyligh'",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "riviergezicht met zeilschepen, op de voorgrond de oever met 2 figuren, over het water kijkend, midden boven kader 'Stil te sijn is ...', midden onder kader 'onbesmet is heyligh'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "06168",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "tekening"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "riviergezicht met zeilschepen, op de voorgrond de oever met 2 figuren, over het water kijkend, midden boven kader 'Stil te sijn is ...', midden onder kader 'onbesmet is heyligh'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: geschilderd, penseel, zwarte inkt",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geschilderd, penseel, zwarte inkt"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: gewassen",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gewassen"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Holstin, D."
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1694-01-01T00:00:00",
+      "end_of_the_begin": "1694-12-31T23:59:59",
+      "begin_of_the_end": "1695-01-01T00:00:00",
+      "end_of_the_end": "1695-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/ed42a494-de48-11e6-836d-d89d6717b464/media/0922a136-72b5-4f3e-319d-975f865fb5f3",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC8wOTIyYTEzNi03MmI1LTRmM2UtMzE5ZC05NzVmODY1ZmI1ZjMuanBn?label=riviergezicht%20met%20zeilschepen%2C%20op%20de%20voorgrond%20de%20oever%20met%202%20figuren%2C%20over%20het%20water%20kijkend%2C%20midden%20boven%20kader%20%27Stil%20te%20sijn%20is%20...%27%2C%20midden%20onder%20kader%20%27onbesmet%20is%20heyligh%27",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/0922a136-72b5-4f3e-319d-975f865fb5f3.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

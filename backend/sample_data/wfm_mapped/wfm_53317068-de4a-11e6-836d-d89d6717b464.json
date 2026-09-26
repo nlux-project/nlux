@@ -1,0 +1,165 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/53317068-de4a-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "mannelijk naakt, staand ten voeten uit, linker standbein, rechter spielbein, rechterarm langs lichaam naar beneden, linkerarm gebogen, speer in hand, hoofd en profil naar rechtsboven",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "mannelijk naakt, staand ten voeten uit, linker standbein, rechter spielbein, rechterarm langs lichaam naar beneden, linkerarm gebogen, speer in hand, hoofd en profil naar rechtsboven",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "06918.a",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "tekening"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "mannelijk naakt, staand ten voeten uit, linker standbein, rechter spielbein, rechterarm langs lichaam naar beneden, linkerarm gebogen, speer in hand, hoofd en profil naar rechtsboven",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: olieverf",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "olieverf"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1800-01-01T00:00:00",
+      "end_of_the_begin": "1800-12-31T23:59:59",
+      "begin_of_the_end": "1850-01-01T00:00:00",
+      "end_of_the_end": "1850-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Hoorn"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/53317068-de4a-11e6-836d-d89d6717b464/media/6a72965e-be2f-74dd-e664-ca1f21b248b1",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC82YTcyOTY1ZS1iZTJmLTc0ZGQtZTY2NC1jYTFmMjFiMjQ4YjEuanBn?label=mannelijk%20naakt%2C%20staand%20ten%20voeten%20uit%2C%20linker%20standbein%2C%20rechter%20spielbein%2C%20rechterarm%20langs%20lichaam%20naar%20beneden%2C%20linkerarm%20gebogen%2C%20speer%20in%20hand%2C%20hoofd%20en%20profil%20naar%20rechtsboven",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/6a72965e-be2f-74dd-e664-ca1f21b248b1.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

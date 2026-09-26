@@ -1,0 +1,207 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/c6442462-de48-11e6-836d-d89d6717b464",
+  "type": "HumanMadeObject",
+  "_label": "Stadspoort met 4 torens met ui-vormig dak, rechts daarvan ophaalbrug waarop wagen met zakken, man met kruiwagen, op voorgrond water, links en rechts huizen, rechts op voorgrond vissers, mannen met kruiwagens, honden.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Stadspoort met 4 torens met ui-vormig dak, rechts daarvan ophaalbrug waarop wagen met zakken, man met kruiwagen, op voorgrond water, links en rechts huizen, rechts op voorgrond vissers, mannen met kruiwagens, honden.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "04354",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "tekening"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Prenten en tekeningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Stadspoort met 4 torens met ui-vormig dak, rechts daarvan ophaalbrug waarop wagen met zakken, man met kruiwagen, op voorgrond water, links en rechts huizen, rechts op voorgrond vissers, mannen met kruiwagens, honden.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hoorn, Gevangenpoort"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Oude Oosterpoort"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Grote Oost"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Kleine Oost"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: pen",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "pen"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: zwarte inkt",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "zwarte inkt"
+        }
+      ]
+    },
+    {
+      "type": "Activity",
+      "_label": "Technique: gewassen",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "gewassen"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Gardner, Jan Frederik"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1818-01-01T00:00:00",
+      "end_of_the_begin": "1818-12-31T23:59:59",
+      "begin_of_the_end": "1820-01-01T00:00:00",
+      "end_of_the_end": "1820-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Hoorn"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/c6442462-de48-11e6-836d-d89d6717b464/media/deb1ed67-6667-1762-c270-93f3a6adf855",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9kZWIxZWQ2Ny02NjY3LTE3NjItYzI3MC05M2YzYTZhZGY4NTUuanBn?label=Stadspoort%20met%204%20torens%20met%20ui-vormig%20dak%2C%20rechts%20daarvan%20ophaalbrug%20waarop%20wagen%20met%20zakken%2C%20man%20met%20kruiwagen%2C%20op%20voorgrond%20water%2C%20links%20en%20rechts%20huizen%2C%20rechts%20op%20voorgrond%20vissers%2C%20mannen%20met%20kruiwagens%2C%20honden.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/deb1ed67-6667-1762-c270-93f3a6adf855.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

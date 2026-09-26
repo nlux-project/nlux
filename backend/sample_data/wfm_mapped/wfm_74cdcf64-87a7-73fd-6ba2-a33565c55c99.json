@@ -1,0 +1,187 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://westfriesmuseum.com/detail/74cdcf64-87a7-73fd-6ba2-a33565c55c99",
+  "type": "HumanMadeObject",
+  "_label": "zilveren munt",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "zilveren munt",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "43269",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Filipsdaalder"
+    }
+  ],
+  "about": [
+    {
+      "type": "Type",
+      "_label": "Munten en penningen"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "vz: buste van Filips II naar links, 'PHILIPPVS.D:G.HISP.ANG. Z. REX.DUX.BRAB 1557' kz: gekroond wapen met gulden vlies op takkenkruis tussen twee vuurslagen, '.DOMINVS.MICHI.ADIVTOR' twee handjes '.'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "muntslag"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "muntschat Westwoud"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Filips II"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Habsburg"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: geslagen",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "geslagen"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "onbekend"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1557-01-01T00:00:00",
+      "end_of_the_begin": "1557-12-31T23:59:59",
+      "begin_of_the_end": "1557-01-01T00:00:00",
+      "end_of_the_end": "1557-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Antwerpen"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Westfries Museum"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Westfries Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Westfries Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Westfries Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://westfriesmuseum.com/detail/74cdcf64-87a7-73fd-6ba2-a33565c55c99/media/3be0016d-f63e-3602-cb00-b32203edc199",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC8zYmUwMDE2ZC1mNjNlLTM2MDItY2IwMC1iMzIyMDNlZGMxOTkuanBn?label=zilveren%20munt",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/wfm/thumb/640x480/3be0016d-f63e-3602-cb00-b32203edc199.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}
