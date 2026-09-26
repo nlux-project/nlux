@@ -10,7 +10,11 @@
 const PRELOAD_DISTANCE = 1;
 
 export default class Carousel {
-  constructor(container, { interval = 10, getItems = null, brandSub = null } = {}) {
+  constructor(container, {
+    interval = 10, getItems = null, brandSub = null, institution = null,
+  } = {}) {
+    // Institution name (collection label) used for the "view at" link text
+    this.institution = institution;
     this.container = container;
     this.interval = interval;
     this.getItems = getItems;
@@ -146,7 +150,9 @@ export default class Carousel {
           <p class="slide-credit"></p>
         </div>
         ${item.detail_url
-          ? `<a class="slide-link"${linkAttrs}>Bekijk bij Teylers Museum ↗</a>`
+          ? `<a class="slide-link"${linkAttrs}>${this.institution
+              ? `Bekijk bij ${this.institution} ↗`
+              : 'Bekijk online ↗'}</a>`
           : ''}
       </figcaption>`;
 

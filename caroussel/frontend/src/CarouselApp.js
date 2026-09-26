@@ -135,6 +135,7 @@ function createCarousel(container, brandSub = null) {
     interval: state.settings.interval,
     getItems: () => state.items,
     brandSub,
+    institution: brandSub,
   });
   // Pause/resume on hover
   container.addEventListener('mouseenter', () => carousel.setPaused(true));
@@ -242,6 +243,9 @@ export async function start() {
     const container = document.getElementById('app-container');
     container.innerHTML = '<div class="carousel" tabindex="0"></div>';
     const carouselEl = container.firstElementChild;
+    document.title = selected.label
+      ? `NLUX Carousel — ${selected.label}`
+      : 'NLUX Carousel';
     state.carousel = createCarousel(carouselEl, selected.label);
     state.carousel.setItems(state.items);
     state.carousel.renderSlide(0);
