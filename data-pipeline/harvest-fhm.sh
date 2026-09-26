@@ -10,3 +10,7 @@ if [ -n "$LIMIT" ]; then
 else
     uv run --python 3.12 --with-requirements requirements.txt python harvest-fhm.py "$OUTPUT_DIR"
 fi
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --fhm
+uv run --python 3.12 --with-requirements requirements.txt python ./run-reconcile.py 0 1 --fhm
+uv run --python 3.12 --with-requirements requirements.txt python ./run-merge.py 0 1 --fhm
+uv run --python 3.12 --with-requirements requirements.txt python ./run-export.py 0 1 --fhm
