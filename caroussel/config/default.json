@@ -18,7 +18,8 @@
         "hasDigitalImage": true
       },
       "uri_prefix": "https://teylers.adlibhosting.com/nlux/",
-      "seed": null
+      "seed": null,
+      "credit": "Teylers Museum, Haarlem"
     },
     "nha": {
       "label": "Noord-Hollands Archief",
@@ -26,7 +27,8 @@
       "query": {
         "hasDigitalImage": true
       },
-      "uri_prefix": "https://hdl.handle.net/21.12102/"
+      "uri_prefix": "https://hdl.handle.net/21.12102/",
+      "credit": "Noord-Hollands Archief, Haarlem"
     }
   },
   "default_collection": "teylers",

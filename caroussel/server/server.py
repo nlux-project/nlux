@@ -150,8 +150,12 @@ def _detail_url(doc: dict) -> Optional[str]:
     return None
 
 
-def normalize_item(doc: dict) -> Optional[dict[str, Any]]:
-    """Turn a Linked Art record into a flat carousel item."""
+def normalize_item(doc: dict, credit: Optional[str] = None) -> Optional[dict[str, Any]]:
+    """Turn a Linked Art record into a flat carousel item.
+
+    `credit` is the holding institution, taken from the collection config
+    (falls back to the collection label).
+    """
     uri = doc.get("id")
     if not uri:
         return None
@@ -194,7 +198,7 @@ def normalize_item(doc: dict) -> Optional[dict[str, Any]]:
         "accession": accession,
         "image": proxied_image_url(image_url),
         "detail_url": _detail_url(doc),
-        "credit": "Teylers Museum, Haarlem",
+        "credit": credit,
     }
 
 
@@ -330,13 +334,14 @@ def get_carousel(
     # Untitled objects (no _label / "Zonder titel") and records without a
     # usable image are skipped, so we may need to look at more than `count`.
     items = []
+    credit = col.get("credit") or col.get("label")
     for stub in stubs:
         if len(items) >= count:
             break
         doc = fetch_record(stub["id"])
         if doc is None:
             continue
-        item = normalize_item(doc)
+        item = normalize_item(doc, credit=credit)
         if item:
             items.append(item)
 

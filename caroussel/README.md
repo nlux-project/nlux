@@ -79,19 +79,23 @@ colors. Adding a second institution is a matter of adding a block:
     "label": "Teylers Museum",
     "scope": "item",
     "query": { "hasDigitalImage": true },
-    "uri_prefix": "https://teylers.adlibhosting.com/nlux/"
+    "uri_prefix": "https://teylers.adlibhosting.com/nlux/",
+    "credit": "Teylers Museum, Haarlem"
   },
   "nha": {
     "label": "Noord-Hollands Archief",
     "scope": "item",
     "query": { "hasDigitalImage": true },
-    "uri_prefix": "https://hdl.handle.net/21.12102/"
+    "uri_prefix": "https://hdl.handle.net/21.12102/",
+    "credit": "Noord-Hollands Archief, Haarlem"
   }
 }
 ```
 
 `uri_prefix` restricts a collection to one institution's URI namespace, so
-several collections can share a single backend database. NHA records are
+several collections can share a single backend database. `credit` is the
+holding institution shown under each slide (falls back to the collection
+label). NHA records are
 loaded with `make carousel-load-nha` (raw Memorix harvests in
 `$LUX_BASEPATH/data/input/nha/{c1477,c359,c480,c587}` through the
 data-pipeline's NhaMapper, images via the `images.memorix.nl` proxy).
