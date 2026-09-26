@@ -82,6 +82,8 @@ help:
 	@printf '  merge                   step 4: merge/deduplicate entities (SOURCE, SLICE, MAXSLICE)\n'
 	@printf '  export                  step 5: export Linked Art JSONL (SLICE, MAXSLICE)\n'
 	@printf '  pipeline                steps 1-5 in sequence for SOURCE=teylers\n'
+	@printf '  pipeline-sync           update $$(LUX_BASEPATH) working tree with repo pipeline code\n'
+	@printf '                          (update-only; DRY_RUN=1 previews; data/ untouched)\n'
 	@printf '  harvest-aat             harvest AAT authority data (run once before first reconcile)\n'
 	@printf '  index-aat               load AAT into the reference index (after harvest-aat)\n\n'
 	@printf 'Testing ====================================================================\n'
@@ -195,6 +197,28 @@ merge:
 .PHONY: export
 export:
 	cd data-pipeline && $(PIPELINE_PY) ./run-export.py $(SLICE) $(MAXSLICE)
+
+# Sync pipeline code from this repo to the $(LUX_BASEPATH) working tree
+# (the tree where harvests run and data/ lives). Update-only: overwrites
+# changed code files with the repo versions, never deletes anything and
+# never touches data/ or local-only files. Preview: make pipeline-sync DRY_RUN=1
+ifeq ($(DRY_RUN),1)
+SYNC_DRY := --dry-run
+endif
+RSYNC := rsync -a --itemize-changes $(SYNC_DRY)
+
+.PHONY: pipeline-sync
+pipeline-sync:
+	@if [ "$$(cd "$(LUX_BASEPATH)" 2>/dev/null && pwd)" = "$$(cd data-pipeline && pwd)" ]; then \
+		echo "pipeline-sync: refusing to sync onto the repo itself (LUX_BASEPATH=$(LUX_BASEPATH))"; exit 1; fi
+	mkdir -p "$(LUX_BASEPATH)"
+	$(RSYNC) --exclude='__pycache__/' --exclude='*.pyc' data-pipeline/pipeline/ "$(LUX_BASEPATH)/pipeline/"
+	$(RSYNC) --exclude='__pycache__/' --exclude='*.pyc' data-pipeline/tests/ "$(LUX_BASEPATH)/tests/"
+	$(RSYNC) --exclude='__pycache__/' --exclude='*.pyc' data-pipeline/docs/ "$(LUX_BASEPATH)/docs/"
+	$(RSYNC) data-pipeline/*.py data-pipeline/*.sh data-pipeline/*.json data-pipeline/*.md \
+		data-pipeline/Makefile data-pipeline/LICENSE data-pipeline/requirements.txt data-pipeline/requirements_dev.txt \
+		"$(LUX_BASEPATH)/"
+	@echo "pipeline code synced to $(LUX_BASEPATH)$(if $(SYNC_DRY), (dry run — nothing written),)"
 
 .PHONY: pipeline
 pipeline: harvest-teylers pipeline-load reconcile merge export

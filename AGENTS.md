@@ -67,6 +67,10 @@ python ./run-merge.py 0 1 --teylers
 python ./run-export.py 0 1
 ```
 
+# Sync repo pipeline code into the $LUX_BASEPATH working tree (update-only,
+# never deletes, data/ untouched; DRY_RUN=1 previews)
+make pipeline-sync
+
 Harvest AAT authority data (run once before first reconcile):
 ```bash
 python ./run-harvest.py --aat
