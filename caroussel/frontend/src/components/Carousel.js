@@ -9,6 +9,24 @@
 
 const PRELOAD_DISTANCE = 1;
 
+// A very long title dominates the slide caption. When such a title contains
+// a sentence-ending full stop, only the first sentence is displayed.
+const TITLE_LONG_THRESHOLD = 100; // longer than this is "very long"
+const TITLE_MIN_FIRST_SENTENCE = 20; // shorter heads are likely abbreviations ("St.")
+
+export function displayTitle(title) {
+  const full = (title ?? '').trim();
+  if (full.length <= TITLE_LONG_THRESHOLD) return full;
+  let from = 0;
+  while (from < full.length) {
+    const dot = full.indexOf('.', from);
+    if (dot === -1) return full; // no sentence boundary — keep as is
+    if (dot >= TITLE_MIN_FIRST_SENTENCE) return full.slice(0, dot).trim();
+    from = dot + 1; // dot inside an abbreviation — try the next one
+  }
+  return full;
+}
+
 export default class Carousel {
   constructor(container, {
     interval = 10, getItems = null, brandSub = null, institution = null,
@@ -162,7 +180,7 @@ export default class Carousel {
     const creditEl = slide.querySelector('.slide-credit');
     const img = slide.querySelector('img');
 
-    titleEl.textContent = item.title || 'Zonder titel';
+    titleEl.textContent = displayTitle(item.title) || 'Zonder titel';
     creatorEl.textContent = item.creator || '';
     metaEl.textContent = meta;
     creditEl.textContent = item.credit || '';

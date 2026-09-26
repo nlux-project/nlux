@@ -59,7 +59,7 @@ window.fetch = global.fetch = async (url) => {
       json: async () => ({
         collection: 'teylers',
         scope: 'item',
-        count: 2,
+        count: 4,
         total_available: 200,
         seed: null,
         items: [
@@ -93,6 +93,38 @@ window.fetch = global.fetch = async (url) => {
             detail_url: null,
             credit: 'Teylers Museum, Haarlem',
           },
+          {
+            // very long title with sentence periods — displayed cut at first sentence
+            uri: 'https://example.com/nlux/HumanMadeObject/teylers3',
+            id: 'teylers3',
+            type: 'HumanMadeObject',
+            title: 'Gezicht in het dorp Appeldorn, 1746. Prent uit een 100-delige serie met gezichten op dorpen en steden te Kleef. Ets door door Paulus van Liender naar ontwerptekening van Jan de Beijer; gesigneerd en gedateerd',
+            creator: 'Liender, Paulus van',
+            date: '1746',
+            classification: 'prints (visual works)',
+            material: null,
+            technique: null,
+            accession: null,
+            image: '/iiif/image/token3',
+            detail_url: null,
+            credit: 'Teylers Museum, Haarlem',
+          },
+          {
+            // very long title whose first dots sit inside an abbreviation
+            uri: 'https://example.com/nlux/HumanMadeObject/teylers4',
+            id: 'teylers4',
+            type: 'HumanMadeObject',
+            title: 'Prent van de St. Janskerk te Gouda, vervaardigd in de achttiende eeuw door een plaatselijke graveur en uitgegeven door de kerk zelf als aandenken aan de restauratie van de toren. Tweede zin.',
+            creator: null,
+            date: null,
+            classification: 'prints (visual works)',
+            material: null,
+            technique: null,
+            accession: null,
+            image: '/iiif/image/token4',
+            detail_url: null,
+            credit: 'Teylers Museum, Haarlem',
+          },
         ],
       }),
     };
@@ -108,7 +140,7 @@ await delay(150);
 const root = document.querySelector('.carousel-root');
 assert.ok(root, 'carousel root rendered');
 const slides = [...document.querySelectorAll('.slide')];
-assert.equal(slides.length, 2, 'both slides rendered');
+assert.equal(slides.length, 4, 'all slides rendered');
 
 // First slide active with correct content
 assert.ok(slides[0].classList.contains('active'), 'first slide active');
@@ -125,6 +157,24 @@ assert.equal(
 assert.equal(slides[0].querySelector('img').src, 'http://localhost:8089/iiif/image/token1');
 assert.ok(slides[0].querySelector('.slide-link'), 'detail link rendered');
 assert.equal(slides[1].querySelector('.slide-link'), null, 'no link without detail_url');
+
+// Long titles are cut at the first sentence; the full title stays in img.alt
+assert.equal(
+  slides[2].querySelector('.slide-title').textContent,
+  'Gezicht in het dorp Appeldorn, 1746',
+  'long title displayed up to the first sentence');
+assert.equal(
+  slides[2].querySelector('img').alt,
+  'Gezicht in het dorp Appeldorn, 1746. Prent uit een 100-delige serie met gezichten op dorpen en steden te Kleef. Ets door door Paulus van Liender naar ontwerptekening van Jan de Beijer; gesigneerd en gedateerd',
+  'full title kept in img alt');
+assert.equal(
+  slides[3].querySelector('.slide-title').textContent,
+  'Prent van de St. Janskerk te Gouda, vervaardigd in de achttiende eeuw door een plaatselijke graveur en uitgegeven door de kerk zelf als aandenken aan de restauratie van de toren',
+  'dots inside abbreviations are skipped when cutting');
+assert.equal(
+  slides[0].querySelector('.slide-title').textContent,
+  'Feesten van Hollandse boeren',
+  'short titles are left untouched');
 
 // Progress bar + removed chrome (no prev/next buttons, no counter)
 assert.match(document.querySelector('.progress-fill').style.animation, /slide-progress 10s/);
