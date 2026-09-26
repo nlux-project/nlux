@@ -45,6 +45,7 @@ describe('Object results page', () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       await findAllByText(/Objects results/i)
+      await screen.findByText(/Description of the objects results\./)
       const descriptor = screen.getByTestId('results-page-cms-descriptor')
       expect(descriptor).toHaveTextContent(
         'Description of the objects results.',

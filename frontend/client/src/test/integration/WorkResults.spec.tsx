@@ -33,6 +33,7 @@ describe('Work results page', () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       await findAllByText(/Works results/i)
+      await screen.findByText(/Description of the works results\./)
       const descriptor = screen.getByTestId('results-page-cms-descriptor')
       expect(descriptor).toHaveTextContent('Description of the works results.')
     })

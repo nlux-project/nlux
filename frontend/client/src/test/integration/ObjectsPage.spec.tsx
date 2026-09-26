@@ -120,7 +120,7 @@ describe('Objects page', () => {
     it('renders the materials', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Materials/i)
+      await findAllByText(/Materialen/i)
       const materials = screen.getByTestId('object-materials-link-container')
       expect(materials).toBeInTheDocument()
     })
@@ -238,7 +238,7 @@ describe('Objects page', () => {
     it('renders the component', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/How do I see it/i)
+      await findAllByText(/Hoe kan ik het bekijken\?/i)
       const component = screen.getByTestId('how-do-i-see-it')
       expect(component).toBeInTheDocument()
     })
@@ -246,7 +246,7 @@ describe('Objects page', () => {
     it('renders the access statement', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/How do I see it/i)
+      await findAllByText(/Hoe kan ik het bekijken\?/i)
       const statement = screen.getByTestId('access-statement-0')
       expect(statement).toBeInTheDocument()
     })
@@ -254,7 +254,7 @@ describe('Objects page', () => {
     it('renders the access point', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/How do I see it/i)
+      await findAllByText(/Hoe kan ik het bekijken\?/i)
       const link = screen.getByText('Online dataset')
       expect(link).toHaveAttribute(
         'href',
@@ -265,7 +265,7 @@ describe('Objects page', () => {
     it('renders the site links', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/How do I see it/i)
+      await findAllByText(/Hoe kan ik het bekijken\?/i)
       const links = screen.getByTestId('site-links')
       expect(links).toBeInTheDocument()
     })
@@ -299,7 +299,7 @@ describe('Objects page', () => {
     it('renders the component', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Can I re-use it/i)
+      await findAllByText(/Kan ik het hergebruiken\?/i)
       const component = screen.getByTestId('can-i-reuse-it')
       expect(component).toBeInTheDocument()
     })
@@ -307,7 +307,7 @@ describe('Objects page', () => {
     it('renders the copyright information', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Can I re-use it/i)
+      await findAllByText(/Kan ik het hergebruiken\?/i)
       const copyright = screen.getByTestId('copyright-statement-text-note')
       expect(copyright).toBeInTheDocument()
     })
@@ -317,7 +317,7 @@ describe('Objects page', () => {
     it('renders with correct href', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Submit feedback/i)
+      await findAllByText(/Feedback geven over dit record/i)
       const link = screen.getByTestId('submit-feedback-button')
       expect(link).toHaveAttribute(
         'href',
@@ -330,7 +330,7 @@ describe('Objects page', () => {
     it('renders', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Data Sources/i)
+      await findAllByText(/Gegevensbronnen/i)
       const header = screen.getByTestId('data-sources-header')
       expect(header).toBeInTheDocument()
     })
@@ -338,7 +338,7 @@ describe('Objects page', () => {
     it('renders the record link', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Data Sources/i)
+      await findAllByText(/Gegevensbronnen/i)
       const link = screen.getByTestId('This-Record-0-external-link')
       expect(link).toHaveAttribute(
         'href',
@@ -349,7 +349,7 @@ describe('Objects page', () => {
     it('renders the IIIF manifest', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Data Sources/i)
+      await findAllByText(/Gegevensbronnen/i)
       const link = screen.getByTestId('IIIF-Manifest-0-external-link')
       expect(link).toHaveAttribute(
         'href',
@@ -360,7 +360,7 @@ describe('Objects page', () => {
     it('renders the internal data source', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Data Sources/i)
+      await findAllByText(/Gegevensbronnen/i)
       const link = screen.getByTestId(
         'Yale-Contributing-Records-0-external-link',
       )
@@ -373,7 +373,7 @@ describe('Objects page', () => {
     it('renders the external data source', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Data Sources/i)
+      await findAllByText(/Gegevensbronnen/i)
       const link = screen.getByTestId(
         'External-Contributing-Records-0-external-link',
       )

@@ -115,7 +115,7 @@ describe('Group page', () => {
     it('renders the notes', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Description/i)
+      await findAllByText(/Beschrijving/i)
       const notes = screen.getByTestId('notes-container-0')
       expect(notes).toBeInTheDocument()
     })

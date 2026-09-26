@@ -1,8 +1,15 @@
 <!-- This file is a template and should be used to begin configuration of the index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
-    <!-- Place your <title>, <style>, <meta>, <link>, and <script> tags here -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Collectie NH — doorzoek de erfgoedcollecties van Noord-Hollandse instellingen."
+    />
+    <title>Collectie NH | Cultureel Erfgoed collecties Noord-Holland</title>
+    <!-- Place your <style>, <meta>, <link>, and <script> tags here -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

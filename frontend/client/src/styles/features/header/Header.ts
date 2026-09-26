@@ -23,7 +23,7 @@ const Header = styled.div`
   }
 
   .navbar-brand {
-    font-family: YaleDesign, serif;
+    font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     color: var(--nlux-font, ${theme.color.black});
     white-space: pre-wrap;
@@ -31,6 +31,37 @@ const Header = styled.div`
 
     @media (min-width: ${theme.breakpoints.md}px) {
       order: 1;
+    }
+
+    .brandMark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: ${theme.color.primary.blue};
+      color: ${theme.color.white};
+      font-size: 15px;
+      font-weight: ${theme.font.weight.bold};
+      letter-spacing: 0.5px;
+      padding: 9px 9px;
+      border-radius: 10px;
+      margin-right: 12px;
+    }
+
+    .brandText {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.15;
+
+      .brandTitle {
+        font-size: 19px;
+        font-weight: ${theme.font.weight.semiBold};
+      }
+
+      .brandTagline {
+        color: ${theme.color.gray};
+        font-size: 11.5px;
+        font-weight: ${theme.font.weight.regular};
+      }
     }
   }
 
@@ -76,7 +107,7 @@ const Header = styled.div`
     }
 
     .navbar-brand {
-      font-size: 2em;
+      font-size: 1em;
     }
   }
 `

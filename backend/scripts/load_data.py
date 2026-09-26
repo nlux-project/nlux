@@ -48,6 +48,12 @@ def extract_search_text(doc: dict) -> str:
     for item in doc.get("referred_to_by", []):
         if c := text_value(item.get("content")):
             parts.append(c)
+    # Include institution / collection labels (current_owner, member_of)
+    # so records can be found by the institution that holds them.
+    for field in ("current_owner", "member_of"):
+        for item in doc.get(field, []) or []:
+            if isinstance(item, dict) and (c := text_value(item.get("_label"))):
+                parts.append(c)
     return " ".join(parts)
 
 

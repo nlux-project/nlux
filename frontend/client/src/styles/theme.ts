@@ -101,41 +101,41 @@ const font = {
 
 const color = {
   advancedSearchRow: '#FDFDFD',
-  black: '#222',
+  black: '#22303E',
   black10: 'rgba(0, 0, 0, 0.1)',
   black20: 'rgba(0, 0, 0, 0.2)',
   black65: 'rgba(0, 0, 0, 0.65)',
-  borderShadow: '#d9d9d9',
+  borderShadow: '#d9e4ec',
   button: '#767676',
-  darkBlue60: 'rgba(0, 53, 107, 0.6)', // 60% primary.darkBlue
+  darkBlue60: 'rgba(31, 90, 119, 0.6)', // 60% primary.darkBlue
   dangerRed: '#C21F2F',
   dangerRed60: 'rgba(194, 31, 47, 0.6)',
-  teal90: 'rgb(0, 123, 148, 0.9)', // 90% primary.teal
-  gray: '#999',
-  lightBabyBlue: '#E7F1FF',
-  lightGray: '#E1DFDF',
-  link: '#286DC0',
-  offWhite: '#F7F7F7',
+  teal90: 'rgba(63, 147, 184, 0.9)', // 90% primary.teal
+  gray: '#8fa0ad',
+  lightBabyBlue: '#EAF3F8',
+  lightGray: '#E1E8ED',
+  link: '#2e7fa8',
+  offWhite: '#FFFFFF',
   white: '#FFF',
-  tabButtonBgColor: '#C2C2C2',
+  tabButtonBgColor: '#D3E3EC',
   errorFg: 'FC0D1B',
   errorBg: '#FFF0F0',
   trueBlack: '#000',
   barChartGreen: '#46813B',
   barChartPurple: '#6b58A6',
 
-  // Primary colors defined by POW design
+  // Primary colors — Collectie NH 'Water & Lucht' design
   primary: {
-    blue: '#006DC6',
-    darkBlue: '#00356B',
-    teal: '#007B94',
+    blue: '#2e7fa8',
+    darkBlue: '#1f5a77',
+    teal: '#3f93b8',
   },
 
-  // Secondary colors defined by POW design
+  // Secondary colors — Collectie NH 'Water & Lucht' design
   secondary: {
     aeroBlue: '#CDEAD5',
-    lightBlue: '#AAD3DF',
-    pacificBlue: '#00B5CA',
+    lightBlue: '#DCEEF7',
+    pacificBlue: '#7fc4e0',
     cornflowerBlue: '#8095E8',
   },
 
@@ -190,7 +190,7 @@ const color = {
     addRowText: '#979797',
   },
   // Background color outside section panels
-  offPanel: '#F7F7F7',
+  offPanel: '#EEF6FA',
 }
 
 const spacing = {

@@ -33,6 +33,7 @@ describe('Person and Group results page', () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       await findAllByText(/People & Groups results/i)
+      await screen.findByText(/Description of the people and groups results\./)
       const descriptor = screen.getByTestId('results-page-cms-descriptor')
       expect(descriptor).toHaveTextContent(
         'Description of the people and groups results.',

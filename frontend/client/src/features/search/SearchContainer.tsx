@@ -7,9 +7,7 @@ import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 import { pushClientEvent } from '../../lib/pushClientEvent'
 import { LinksContainerRow } from '../../styles/features/search/LinksContainerRow'
 import theme from '../../styles/theme'
-import ToggleButton from '../advancedSearch/ToggleSearchButton'
 
-import AdvancedSearchButton from './AdvancedSearchButton'
 import ErrorMessage from './ErrorMessage'
 import SearchBox from './SearchBox'
 
@@ -50,25 +48,13 @@ const SearchContainer: React.FC<IProps> = ({
         {isError && <ErrorMessage onClose={setIsError} />}
         <SearchBox id={id} setIsError={setIsError} isResults={isResultsPage} />
       </Col>
-      {isResultsPage ? (
-        <Col xs={12} className="d-flex justify-content-center">
-          <div
-            className="d-flex justify-content-end"
-            style={{ width: theme.searchBox.width }}
-          >
-            <ToggleButton setIsError={setIsError} />
-          </div>
-        </Col>
-      ) : (
+      {!isResultsPage && (
         <Col
           xs={12}
           className="d-flex justify-content-center align-items-center mt-3"
         >
           <LinksContainerRow>
-            <Col xs={6} className="d-inline-flex justify-content-start">
-              <AdvancedSearchButton setIsError={setIsError} id={id} />
-            </Col>
-            <Col xs={6} className="d-inline-flex justify-content-end">
+            <Col xs={12} className="d-inline-flex justify-content-center">
               <HashLink
                 to="/content/simple-search"
                 style={{

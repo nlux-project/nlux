@@ -129,7 +129,7 @@ describe('Linguistic Object page', () => {
     it('renders the component', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/How do I see it/i)
+      await findAllByText(/Hoe kan ik het bekijken\?/i)
       const component = screen.getByTestId('how-do-i-see-it')
       expect(component).toBeInTheDocument()
     })
@@ -137,7 +137,7 @@ describe('Linguistic Object page', () => {
     it('renders the site links', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/How do I see it/i)
+      await findAllByText(/Hoe kan ik het bekijken\?/i)
       const links = screen.getByTestId('site-links')
       expect(links).toBeInTheDocument()
     })
@@ -147,7 +147,7 @@ describe('Linguistic Object page', () => {
     it('renders the component', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Can I re-use it/i)
+      await findAllByText(/Kan ik het hergebruiken\?/i)
       const component = screen.getByTestId('can-i-reuse-it')
       expect(component).toBeInTheDocument()
     })
@@ -155,7 +155,7 @@ describe('Linguistic Object page', () => {
     it('renders the subject to data', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Can I re-use it/i)
+      await findAllByText(/Kan ik het hergebruiken\?/i)
       const copyright = screen.getByTestId('subject-to-external-link')
       expect(copyright).toBeInTheDocument()
     })

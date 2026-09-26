@@ -1,20 +1,22 @@
 {
   "header": {
-    "title": "NLUX: Collections Discovery",
-    "about": "About NLUX",
+    "title": "Collectie NH",
+    "about": "About Collectie NH",
     "openAccess": "Open Access",
     "searchTips": "Search Tips",
     "help": "Help",
     "login": "Login",
     "myCollections": "My Collections",
     "viewProfile": "View Profile",
-    "logout": "Logout"
+    "logout": "Logout",
+    "tagline": "Cultural Heritage collections North Holland"
   },
   "footer": {
     "contact": "Contact",
     "termsOfUse": "Terms of Use",
     "accessibility": "Accessibility",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "brand": "Collectie NH"
   },
   "status": {
     "loading": "Loading...",
@@ -39,7 +41,7 @@
     "open": "Open Search",
     "close": "Close Search",
     "inputLabel": "Search Input Box",
-    "placeholder": "Search NLUX",
+    "placeholder": "Search by keyword, title or maker …",
     "submit": "Search",
     "advanced": "Advanced Search",
     "tips": "Search Tips",
@@ -138,5 +140,11 @@
   },
   "object": {
     "technique": "Technique"
+  },
+  "landing": {
+    "heroTitle": "Discover the heritage of North Holland",
+    "heroSub": "Search the collections of North Holland heritage institutions – from prints and paintings to photographs and archaeological finds.",
+    "institutionsTitle": "Partner institutions",
+    "objectCount": "objects"
   }
 }

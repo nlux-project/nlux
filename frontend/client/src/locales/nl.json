@@ -1,7 +1,8 @@
 {
   "header": {
-    "title": "NLUX: Collectiezoeker",
-    "about": "Over NLUX",
+    "title": "Collectie NH",
+    "tagline": "Cultureel Erfgoed collecties Noord-Holland",
+    "about": "Over Collectie NH",
     "openAccess": "Open Access",
     "searchTips": "Zoektips",
     "help": "Help",
@@ -11,6 +12,7 @@
     "logout": "Uitloggen"
   },
   "footer": {
+    "brand": "Collectie NH",
     "contact": "Contact",
     "termsOfUse": "Gebruiksvoorwaarden",
     "accessibility": "Toegankelijkheid",
@@ -39,7 +41,7 @@
     "open": "Zoeken openen",
     "close": "Zoeken sluiten",
     "inputLabel": "Zoekveld",
-    "placeholder": "Zoeken in NLUX",
+    "placeholder": "Zoek op trefwoord, titel of maker \u2026",
     "submit": "Zoeken",
     "advanced": "Uitgebreid zoeken",
     "tips": "Zoektips",
@@ -51,6 +53,12 @@
     "places": "Plaatsen",
     "concepts": "Begrippen",
     "events": "Gebeurtenissen"
+  },
+  "landing": {
+    "heroTitle": "Ontdek het erfgoed van Noord-Holland",
+    "heroSub": "Zoek in de collecties van Noord-Hollandse erfgoedinstellingen \u2013 van prenten en schilderijen tot foto's en archeologische vondsten.",
+    "institutionsTitle": "Aangesloten instellingen",
+    "objectCount": "objecten"
   },
   "labels": {
     "About": "Gegevens",

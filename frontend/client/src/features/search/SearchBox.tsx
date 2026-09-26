@@ -18,17 +18,13 @@ import LoadingSpinner from '../common/LoadingSpinner'
 const StyledSearchBox = styled.div`
   display: flex;
   width: ${theme.searchBox.width};
-  border: solid 1px #979797;
-  border-radius: ${theme.searchBox.borderRadiusMobile};
-
-  @media (min-width: ${theme.breakpoints.md}px) {
-    border-radius: ${theme.searchBox.borderRadius};
-  }
+  border: solid 1px ${theme.color.borderShadow};
+  border-radius: 999px;
+  box-shadow: 0 8px 26px rgba(34, 48, 62, 0.1);
 
   .form-control {
     border: none;
-    border-radius: ${theme.searchBox.borderRadiusMobile} 0 0
-      ${theme.searchBox.borderRadiusMobile} !important;
+    border-radius: 999px 0 0 999px !important;
     margin-left: 0px !important;
     max-width: ${theme.searchBox.width};
     font-weight: 300;
@@ -38,23 +34,23 @@ const StyledSearchBox = styled.div`
     @media (min-width: ${theme.breakpoints.md}px) {
       font-size: 2rem;
       height: 72px;
-      border-radius: ${theme.searchBox.borderRadius} 0 0
-        ${theme.searchBox.borderRadius} !important;
     }
   }
 
   .submitButton {
-    background-color: ${theme.color.white};
-    border-radius: 0 ${theme.searchBox.borderRadiusMobile}
-      ${theme.searchBox.borderRadiusMobile} 0;
+    background-color: ${theme.color.primary.blue};
+    color: ${theme.color.white};
+    border-radius: 0 999px 999px 0;
     height: 50px;
     font-size: 1.5rem;
+
+    &:hover {
+      background-color: ${theme.color.primary.darkBlue};
+    }
 
     @media (min-width: ${theme.breakpoints.md}px) {
       font-size: 2rem;
       height: 72px;
-      border-radius: 0 ${theme.searchBox.borderRadius}
-        ${theme.searchBox.borderRadius} 0;
     }
   }
 `

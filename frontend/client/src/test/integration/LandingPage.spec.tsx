@@ -21,7 +21,7 @@ describe('Landing page', () => {
     it('renders', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const searchBar = screen.getByTestId(
         'landing-page-search-container-simple-search-form',
       )
@@ -31,7 +31,7 @@ describe('Landing page', () => {
     it('renders a disabled search button if text is invalid', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const input = screen.getByTestId(
         'landing-page-search-container-search-submit-input',
       )
@@ -50,7 +50,7 @@ describe('Landing page', () => {
     it('renders a enabled search button if text is valid', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const input = screen.getByTestId(
         'landing-page-search-container-search-submit-input',
       )
@@ -68,7 +68,7 @@ describe('Landing page', () => {
     it('renders an error message if the text input fails translating', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const input = screen.getByTestId(
         'landing-page-search-container-search-submit-input',
       )
@@ -87,19 +87,23 @@ describe('Landing page', () => {
         fireEvent.click(button)
       })
 
-      await findAllByText(/Invalid search string detected/)
+      await findAllByText(/Ongeldige zoekopdracht gedetecteerd/)
       const alert = screen.getByTestId('search-error-message')
       expect(alert).toBeInTheDocument()
     })
 
-    it('renders the advanced search button', async () => {
+    it('renders the institutions strip', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
-      const dropdown = screen.getByTestId(
-        'landing-page-search-container-advanced-search-switch-dropdown-toggle',
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      const section = screen.getByTestId('institutions-container')
+      expect(section).toBeInTheDocument()
+      const card = screen.getByTestId('institution-card-Teylers Museum')
+      expect(card).toBeInTheDocument()
+      expect(card).toHaveAttribute(
+        'href',
+        expect.stringContaining('/view/results/objects'),
       )
-      expect(dropdown).toBeInTheDocument()
     })
   })
 
@@ -107,7 +111,7 @@ describe('Landing page', () => {
     it('renders', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const section = screen.getByTestId('what-is-lux')
       expect(section).toBeInTheDocument()
     })
@@ -115,7 +119,7 @@ describe('Landing page', () => {
     it('renders What is LUX section hero image', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const container = screen.getByTestId('hero-image-container')
       expect(container).toBeInTheDocument()
     })
@@ -123,7 +127,7 @@ describe('Landing page', () => {
     it('renders What is LUX section collection link', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const link = screen.getByTestId('hero-image-caption-link')
       expect(link).toBeInTheDocument()
     })
@@ -143,7 +147,7 @@ describe('Landing page', () => {
     it('renders', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const about = screen.getByTestId('more-about-lux-container')
       expect(about).toBeInTheDocument()
     })
@@ -163,7 +167,7 @@ describe('Landing page', () => {
     it('renders', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const descriptor = screen.getByTestId('footer-blocks-section')
       expect(descriptor).toBeInTheDocument()
     })
@@ -171,7 +175,7 @@ describe('Landing page', () => {
     it('renders the footer', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const footer = screen.getByTestId('lux-footer')
       expect(footer).toBeInTheDocument()
     })
@@ -179,7 +183,7 @@ describe('Landing page', () => {
     it('renders the contact link', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Explore Yale Collections/i)
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const link = screen.getByTestId('feedback-external-link')
       expect(link).toHaveAttribute(
         'href',

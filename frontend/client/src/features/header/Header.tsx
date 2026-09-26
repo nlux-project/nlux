@@ -103,7 +103,15 @@ const Header: React.FC<{ hideSearch?: boolean }> = ({ hideSearch }) => {
                   style={{ height: 36 }}
                 />
               ) : (
-                i18n.t('header.title')
+                <React.Fragment>
+                  <span className="brandMark">CNH</span>
+                  <span className="brandText">
+                    <span className="brandTitle">{i18n.t('header.title')}</span>
+                    <small className="brandTagline">
+                      {i18n.t('header.tagline')}
+                    </small>
+                  </span>
+                </React.Fragment>
               )}
             </NavLink>
             <Navbar.Toggle

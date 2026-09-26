@@ -25,7 +25,7 @@ const Footer: React.FC = () => (
               pushClientEvent('Internal Link', 'Selected', 'Internal NLUX')
             }
           >
-            NLUX
+            {i18n.t('footer.brand')}
           </Link>
         </Col>
         <Col xs={12} sm={6} className="d-flex" id="lux-footer-nav-items-col">

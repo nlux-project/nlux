@@ -78,6 +78,6 @@ describe('Identifier', () => {
     )
 
     const label = screen.getByTestId('identifiers-text-label')
-    expect(label).toHaveTextContent('Identifiers')
+    expect(label).toHaveTextContent('Identificatoren')
   })
 })

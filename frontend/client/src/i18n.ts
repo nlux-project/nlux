@@ -4,11 +4,10 @@ import { initReactI18next } from 'react-i18next'
 import en from './locales/en.json'
 import nl from './locales/nl.json'
 
-function getBrowserLang(): string {
-  if (typeof navigator === 'undefined') return 'en'
-  const lang = navigator.language || 'en'
-  return lang.startsWith('nl') ? 'nl' : 'en'
-}
+// Collectie NH ships Dutch-only for now. English is fully prepared
+// (resources + strings below) — switching later only requires exposing
+// a language toggle and changing `lng`.
+const DEFAULT_LANGUAGE = 'nl'
 
 const i18n = createInstance()
 
@@ -17,8 +16,8 @@ i18n.use(initReactI18next).init({
     en: { translation: en },
     nl: { translation: nl },
   },
-  lng: getBrowserLang(),
-  fallbackLng: 'en',
+  lng: DEFAULT_LANGUAGE,
+  fallbackLng: DEFAULT_LANGUAGE,
   interpolation: { escapeValue: false },
 })
 
