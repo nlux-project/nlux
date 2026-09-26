@@ -1,0 +1,172 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/64722A7EFB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "De vijver van het Provinciaal Ziekenhuis in de winter 1 topogr. tekening: aquarel potlood, penseel in kleur recto l.o., potlood \"Melchior\" 271 x 375 mm.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De vijver van het Provinciaal Ziekenhuis in de winter 1 topogr. tekening: aquarel potlood, penseel in kleur recto l.o., potlood \"Melchior\" 271 x 375 mm.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "6543",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "\"Vijver van Meerenberg Prov. Ziekenhuis nabij Santpoort 14 febr 1959\" (recto l.o., potlood)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "InC 1.0 Auteursrechtelijk beschermd"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Tekening",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Tekening"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Melchior, Adolf A.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1898-01-01T00:00:00",
+            "end_of_the_end": "1898-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1962-01-01T00:00:00",
+            "end_of_the_end": "1962-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1959-01-01T00:00:00",
+      "end_of_the_begin": "1959-12-31T23:59:59",
+      "begin_of_the_end": "1959-01-01T00:00:00",
+      "end_of_the_end": "1959-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/64722A7EFB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZDFhZjkxMzEtY2Q5NC01ZDMzLTU2ZmQtNjJkMzA2NDViZDljLmpwZw?label=De%20vijver%20van%20het%20Provinciaal%20Ziekenhuis%20in%20de%20winter%201%20topogr.%20tekening%3A%20aquarel%20potlood%2C%20penseel%20in%20kleur%20recto%20l.o.%2C%20potlood%20%22Melchior%22%20271%20x%20375%20mm.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/d1af9131-cd94-5d33-56fd-62d30645bd9c.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

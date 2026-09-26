@@ -1,0 +1,150 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/639D07B476CC4162B59D701C1030284C",
+  "type": "HumanMadeObject",
+  "_label": "Titelpagina van het boek 'De Volmaakte Koopman'. Op een verhoging staat een koopman, geflankeerd door de personificaties 'Fortuna' (het lot, geluk en toeval), de vrouw met het zeil achter zich, en 'Prudentia' (Voorzichtigheid/Wijsheid), de vrouw met de spiegel in de hand. Op de voorgrond Handelaren en op de achtergrond een gezicht door een venster op de amsterdamse beurs. Uitgebreide titel: De Volmaakte Koopman / Handelende / van alles wat in de koop- / manschap voorvalt / Door / De Heer SAVARY. // Ets, latere editie, niet gesigneerd of gedateerd op de voorstelling",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Titelpagina van het boek 'De Volmaakte Koopman'. Op een verhoging staat een koopman, geflankeerd door de personificaties 'Fortuna' (het lot, geluk en toeval), de vrouw met het zeil achter zich, en 'Prudentia' (Voorzichtigheid/Wijsheid), de vrouw met de spiegel in de hand. Op de voorgrond Handelaren en op de achtergrond een gezicht door een venster op de amsterdamse beurs. Uitgebreide titel: De Volmaakte Koopman / Handelende / van alles wat in de koop- / manschap voorvalt / Door / De Heer SAVARY. // Ets, latere editie, niet gesigneerd of gedateerd op de voorstelling",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1330",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Het boek is een Nederlands vertaling uit het Frans, uitgegeven in Amsterdam en te koop bij H. Sweerts, J. ten Hoorn J. Bouman en D. vanden Dalen. Zie: https://go-gale-com.rp.nla.gov.au/ps/i.do?p=MOME&u=nla&id=GALE%7CU0100275054&v=2.1&it=r&aty=ip"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Onbekend"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1683-01-01T00:00:00",
+      "end_of_the_begin": "1683-12-31T23:59:59",
+      "begin_of_the_end": "1683-01-01T00:00:00",
+      "end_of_the_end": "1683-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/639D07B476CC4162B59D701C1030284C",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvN2QwMDgzN2MtNWFhNC1lNTk0LWQ5MTMtODI4Yzc1ZDM5MzRiLmpwZw?label=Titelpagina%20van%20het%20boek%20%27De%20Volmaakte%20Koopman%27.%20Op%20een%20verhoging%20staat%20een%20koopman%2C%20geflankeerd%20door%20de%20personificaties%20%27Fortuna%27%20%28het%20lot%2C%20geluk%20en%20toeval%29%2C%20de%20vrouw%20met%20het%20zeil%20achter%20zich%2C%20en%20%27Prudentia%27%20%28Voorzichtigheid/Wijsheid%29%2C%20de%20vrouw%20met%20de%20spiegel%20in%20de%20hand.%20Op%20de%20voorgrond%20Handelaren%20en%20op%20de%20achtergrond%20een%20gezicht%20door%20een%20venster%20op%20de%20amsterdamse%20beurs.%20Uitgebreide%20titel%3A%20De%20Volmaakte%20Koopman%20/%20Handelende%20/%20van%20alles%20wat%20in%20de%20koop-%20/%20manschap%20voorvalt%20/%20Door%20/%20De%20Heer%20SAVARY.%20//%20Ets%2C%20latere%20editie%2C%20niet%20gesigneerd%20of%20gedateerd%20op%20de%20voorstelling",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/7d00837c-5aa4-e594-d913-828c75d3934b.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

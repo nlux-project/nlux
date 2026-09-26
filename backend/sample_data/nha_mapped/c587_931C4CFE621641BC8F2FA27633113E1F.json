@@ -1,0 +1,156 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/931C4CFE621641BC8F2FA27633113E1F",
+  "type": "HumanMadeObject",
+  "_label": "Portret van Albert Schweitzer met op de achtergrond zieke mensen. Schetsontwerp voor portret van Albert Schweitzer. Potlood, gemonogrammeerd, niet gedateerd. Verso portretschets in ballpoint van een kindje",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Portret van Albert Schweitzer met op de achtergrond zieke mensen. Schetsontwerp voor portret van Albert Schweitzer. Potlood, gemonogrammeerd, niet gedateerd. Verso portretschets in ballpoint van een kindje",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "934",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Zie ook 587_055579 en 587_055580."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "InC 1.0 Auteursrechtelijk beschermd"
+    }
+  ],
+  "about": [
+    {
+      "type": "Person",
+      "_label": "Albert Schweitzer met op de achtergrond zieke mensen. Schetsontwerp voor portret van Albert Schweitzer. Potlood, gemonogrammeerd, niet gedateerd. Verso portretschets in ballpoint van een kindje"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Tekening",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Tekening"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Reitsma-Valença, E."
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1900-01-01T00:00:00",
+      "end_of_the_begin": "1900-12-31T23:59:59",
+      "begin_of_the_end": "1965-01-01T00:00:00",
+      "end_of_the_end": "1965-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "587 - portretten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/931C4CFE621641BC8F2FA27633113E1F",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly93ZWJzZXJ2aWNlcy5tZW1vcml4Lm5sL21lZGlhYmFuay8yLjAvZGlzdC9pbWFnZXMvbWVkaWEvaW1hZ2UtcmVzdHJpY3RlZC1wbGFjZWhvbGRlci1ubC5wbmc?label=Portret%20van%20Albert%20Schweitzer%20met%20op%20de%20achtergrond%20zieke%20mensen.%20Schetsontwerp%20voor%20portret%20van%20Albert%20Schweitzer.%20Potlood%2C%20gemonogrammeerd%2C%20niet%20gedateerd.%20Verso%20portretschets%20in%20ballpoint%20van%20een%20kindje",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://webservices.memorix.nl/mediabank/2.0/dist/images/media/image-restricted-placeholder-nl.png",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/F12EA534B0FEC408361389567C5F1BAD",
+  "type": "HumanMadeObject",
+  "_label": "De zeegodin Amphitrite. Eerste prent uit een zeventiendelige genummerde serie over stroom- en waternimfen en godinnen. Gravure door Philips Galle naar eigen ontwerptekening; linksonder genummerd '1'; gesigneerd.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De zeegodin Amphitrite. Eerste prent uit een zeventiendelige genummerde serie over stroom- en waternimfen en godinnen. Gravure door Philips Galle naar eigen ontwerptekening; linksonder genummerd '1'; gesigneerd.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "433",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "New Hollstein Dutch, Galle, 431-1(2)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Galle, Philips P.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1537-01-01T00:00:00",
+            "end_of_the_end": "1537-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1612-01-01T00:00:00",
+            "end_of_the_end": "1612-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1587-01-01T00:00:00",
+      "end_of_the_begin": "1587-12-31T23:59:59",
+      "begin_of_the_end": "1587-01-01T00:00:00",
+      "end_of_the_end": "1587-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/F12EA534B0FEC408361389567C5F1BAD",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZWU2NmJiOGUtMDY4MC1iMWRhLTU2OWYtNWRhMDkxMGE2ZGU5LmpwZw?label=De%20zeegodin%20Amphitrite.%20Eerste%20prent%20uit%20een%20zeventiendelige%20genummerde%20serie%20over%20stroom-%20en%20waternimfen%20en%20godinnen.%20Gravure%20door%20Philips%20Galle%20naar%20eigen%20ontwerptekening%3B%20linksonder%20genummerd%20%271%27%3B%20gesigneerd.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/ee66bb8e-0680-b1da-569f-5da0910a6de9.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

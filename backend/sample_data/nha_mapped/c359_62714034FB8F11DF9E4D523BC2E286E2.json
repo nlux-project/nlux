@@ -1,0 +1,156 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/62714034FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Op de achtergrond de torenspits van de kerk. 1 topogr. tek.: pen in zwart, zwarte ballpoint, over schets in potlood, op grijs gewassen papier z.s. 144 x 465 mm",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Op de achtergrond de torenspits van de kerk. 1 topogr. tek.: pen in zwart, zwarte ballpoint, over schets in potlood, op grijs gewassen papier z.s. 144 x 465 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "6140",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "\"LIMMEN MAART 1985 //BOERDERIJ J. VAN DER STEEN (HOEK STETLAANTJE)\" (l.o. in afb.) Limmen 011"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "InC 1.0 Auteursrechtelijk beschermd"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Tekening",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Tekening"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Deckwitz, Jan J."
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1985-01-01T00:00:00",
+      "end_of_the_begin": "1985-12-31T23:59:59",
+      "begin_of_the_end": "1985-01-01T00:00:00",
+      "end_of_the_end": "1985-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/62714034FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZjg4MGYwMWMtZmEzYi1hZjVkLWQ1ZjQtMGMyMGJmNmI5MDY5LmpwZw?label=Op%20de%20achtergrond%20de%20torenspits%20van%20de%20kerk.%201%20topogr.%20tek.%3A%20pen%20in%20zwart%2C%20zwarte%20ballpoint%2C%20over%20schets%20in%20potlood%2C%20op%20grijs%20gewassen%20papier%20z.s.%20144%20x%20465%20mm",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/f880f01c-fa3b-af5d-d5f4-0c20bf6b9069.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

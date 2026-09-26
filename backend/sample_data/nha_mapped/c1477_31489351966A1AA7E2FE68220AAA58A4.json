@@ -1,0 +1,186 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/31489351966A1AA7E2FE68220AAA58A4",
+  "type": "HumanMadeObject",
+  "_label": "Paris met de twistappel in zijn hand en in de achtergrond twee stieren. Een prent van de zevendelige, ongenummerde prentenserie getiteld Pictura Poesis met klassieke goden en mythologische figuren die verband houden met het mythologische verhaal over het 'Oordeel van Paris'. Gravure toegeschreven aan Gerard de Jode naar een ontwerptekening van Hans Collaert (I); gesigneerd rechts midden onder HC (ineen).",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Paris met de twistappel in zijn hand en in de achtergrond twee stieren. Een prent van de zevendelige, ongenummerde prentenserie getiteld Pictura Poesis met klassieke goden en mythologische figuren die verband houden met het mythologische verhaal over het 'Oordeel van Paris'. Gravure toegeschreven aan Gerard de Jode naar een ontwerptekening van Hans Collaert (I); gesigneerd rechts midden onder HC (ineen).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "580",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "New Hollstein Dutch, Collaert, 1152"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Collaert, Hans (I) H.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1525-01-01T00:00:00",
+            "end_of_the_end": "1525-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1580-01-01T00:00:00",
+            "end_of_the_end": "1580-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Jode, Gerard G. de",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1508-01-01T00:00:00",
+            "end_of_the_end": "1508-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1591-01-01T00:00:00",
+            "end_of_the_end": "1591-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1547-01-01T00:00:00",
+      "end_of_the_begin": "1547-12-31T23:59:59",
+      "begin_of_the_end": "1591-01-01T00:00:00",
+      "end_of_the_end": "1591-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/31489351966A1AA7E2FE68220AAA58A4",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMjU4YWMzMDAtNTlmYi0xYjgwLTFlZmYtZTI4ZTg0OTllNTNkLmpwZw?label=Paris%20met%20de%20twistappel%20in%20zijn%20hand%20en%20in%20de%20achtergrond%20twee%20stieren.%20Een%20prent%20van%20de%20zevendelige%2C%20ongenummerde%20prentenserie%20getiteld%20Pictura%20Poesis%20met%20klassieke%20goden%20en%20mythologische%20figuren%20die%20verband%20houden%20met%20het%20mythologische%20verhaal%20over%20het%20%27Oordeel%20van%20Paris%27.%20Gravure%20toegeschreven%20aan%20Gerard%20de%20Jode%20naar%20een%20ontwerptekening%20van%20Hans%20Collaert%20%28I%29%3B%20gesigneerd%20rechts%20midden%20onder%20HC%20%28ineen%29.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/258ac300-59fb-1b80-1eff-e28e8499e53d.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

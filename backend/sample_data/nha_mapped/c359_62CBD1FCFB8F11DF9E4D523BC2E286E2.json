@@ -1,0 +1,172 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/62CBD1FCFB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "1 topogr. tek.: pasteltekening op grijsgroen papier r.o.: A. Pieck 365 x 490 mm",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "1 topogr. tek.: pasteltekening op grijsgroen papier r.o.: A. Pieck 365 x 490 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1193",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Lit.: Leven ... Gretha en Adri Pieck, Weesp 1983, afb. p. 109. Zie archief RANH, briefnr. 83/465/33, nr. 77. \"Oude boerderij - Oud-Valkeveen\" Naarden 102"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Tekening",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Tekening"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Pieck, Adri A.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1894-01-01T00:00:00",
+            "end_of_the_end": "1894-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1982-01-01T00:00:00",
+            "end_of_the_end": "1982-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1912-01-01T00:00:00",
+      "end_of_the_begin": "1912-12-31T23:59:59",
+      "begin_of_the_end": "1987-01-01T00:00:00",
+      "end_of_the_end": "1987-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/62CBD1FCFB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYWY5ZGZkYTQtZjJhZS1mNTc4LTg5NDEtZjc3NjFhZWU2MWY5LmpwZw?label=1%20topogr.%20tek.%3A%20pasteltekening%20op%20grijsgroen%20papier%20r.o.%3A%20A.%20Pieck%20365%20x%20490%20mm",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/af9dfda4-f2ae-f578-8941-f7761aee61f9.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

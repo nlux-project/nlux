@@ -1,0 +1,160 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/657EAAB4FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Linksbovenaan op een doek de plattegrond van Jisp, omhoog gehouden door 3 putti waarvan één het wapenschild van Jisp draagt. Jisp gezien vanuit het zuiden, met op de achtergrond de huizen met vlaggen aan het water, rechts de kerk en het raadhuis. Feestelijke optocht in Jisp ter ere van de Vrede van Rijswijk (1697)",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Linksbovenaan op een doek de plattegrond van Jisp, omhoog gehouden door 3 putti waarvan één het wapenschild van Jisp draagt. Jisp gezien vanuit het zuiden, met op de achtergrond de huizen met vlaggen aan het water, rechts de kerk en het raadhuis. Feestelijke optocht in Jisp ter ere van de Vrede van Rijswijk (1697)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "515",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "\"PLATTE GROND DES DORPS VAN JISP\" (in cartouche) 1 historieprent: ets en gravure m.o.: L. Scherm. Del: et Sculp. verso potlood \"1291\" Alleen de prent, zonder bijbehorend onderschrift met de verklaring van de optocht. Zie ook historieprent nr. 0516."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "F. Muller Hist. 2971 & suppl.; Van Stolk 2978; Hollstein XXIV, p. 176, Laurens Scherm nr. 16"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Scherm, Laurens L."
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1697-01-01T00:00:00",
+      "end_of_the_begin": "1697-12-31T23:59:59",
+      "begin_of_the_end": "1698-01-01T00:00:00",
+      "end_of_the_end": "1698-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/657EAAB4FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMTY2ZDJjYWUtYTI2MC01NmJmLTE3NTItYjI0ZjMyM2EzZjkwLmpwZw?label=Linksbovenaan%20op%20een%20doek%20de%20plattegrond%20van%20Jisp%2C%20omhoog%20gehouden%20door%203%20putti%20waarvan%20%C3%A9%C3%A9n%20het%20wapenschild%20van%20Jisp%20draagt.%20Jisp%20gezien%20vanuit%20het%20zuiden%2C%20met%20op%20de%20achtergrond%20de%20huizen%20met%20vlaggen%20aan%20het%20water%2C%20rechts%20de%20kerk%20en%20het%20raadhuis.%20Feestelijke%20optocht%20in%20Jisp%20ter%20ere%20van%20de%20Vrede%20van%20Rijswijk%20%281697%29",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/166d2cae-a260-56bf-1752-b24f323a3f90.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

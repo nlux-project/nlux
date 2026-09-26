@@ -1,8 +1,8 @@
 # nlux-carousel
 
-A full-screen carousel display for NLUX collections (currently **Teylers
-Museum**). It shows a random, changing selection of objects with images from
-the nlux backend API.
+A full-screen carousel display for NLUX collections (**Teylers Museum** and
+**Noord-Hollands Archief** so far). It shows a random, changing selection of
+objects with images from the nlux backend API.
 
 ```
 nlux backend (:8000)                    carousel server (:8089)
@@ -23,7 +23,8 @@ caroussel/frontend (Vite, vanilla JS)
 
 ```bash
 # 1. Load Teylers objects (with images) into the backend DB
-make carousel-load                 # maps 200 random image-bearing objects
+make carousel-load                 # maps 200 random image-bearing Teylers objects
+make carousel-load-nha             # maps 400 random image+title NHA objects
 
 # 2. Start backend + carousel server together (builds the frontend first)
 make carousel-run                  # then open http://localhost:8089/
@@ -77,10 +78,23 @@ colors. Adding a second institution is a matter of adding a block:
   "teylers": {
     "label": "Teylers Museum",
     "scope": "item",
-    "query": { "hasDigitalImage": true }
+    "query": { "hasDigitalImage": true },
+    "uri_prefix": "https://teylers.adlibhosting.com/nlux/"
+  },
+  "nha": {
+    "label": "Noord-Hollands Archief",
+    "scope": "item",
+    "query": { "hasDigitalImage": true },
+    "uri_prefix": "https://hdl.handle.net/21.12102/"
   }
 }
 ```
+
+`uri_prefix` restricts a collection to one institution's URI namespace, so
+several collections can share a single backend database. NHA records are
+loaded with `make carousel-load-nha` (raw Memorix harvests in
+`$LUX_BASEPATH/data/input/nha/{c1477,c359,c480,c587}` through the
+data-pipeline's NhaMapper, images via the `images.memorix.nl` proxy).
 
 Environment overrides for the server: `NLUX_API` (default
 `http://localhost:8000`), `CAROUSEL_CONFIG` (config path).

@@ -1,0 +1,196 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/332A7E7F8AC4F6659086E6EB98014E4A",
+  "type": "HumanMadeObject",
+  "_label": "Gezicht op het dorp Spaarnwoude, met in het midden de kerk. Elfde prent uit een serie landschappen met dorpen rondom Amsterdam getiteld Plaisante Lantschappen ofte vermakelijcke Gesichten . Ets en gravure door Geertruyd Roghman naar ontwerptekening van Roeland Roghman, rechtsonder genummerd '11'.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Gezicht op het dorp Spaarnwoude, met in het midden de kerk. Elfde prent uit een serie landschappen met dorpen rondom Amsterdam getiteld Plaisante Lantschappen ofte vermakelijcke Gesichten . Ets en gravure door Geertruyd Roghman naar ontwerptekening van Roeland Roghman, rechtsonder genummerd '11'.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "3112",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Het Dorp Spaerwouw"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hollstein Dutch, Geertruyd Roghman, 19"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Roghman, Roelant R.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1627-01-01T00:00:00",
+            "end_of_the_end": "1627-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1692-01-01T00:00:00",
+            "end_of_the_end": "1692-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Roghman, G.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1625-01-01T00:00:00",
+            "end_of_the_end": "1625-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1657-01-01T00:00:00",
+            "end_of_the_end": "1657-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1637-01-01T00:00:00",
+      "end_of_the_begin": "1637-12-31T23:59:59",
+      "begin_of_the_end": "1652-01-01T00:00:00",
+      "end_of_the_end": "1652-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/332A7E7F8AC4F6659086E6EB98014E4A",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMmViYmZhZGYtNDI4MS01M2NmLWI4ODUtNTMxZmYzMTdiYzljLmpwZw?label=Gezicht%20op%20het%20dorp%20Spaarnwoude%2C%20met%20in%20het%20midden%20de%20kerk.%20Elfde%20prent%20uit%20een%20serie%20landschappen%20met%20dorpen%20rondom%20Amsterdam%20getiteld%20Plaisante%20Lantschappen%20ofte%20vermakelijcke%20Gesichten%20.%20Ets%20en%20gravure%20door%20Geertruyd%20Roghman%20naar%20ontwerptekening%20van%20Roeland%20Roghman%2C%20rechtsonder%20genummerd%20%2711%27.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/2ebbfadf-4281-53cf-b885-531ff317bc9c.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

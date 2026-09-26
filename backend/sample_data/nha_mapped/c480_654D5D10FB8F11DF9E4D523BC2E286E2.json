@@ -1,0 +1,165 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/654D5D10FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Afbeelding van roeiwedstrijd in Zaandam. Met Rechts de feestribune, daarachter de bebouwing van Zaandam. Links is de haven van Zaandam. penseel in grijs en oranje over schets in potlood",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Afbeelding van roeiwedstrijd in Zaandam. Met Rechts de feestribune, daarachter de bebouwing van Zaandam. Links is de haven van Zaandam. penseel in grijs en oranje over schets in potlood",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "363",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "1 historietekening: potlood, penseel in grijs en oranje l.o.: E. Koster, fec. Beschrijving van dit nummer in de Mullercatalogus past niet bij de afbeelding van deze prent."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Tekening",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Tekening"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Koster, Everardus E.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1817-01-01T00:00:00",
+            "end_of_the_end": "1817-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1892-01-01T00:00:00",
+            "end_of_the_end": "1892-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/654D5D10FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYjQ0ZGJhNjEtNWJkMC05OWM1LTFjYTQtMzkwNDEwYWEwZjdiLmpwZw?label=Afbeelding%20van%20roeiwedstrijd%20in%20Zaandam.%20Met%20Rechts%20de%20feestribune%2C%20daarachter%20de%20bebouwing%20van%20Zaandam.%20Links%20is%20de%20haven%20van%20Zaandam.%20penseel%20in%20grijs%20en%20oranje%20over%20schets%20in%20potlood",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/b44dba61-5bd0-99c5-1ca4-390410aa0f7b.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

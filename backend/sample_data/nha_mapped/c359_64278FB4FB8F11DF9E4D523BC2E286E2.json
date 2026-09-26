@@ -1,0 +1,160 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/64278FB4FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "\"De Haven van Enkhuysen. Le Port de Enkhuysen.\" De haven van Enkhuizen, 1780. Te Augsburg uitgegeven kopie naar de prent van Matthias de Sallieth naar Dirk de Jong Ets; linksonder.: \"Dk. de Jong. ad vivum delin 1780.\" en \"Cum Gratia et Privilegio Sac: Caes: Majestatis.\"' middenonder: \"F.B. Probst, sculps.\"; rechtsonder: \"Georg Balthasar Probst, excud: A.V.\" blad 360 x 480 mm Afbeelding 267 x 405 mm",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "\"De Haven van Enkhuysen. Le Port de Enkhuysen.\" De haven van Enkhuizen, 1780. Te Augsburg uitgegeven kopie naar de prent van Matthias de Sallieth naar Dirk de Jong Ets; linksonder.: \"Dk. de Jong. ad vivum delin 1780.\" en \"Cum Gratia et Privilegio Sac: Caes: Majestatis.\"' middenonder: \"F.B. Probst, sculps.\"; rechtsonder: \"Georg Balthasar Probst, excud: A.V.\" blad 360 x 480 mm Afbeelding 267 x 405 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "513",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Enkhuizen 147"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Thieme-Becker, dl. 19, p. 129 (op De Jong)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Jong, Dirk D. de"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1780-01-01T00:00:00",
+      "end_of_the_begin": "1780-12-31T23:59:59",
+      "begin_of_the_end": "1800-01-01T00:00:00",
+      "end_of_the_end": "1800-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/64278FB4FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvOTYxMGIwMDAtYmEyNy1hZDIzLTg5YTctMzRlNTY0NzdjODM2LmpwZw?label=%22De%20Haven%20van%20Enkhuysen.%20Le%20Port%20de%20Enkhuysen.%22%20De%20haven%20van%20Enkhuizen%2C%201780.%20Te%20Augsburg%20uitgegeven%20kopie%20naar%20de%20prent%20van%20Matthias%20de%20Sallieth%20naar%20Dirk%20de%20Jong%20Ets%3B%20linksonder.%3A%20%22Dk.%20de%20Jong.%20ad%20vivum%20delin%201780.%22%20en%20%22Cum%20Gratia%20et%20Privilegio%20Sac%3A%20Caes%3A%20Majestatis.%22%27%20middenonder%3A%20%22F.B.%20Probst%2C%20sculps.%22%3B%20rechtsonder%3A%20%22Georg%20Balthasar%20Probst%2C%20excud%3A%20A.V.%22%20blad%20360%20x%20480%20mm%20Afbeelding%20267%20x%20405%20mm",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/9610b000-ba27-ad23-89a7-34e56477c836.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/65314058FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "In een statige zaal van het stadhuis ontvangt burgemeester Hooft van Amsterdam staande voor de burgemeesterskamer de burgerij van de stad. Deze burgerij staat rondom hem opgesteld.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "In een statige zaal van het stadhuis ontvangt burgemeester Hooft van Amsterdam staande voor de burgemeesterskamer de burgerij van de stad. Deze burgerij staat rondom hem opgesteld.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "246",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "VADERLIJKE ONDERHANDELING VAN DEN AMSTERDAMSCHEN BURGEMEESTER HENRIK HOOFT DANIELSZ. met de Burgerij; bij gelegenheid dat de kwaade Regenten overlegd hadden om te besluiten den Rhijngraave von Salm af te danken enz. `s Maandags den 26 February, 1787. Opge 1 historieprent: gravure; 212 x 295 mm l.o.: G. Grijpmoed, ad. viv. del. ; m.o.: J. Sluijtman v.d.Meer, excudit. ; r.o.: N. v.d. Meer, Junr. Sculp. Rechtsonder staat \"Proefdruk\"."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "CNE 1.0 Auteursrechtelijke status niet geëvalueerd"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Sluijtman v.d. Meer, J. Meer, Noach (II) N. van der",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1741-01-01T00:00:00",
+            "end_of_the_end": "1741-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1822-01-01T00:00:00",
+            "end_of_the_end": "1822-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Grijpmoed, Geerling G.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1760-01-01T00:00:00",
+            "end_of_the_end": "1760-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1788-01-01T00:00:00",
+            "end_of_the_end": "1788-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/65314058FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYjk4YzJlM2ItZjhjMS01Mjk0LTk2NzItZWJhZWZiODNlNjc0LmpwZw?label=In%20een%20statige%20zaal%20van%20het%20stadhuis%20ontvangt%20burgemeester%20Hooft%20van%20Amsterdam%20staande%20voor%20de%20burgemeesterskamer%20de%20burgerij%20van%20de%20stad.%20Deze%20burgerij%20staat%20rondom%20hem%20opgesteld.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/b98c2e3b-f8c1-5294-9672-ebaefb83e674.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

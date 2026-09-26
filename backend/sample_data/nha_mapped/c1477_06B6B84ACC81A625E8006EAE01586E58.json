@@ -1,0 +1,206 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/06B6B84ACC81A625E8006EAE01586E58",
+  "type": "HumanMadeObject",
+  "_label": "Aftocht van Pietro Strozzi tijdens de slag bij Marciano. Het Franse leger onder bevel van Pietro Strozzi blaast de aftocht. Dertiende prent van de eenentwintigdelige, gedeeltelijk genummerde prentenserie over de geschiedenis van De' Medici familie. Gravure door Philips Galle naar ontwerptekening van Johannes Stradanus; Latijns onderschrift weggesneden; gesigneerd; midden onder op steen genummerd '5'.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Aftocht van Pietro Strozzi tijdens de slag bij Marciano. Het Franse leger onder bevel van Pietro Strozzi blaast de aftocht. Dertiende prent van de eenentwintigdelige, gedeeltelijk genummerde prentenserie over de geschiedenis van De' Medici familie. Gravure door Philips Galle naar ontwerptekening van Johannes Stradanus; Latijns onderschrift weggesneden; gesigneerd; midden onder op steen genummerd '5'.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "512",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "New Hollstein Dutch, Stradanus, 365-1(3)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Galle, Philips P.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1537-01-01T00:00:00",
+            "end_of_the_end": "1537-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1612-01-01T00:00:00",
+            "end_of_the_end": "1612-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Stradanus, Johannes J.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1523-01-01T00:00:00",
+            "end_of_the_end": "1523-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1605-01-01T00:00:00",
+            "end_of_the_end": "1605-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Straet, Jan J. van der",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1523-01-01T00:00:00",
+            "end_of_the_end": "1523-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1605-01-01T00:00:00",
+            "end_of_the_end": "1605-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1583-01-01T00:00:00",
+      "end_of_the_begin": "1583-12-31T23:59:59",
+      "begin_of_the_end": "1583-01-01T00:00:00",
+      "end_of_the_end": "1583-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/06B6B84ACC81A625E8006EAE01586E58",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZjU3ZmVmM2UtMDBkYi00NzA2LTZjZDctY2I5ODU2OGFjNDMzLmpwZw?label=Aftocht%20van%20Pietro%20Strozzi%20tijdens%20de%20slag%20bij%20Marciano.%20Het%20Franse%20leger%20onder%20bevel%20van%20Pietro%20Strozzi%20blaast%20de%20aftocht.%20Dertiende%20prent%20van%20de%20eenentwintigdelige%2C%20gedeeltelijk%20genummerde%20prentenserie%20over%20de%20geschiedenis%20van%20De%27%20Medici%20familie.%20Gravure%20door%20Philips%20Galle%20naar%20ontwerptekening%20van%20Johannes%20Stradanus%3B%20Latijns%20onderschrift%20weggesneden%3B%20gesigneerd%3B%20midden%20onder%20op%20steen%20genummerd%20%275%27.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/f57fef3e-00db-4706-6cd7-cb98568ac433.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

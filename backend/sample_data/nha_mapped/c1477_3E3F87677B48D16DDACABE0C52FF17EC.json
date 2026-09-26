@@ -1,0 +1,176 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/3E3F87677B48D16DDACABE0C52FF17EC",
+  "type": "HumanMadeObject",
+  "_label": "Vrede van Breda, 1667. Centrale voorstelling van het beëdigen van het vredesverdrag, hieromheen zes kleinere voorstellingen van de gebeurtenissen voorafgaand aan en na afloop van de ceremonie. Boven en onder de aankomst en vertrek van de Engelse ambassadeurs te Breda. Aan de zijkanten feestelijkheden bij het vieren van de vrede. Onder de centrale scène de legenda A-I, er zijn ook legenda's onder de zes kleinere scènes aan de zijkanten.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Vrede van Breda, 1667. Centrale voorstelling van het beëdigen van het vredesverdrag, hieromheen zes kleinere voorstellingen van de gebeurtenissen voorafgaand aan en na afloop van de ceremonie. Boven en onder de aankomst en vertrek van de Engelse ambassadeurs te Breda. Aan de zijkanten feestelijkheden bij het vieren van de vrede. Onder de centrale scène de legenda A-I, er zijn ook legenda's onder de zes kleinere scènes aan de zijkanten.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1152",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Met de vrede van Breda kwam een eind aan de Tweede Engelse Oorlog."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hollstein Dutch 77"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Hooghe, Romeyn R. de",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1645-01-01T00:00:00",
+            "end_of_the_end": "1645-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1708-01-01T00:00:00",
+            "end_of_the_end": "1708-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1667-01-01T00:00:00",
+      "end_of_the_begin": "1667-12-31T23:59:59",
+      "begin_of_the_end": "1667-01-01T00:00:00",
+      "end_of_the_end": "1667-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/3E3F87677B48D16DDACABE0C52FF17EC",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMjE0MTE4N2EtNGUxNi0xYzMyLTgyN2UtNWJlODAwZmQ0OGJhLmpwZw?label=Vrede%20van%20Breda%2C%201667.%20Centrale%20voorstelling%20van%20het%20be%C3%ABdigen%20van%20het%20vredesverdrag%2C%20hieromheen%20zes%20kleinere%20voorstellingen%20van%20de%20gebeurtenissen%20voorafgaand%20aan%20en%20na%20afloop%20van%20de%20ceremonie.%20Boven%20en%20onder%20de%20aankomst%20en%20vertrek%20van%20de%20Engelse%20ambassadeurs%20te%20Breda.%20Aan%20de%20zijkanten%20feestelijkheden%20bij%20het%20vieren%20van%20de%20vrede.%20Onder%20de%20centrale%20sc%C3%A8ne%20de%20legenda%20A-I%2C%20er%20zijn%20ook%20legenda%27s%20onder%20de%20zes%20kleinere%20sc%C3%A8nes%20aan%20de%20zijkanten.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/2141187a-4e16-1c32-827e-5be800fd48ba.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

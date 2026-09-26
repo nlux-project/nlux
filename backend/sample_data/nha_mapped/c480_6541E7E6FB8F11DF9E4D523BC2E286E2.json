@@ -1,0 +1,212 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/6541E7E6FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Gezicht in de Vroedschapszaal ofwel Mozeszaal in het stadhuis te Amsterdam. (Wegens het grote schilderij op de achtergrond van de zaal). Op de afbeelding zijn enige vechtende artilleristen te zien die slaags zijn geraakt met de raadsleden, Van Hall rechts op de voorgrond.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Gezicht in de Vroedschapszaal ofwel Mozeszaal in het stadhuis te Amsterdam. (Wegens het grote schilderij op de achtergrond van de zaal). Op de afbeelding zijn enige vechtende artilleristen te zien die slaags zijn geraakt met de raadsleden, Van Hall rechts op de voorgrond.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "316",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Gewelddadigheden van eenige Artilleristen, in de Raadzaal der Municipaliteit te Amsterdam in den nacht tusschen den 10den en 11den Mei 1796. 1 historieprent: gravure; 152 x 219 mm l.o.: J. Bulthuis, delin. ; r.o.: R. Vinkeles en D. Vrijdag, sculp. Een van de twee prenten is zonder titelbeschrijving. Zie ook: Vervolg op Wagenaar, dl. XXXV, p.227-235."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Vinkeles, Reinier R.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1714-01-01T00:00:00",
+            "end_of_the_end": "1714-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1816-01-01T00:00:00",
+            "end_of_the_end": "1816-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Bulthuis, Jan J.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1750-01-01T00:00:00",
+            "end_of_the_end": "1750-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1801-01-01T00:00:00",
+            "end_of_the_end": "1801-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Vrijdag, Daniël D.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1765-01-01T00:00:00",
+            "end_of_the_end": "1765-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1822-01-01T00:00:00",
+            "end_of_the_end": "1822-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1799-01-01T00:00:00",
+      "end_of_the_begin": "1799-12-31T23:59:59",
+      "begin_of_the_end": "1799-01-01T00:00:00",
+      "end_of_the_end": "1799-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/6541E7E6FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvNzNiYzAzNzQtZDE0NS03Y2YzLTZlOWYtZThhOWI0ZWQ3NWY2LmpwZw?label=Gezicht%20in%20de%20Vroedschapszaal%20ofwel%20Mozeszaal%20in%20het%20stadhuis%20te%20Amsterdam.%20%28Wegens%20het%20grote%20schilderij%20op%20de%20achtergrond%20van%20de%20zaal%29.%20Op%20de%20afbeelding%20zijn%20enige%20vechtende%20artilleristen%20te%20zien%20die%20slaags%20zijn%20geraakt%20met%20de%20raadsleden%2C%20Van%20Hall%20rechts%20op%20de%20voorgrond.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/73bc0374-d145-7cf3-6e9f-e8a9b4ed75f6.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

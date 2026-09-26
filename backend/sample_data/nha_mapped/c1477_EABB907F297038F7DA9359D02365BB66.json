@@ -1,0 +1,176 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/EABB907F297038F7DA9359D02365BB66",
+  "type": "HumanMadeObject",
+  "_label": "Allegorie op de gebeurtenissen in het jaar 1680. Rechts centraal Willem III en Hendrik Casimir II. Hierbij in medaillons portretten van Karel II van Spanje met zijn vrouw en Karel XI van Zweden met zijn vrouw, beiden in 1680 gehuwd. Op de achtergrond de verheffing op een schild van een vorst, hierbij de tempel van Janus met geopende deuren. Links Vrede en Rechtvaardigheid. Onderaan de opdracht aan en wapens van vier Amsterdamse burgemeesters Louys Trip, Gillis Valckenier, Cornelis de Vlaming van Oudtshoorn en Johannes Hudde.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Allegorie op de gebeurtenissen in het jaar 1680. Rechts centraal Willem III en Hendrik Casimir II. Hierbij in medaillons portretten van Karel II van Spanje met zijn vrouw en Karel XI van Zweden met zijn vrouw, beiden in 1680 gehuwd. Op de achtergrond de verheffing op een schild van een vorst, hierbij de tempel van Janus met geopende deuren. Links Vrede en Rechtvaardigheid. Onderaan de opdracht aan en wapens van vier Amsterdamse burgemeesters Louys Trip, Gillis Valckenier, Cornelis de Vlaming van Oudtshoorn en Johannes Hudde.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1211",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Proefdruk; linksonder onbewerkt."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Hollstein Dutch 133"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Hooghe, Romeyn R. de",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1645-01-01T00:00:00",
+            "end_of_the_end": "1645-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1708-01-01T00:00:00",
+            "end_of_the_end": "1708-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1680-01-01T00:00:00",
+      "end_of_the_begin": "1680-12-31T23:59:59",
+      "begin_of_the_end": "1681-01-01T00:00:00",
+      "end_of_the_end": "1681-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/EABB907F297038F7DA9359D02365BB66",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYzg3NjRkMzctNjI4ZS0wYWM5LWQxYWItZjUyNGVjMWQ3NTdlLmpwZw?label=Allegorie%20op%20de%20gebeurtenissen%20in%20het%20jaar%201680.%20Rechts%20centraal%20Willem%20III%20en%20Hendrik%20Casimir%20II.%20Hierbij%20in%20medaillons%20portretten%20van%20Karel%20II%20van%20Spanje%20met%20zijn%20vrouw%20en%20Karel%20XI%20van%20Zweden%20met%20zijn%20vrouw%2C%20beiden%20in%201680%20gehuwd.%20Op%20de%20achtergrond%20de%20verheffing%20op%20een%20schild%20van%20een%20vorst%2C%20hierbij%20de%20tempel%20van%20Janus%20met%20geopende%20deuren.%20Links%20Vrede%20en%20Rechtvaardigheid.%20Onderaan%20de%20opdracht%20aan%20en%20wapens%20van%20vier%20Amsterdamse%20burgemeesters%20Louys%20Trip%2C%20Gillis%20Valckenier%2C%20Cornelis%20de%20Vlaming%20van%20Oudtshoorn%20en%20Johannes%20Hudde.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/c8764d37-628e-0ac9-d1ab-f524ec1d757e.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

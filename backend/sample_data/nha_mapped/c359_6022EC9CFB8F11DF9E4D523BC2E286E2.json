@@ -1,0 +1,150 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/6022EC9CFB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Op de achtergrond Beverwijk met rechts de kerk, op de voorgrond links een molen, in het midden een zeilschip, rechts een huis. 1 topogr. tek.: pen in bruin, penseel in grijs, over schets in loodstift. z.s. afb.: 144 x 183 mm",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Op de achtergrond Beverwijk met rechts de kerk, op de voorgrond links een molen, in het midden een zeilschip, rechts een huis. 1 topogr. tek.: pen in bruin, penseel in grijs, over schets in loodstift. z.s. afb.: 144 x 183 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "4020",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "\"de steede Beverwijck // aende oost-Zijde den 15 meij 1718.\" (o. buiten afb., pen in bruin) Beverwijk 008"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Tekening",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Tekening"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1718-01-01T00:00:00",
+      "end_of_the_begin": "1718-12-31T23:59:59",
+      "begin_of_the_end": "1718-01-01T00:00:00",
+      "end_of_the_end": "1718-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/6022EC9CFB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvY2NlYWU4YmYtMzcwNy0xOTJiLTU5OTYtODQ4MjUzNmZjNTNmLmpwZw?label=Op%20de%20achtergrond%20Beverwijk%20met%20rechts%20de%20kerk%2C%20op%20de%20voorgrond%20links%20een%20molen%2C%20in%20het%20midden%20een%20zeilschip%2C%20rechts%20een%20huis.%201%20topogr.%20tek.%3A%20pen%20in%20bruin%2C%20penseel%20in%20grijs%2C%20over%20schets%20in%20loodstift.%20z.s.%20afb.%3A%20144%20x%20183%20mm",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/cceae8bf-3707-192b-5996-8482536fc53f.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

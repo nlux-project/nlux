@@ -1,0 +1,192 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/655FDC42FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Scene uit een voorstelling van het blijspel De Stiefmoer, in de Amsterdamse Schouwburg. Met passepartout omgeven: met orkest parterre zijloges en portiek van het toneel. Schouwburg Amsterdam, decor De Ouderwetse Burgerkamer",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Scene uit een voorstelling van het blijspel De Stiefmoer, in de Amsterdamse Schouwburg. Met passepartout omgeven: met orkest parterre zijloges en portiek van het toneel. Schouwburg Amsterdam, decor De Ouderwetse Burgerkamer",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "405",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "DE OUDERWETSCHE BURGERKAMER. Met de Afbeelding van het Twaalfde Tooneel uit het Kluchtspel. DE STIEFMOER. 1 historieprent: gravure; 280 x 390 mm l.o.: P. Barbiers, pinxit ; m.o.: D. Kerkhof, delin. ; r.o.: C. Brouwer, sculp.; m.o.: Te Amsterdam by J.W. Smit, met Privilegie 1787 Met vers in 6 regels op rijm. is afbeelding van toneel zonder interieur van de schouwburg."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Kerkhoff, Daniël D.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1766-01-01T00:00:00",
+            "end_of_the_end": "1766-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1821-01-01T00:00:00",
+            "end_of_the_end": "1821-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Brouwer, Cornelis C. Barbiers, Pieter (I) P.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1717-01-01T00:00:00",
+            "end_of_the_end": "1717-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1780-01-01T00:00:00",
+            "end_of_the_end": "1780-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1787-01-01T00:00:00",
+      "end_of_the_begin": "1787-12-31T23:59:59",
+      "begin_of_the_end": "1787-01-01T00:00:00",
+      "end_of_the_end": "1787-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/655FDC42FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMGJkNWI5MGQtYTUxYi1jZjZiLTJmZjEtNTI2MzgyM2ZhODE1LmpwZw?label=Scene%20uit%20een%20voorstelling%20van%20het%20blijspel%20De%20Stiefmoer%2C%20in%20de%20Amsterdamse%20Schouwburg.%20Met%20passepartout%20omgeven%3A%20met%20orkest%20parterre%20zijloges%20en%20portiek%20van%20het%20toneel.%20Schouwburg%20Amsterdam%2C%20decor%20De%20Ouderwetse%20Burgerkamer",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/0bd5b90d-a51b-cf6b-2ff1-5263823fa815.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

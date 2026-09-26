@@ -41,6 +41,8 @@ PYTHON_VERSION ?= 3.12
 # Carousel display (caroussel/) knobs
 CAROUSEL_COUNT ?= 200
 CAROUSEL_SEED ?= 42
+CAROUSEL_NHA_COUNT ?= 400
+CAROUSEL_NHA_SEED ?= 42
 
 # Run from repo root; requirements path relative to root.
 BACKEND_PY := uv run --python $(PYTHON_VERSION) --with-requirements backend/requirements.txt python
@@ -109,7 +111,9 @@ help:
 	@printf '  carousel-run            start backend :8000 + carousel server :8089\n'
 	@printf '  carousel-test           jsdom smoke test of the carousel frontend\n'
 	@printf '  carousel-load           (re)map Teylers objects with images into the API DB\n'
-	@printf '                          (CAROUSEL_COUNT=200 CAROUSEL_SEED=42)\n\n'
+	@printf '                          (CAROUSEL_COUNT=200 CAROUSEL_SEED=42)\n'
+	@printf '  carousel-load-nha       map Noord-Hollands Archief objects into the API DB\n'
+	@printf '                          (CAROUSEL_NHA_COUNT=400 CAROUSEL_NHA_SEED=42)\n\n'
 	@printf 'Docs =======================================================================\n'
 	@printf '  docs-serve              mkdocs local preview on :8001\n'
 	@printf '  docs-deploy             deploy docs to GitHub Pages\n\n'
@@ -316,6 +320,13 @@ carousel-load:
 		--with-requirements ../data-pipeline/requirements.txt \
 		python scripts/load_teylers_from_raw.py \
 		--count $(CAROUSEL_COUNT) --seed $(CAROUSEL_SEED) --reset
+
+.PHONY: carousel-load-nha
+carousel-load-nha:
+	cd backend && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt \
+		--with-requirements ../data-pipeline/requirements.txt \
+		python scripts/load_nha_from_raw.py \
+		--count $(CAROUSEL_NHA_COUNT) --seed $(CAROUSEL_NHA_SEED)
 
 # --- Docs -----------------------------------------------------------------------
 

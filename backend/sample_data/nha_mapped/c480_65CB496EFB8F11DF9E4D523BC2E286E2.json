@@ -1,0 +1,192 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/65CB496EFB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Meetkundige afbeelding van de zaal en het praalbed waar Anna van Hannover, prinses van Oranje-Nassau en weduwe van Willem IV, zal worden opgebaard. Tussen de Franse en Nederlandse titel staat de schaalverdeling.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Meetkundige afbeelding van de zaal en het praalbed waar Anna van Hannover, prinses van Oranje-Nassau en weduwe van Willem IV, zal worden opgebaard. Tussen de Franse en Nederlandse titel staat de schaalverdeling.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "963",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "\"Representation Geometrale du fond de la Salle et la face du Lit de Parade de S:A:R\"; \"Meetkonstige Afbeelding van de Saal en Praal Bed van H:K:H. vlack van voren te sien\" l.o.: De Swart delin.; r.o.: S. Fokke fecit. Ets; deels uitgeknipte afbeelding, met links enkele uitscheuringen"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Fokke, Simon S.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1712-01-01T00:00:00",
+            "end_of_the_end": "1712-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1784-01-01T00:00:00",
+            "end_of_the_end": "1784-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Swart, Pieter P. de",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1709-01-01T00:00:00",
+            "end_of_the_end": "1709-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1768-01-01T00:00:00",
+            "end_of_the_end": "1768-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1759-01-01T00:00:00",
+      "end_of_the_begin": "1759-12-31T23:59:59",
+      "begin_of_the_end": "1759-01-01T00:00:00",
+      "end_of_the_end": "1759-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/65CB496EFB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZThjMGZlMjctYTlmMS00MDk3LTcwMTAtMGUzODdkMjBhODA5LmpwZw?label=Meetkundige%20afbeelding%20van%20de%20zaal%20en%20het%20praalbed%20waar%20Anna%20van%20Hannover%2C%20prinses%20van%20Oranje-Nassau%20en%20weduwe%20van%20Willem%20IV%2C%20zal%20worden%20opgebaard.%20Tussen%20de%20Franse%20en%20Nederlandse%20titel%20staat%20de%20schaalverdeling.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/e8c0fe27-a9f1-4097-7010-0e387d20a809.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/9059368964C31B1119ADB29AC1A96F29",
+  "type": "HumanMadeObject",
+  "_label": "Portret van Jacob Campo Weyerman. Op een verhoging staat een buste van de kunstenaar en auteur Jacob Campo Weyerman. Voor de buste staat een putto, die met z'n ene hand naar de buste wijst en met z'n andere hand naar de treurende putto naast hem. Linksachter een putto met schildersbenodigdheden bij een ezel. Linksvoor liggen enkele opengeslagen boeken. Rechtsvoor omhelzen twee jonge saters elkaar. Gravure door mongramist ALVB naar ontwerptekening van Cornelis Troost, gesigneerd en gemonogrammeerd",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Portret van Jacob Campo Weyerman. Op een verhoging staat een buste van de kunstenaar en auteur Jacob Campo Weyerman. Voor de buste staat een putto, die met z'n ene hand naar de buste wijst en met z'n andere hand naar de treurende putto naast hem. Linksachter een putto met schildersbenodigdheden bij een ezel. Linksvoor liggen enkele opengeslagen boeken. Rechtsvoor omhelzen twee jonge saters elkaar. Gravure door mongramist ALVB naar ontwerptekening van Cornelis Troost, gesigneerd en gemonogrammeerd",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1513",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "De prent is ook als titelpagina gebruikt in: Weyerman, Jacob Campo. Den Persiaansche Zydewever [...], s.l.: s.n., s.a."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "about": [
+    {
+      "type": "Person",
+      "_label": "Jacob Campo Weyerman. Op een verhoging staat een buste van de kunstenaar en auteur Jacob Campo Weyerman. Voor de buste staat een putto, die met z'n ene hand naar de buste wijst en met z'n andere hand naar de treurende putto naast hem. Linksachter een putto met schildersbenodigdheden bij een ezel. Linksvoor liggen enkele opengeslagen boeken. Rechtsvoor omhelzen twee jonge saters elkaar. Gravure door mongramist ALVB naar ontwerptekening van Cornelis Troost, gesigneerd en gemonogrammeerd"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "AVLB, monogramist Troost, Cornelis C.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1696-01-01T00:00:00",
+            "end_of_the_end": "1696-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1750-01-01T00:00:00",
+            "end_of_the_end": "1750-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1747-01-01T00:00:00",
+      "end_of_the_begin": "1747-12-31T23:59:59",
+      "begin_of_the_end": "1750-01-01T00:00:00",
+      "end_of_the_end": "1750-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/9059368964C31B1119ADB29AC1A96F29",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZTIzMzJlZGUtY2UyNy05ZDI4LTYxMGYtMTliZDI0ZDRjZjE2LmpwZw?label=Portret%20van%20Jacob%20Campo%20Weyerman.%20Op%20een%20verhoging%20staat%20een%20buste%20van%20de%20kunstenaar%20en%20auteur%20Jacob%20Campo%20Weyerman.%20Voor%20de%20buste%20staat%20een%20putto%2C%20die%20met%20z%27n%20ene%20hand%20naar%20de%20buste%20wijst%20en%20met%20z%27n%20andere%20hand%20naar%20de%20treurende%20putto%20naast%20hem.%20Linksachter%20een%20putto%20met%20schildersbenodigdheden%20bij%20een%20ezel.%20Linksvoor%20liggen%20enkele%20opengeslagen%20boeken.%20Rechtsvoor%20omhelzen%20twee%20jonge%20saters%20elkaar.%20Gravure%20door%20mongramist%20ALVB%20naar%20ontwerptekening%20van%20Cornelis%20Troost%2C%20gesigneerd%20en%20gemonogrammeerd",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/e2332ede-ce27-9d28-610f-19bd24d4cf16.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

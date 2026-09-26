@@ -1,0 +1,186 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/73C8053044B16604A9528AC97BBA7A3D",
+  "type": "HumanMadeObject",
+  "_label": "Jakobs verzoening met Esau (Genesis 33:4) Achtste prent uit een serie van acht genummerde prenten met 'De geschiedenis van Jacob'; linksonder gesigneerd, gedateerd en genummerd '8'. Ets door Dirck Volckertsz. Coornhert naar ontwerptekening van Maarten van Heemskerck.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Jakobs verzoening met Esau (Genesis 33:4) Achtste prent uit een serie van acht genummerde prenten met 'De geschiedenis van Jacob'; linksonder gesigneerd, gedateerd en genummerd '8'. Ets door Dirck Volckertsz. Coornhert naar ontwerptekening van Maarten van Heemskerck.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "788",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Hollstein Dutch 39, Hollstein Dutch 40, New Hollstein Dutch, Heemskerck, 30"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Coornhert, Dirck Volckertsz D.V.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1522-01-01T00:00:00",
+            "end_of_the_end": "1522-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1590-01-01T00:00:00",
+            "end_of_the_end": "1590-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Heemskerck, Maarten M. van",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1498-01-01T00:00:00",
+            "end_of_the_end": "1498-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1574-01-01T00:00:00",
+            "end_of_the_end": "1574-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1549-01-01T00:00:00",
+      "end_of_the_begin": "1549-12-31T23:59:59",
+      "begin_of_the_end": "1549-01-01T00:00:00",
+      "end_of_the_end": "1549-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/73C8053044B16604A9528AC97BBA7A3D",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYzIzNzhiNDItY2Y2ZS0zZGRkLTc0MzgtOGFhOGRmNWQ0MWMxLmpwZw?label=Jakobs%20verzoening%20met%20Esau%20%28Genesis%2033%3A4%29%20Achtste%20prent%20uit%20een%20serie%20van%20acht%20genummerde%20prenten%20met%20%27De%20geschiedenis%20van%20Jacob%27%3B%20linksonder%20gesigneerd%2C%20gedateerd%20en%20genummerd%20%278%27.%20Ets%20door%20Dirck%20Volckertsz.%20Coornhert%20naar%20ontwerptekening%20van%20Maarten%20van%20Heemskerck.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/c2378b42-cf6e-3ddd-7438-8aa8df5d41c1.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

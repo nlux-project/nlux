@@ -1,0 +1,139 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/656E90E8FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Processie met de Duitser aan het hoofd en wijwater en kwast in zijn hand. Hij wordt gevolgd door Kolonel D.C. v.d. Meulen en een andere officier, beide zijn met pistolen gewapend, vervolgens enige werklieden die spaden, lantaarns en het kruishout dragen.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Processie met de Duitser aan het hoofd en wijwater en kwast in zijn hand. Hij wordt gevolgd door Kolonel D.C. v.d. Meulen en een andere officier, beide zijn met pistolen gewapend, vervolgens enige werklieden die spaden, lantaarns en het kruishout dragen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "393",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "STAATELYKE OPTOGT DER MUIDER PROCESSIE voorgevallen in de Nagt tusschen den 12 en 13 Augustus 1800 1 historieprent: gravure, ingekleurd; 164 x 270 mm Met vers in twee kolommen bij het ongekleurde exemplaar. Gekleurde ex. (0397) is uitsnede van de andere (0432), dus zonder tekst."
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/656E90E8FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZDdmMzQ2Y2UtMDdlZS01MWNlLTViZTUtODA3NGI1MWJlOTI3LmpwZw?label=Processie%20met%20de%20Duitser%20aan%20het%20hoofd%20en%20wijwater%20en%20kwast%20in%20zijn%20hand.%20Hij%20wordt%20gevolgd%20door%20Kolonel%20D.C.%20v.d.%20Meulen%20en%20een%20andere%20officier%2C%20beide%20zijn%20met%20pistolen%20gewapend%2C%20vervolgens%20enige%20werklieden%20die%20spaden%2C%20lantaarns%20en%20het%20kruishout%20dragen.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/d7f346ce-07ee-51ce-5be5-8074b51be927.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

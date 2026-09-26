@@ -14,8 +14,19 @@
     "teylers": {
       "label": "Teylers Museum",
       "scope": "item",
-      "query": { "hasDigitalImage": true },
+      "query": {
+        "hasDigitalImage": true
+      },
+      "uri_prefix": "https://teylers.adlibhosting.com/nlux/",
       "seed": null
+    },
+    "nha": {
+      "label": "Noord-Hollands Archief",
+      "scope": "item",
+      "query": {
+        "hasDigitalImage": true
+      },
+      "uri_prefix": "https://hdl.handle.net/21.12102/"
     }
   },
   "default_collection": "teylers",

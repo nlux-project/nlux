@@ -1,0 +1,166 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/C1215280A92491B5137AD2F1B2C794D6",
+  "type": "HumanMadeObject",
+  "_label": "Musicerend boerengezelschap. Een zingende vrouw houdt een boek met muziek vast terwijl naast haar een man op een viool speelt en een andere man met glas in de hand ook vrolijk zingt. Ets door Adriaan van Ostade naar eigen ontwerptekening, gemonogrammeerd.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Musicerend boerengezelschap. Een zingende vrouw houdt een boek met muziek vast terwijl naast haar een man op een viool speelt en een andere man met glas in de hand ook vrolijk zingt. Ets door Adriaan van Ostade naar eigen ontwerptekening, gemonogrammeerd.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "2864",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Hollstein Dutch, Adriaen van Ostade, 30"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Ostade, Adriaen A. van",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1610-01-01T00:00:00",
+            "end_of_the_end": "1610-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1685-01-01T00:00:00",
+            "end_of_the_end": "1685-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1651-01-01T00:00:00",
+      "end_of_the_begin": "1651-12-31T23:59:59",
+      "begin_of_the_end": "1655-01-01T00:00:00",
+      "end_of_the_end": "1655-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/C1215280A92491B5137AD2F1B2C794D6",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZTYxNjY4ZWEtNjgzNC00YjBkLTg0MjAtYjhjN2I5YjMzZTdmLmpwZw?label=Musicerend%20boerengezelschap.%20Een%20zingende%20vrouw%20houdt%20een%20boek%20met%20muziek%20vast%20terwijl%20naast%20haar%20een%20man%20op%20een%20viool%20speelt%20en%20een%20andere%20man%20met%20glas%20in%20de%20hand%20ook%20vrolijk%20zingt.%20Ets%20door%20Adriaan%20van%20Ostade%20naar%20eigen%20ontwerptekening%2C%20gemonogrammeerd.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/e61668ea-6834-4b0d-8420-b8c7b9b33e7f.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

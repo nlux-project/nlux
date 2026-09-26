@@ -1,0 +1,150 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/8F837DFB85CF3F0D132B8C334E838B19",
+  "type": "HumanMadeObject",
+  "_label": "Een staande Hollandse leeuw, met zwaard in de rechter- en wapenschild van de oranjes in de linkerpoot, in een omzoomde tuin. In de tuin een oranjeboom. Op de omheining het wapen van Holland en het wapen van Haarlem. Houtsnede; gesigneerd op het toegangshek.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Een staande Hollandse leeuw, met zwaard in de rechter- en wapenschild van de oranjes in de linkerpoot, in een omzoomde tuin. In de tuin een oranjeboom. Op de omheining het wapen van Holland en het wapen van Haarlem. Houtsnede; gesigneerd op het toegangshek.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "2357",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "D. Vis Blokhuyzen, Description des estampes qui forment l'oeuvre gravé de Dirk De Bray , Rotterdam, 1870, nr. 103"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Bray, D. de"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1655-01-01T00:00:00",
+      "end_of_the_begin": "1655-12-31T23:59:59",
+      "begin_of_the_end": "1694-01-01T00:00:00",
+      "end_of_the_end": "1694-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/8F837DFB85CF3F0D132B8C334E838B19",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvNmI1MTQ4NWUtOTliZi03NjMyLTUzYTEtYTMyM2MxYTFmMjZhLmpwZw?label=Een%20staande%20Hollandse%20leeuw%2C%20met%20zwaard%20in%20de%20rechter-%20en%20wapenschild%20van%20de%20oranjes%20in%20de%20linkerpoot%2C%20in%20een%20omzoomde%20tuin.%20In%20de%20tuin%20een%20oranjeboom.%20Op%20de%20omheining%20het%20wapen%20van%20Holland%20en%20het%20wapen%20van%20Haarlem.%20Houtsnede%3B%20gesigneerd%20op%20het%20toegangshek.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/6b51485e-99bf-7632-53a1-a323c1a1f26a.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

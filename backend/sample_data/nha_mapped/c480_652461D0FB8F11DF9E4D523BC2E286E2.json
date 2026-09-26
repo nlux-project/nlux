@@ -1,0 +1,146 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/652461D0FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "De prent bestaat uit een zestal kleine afbeeldingen die te maken hebben met de dorpsbrand van Hilversum in 1766.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De prent bestaat uit een zestal kleine afbeeldingen die te maken hebben met de dorpsbrand van Hilversum in 1766.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "187",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Ter GEDAGTENISSE der LIEFDADIGE INWOONDEREN van de VEREENIGDE NEDERLANDSE PROVINCIEN, BESTAANDE IN een COLLECTE. Op Hooge Approbatie voor de Ongelukkige Lands-genooten van `t Dorp Hilversum, tot herstelling hunner Schade geleden in de zwaaren Brand van de 1 historieprent: gravure; 183 x 276 mm m.o.: P.J. Entrop, exc.t 1766 2e exemplaar (0610) is gedrukt tesamen met een vers in 39 coupletten, in drie kolommen onder de afbeelding, ondertekend met F.B."
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1766-01-01T00:00:00",
+      "end_of_the_begin": "1766-12-31T23:59:59",
+      "begin_of_the_end": "1766-01-01T00:00:00",
+      "end_of_the_end": "1766-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/652461D0FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYjFkMDczMWQtNTdiYS00YmViLTVlNTQtN2I0MzYxNzBkOWUzLmpwZw?label=De%20prent%20bestaat%20uit%20een%20zestal%20kleine%20afbeeldingen%20die%20te%20maken%20hebben%20met%20de%20dorpsbrand%20van%20Hilversum%20in%201766.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/b1d0731d-57ba-4beb-5e54-7b436170d9e3.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

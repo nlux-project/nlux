@@ -1,0 +1,166 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/22B44CB9350E5FA3B83F49EF52EEECBB",
+  "type": "HumanMadeObject",
+  "_label": "Illustratie uit P.C. Hooft Emblemata amatoria. Afbeeldinghen van minne. Emblèmes d'amour , Amsterdam 1611. Voor meer informatie over de Emblemata amatoria van Hooft inclusief de beschrijvingen van de illustraties, zie de editie van K. Porteman op de site van DBNL, klik hier .",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Illustratie uit P.C. Hooft Emblemata amatoria. Afbeeldinghen van minne. Emblèmes d'amour , Amsterdam 1611. Voor meer informatie over de Emblemata amatoria van Hooft inclusief de beschrijvingen van de illustraties, zie de editie van K. Porteman op de site van DBNL, klik hier .",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1624",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "P.C. Hooft, Emblemata amatoria. Afbeeldinghen van minne. Emblèmes d'amour (Amsterdam 1611), (ed. K. Porteman met een vertaling van de Latijnsche disticha door A. Welkenhuysen). Martinus Nijhoff, Leiden 1983"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Anoniem, Hooft, Pieter Corneliszoon P.C.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1581-01-01T00:00:00",
+            "end_of_the_end": "1581-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1647-01-01T00:00:00",
+            "end_of_the_end": "1647-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1611-01-01T00:00:00",
+      "end_of_the_begin": "1611-12-31T23:59:59",
+      "begin_of_the_end": "1636-01-01T00:00:00",
+      "end_of_the_end": "1636-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/22B44CB9350E5FA3B83F49EF52EEECBB",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZDU2OWE3OGEtMWM5OS1jNTlmLWVhM2QtMjdlNTc5NGVlNGUwLmpwZw?label=Illustratie%20uit%20P.C.%20Hooft%20Emblemata%20amatoria.%20Afbeeldinghen%20van%20minne.%20Embl%C3%A8mes%20d%27amour%20%2C%20Amsterdam%201611.%20Voor%20meer%20informatie%20over%20de%20Emblemata%20amatoria%20van%20Hooft%20inclusief%20de%20beschrijvingen%20van%20de%20illustraties%2C%20zie%20de%20editie%20van%20K.%20Porteman%20op%20de%20site%20van%20DBNL%2C%20klik%20hier%20.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/d569a78a-1c99-c59f-ea3d-27e5794ee4e0.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

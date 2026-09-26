@@ -1,0 +1,152 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/98ABBF71A8B34F358F0DAB6DF90CF123",
+  "type": "HumanMadeObject",
+  "_label": "Scène 'de boerenwoning' uit het blijspel 'De drie landbouwers' in de schouwburg van Amsterdam. Gravure en ets op papier. Naar schilderij van Christian Henning uit 1783. Naar tekening van Jan Bulthuis. Prent vervaardigd door Cornelis Brouwer in 1789. Uitgegeven door Jan Willem Smit met privilege in 1790 te Amsterdam. Tekst onder prent: 'De boeren-wooning. Met de afbeelding van het laatste tooneel uit het blyspel, de drie landbouwers. Belval! daar nood u tot verkoop uws landgoeds dwingt, wat wondre liefde dwingt u dit besluit te ontvlieden! Daar 't boersch gezin, waar van ge u knielend ziet omringd, U die betoont, door al hun schat u aan te bieden. Zo edel een bestaan, dat hunnen rang vereert, toont dat een deugdzaam man geen vrienden ooit ontbeert'",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Scène 'de boerenwoning' uit het blijspel 'De drie landbouwers' in de schouwburg van Amsterdam. Gravure en ets op papier. Naar schilderij van Christian Henning uit 1783. Naar tekening van Jan Bulthuis. Prent vervaardigd door Cornelis Brouwer in 1789. Uitgegeven door Jan Willem Smit met privilege in 1790 te Amsterdam. Tekst onder prent: 'De boeren-wooning. Met de afbeelding van het laatste tooneel uit het blyspel, de drie landbouwers. Belval! daar nood u tot verkoop uws landgoeds dwingt, wat wondre liefde dwingt u dit besluit te ontvlieden! Daar 't boersch gezin, waar van ge u knielend ziet omringd, U die betoont, door al hun schat u aan te bieden. Zo edel een bestaan, dat hunnen rang vereert, toont dat een deugdzaam man geen vrienden ooit ontbeert'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1291",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Brouwer, Cornelis C."
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1790-01-01T00:00:00",
+      "end_of_the_begin": "1790-12-31T23:59:59",
+      "begin_of_the_end": "1790-01-01T00:00:00",
+      "end_of_the_end": "1790-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/98ABBF71A8B34F358F0DAB6DF90CF123",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYTQ5YTc2MDYtMGQyMS1hYzJjLWM1YzQtN2Y4YzU4OTQ0MmZkLmpwZw?label=Sc%C3%A8ne%20%27de%20boerenwoning%27%20uit%20het%20blijspel%20%27De%20drie%20landbouwers%27%20in%20de%20schouwburg%20van%20Amsterdam.%20Gravure%20en%20ets%20op%20papier.%20Naar%20schilderij%20van%20Christian%20Henning%20uit%201783.%20Naar%20tekening%20van%20Jan%20Bulthuis.%20Prent%20vervaardigd%20door%20Cornelis%20Brouwer%20in%201789.%20Uitgegeven%20door%20Jan%20Willem%20Smit%20met%20privilege%20in%201790%20te%20Amsterdam.%20Tekst%20onder%20prent%3A%20%27De%20boeren-wooning.%20Met%20de%20afbeelding%20van%20het%20laatste%20tooneel%20uit%20het%20blyspel%2C%20de%20drie%20landbouwers.%20Belval%21%20daar%20nood%20u%20tot%20verkoop%20uws%20landgoeds%20dwingt%2C%20wat%20wondre%20liefde%20dwingt%20u%20dit%20besluit%20te%20ontvlieden%21%20Daar%20%27t%20boersch%20gezin%2C%20waar%20van%20ge%20u%20knielend%20ziet%20omringd%2C%20U%20die%20betoont%2C%20door%20al%20hun%20schat%20u%20aan%20te%20bieden.%20Zo%20edel%20een%20bestaan%2C%20dat%20hunnen%20rang%20vereert%2C%20toont%20dat%20een%20deugdzaam%20man%20geen%20vrienden%20ooit%20ontbeert%27",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/a49a7606-0d21-ac2c-c5c4-7f8c589442fd.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

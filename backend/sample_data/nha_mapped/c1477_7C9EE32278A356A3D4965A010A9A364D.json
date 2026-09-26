@@ -1,0 +1,186 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/7C9EE32278A356A3D4965A010A9A364D",
+  "type": "HumanMadeObject",
+  "_label": "Thuiskomst van de verloren zoon [Lucas 15:11-32]. Vierde prent uit een genummerde, vierdelige prentenserie met voorstelling van de Bijbelse parabel van de verloren zoon. Gravure door Jacob Matham naar ontwerptekening van Karel van Mander (I) met Latijns onderschrift van Franco Estius, gesigneerd, rechtsonder genummerd '4'.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Thuiskomst van de verloren zoon [Lucas 15:11-32]. Vierde prent uit een genummerde, vierdelige prentenserie met voorstelling van de Bijbelse parabel van de verloren zoon. Gravure door Jacob Matham naar ontwerptekening van Karel van Mander (I) met Latijns onderschrift van Franco Estius, gesigneerd, rechtsonder genummerd '4'.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "2612",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "New Holstein Dutch, Matham, 29-1(4)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Matham, Jacob J.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1571-01-01T00:00:00",
+            "end_of_the_end": "1571-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1631-01-01T00:00:00",
+            "end_of_the_end": "1631-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Estius, Franco F. Mander, Karel (I) K. van",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1548-01-01T00:00:00",
+            "end_of_the_end": "1548-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1606-01-01T00:00:00",
+            "end_of_the_end": "1606-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1592-01-01T00:00:00",
+      "end_of_the_begin": "1592-12-31T23:59:59",
+      "begin_of_the_end": "1592-01-01T00:00:00",
+      "end_of_the_end": "1592-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/7C9EE32278A356A3D4965A010A9A364D",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMDM5NmFiNDItYzc5ZS1hZDE4LWMyMTAtMWRkMjFjZGI2YjIwLmpwZw?label=Thuiskomst%20van%20de%20verloren%20zoon%20%5BLucas%2015%3A11-32%5D.%20Vierde%20prent%20uit%20een%20genummerde%2C%20vierdelige%20prentenserie%20met%20voorstelling%20van%20de%20Bijbelse%20parabel%20van%20de%20verloren%20zoon.%20Gravure%20door%20Jacob%20Matham%20naar%20ontwerptekening%20van%20Karel%20van%20Mander%20%28I%29%20met%20Latijns%20onderschrift%20van%20Franco%20Estius%2C%20gesigneerd%2C%20rechtsonder%20genummerd%20%274%27.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/0396ab42-c79e-ad18-c210-1dd21cdb6b20.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

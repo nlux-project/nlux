@@ -1,0 +1,186 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/8D07D75A34B2B377B9409EE0AF932BDE",
+  "type": "HumanMadeObject",
+  "_label": "De deugdzame vrouw verkoopt aan een handelaar kleren die ze zelf heeft gemaakt. In de achtergrond wordt een schip uitgeladen aan de kade. De prent is gebaseerd op Spreuken 31:14: 'Zoals een koopmansschip naar verre streken vaart, zo haalt zij van verre wat ze nodig heeft' en Spreuken 31:24: 'Zij vervaardigt kleding en gordels, en levert die aan kooplui'. Tweede prent uit een genummerd serie van zes met 'Lof op de Deugdzame Huisvrouw'. Gravure en ets door Dirck Volckertsz Coornhert naar ontwerptekening van Maarten van Heemskerck, uitgegeven door Cornelis Bos, met Duits onderschrift, gesigneerd, linksonder genummerd '3'.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De deugdzame vrouw verkoopt aan een handelaar kleren die ze zelf heeft gemaakt. In de achtergrond wordt een schip uitgeladen aan de kade. De prent is gebaseerd op Spreuken 31:14: 'Zoals een koopmansschip naar verre streken vaart, zo haalt zij van verre wat ze nodig heeft' en Spreuken 31:24: 'Zij vervaardigt kleding en gordels, en levert die aan kooplui'. Tweede prent uit een genummerd serie van zes met 'Lof op de Deugdzame Huisvrouw'. Gravure en ets door Dirck Volckertsz Coornhert naar ontwerptekening van Maarten van Heemskerck, uitgegeven door Cornelis Bos, met Duits onderschrift, gesigneerd, linksonder genummerd '3'.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "157",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "New Hollstein, Maarten van Heemskerck, 469"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Coornhert, Dirck Volckertsz D.V.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1522-01-01T00:00:00",
+            "end_of_the_end": "1522-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1590-01-01T00:00:00",
+            "end_of_the_end": "1590-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Heemskerck, Maarten M. van",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1498-01-01T00:00:00",
+            "end_of_the_end": "1498-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1574-01-01T00:00:00",
+            "end_of_the_end": "1574-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1555-01-01T00:00:00",
+      "end_of_the_begin": "1555-12-31T23:59:59",
+      "begin_of_the_end": "1555-01-01T00:00:00",
+      "end_of_the_end": "1555-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/8D07D75A34B2B377B9409EE0AF932BDE",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvNjFlY2RmYjAtYmVkMy1hNjU1LWY5NDctNWUzMjViMzExY2ZjLmpwZw?label=De%20deugdzame%20vrouw%20verkoopt%20aan%20een%20handelaar%20kleren%20die%20ze%20zelf%20heeft%20gemaakt.%20In%20de%20achtergrond%20wordt%20een%20schip%20uitgeladen%20aan%20de%20kade.%20De%20prent%20is%20gebaseerd%20op%20Spreuken%2031%3A14%3A%20%27Zoals%20een%20koopmansschip%20naar%20verre%20streken%20vaart%2C%20zo%20haalt%20zij%20van%20verre%20wat%20ze%20nodig%20heeft%27%20en%20Spreuken%2031%3A24%3A%20%27Zij%20vervaardigt%20kleding%20en%20gordels%2C%20en%20levert%20die%20aan%20kooplui%27.%20Tweede%20prent%20uit%20een%20genummerd%20serie%20van%20zes%20met%20%27Lof%20op%20de%20Deugdzame%20Huisvrouw%27.%20Gravure%20en%20ets%20door%20Dirck%20Volckertsz%20Coornhert%20naar%20ontwerptekening%20van%20Maarten%20van%20Heemskerck%2C%20uitgegeven%20door%20Cornelis%20Bos%2C%20met%20Duits%20onderschrift%2C%20gesigneerd%2C%20linksonder%20genummerd%20%273%27.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/61ecdfb0-bed3-a655-f947-5e325b311cfc.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/35A2988A430587703C306F6432D6EB38",
+  "type": "HumanMadeObject",
+  "_label": "Rust op de vlucht naar Egypte. Maria geeft het Christuskind de borst op de rust op de vlucht naar Egypte. Gravure toegeschreven aan Jacob Matham naar een tekening van Hendrick Goltzius, met Latijns onderschrift van Franco Estius; gesigneerd en gedateerd.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Rust op de vlucht naar Egypte. Maria geeft het Christuskind de borst op de rust op de vlucht naar Egypte. Gravure toegeschreven aan Jacob Matham naar een tekening van Hendrick Goltzius, met Latijns onderschrift van Franco Estius; gesigneerd en gedateerd.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "2075",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "New Hollstein Dutch 299-1(2)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Matham, Jacob J.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1571-01-01T00:00:00",
+            "end_of_the_end": "1571-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1631-01-01T00:00:00",
+            "end_of_the_end": "1631-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Goltzius, Hendrick H.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1558-01-01T00:00:00",
+            "end_of_the_end": "1558-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1617-01-01T00:00:00",
+            "end_of_the_end": "1617-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1589-01-01T00:00:00",
+      "end_of_the_begin": "1589-12-31T23:59:59",
+      "begin_of_the_end": "1589-01-01T00:00:00",
+      "end_of_the_end": "1589-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/35A2988A430587703C306F6432D6EB38",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvODZkMzdjZWQtMGEyMC0zZTAzLWFiODEtODA4Nzc5NDcwYTRmLmpwZw?label=Rust%20op%20de%20vlucht%20naar%20Egypte.%20Maria%20geeft%20het%20Christuskind%20de%20borst%20op%20de%20rust%20op%20de%20vlucht%20naar%20Egypte.%20Gravure%20toegeschreven%20aan%20Jacob%20Matham%20naar%20een%20tekening%20van%20Hendrick%20Goltzius%2C%20met%20Latijns%20onderschrift%20van%20Franco%20Estius%3B%20gesigneerd%20en%20gedateerd.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/86d37ced-0a20-3e03-ab81-808779470a4f.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

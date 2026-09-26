@@ -1,0 +1,152 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/A517A9F25B2D486AB06AAB1296AB640B",
+  "type": "HumanMadeObject",
+  "_label": "Plattelandsgezicht bij een wijnhuis, 'VRYWYN', met vele figuren in Hollandse klederdrachten. Gravure door onbekend, met titel in het Nederlands en Frans, en stippelgravure annotaties over de figuren en hun klederdrachten in het Frans. Uitgegeven 'te Amsterdam', 'bij Gebs Buffa & Comp'. Annotatie van links naar rechts: 'Dames frissone' ; 'fille d'Alkmaar, Villageois de Zuidbeveland, batelier frison' ; 'femme du batelier' ; 'Villageoise de Zuidbeveland,// femme de Schokland' ; 'habitans de Walchern' ; 'homme de Schokland'",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Plattelandsgezicht bij een wijnhuis, 'VRYWYN', met vele figuren in Hollandse klederdrachten. Gravure door onbekend, met titel in het Nederlands en Frans, en stippelgravure annotaties over de figuren en hun klederdrachten in het Frans. Uitgegeven 'te Amsterdam', 'bij Gebs Buffa & Comp'. Annotatie van links naar rechts: 'Dames frissone' ; 'fille d'Alkmaar, Villageois de Zuidbeveland, batelier frison' ; 'femme du batelier' ; 'Villageoise de Zuidbeveland,// femme de Schokland' ; 'habitans de Walchern' ; 'homme de Schokland'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1264",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Onbekend"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1800-01-01T00:00:00",
+      "end_of_the_begin": "1800-12-31T23:59:59",
+      "begin_of_the_end": "1800-01-01T00:00:00",
+      "end_of_the_end": "1800-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/A517A9F25B2D486AB06AAB1296AB640B",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvNzYyM2FmM2EtMDJhMC01ZmY4LTNjODUtNTJlY2VhNTczOWU2LmpwZw?label=Plattelandsgezicht%20bij%20een%20wijnhuis%2C%20%27VRYWYN%27%2C%20met%20vele%20figuren%20in%20Hollandse%20klederdrachten.%20Gravure%20door%20onbekend%2C%20met%20titel%20in%20het%20Nederlands%20en%20Frans%2C%20en%20stippelgravure%20annotaties%20over%20de%20figuren%20en%20hun%20klederdrachten%20in%20het%20Frans.%20Uitgegeven%20%27te%20Amsterdam%27%2C%20%27bij%20Gebs%20Buffa%20%26%20Comp%27.%20Annotatie%20van%20links%20naar%20rechts%3A%20%27Dames%20frissone%27%20%3B%20%27fille%20d%27Alkmaar%2C%20Villageois%20de%20Zuidbeveland%2C%20batelier%20frison%27%20%3B%20%27femme%20du%20batelier%27%20%3B%20%27Villageoise%20de%20Zuidbeveland%2C//%20femme%20de%20Schokland%27%20%3B%20%27habitans%20de%20Walchern%27%20%3B%20%27homme%20de%20Schokland%27",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/7623af3a-02a0-5ff8-3c85-52ecea5739e6.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/40E2463734BACB6D67A7742D40998743",
+  "type": "HumanMadeObject",
+  "_label": "Portret van Hildegard. Illustratie uit Historie der Kerken en ketteren van den beginne des Nieuwen Testaments tot aan het jaar onses Heeren 1688 van Godfried Arnold (1701).",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Portret van Hildegard. Illustratie uit Historie der Kerken en ketteren van den beginne des Nieuwen Testaments tot aan het jaar onses Heeren 1688 van Godfried Arnold (1701).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1036",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Linksboven I.Deel , rechtsboven genummerd Pag.633. Zie voor de andere illustraties van portretten uit deze publicatie de inventarisnummers 53-008810 t/m 53-008833."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "about": [
+    {
+      "type": "Person",
+      "_label": "Hildegard. Illustratie uit Historie der Kerken en ketteren van den beginne des Nieuwen Testaments tot aan het jaar onses Heeren"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Hooghe, Romeyn R. de",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1645-01-01T00:00:00",
+            "end_of_the_end": "1645-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1708-01-01T00:00:00",
+            "end_of_the_end": "1708-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1701-01-01T00:00:00",
+      "end_of_the_begin": "1701-12-31T23:59:59",
+      "begin_of_the_end": "1701-01-01T00:00:00",
+      "end_of_the_end": "1701-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/40E2463734BACB6D67A7742D40998743",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYWJlNzJlNzAtNDJjMS1mMzY0LTUyZWItOGEyOGMyZjY1MmRlLmpwZw?label=Portret%20van%20Hildegard.%20Illustratie%20uit%20Historie%20der%20Kerken%20en%20ketteren%20van%20den%20beginne%20des%20Nieuwen%20Testaments%20tot%20aan%20het%20jaar%20onses%20Heeren%201688%20van%20Godfried%20Arnold%20%281701%29.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/abe72e70-42c1-f364-52eb-8a28c2f652de.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/7E61859AF2E444D591FEAA1A30B04B63",
+  "type": "HumanMadeObject",
+  "_label": "Herberg De Dorstige Kuil, ca. 1975. 2 topogr. prenten: 2 etsen met aquatint op 1 blad. r.o.: PMK 1 prent: 134 x 210 mm.1 prent: 190 x 210 mm.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Herberg De Dorstige Kuil, ca. 1975. 2 topogr. prenten: 2 etsen met aquatint op 1 blad. r.o.: PMK 1 prent: 134 x 210 mm.1 prent: 190 x 210 mm.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "2069",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Heemstede 053 c"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "cat. \\Harlemia Illustrata\\, Haarlem en Zuid Kennemerland in de prentkunst. Een overzicht, geschreven ter gelegenheid van de verkooptentoonstelling van Historisch Antiquariaat A.G. van der Steur / A.G. van der Steur. - Haarlem, 1993. - nr. 1395."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "InC 1.0 Auteursrechtelijk beschermd"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Koning, Paul Martin P.M."
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1975-01-01T00:00:00",
+      "end_of_the_begin": "1975-12-31T23:59:59",
+      "begin_of_the_end": "1975-01-01T00:00:00",
+      "end_of_the_end": "1975-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/7E61859AF2E444D591FEAA1A30B04B63",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvNzZlNDQwYzItMjYyYy0xYTZiLWQ5OGEtZmJkNzNjOTQzOTIzLmpwZw?label=Herberg%20De%20Dorstige%20Kuil%2C%20ca.%201975.%202%20topogr.%20prenten%3A%202%20etsen%20met%20aquatint%20op%201%20blad.%20r.o.%3A%20PMK%201%20prent%3A%20134%20x%20210%20mm.1%20prent%3A%20190%20x%20210%20mm.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/76e440c2-262c-1a6b-d98a-fbd73c943923.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

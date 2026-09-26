@@ -1,0 +1,186 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/5567B97BBC7FC5C6788C57AD19A18788",
+  "type": "HumanMadeObject",
+  "_label": "De Chaldeeën plunderen de tempel van Jeruzalem [2 Koningen 25:10 en 25:13-17]. Achttiende prent uit een genummerde serie van 21 prenten met de rampen van het Joodse volk. Gravure door Philips Galle naar een tekening van Maarten van Heemskerck; met Latijns onderschrift; rechtsonder genummerd '18'; gesigneerd en gedateerd.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De Chaldeeën plunderen de tempel van Jeruzalem [2 Koningen 25:10 en 25:13-17]. Achttiende prent uit een genummerde serie van 21 prenten met de rampen van het Joodse volk. Gravure door Philips Galle naar een tekening van Maarten van Heemskerck; met Latijns onderschrift; rechtsonder genummerd '18'; gesigneerd en gedateerd.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "287",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "New Hollstein Dutch, Heemskerck, 255-1(3)"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Galle, Philips P.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1537-01-01T00:00:00",
+            "end_of_the_end": "1537-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1612-01-01T00:00:00",
+            "end_of_the_end": "1612-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Heemskerck, Maarten M. van",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1498-01-01T00:00:00",
+            "end_of_the_end": "1498-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1574-01-01T00:00:00",
+            "end_of_the_end": "1574-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1569-01-01T00:00:00",
+      "end_of_the_begin": "1569-12-31T23:59:59",
+      "begin_of_the_end": "1569-01-01T00:00:00",
+      "end_of_the_end": "1569-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/5567B97BBC7FC5C6788C57AD19A18788",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvNWVjNTY0ZTMtYWE2OS1iNTg5LTk0MTYtMDRjYjY2NDM3NzJiLmpwZw?label=De%20Chaldee%C3%ABn%20plunderen%20de%20tempel%20van%20Jeruzalem%20%5B2%20Koningen%2025%3A10%20en%2025%3A13-17%5D.%20Achttiende%20prent%20uit%20een%20genummerde%20serie%20van%2021%20prenten%20met%20de%20rampen%20van%20het%20Joodse%20volk.%20Gravure%20door%20Philips%20Galle%20naar%20een%20tekening%20van%20Maarten%20van%20Heemskerck%3B%20met%20Latijns%20onderschrift%3B%20rechtsonder%20genummerd%20%2718%27%3B%20gesigneerd%20en%20gedateerd.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/5ec564e3-aa69-b589-9416-04cb6643772b.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

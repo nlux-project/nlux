@@ -1,0 +1,186 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/16F0E086E23375DD35BD16B30CED48F4",
+  "type": "HumanMadeObject",
+  "_label": "Voor de ware gemeente Gods staat de hemel open. Achste prent uit een serie van acht genummerde allegorische prenten, getiteld 'De kracht van de waarheid' of 'Triomf van de waarheid'; Met Latijns en Nederland onderschrift; linksonder genummerd '8'. Gravure en ets door Dirck Volckertsz.Coornhert naar ontwerptekening van Adriaan de Weerdt.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Voor de ware gemeente Gods staat de hemel open. Achste prent uit een serie van acht genummerde allegorische prenten, getiteld 'De kracht van de waarheid' of 'Triomf van de waarheid'; Met Latijns en Nederland onderschrift; linksonder genummerd '8'. Gravure en ets door Dirck Volckertsz.Coornhert naar ontwerptekening van Adriaan de Weerdt.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "142",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Hollstein Dutch-3(3), Veldman, De Wereld tussen Goed en Kwaad, 1990, p.104-105, afb. 40."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Coornhert, Dirck Volckertsz D.V.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1522-01-01T00:00:00",
+            "end_of_the_end": "1522-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1590-01-01T00:00:00",
+            "end_of_the_end": "1590-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Weert, Adriaan A. de",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1500-01-01T00:00:00",
+            "end_of_the_end": "1500-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1600-01-01T00:00:00",
+            "end_of_the_end": "1600-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1566-01-01T00:00:00",
+      "end_of_the_begin": "1566-12-31T23:59:59",
+      "begin_of_the_end": "1578-01-01T00:00:00",
+      "end_of_the_end": "1578-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/16F0E086E23375DD35BD16B30CED48F4",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvOWJkZTc5MDItMmVmNS04MWVlLTMwZjgtZDQ0MmQ4ZTQyZTI0LmpwZw?label=Voor%20de%20ware%20gemeente%20Gods%20staat%20de%20hemel%20open.%20Achste%20prent%20uit%20een%20serie%20van%20acht%20genummerde%20allegorische%20prenten%2C%20getiteld%20%27De%20kracht%20van%20de%20waarheid%27%20of%20%27Triomf%20van%20de%20waarheid%27%3B%20Met%20Latijns%20en%20Nederland%20onderschrift%3B%20linksonder%20genummerd%20%278%27.%20Gravure%20en%20ets%20door%20Dirck%20Volckertsz.Coornhert%20naar%20ontwerptekening%20van%20Adriaan%20de%20Weerdt.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/9bde7902-2ef5-81ee-30f8-d442d8e42e24.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

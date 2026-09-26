@@ -1,0 +1,192 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/653C42DCFB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "De afbeelding toont de verlichte voorgevel van een huis aan een Amsterdamse gracht. Rondom het huis staan verlichte zuilen opgesteld waar onheen zich mensen hebben verzameld. Een apart prentje dat hierbij hoort toont in detail de figuren op de facade van",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De afbeelding toont de verlichte voorgevel van een huis aan een Amsterdamse gracht. Rondom het huis staan verlichte zuilen opgesteld waar onheen zich mensen hebben verzameld. Een apart prentje dat hierbij hoort toont in detail de figuren op de facade van",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "296",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "AFBEELDING der ILUMINATIE van het Huis van de Wel Ed. Gestr. Heer Mr. M. STRAALMAN, Oud Burgemeester der stad Amsterdam &c. &c. op den 8 Maart 1788. / Afbeelding der figuuren op de Facade van de plaat hier neevens. 1 historieprent: gravure; 165 x 134 en 163 x 61 mm l.o.: W. Kok, ad Vivum del. ; m.o.: de Wed. J. Doll, Excudit. ; r.o.: G.J. de Huyser, fecit. Rechtsonder staat Proefdruk. Boven de prent staat IV. Naast deze prent een afbeelding afgedrukt waarop de de figuren op het woonhuis in detail zijn uitvergroot."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Huyser, Carel Jacob C.J. de",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1743-01-01T00:00:00",
+            "end_of_the_end": "1743-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1804-01-01T00:00:00",
+            "end_of_the_end": "1804-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Kok, Willem W.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1761-01-01T00:00:00",
+            "end_of_the_end": "1761-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1807-01-01T00:00:00",
+            "end_of_the_end": "1807-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1788-01-01T00:00:00",
+      "end_of_the_begin": "1788-12-31T23:59:59",
+      "begin_of_the_end": "1788-01-01T00:00:00",
+      "end_of_the_end": "1788-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/653C42DCFB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMDQwOTk1NzgtNGMwOC05YmEwLTY3YjItOGZkYTc4MWEzODZmLmpwZw?label=De%20afbeelding%20toont%20de%20verlichte%20voorgevel%20van%20een%20huis%20aan%20een%20Amsterdamse%20gracht.%20Rondom%20het%20huis%20staan%20verlichte%20zuilen%20opgesteld%20waar%20onheen%20zich%20mensen%20hebben%20verzameld.%20Een%20apart%20prentje%20dat%20hierbij%20hoort%20toont%20in%20detail%20de%20figuren%20op%20de%20facade%20van",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/04099578-4c08-9ba0-67b2-8fda781a386f.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

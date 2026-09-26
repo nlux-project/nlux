@@ -1,0 +1,192 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/6565B838FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Links op de voorgrond staat een peloton artilleristen. Rechts op het water varen 2 boten met soldaten. Achter de brug staat de tegenpartij. Links en rechts van het strijdtoneel twee grote boerderijen.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Links op de voorgrond staat een peloton artilleristen. Rechts op het water varen 2 boten met soldaten. Achter de brug staat de tegenpartij. Links en rechts van het strijdtoneel twee grote boerderijen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "546",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "AANVAL OP DE DUYVENDRECHTSE BRUG door de Pruissische troepen onder Commando van den Collonel VAN BORSTEL, en verdedigd door de Geldersche Brigade Amsterdamsche Schutters en verdere manschappen, onder Comm.o van den Majoor Mr. HARMEN WILLEM DAANDELS den 1t 1 historieprent: gravure; 297 x 469 mm l.o.: J.D. Teissier, ad viv del. ; m.o.; D.M. Langeveld, excudit ; r.o.: Th. Koning, sculp. Titel in het Nederlands en Frans. r.o.: Proefdruk."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Koning, Theodorus T.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1748-01-01T00:00:00",
+            "end_of_the_end": "1748-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1829-01-01T00:00:00",
+            "end_of_the_end": "1829-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Teissier, Jeam George J.G.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1749-01-01T00:00:00",
+            "end_of_the_end": "1749-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1821-01-01T00:00:00",
+            "end_of_the_end": "1821-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1787-01-01T00:00:00",
+      "end_of_the_begin": "1787-12-31T23:59:59",
+      "begin_of_the_end": "1787-01-01T00:00:00",
+      "end_of_the_end": "1787-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/6565B838FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvY2E4YTNjYTgtZTRjNS02M2EyLThjNWYtMmM3MDkzZmRmOGQ4LmpwZw?label=Links%20op%20de%20voorgrond%20staat%20een%20peloton%20artilleristen.%20Rechts%20op%20het%20water%20varen%202%20boten%20met%20soldaten.%20Achter%20de%20brug%20staat%20de%20tegenpartij.%20Links%20en%20rechts%20van%20het%20strijdtoneel%20twee%20grote%20boerderijen.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/ca8a3ca8-e4c5-63a2-8c5f-2c7093fdf8d8.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

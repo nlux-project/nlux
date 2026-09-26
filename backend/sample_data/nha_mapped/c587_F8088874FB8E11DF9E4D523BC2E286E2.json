@@ -1,0 +1,166 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/F8088874FB8E11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Portret van Roelof Westerop. Bijschrift: Zie hier na't leeven afgebeeld Apollo 's Zoon; Heer Westerop, die met verheeven Zang en Toon 't Vermaekelijk landgesigt, van Horns groene dreeven, En hof en tuynsiera'en, zeer sier'lijk heeft beschreeven. Leef lang: vermaarde man, en lust uw geest nog wat; Beschrijf ons met vermaak de omwandeling der stadt.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Portret van Roelof Westerop. Bijschrift: Zie hier na't leeven afgebeeld Apollo 's Zoon; Heer Westerop, die met verheeven Zang en Toon 't Vermaekelijk landgesigt, van Horns groene dreeven, En hof en tuynsiera'en, zeer sier'lijk heeft beschreeven. Leef lang: vermaarde man, en lust uw geest nog wat; Beschrijf ons met vermaak de omwandeling der stadt.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "588",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "overleden 1762; dichter, schrijver van 'Hoorns Buiten Singel in rym beschreven', Hoorn 1728. Dit portret is de voortekening voor de portretprent in dit boek"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "A.W. Gerlagh e.a. Pronk met pen en penseel. Cornelis Pronk (1691-1759) tekent Noord-Holland, p. 137"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "about": [
+    {
+      "type": "Person",
+      "_label": "Roelof Westerop. Bijschrift: Zie hier na't leeven afgebeeld Apollo 's Zoon"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Pronk, C."
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1728-01-01T00:00:00",
+      "end_of_the_begin": "1728-12-31T23:59:59",
+      "begin_of_the_end": "1728-01-01T00:00:00",
+      "end_of_the_end": "1728-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "587 - portretten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/F8088874FB8E11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZTI4ODI3YjItN2VmOC0zNmU4LWFiOTUtY2ExNDJlNjk1Y2EzLmpwZw?label=Portret%20van%20Roelof%20Westerop.%20Bijschrift%3A%20Zie%20hier%20na%27t%20leeven%20afgebeeld%20Apollo%20%27s%20Zoon%3B%20Heer%20Westerop%2C%20die%20met%20verheeven%20Zang%20en%20Toon%20%27t%20Vermaekelijk%20landgesigt%2C%20van%20Horns%20groene%20dreeven%2C%20En%20hof%20en%20tuynsiera%27en%2C%20zeer%20sier%27lijk%20heeft%20beschreeven.%20Leef%20lang%3A%20vermaarde%20man%2C%20en%20lust%20uw%20geest%20nog%20wat%3B%20Beschrijf%20ons%20met%20vermaak%20de%20omwandeling%20der%20stadt.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/e28827b2-7ef8-36e8-ab95-ca142e695ca3.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

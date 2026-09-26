@@ -1,0 +1,192 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/6522C14AFB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Twee kinderen dansend op het toneel van de Schouwburg in Amsterdam, op het decor staan enkele ornamenten en een boom met op de achtergrond een beeld voorstellende Pygmalion.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Twee kinderen dansend op het toneel van de Schouwburg in Amsterdam, op het decor staan enkele ornamenten en een boom met op de achtergrond een beeld voorstellende Pygmalion.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "180",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "PYGMALION, of DOOR HET BEELD BEZIELD DOOR DE LIEFDE; zo als hetzelve door CAROLINA en CHARLOTTA FREDERIC, oud 9 en 7 jaren, op den Amsteldamschen Schouwburg, in het laatste des jaars 1758, gedanst is. 1 historieprent: gravure; 290 x 234 mm l.o.: G. van der Mijn, ad vivum delineavit ; r.o.: J. Punt,sculpsit. Uitgever: J. Punt in den Schouwburg Onder de titel staan 4 regels tekst, aan de linkerzijde in het Nederlands, aan de rechterzijde in het Frans."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Punt, Jan J.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1711-01-01T00:00:00",
+            "end_of_the_end": "1711-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1779-01-01T00:00:00",
+            "end_of_the_end": "1779-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Mijn, George G. van der",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1723-01-01T00:00:00",
+            "end_of_the_end": "1723-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1763-01-01T00:00:00",
+            "end_of_the_end": "1763-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1759-01-01T00:00:00",
+      "end_of_the_begin": "1759-12-31T23:59:59",
+      "begin_of_the_end": "1759-01-01T00:00:00",
+      "end_of_the_end": "1759-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/6522C14AFB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYWI2NDU1NjAtNDJhOC1kZWEzLTc4N2EtMDAwYWU4YTdiYTI2LmpwZw?label=Twee%20kinderen%20dansend%20op%20het%20toneel%20van%20de%20Schouwburg%20in%20Amsterdam%2C%20op%20het%20decor%20staan%20enkele%20ornamenten%20en%20een%20boom%20met%20op%20de%20achtergrond%20een%20beeld%20voorstellende%20Pygmalion.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/ab645560-42a8-dea3-787a-000ae8a7ba26.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

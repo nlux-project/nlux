@@ -1,0 +1,172 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/63AB3EE6FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Interieur (van de schuur ?) van de boerderij aan het Krommenieerpad 1, ca. 1925; fundering van baksteen met dekplaat, waartegen een bezem; l. aan de houten wand een touw waaran o.a. een koehoorn. 1 interieurtek.: zwart krijt. verso m.b.: F Mars [nog invullen]",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Interieur (van de schuur ?) van de boerderij aan het Krommenieerpad 1, ca. 1925; fundering van baksteen met dekplaat, waartegen een bezem; l. aan de houten wand een touw waaran o.a. een koehoorn. 1 interieurtek.: zwart krijt. verso m.b.: F Mars [nog invullen]",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "1164",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "J. Aten vermeldt geen boerderij aan het Krommenieerpad 1 zie: Wormerveer langs weg en Zaan / J. Aten. - Wormerveer, 1967. - p. 95. verso m.b. in potlood: 'Vierkantspilaar met deksteen / boerderij Krommenierpad 1 / Wormerveer' Wormerveer 006"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Tekening",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Tekening"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Mars, Frans F.",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1903-01-01T00:00:00",
+            "end_of_the_end": "1903-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1973-01-01T00:00:00",
+            "end_of_the_end": "1973-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1925-01-01T00:00:00",
+      "end_of_the_begin": "1925-12-31T23:59:59",
+      "begin_of_the_end": "1925-01-01T00:00:00",
+      "end_of_the_end": "1925-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/63AB3EE6FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvZmI5ZjU1MzgtOTI4NC1jZjg0LTRjYmUtMThlNTkyNGMxY2YzLmpwZw?label=Interieur%20%28van%20de%20schuur%20%3F%29%20van%20de%20boerderij%20aan%20het%20Krommenieerpad%201%2C%20ca.%201925%3B%20fundering%20van%20baksteen%20met%20dekplaat%2C%20waartegen%20een%20bezem%3B%20l.%20aan%20de%20houten%20wand%20een%20touw%20waaran%20o.a.%20een%20koehoorn.%201%20interieurtek.%3A%20zwart%20krijt.%20verso%20m.b.%3A%20F%20Mars%20%5Bnog%20invullen%5D",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/fb9f5538-9284-cf84-4cbe-18e5924c1cf3.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

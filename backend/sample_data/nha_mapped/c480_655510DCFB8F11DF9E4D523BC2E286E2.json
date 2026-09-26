@@ -1,0 +1,139 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/655510DCFB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "Het koffiehuis te Amsterdam. Gezicht in de binnenkamer van dit koffiehuis vol handelende mannen. Quinquanpoix was het derde huis in de Kalverstraat. In 1870 werd het gesloopt om plaats te maken voor de Groote Club. Hier omheen o.a. beelden uit de Griekse",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Het koffiehuis te Amsterdam. Gezicht in de binnenkamer van dit koffiehuis vol handelende mannen. Quinquanpoix was het derde huis in de Kalverstraat. In 1870 werd het gesloopt om plaats te maken voor de Groote Club. Hier omheen o.a. beelden uit de Griekse",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "418",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "QUINQUANPOIX 1 historieprent: gravure; 248 x 360 mm Onder de prent is een gedicht afgedrukt."
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "480 - historieprenten van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/655510DCFB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvOTRhZjM3YmItY2Y3Ny1lNzhhLTRiNGQtOTcwMGQ1Nzg2NmNjLmpwZw?label=Het%20koffiehuis%20te%20Amsterdam.%20Gezicht%20in%20de%20binnenkamer%20van%20dit%20koffiehuis%20vol%20handelende%20mannen.%20Quinquanpoix%20was%20het%20derde%20huis%20in%20de%20Kalverstraat.%20In%201870%20werd%20het%20gesloopt%20om%20plaats%20te%20maken%20voor%20de%20Groote%20Club.%20Hier%20omheen%20o.a.%20beelden%20uit%20de%20Griekse",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/94af37bb-cf77-e78a-4b4d-9700d57866cc.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

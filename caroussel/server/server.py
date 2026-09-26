@@ -226,8 +226,13 @@ def resolve_collection(name: Optional[str]) -> tuple[str, dict[str, Any]]:
     return name, cols[name]
 
 
-def search_item_uris(scope: str, query: Optional[dict[str, Any]] = None) -> list[dict[str, str]]:
-    """Return all image-bearing {id,type} stubs for a scope (paginates)."""
+def search_item_uris(scope: str, query: Optional[dict[str, Any]] = None,
+                      uri_prefix: Optional[str] = None) -> list[dict[str, str]]:
+    """Return all image-bearing {id,type} stubs for a scope (paginates).
+
+    `uri_prefix` optionally restricts stubs to one institution's URI
+    namespace, so multiple collections can share a single backend DB.
+    """
     criteria = dict(query or {})
     criteria.setdefault("hasDigitalImage", True)
     criteria["_scope"] = scope
@@ -248,6 +253,8 @@ def search_item_uris(scope: str, query: Optional[dict[str, Any]] = None) -> list
             page += 1
     except httpx.HTTPError as exc:
         raise HTTPException(status_code=502, detail=f"NLUX API unreachable: {exc}")
+    if uri_prefix:
+        stubs = [s for s in stubs if str(s.get("id", "")).startswith(uri_prefix)]
     return stubs
 
 
@@ -310,7 +317,7 @@ def get_carousel(
     scope = scope or col.get("scope", "item")
     count = count or CONFIG.get("carousel", {}).get("count", 5)
 
-    stubs = search_item_uris(scope, col.get("query"))
+    stubs = search_item_uris(scope, col.get("query"), col.get("uri_prefix"))
     _total_cache["items"] = len(stubs)
     if not stubs:
         raise HTTPException(status_code=502,

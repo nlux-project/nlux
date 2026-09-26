@@ -1,0 +1,174 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/64DFF5B47C3AFACDDB91DE23F917F5E3",
+  "type": "HumanMadeObject",
+  "_label": "De Dood. Zesendertigste en laatste prent uit een genummerde, zesendertigdelige prentenserie met groteske figuren. Houtsnede door Isaac Vincentsz. van der Vinne naar ontwerptekening van Isaac van Ostade, gesigneerd, linksboven genummerd.",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De Dood. Zesendertigste en laatste prent uit een genummerde, zesendertigdelige prentenserie met groteske figuren. Houtsnede door Isaac Vincentsz. van der Vinne naar ontwerptekening van Isaac van Ostade, gesigneerd, linksboven genummerd.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "2933",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Hollstein Dutch, Izaak van der Vinne, 425"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Vinne, Isaac Vincentsz. I.V. van der",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1665-01-01T00:00:00",
+            "end_of_the_end": "1665-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1740-01-01T00:00:00",
+            "end_of_the_end": "1740-12-31T23:59:59"
+          }
+        }
+      },
+      {
+        "type": "Person",
+        "_label": "Ostade, Isaac I. van",
+        "born": {
+          "type": "Birth",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1621-01-01T00:00:00",
+            "end_of_the_end": "1621-12-31T23:59:59"
+          }
+        },
+        "died": {
+          "type": "Death",
+          "timespan": {
+            "type": "TimeSpan",
+            "begin_of_the_begin": "1649-01-01T00:00:00",
+            "end_of_the_end": "1649-12-31T23:59:59"
+          }
+        }
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1724-01-01T00:00:00",
+      "end_of_the_begin": "1724-12-31T23:59:59",
+      "begin_of_the_end": "1740-01-01T00:00:00",
+      "end_of_the_end": "1740-12-31T23:59:59"
+    }
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "1477 - prenten van C.G. Voorhelm Schneevoogt te Haarlem"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/64DFF5B47C3AFACDDB91DE23F917F5E3",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMTFiYTMzODQtMWJhNC05YWM4LTA4OGYtYzUyYTVkY2EwYmZkLmpwZw?label=De%20Dood.%20Zesendertigste%20en%20laatste%20prent%20uit%20een%20genummerde%2C%20zesendertigdelige%20prentenserie%20met%20groteske%20figuren.%20Houtsnede%20door%20Isaac%20Vincentsz.%20van%20der%20Vinne%20naar%20ontwerptekening%20van%20Isaac%20van%20Ostade%2C%20gesigneerd%2C%20linksboven%20genummerd.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/11ba3384-1ba4-9ac8-088f-c52a5dca0bfd.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

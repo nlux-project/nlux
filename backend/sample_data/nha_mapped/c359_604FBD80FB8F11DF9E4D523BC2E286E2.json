@@ -1,0 +1,150 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://hdl.handle.net/21.12102/604FBD80FB8F11DF9E4D523BC2E286E2",
+  "type": "HumanMadeObject",
+  "_label": "In 1775 werd de nieuwe kerk in gebruik genomen. 1 topogr. prent: ets en gravure, ingekleurd met waterverf l.o.: H. Keun ad vivum del.; r.o.: C. Bogerts, sculp, 1775 258 x 411 mm",
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "In 1775 werd de nieuwe kerk in gebruik genomen. 1 topogr. prent: ets en gravure, ingekleurd met waterverf l.o.: H. Keun ad vivum del.; r.o.: C. Bogerts, sculp, 1775 258 x 411 mm",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "3087",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Uitgeg. \"te Amsterdam bij F.W. Greebe.\" \"'t Dorp Ouderkerk aan den Amstel, ziende op de Nieuwgebouwde Kerk...\" Ouderkerk 019"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "PDM 1.0 Geen auteursrecht"
+    }
+  ],
+  "used_for": [
+    {
+      "type": "Activity",
+      "_label": "Technique: Grafiek Drukwerk",
+      "technique": [
+        {
+          "type": "Type",
+          "_label": "Grafiek Drukwerk"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1775-01-01T00:00:00",
+      "end_of_the_begin": "1775-12-31T23:59:59",
+      "begin_of_the_end": "1775-01-01T00:00:00",
+      "end_of_the_end": "1775-12-31T23:59:59"
+    },
+    "took_place_at": [
+      {
+        "type": "Place",
+        "_label": "Nederland"
+      }
+    ]
+  },
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Noord-Hollands Archief"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "Noord-Hollands Archief"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "359 - prenten en tekeningen van de Provinciale Atlas Noord-Holland"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Noord-Hollands Archief",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://hdl.handle.net/21.12102/604FBD80FB8F11DF9E4D523BC2E286E2",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvYjMzN2NiNTctMDEwNC05NWFiLWNmMzctNjU2YTI0MTg1MDE4LmpwZw?label=In%201775%20werd%20de%20nieuwe%20kerk%20in%20gebruik%20genomen.%201%20topogr.%20prent%3A%20ets%20en%20gravure%2C%20ingekleurd%20met%20waterverf%20l.o.%3A%20H.%20Keun%20ad%20vivum%20del.%3B%20r.o.%3A%20C.%20Bogerts%2C%20sculp%2C%201775%20258%20x%20411%20mm",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://images.memorix.nl/ranh/thumb/640x480/b337cb57-0104-95ab-cf37-656a24185018.jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}
