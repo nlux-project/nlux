@@ -6,4 +6,4 @@ OUTPUT_DIR="${1:-$SCRIPT_DIR/data/input/hvh}"
 
 mkdir -p "$OUTPUT_DIR"
 cd "$SCRIPT_DIR"
-uv run python harvest-hvh.py "$OUTPUT_DIR"
+uv run --python 3.12 --with-requirements requirements.txt python harvest-hvh.py "$OUTPUT_DIR"

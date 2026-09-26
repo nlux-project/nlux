@@ -9,4 +9,4 @@ set -euo pipefail
 OUTPUT_DIR="${1:-data/input/teylers}"
 mkdir -p "$OUTPUT_DIR"
 
-uv run python harvest-teylers.py "$OUTPUT_DIR"
+uv run --python 3.12 --with-requirements requirements.txt python harvest-teylers.py "$OUTPUT_DIR"

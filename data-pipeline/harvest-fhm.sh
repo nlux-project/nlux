@@ -6,7 +6,7 @@ LIMIT="${2:-}"
 
 mkdir -p "$OUTPUT_DIR"
 if [ -n "$LIMIT" ]; then
-    uv run python harvest-fhm.py "$OUTPUT_DIR" "$LIMIT"
+    uv run --python 3.12 --with-requirements requirements.txt python harvest-fhm.py "$OUTPUT_DIR" "$LIMIT"
 else
-    uv run python harvest-fhm.py "$OUTPUT_DIR"
+    uv run --python 3.12 --with-requirements requirements.txt python harvest-fhm.py "$OUTPUT_DIR"
 fi

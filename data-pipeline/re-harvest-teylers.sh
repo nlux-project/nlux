@@ -13,7 +13,7 @@ fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
 check() { echo -e "${YELLOW}  ▸ Validating priref=$TEST_PRIREF ...${NC}"; }
 run_teylers_test() {
     TEST_PRIREF="$TEST_PRIREF" TEYLERS_REQUIRE_LIVE=1 \
-        uv run python -m unittest "tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.$1"
+        uv run --python 3.12 --with-requirements requirements.txt python -m unittest "tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.$1"
 }
 
 # ── Step 1: Re-harvest ───────────────────────────────────────────────────────
@@ -25,7 +25,7 @@ echo "==> Harvesting Teylers from Adlib API (bulk) ..."
 ./harvest-teylers.sh
 
 echo "==> Enriching records (individual API fetches for Dimension, Material, etc.) ..."
-uv run python enrich-teylers.py
+uv run --python 3.12 --with-requirements requirements.txt python enrich-teylers.py
 
 check
 FILE="data/input/teylers/${TEST_PRIREF}.json"
@@ -40,7 +40,7 @@ rm -f data/logs/flags/export_is_done-0.txt
 
 # ── Step 3: Load into PostgreSQL datacache ────────────────────────────────────
 echo "==> Step 3: Loading into PostgreSQL ..."
-uv run python ./manage-data.py --load --teylers
+uv run --python 3.12 --with-requirements requirements.txt python ./manage-data.py --load --teylers
 
 check
 run_teylers_test test_datacache_record || fail "Datacache validation failed"
@@ -48,12 +48,12 @@ pass "Datacache OK — fields carried through"
 
 # ── Step 4: Reconcile against CHT + AAT ─────────────────────────────────────
 # NOTE: CHT index must be built once before reconcile (run manually if not done):
-#   uv run python harvest-cht.py
-#   uv run python manage-data.py --load --cht
-#   uv run python manage-data.py --load-index --cht
+#   uv run --python 3.12 --with-requirements requirements.txt python harvest-cht.py
+#   uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --cht
+#   uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load-index --cht
 echo "==> Step 4: Reconciling (CHT + AAT) ..."
 psql -h localhost -U postgres -d postgres -c "TRUNCATE teylers_rewritten_record_cache, teylers_record_cache, merged_merged_record_cache;"
-uv run python ./run-reconcile.py 0 1 --teylers
+uv run --python 3.12 --with-requirements requirements.txt python ./run-reconcile.py 0 1 --teylers
 
 check
 run_teylers_test test_reconciled_record || fail "Reconciliation validation failed"
@@ -61,7 +61,7 @@ pass "Reconciliation OK"
 
 # ── Step 5: Merge ─────────────────────────────────────────────────────────────
 echo "==> Step 5: Merging ..."
-uv run python ./run-merge.py 0 1 --teylers
+uv run --python 3.12 --with-requirements requirements.txt python ./run-merge.py 0 1 --teylers
 
 check
 run_teylers_test test_rewritten_record || fail "Merge validation failed"
@@ -71,7 +71,7 @@ pass "Merge OK"
 echo "==> Step 6: Exporting with generated entities and biographies ..."
 psql -h localhost -U postgres -d postgres -c "TRUNCATE marklogic_merged_record_cache, marklogic_data_cache;"
 rm -f data/logs/flags/export_is_done-0.txt
-uv run python ./run-export.py 0 1 --teylers --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python ./run-export.py 0 1 --teylers --export-entities
 
 TOTAL=$(wc -l < data/output/latest/export_teylers_0.jsonl)
 echo "    Export: $TOTAL records"

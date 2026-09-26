@@ -30,11 +30,11 @@ run_source() {
         mkdir -p "$output_dir"
     fi
     if [[ -n "$limit" ]]; then
-        uv run python harvest-nha.py "$source" "$output_dir" "$limit"
+        uv run --python 3.12 --with-requirements requirements.txt python harvest-nha.py "$source" "$output_dir" "$limit"
     elif [[ -n "$output_dir" ]]; then
-        uv run python harvest-nha.py "$source" "$output_dir"
+        uv run --python 3.12 --with-requirements requirements.txt python harvest-nha.py "$source" "$output_dir"
     else
-        uv run python harvest-nha.py "$source"
+        uv run --python 3.12 --with-requirements requirements.txt python harvest-nha.py "$source"
     fi
 }
 

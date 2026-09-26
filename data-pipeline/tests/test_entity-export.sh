@@ -22,7 +22,7 @@ api_total_items() {
     local scope="$1"
     local term="$2"
     local encoded_q
-    encoded_q="$(uv run python - "$term" <<'PY'
+    encoded_q="$(uv run --python 3.12 --with-requirements requirements.txt python - "$term" <<'PY'
 import json
 import sys
 import urllib.parse
@@ -34,7 +34,7 @@ PY
 
     local response
     response="$(curl -sf "http://localhost:8000/api/search/${scope}?q=${encoded_q}&page=1&pageLength=1")"
-    API_RESPONSE="$response" uv run python - <<'PY'
+    API_RESPONSE="$response" uv run --python 3.12 --with-requirements requirements.txt python - <<'PY'
 import json
 import os
 import sys

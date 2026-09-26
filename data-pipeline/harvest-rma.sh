@@ -5,7 +5,7 @@ OUTPUT_DIR="${1:-data/input/rma}"
 LIMIT="${2:-}"
 
 if [[ -n "$LIMIT" ]]; then
-    uv run python harvest-rma.py "$OUTPUT_DIR" "$LIMIT"
+    uv run --python 3.12 --with-requirements requirements.txt python harvest-rma.py "$OUTPUT_DIR" "$LIMIT"
 else
-    uv run python harvest-rma.py "$OUTPUT_DIR"
+    uv run --python 3.12 --with-requirements requirements.txt python harvest-rma.py "$OUTPUT_DIR"
 fi

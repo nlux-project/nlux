@@ -13,7 +13,7 @@ fail() { echo -e "  ${RED}✗ $1${NC}"; exit 1; }
 check() { echo -e "${YELLOW}  ▸ Validating objectid=$TEST_OBJECTID ...${NC}"; }
 run_fhm_test() {
     TEST_OBJECTID="$TEST_OBJECTID" FHM_REQUIRE_LIVE=1 \
-        uv run python -m unittest "tests.test_fhm_pipeline.FhmPipelineIntegrationTest.$1"
+        uv run --python 3.12 --with-requirements requirements.txt python -m unittest "tests.test_fhm_pipeline.FhmPipelineIntegrationTest.$1"
 }
 
 # -- Step 1: Re-harvest -------------------------------------------------------
@@ -33,7 +33,7 @@ rm -f data/logs/flags/export_is_done-0.txt
 
 # -- Step 3: Load into PostgreSQL datacache ----------------------------------
 echo "==> Step 3: Loading into PostgreSQL ..."
-uv run python ./manage-data.py --load --fhm
+uv run --python 3.12 --with-requirements requirements.txt python ./manage-data.py --load --fhm
 
 check
 run_fhm_test test_datacache_record || fail "Datacache validation failed"
@@ -42,7 +42,7 @@ pass "Datacache OK -- fields carried through"
 # -- Step 4: Reconcile --------------------------------------------------------
 echo "==> Step 4: Reconciling (AAT) ..."
 psql -h localhost -U postgres -d postgres -c "TRUNCATE fhm_rewritten_record_cache, fhm_record_cache, merged_merged_record_cache;"
-uv run python ./run-reconcile.py 0 1 --fhm
+uv run --python 3.12 --with-requirements requirements.txt python ./run-reconcile.py 0 1 --fhm
 
 check
 run_fhm_test test_reconciled_record || fail "Reconciliation validation failed"
@@ -50,7 +50,7 @@ pass "Reconciliation OK"
 
 # -- Step 5: Merge ------------------------------------------------------------
 echo "==> Step 5: Merging ..."
-uv run python ./run-merge.py 0 1 --fhm
+uv run --python 3.12 --with-requirements requirements.txt python ./run-merge.py 0 1 --fhm
 
 check
 run_fhm_test test_rewritten_record || fail "Merge validation failed"
@@ -60,7 +60,7 @@ pass "Merge OK"
 echo "==> Step 6: Exporting with generated entities and biographies ..."
 psql -h localhost -U postgres -d postgres -c "TRUNCATE marklogic_merged_record_cache, marklogic_data_cache;"
 rm -f data/logs/flags/export_is_done-0.txt
-uv run python ./run-export.py 0 1 --fhm --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python ./run-export.py 0 1 --fhm --export-entities
 
 TOTAL=$(wc -l < data/output/latest/export_fhm_0.jsonl)
 echo "    Export: $TOTAL records"
