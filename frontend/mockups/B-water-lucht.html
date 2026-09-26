@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collectie NH — Mockup B — Water & Lucht</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#ffffff;--panel:#eaf3f8;--card:#ffffff;--chip:#dceef7;--ink:#22303e;--muted:#5c7080;--line:#d3e3ec;--primary:#2e7fa8;--primary-ink:#ffffff;--accent:#bfe3f5;--sand:#f3ece0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+.badge{position:fixed;right:14px;bottom:14px;background:var(--ink);color:#fff;font-size:12px;padding:5px 12px;border-radius:999px;opacity:.85;z-index:99}
+a{color:var(--primary);text-decoration:none}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.logo{display:flex;gap:12px;align-items:center}
+.logo .mark{background:var(--mark);color:#fff;font-weight:700;letter-spacing:.5px;font-size:15px;padding:10px 9px;border-radius:10px}
+.logo b{font-size:19px;display:block}
+.logo small{color:var(--muted);font-size:11.5px;display:block;margin-top:-2px}
+.topnav{display:flex;gap:22px;align-items:center;font-size:14.5px}
+.topnav a{color:var(--ink)}
+.lang{border:1.5px solid var(--primary);background:transparent;color:var(--primary);border-radius:999px;padding:4px 13px;font-size:13px;font-weight:600;cursor:pointer}
+.lang.on{background:var(--primary);color:var(--primary-ink)}
+.hero{background:var(--hero);padding:72px 24px 56px;text-align:center}
+.hero h1{font-size:clamp(28px,4.5vw,44px);font-weight:300;letter-spacing:-.5px}
+.hero p{color:var(--muted);font-size:17px;margin:14px auto 30px;max-width:640px}
+.search{display:flex;max-width:640px;margin:0 auto;background:#fff;border-radius:999px;box-shadow:0 8px 26px rgba(48,48,48,.13);border:1px solid var(--line)}
+.search input{flex:1;border:0;background:transparent;padding:16px 24px;font-size:16.5px;outline:0;color:var(--ink);border-radius:999px 0 0 999px;min-width:0}
+.search button{border:0;background:var(--primary);color:var(--primary-ink);padding:0 30px;border-radius:0 999px 999px 0;font-size:16px;font-weight:600;cursor:pointer}
+.quick{margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.quick .q{background:var(--chip);color:var(--ink);padding:7px 16px;border-radius:999px;font-size:13.5px;cursor:pointer;border:0}
+.quick .q:hover{background:var(--accent)}
+.insts{padding:46px 24px;max-width:1080px;margin:0 auto}
+.insts h2,.hl h2,.results h2{font-size:22px;font-weight:600;margin-bottom:18px}
+.inst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.inst{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.inst b{font-size:14.5px;display:block}
+.inst span{color:var(--muted);font-size:12.5px}
+.hl{padding:8px 24px 46px;max-width:1080px;margin:0 auto}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s;cursor:pointer}
+.card:hover{box-shadow:0 10px 24px rgba(48,48,48,.12)}
+.card .thumb{aspect-ratio:4/3;background:var(--panel);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .body{padding:12px 14px 14px}
+.card .type{background:var(--accent);color:var(--ink);font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;display:inline-block;margin-bottom:7px}
+.card h3{font-size:14.5px;font-weight:600;line-height:1.35;margin-bottom:5px}
+.card .inst{color:var(--muted);font-size:12.5px}
+.card .year{color:var(--muted);font-size:12px;margin-top:1px}
+.results{background:var(--panel);border-top:1px solid var(--line);padding:44px 24px 60px}
+.results-inner{max-width:1180px;margin:0 auto}
+.results .search{box-shadow:none;margin:0 0 14px;max-width:100%}
+.active{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.active .f{background:var(--accent);border-radius:999px;font-size:12.5px;padding:5px 8px 5px 13px;display:inline-flex;align-items:center;gap:6px}
+.active .f button{border:0;background:transparent;color:inherit;cursor:pointer;font-size:14px;font-weight:700;line-height:1}
+.layout{display:grid;grid-template-columns:250px 1fr;gap:26px;align-items:start}
+aside{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+aside h3{font-size:15.5px;font-weight:700;margin-bottom:4px}
+aside h4{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin:16px 0 8px}
+.fgroup label{display:flex;align-items:center;gap:9px;font-size:13.8px;padding:3.5px 0;cursor:pointer}
+.fgroup input{accent-color:var(--primary)}
+.fgroup .n{color:var(--muted);font-size:12px;margin-left:auto}
+.reset{margin-top:16px;border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 16px;font-size:13px;cursor:pointer}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:14px;color:var(--muted)}
+.meta select{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 9px;font-size:13px;color:var(--ink)}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px}
+.empty{display:none;text-align:center;color:var(--muted);padding:40px 0;font-size:15px}
+footer{padding:26px 24px;text-align:center;color:var(--muted);font-size:12.5px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="badge">Mockup B — Water & Lucht</div>
+
+<header class="topbar">
+  <div class="logo"><span class="mark">CNH</span>
+    <div><b>Collectie NH</b><small data-i18n="tagline">Cultureel Erfgoed collecties Noord-Holland</small></div>
+  </div>
+  <nav class="topnav">
+    <a href="#results" data-i18n="navBrowse">Blader</a>
+    <a href="#" data-i18n="navAbout">Over</a>
+    <a href="#" data-i18n="navContact">Contact</a>
+    <button class="lang" id="langBtn">NL</button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1 data-i18n="heroTitle">Ontdek het erfgoed van Noord-Holland</h1>
+  <p data-i18n="heroSub">Zoek in de collecties van 7 erfgoedinstellingen.</p>
+  <form class="search" onsubmit="return false"><input type="search" placeholder=""><button data-i18n="btnSearch">Zoeken</button></form>
+  <div class="quick"><button class="q" data-q="prent">Prenten</button><button class="q" data-q="schilderij">Schilderijen</button><button class="q" data-q="foto">Foto's</button><button class="q" data-q="vondst">Vondsten</button></div>
+</section>
+
+<section class="insts">
+  <h2 data-i18n="instHeading">Aangesloten instellingen</h2>
+  <div class="inst-grid"><div class="inst"><b>Teylers Museum</b><span>200 objecten</span></div>
+<div class="inst"><b>Noord-Hollands Archief</b><span>408 objecten</span></div>
+<div class="inst"><b>Frans Hals Museum</b><span>400 objecten</span></div>
+<div class="inst"><b>Huis van Hilde</b><span>400 objecten</span></div>
+<div class="inst"><b>Rijksmuseum Boerhaave</b><span>0 objecten</span></div>
+<div class="inst"><b>Rijksmuseum</b><span>0 objecten</span></div>
+<div class="inst"><b>Westfries Museum</b><span>400 objecten</span></div></div>
+</section>
+
+<section class="hl">
+  <h2 data-i18n="hlHeading">Uitgelicht</h2>
+  <div class="grid-4"><article class="card" data-inst="teylers" data-type="schilderij" data-period="1600-1800" data-title="Bacchus op een wijnvat" data-inst-name="Teylers Museum" data-type-label="Schilderij"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9S0clMjAxNzU1NS5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc" alt="Bacchus op een wijnvat" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Schilderij</span><h3>Bacchus op een wijnvat</h3><p class="inst">Teylers Museum</p><p class="year">ca. 1700</p></div></article>
+<article class="card" data-inst="nha" data-type="prent" data-period="1600-1800" data-title="Giovanni de' Medici stuurt de Zwitserse huren naar Milaan" data-inst-name="Noord-Hollands Archief" data-type-label="Prent"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvNTVhYjZkYzUtZWYzMS1hOWE3LWY0YjEtM2UyOTVkNjc4Nzk4LmpwZw" alt="Giovanni de' Medici stuurt de Zwitserse huren naar Milaan" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Prent</span><h3>Giovanni de' Medici stuurt de Zwitserse huren naar Milaan</h3><p class="inst">Noord-Hollands Archief</p><p class="year">ca. 1650</p></div></article>
+<article class="card" data-inst="hvh" data-type="vondst" data-period="pre1600" data-title="Grafsteen / grafpijler" data-inst-name="Huis van Hilde" data-type-label="Vondst"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9jb2xsZWN0aWUuaHVpc3ZhbmhpbGRlLm5sL2NjL2ltYWdlcHJveHkuYXNweD9maWxlbmFtZT1pbWFnZXM1OS9cV2Vlc3AvZGUgdmVjaHRcZG9vc251bW1lcnMtb2JqZWN0ZW5cMTA0MDItMDQoMSkuanBn" alt="Grafsteen / grafpijler" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Vondst</span><h3>Grafsteen / grafpijler</h3><p class="inst">Huis van Hilde</p><p class="year">Middeleeuwen</p></div></article>
+<article class="card" data-inst="fhm" data-type="schilderij" data-period="1800-1950" data-title="Moderne studie van vissen" data-inst-name="Frans Hals Museum" data-type-label="Schilderij"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9jb2xsZWN0aWUuZnJhbnNoYWxzbXVzZXVtLm5sL2NjL2ltYWdlcHJveHkuYXNoeD9zZXJ2ZXI9bWFpbC5mcmFuc2hhbHNtdXNldW0ubmwmcG9ydD0xNTQxNCZmaWxlbmFtZT1pbWFnZSUyZm1rLTE5NzclMmZkaWdqdmgtbXNjaCs3Ny03NDUuanBnJndpZHRoPTEyMDA" alt="Moderne studie van vissen" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Schilderij</span><h3>Moderne studie van vissen</h3><p class="inst">Frans Hals Museum</p><p class="year">ca. 1885</p></div></article></div>
+</section>
+
+<section class="results" id="results">
+  <div class="results-inner">
+  <h2 data-i18n="resultsHeading">Zoekresultaten</h2>
+  <form class="search" onsubmit="return false"><input type="search" placeholder=""><button data-i18n="btnSearch">Zoeken</button></form>
+  <div class="active" id="activeChips"></div>
+  <div class="layout">
+    <aside>
+      <h3 data-i18n="filterHeading">Verfijn resultaten</h3>
+      <h4 data-i18n="fgInst">Instelling</h4>
+      <div class="fgroup"><label><input type="checkbox" checked data-facet="inst" data-key="teylers" id="f-inst-teylers">Teylers Museum<span class="n">200</span></label>
+<label><input type="checkbox" checked data-facet="inst" data-key="nha" id="f-inst-nha">Noord-Hollands Archief<span class="n">408</span></label>
+<label><input type="checkbox" checked data-facet="inst" data-key="fhm" id="f-inst-fhm">Frans Hals Museum<span class="n">400</span></label>
+<label><input type="checkbox" checked data-facet="inst" data-key="hvh" id="f-inst-hvh">Huis van Hilde<span class="n">400</span></label>
+<label><input type="checkbox" checked data-facet="inst" data-key="rbhc" id="f-inst-rbhc">Rijksmuseum Boerhaave<span class="n">0</span></label>
+<label><input type="checkbox" checked data-facet="inst" data-key="rma" id="f-inst-rma">Rijksmuseum<span class="n">0</span></label>
+<label><input type="checkbox" checked data-facet="inst" data-key="wfm" id="f-inst-wfm">Westfries Museum<span class="n">400</span></label></div>
+      <h4 data-i18n="fgType">Type</h4>
+      <div class="fgroup"><label><input type="checkbox" checked data-facet="type" data-key="schilderij" id="f-type-schilderij">Schilderij<span class="n">3</span></label>
+<label><input type="checkbox" checked data-facet="type" data-key="prent" id="f-type-prent">Prent<span class="n">5</span></label>
+<label><input type="checkbox" checked data-facet="type" data-key="foto" id="f-type-foto">Foto<span class="n">3</span></label>
+<label><input type="checkbox" checked data-facet="type" data-key="vondst" id="f-type-vondst">Vondst<span class="n">3</span></label>
+<label><input type="checkbox" checked data-facet="type" data-key="object" id="f-type-object">Object<span class="n">1</span></label></div>
+      <h4 data-i18n="fgPeriod">Periode</h4>
+      <div class="fgroup"><label><input type="radio" name="period" value="" checked><span id="pAll">Alle periodes</span></label>
+<label><input type="radio" name="period" value="pre1600">Voor 1600</label>
+<label><input type="radio" name="period" value="1600-1800">1600 – 1800</label>
+<label><input type="radio" name="period" value="1800-1950">1800 – 1950</label>
+<label><input type="radio" name="period" value="post1950">Na 1950</label></div>
+      <button class="reset" onclick="resetAll()" data-i18n="btnReset">Wis filters</button>
+    </aside>
+    <main>
+      <div class="meta">
+        <span id="count"></span>
+        <label for="sort">Sorteer op
+          <select id="sort"><option>Relevantie</option><option>Titel A–Z</option><option>Nieuwste eerst</option></select>
+        </label>
+      </div>
+      <div class="grid-3" id="cards"><article class="card" data-inst="teylers" data-type="schilderij" data-period="1600-1800" data-title="Bacchus op een wijnvat" data-inst-name="Teylers Museum" data-type-label="Schilderij"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9S0clMjAxNzU1NS5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc" alt="Bacchus op een wijnvat" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Schilderij</span><h3>Bacchus op een wijnvat</h3><p class="inst">Teylers Museum</p><p class="year">ca. 1700</p></div></article>
+<article class="card" data-inst="teylers" data-type="prent" data-period="pre1600" data-title="Madonna met de peer" data-inst-name="Teylers Museum" data-type-label="Prent"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9S0clMjAwMDUzMC5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc" alt="Madonna met de peer" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Prent</span><h3>Madonna met de peer</h3><p class="inst">Teylers Museum</p><p class="year">ca. 1490</p></div></article>
+<article class="card" data-inst="teylers" data-type="prent" data-period="1600-1800" data-title="Bacchus ontdekt de slapende Ariadne" data-inst-name="Teylers Museum" data-type-label="Prent"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly90ZXlsZXJzLmFkbGliaG9zdGluZy5jb20vYWlzNi9Db250ZW50L0dldENvbnRlbnQ_Y29tbWFuZD1nZXRjb250ZW50JnNlcnZlcj1pbWFnZXMmdmFsdWU9RiUyMDAzNi5qcGcmZm9sZGVySWQ9MSZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc" alt="Bacchus ontdekt de slapende Ariadne" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Prent</span><h3>Bacchus ontdekt de slapende Ariadne</h3><p class="inst">Teylers Museum</p><p class="year">ca. 1755</p></div></article>
+<article class="card" data-inst="nha" data-type="prent" data-period="1600-1800" data-title="Giovanni de' Medici stuurt de Zwitserse huren naar Milaan" data-inst-name="Noord-Hollands Archief" data-type-label="Prent"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvNTVhYjZkYzUtZWYzMS1hOWE3LWY0YjEtM2UyOTVkNjc4Nzk4LmpwZw" alt="Giovanni de' Medici stuurt de Zwitserse huren naar Milaan" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Prent</span><h3>Giovanni de' Medici stuurt de Zwitserse huren naar Milaan</h3><p class="inst">Noord-Hollands Archief</p><p class="year">ca. 1650</p></div></article>
+<article class="card" data-inst="nha" data-type="foto" data-period="post1950" data-title="Gezicht in het centrum van Vogelenzang" data-inst-name="Noord-Hollands Archief" data-type-label="Foto"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvOGYyYWU1OWMtOWFmMC0zOTc1LTNjZDItM2U1NGQzYzJhMjgzLmpwZw" alt="Gezicht in het centrum van Vogelenzang" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Foto</span><h3>Gezicht in het centrum van Vogelenzang</h3><p class="inst">Noord-Hollands Archief</p><p class="year">ca. 1965</p></div></article>
+<article class="card" data-inst="nha" data-type="foto" data-period="1800-1950" data-title="Gezicht op de zeepfabriek 'De Adelaar' te Wormerveer" data-inst-name="Noord-Hollands Archief" data-type-label="Foto"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC9yYW5oL3RodW1iLzY0MHg0ODAvMDVmOTc2M2QtYmVmNC0yNWU4LTUzYTMtMWFmZGQ4YzM1NDU0LmpwZw" alt="Gezicht op de zeepfabriek 'De Adelaar' te Wormerveer" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Foto</span><h3>Gezicht op de zeepfabriek 'De Adelaar' te Wormerveer</h3><p class="inst">Noord-Hollands Archief</p><p class="year">ca. 1910</p></div></article>
+<article class="card" data-inst="hvh" data-type="vondst" data-period="pre1600" data-title="Priem / els" data-inst-name="Huis van Hilde" data-type-label="Vondst"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9jb2xsZWN0aWUuaHVpc3ZhbmhpbGRlLm5sL2NjL2ltYWdlcHJveHkuYXNweD9maWxlbmFtZT1pbWFnZXM2Mi8vdGV4ZWxccmVkZSB2YW4gdGV4ZWxcb2JqZWN0ZW5cNjI4NC0wMDQgKDEpLmpwZw" alt="Priem / els" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Vondst</span><h3>Priem / els</h3><p class="inst">Huis van Hilde</p><p class="year">Middeleeuwen</p></div></article>
+<article class="card" data-inst="hvh" data-type="vondst" data-period="pre1600" data-title="Grafsteen / grafpijler" data-inst-name="Huis van Hilde" data-type-label="Vondst"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9jb2xsZWN0aWUuaHVpc3ZhbmhpbGRlLm5sL2NjL2ltYWdlcHJveHkuYXNweD9maWxlbmFtZT1pbWFnZXM1OS9cV2Vlc3AvZGUgdmVjaHRcZG9vc251bW1lcnMtb2JqZWN0ZW5cMTA0MDItMDQoMSkuanBn" alt="Grafsteen / grafpijler" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Vondst</span><h3>Grafsteen / grafpijler</h3><p class="inst">Huis van Hilde</p><p class="year">Middeleeuwen</p></div></article>
+<article class="card" data-inst="hvh" data-type="vondst" data-period="pre1600" data-title="Mes (onderdeel van een mes- en lepelset)" data-inst-name="Huis van Hilde" data-type-label="Vondst"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9jb2xsZWN0aWUuaHVpc3ZhbmhpbGRlLm5sL2NjL2ltYWdlcHJveHkuYXNweD9maWxlbmFtZT1pbWFnZXM1OS9cQmVyZ2VuL2VnbW9uZFxlZ21vbmQgYWFuIGRlbiBob2VmXGthc3RlZWxcZG9vc251bW1lcnMtb2JqZWN0ZW4tbGFkZW5rYXN0IG1ldGFhbFw1MDAyLTA2Mi5qcGc" alt="Mes (onderdeel van een mes- en lepelset)" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Vondst</span><h3>Mes (onderdeel van een mes- en lepelset)</h3><p class="inst">Huis van Hilde</p><p class="year">Middeleeuwen</p></div></article>
+<article class="card" data-inst="fhm" data-type="schilderij" data-period="1800-1950" data-title="Moderne studie van vissen" data-inst-name="Frans Hals Museum" data-type-label="Schilderij"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9jb2xsZWN0aWUuZnJhbnNoYWxzbXVzZXVtLm5sL2NjL2ltYWdlcHJveHkuYXNoeD9zZXJ2ZXI9bWFpbC5mcmFuc2hhbHNtdXNldW0ubmwmcG9ydD0xNTQxNCZmaWxlbmFtZT1pbWFnZSUyZm1rLTE5NzclMmZkaWdqdmgtbXNjaCs3Ny03NDUuanBnJndpZHRoPTEyMDA" alt="Moderne studie van vissen" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Schilderij</span><h3>Moderne studie van vissen</h3><p class="inst">Frans Hals Museum</p><p class="year">ca. 1885</p></div></article>
+<article class="card" data-inst="fhm" data-type="object" data-period="1800-1950" data-title="Naambord van de toeziende leden en directeuren" data-inst-name="Frans Hals Museum" data-type-label="Object"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9jb2xsZWN0aWUuZnJhbnNoYWxzbXVzZXVtLm5sL2NjL2ltYWdlcHJveHkuYXNoeD9zZXJ2ZXI9bWFpbC5mcmFuc2hhbHNtdXNldW0ubmwmcG9ydD0xNTQxNCZmaWxlbmFtZT1pbWFnZSUyZmRpZ2NrLW9uYitpaSsxNzQxLmpwZyZ3aWR0aD0xMjAw" alt="Naambord van de toeziende leden en directeuren" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Object</span><h3>Naambord van de toeziende leden en directeuren</h3><p class="inst">Frans Hals Museum</p><p class="year">ca. 1900</p></div></article>
+<article class="card" data-inst="fhm" data-type="prent" data-period="1600-1800" data-title="Vader en zoons" data-inst-name="Frans Hals Museum" data-type-label="Prent"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9jb2xsZWN0aWUuZnJhbnNoYWxzbXVzZXVtLm5sL2NjL2ltYWdlcHJveHkuYXNoeD9zZXJ2ZXI9bWFpbC5mcmFuc2hhbHNtdXNldW0ubmwmcG9ydD0xNTQxNCZmaWxlbmFtZT1pbWFnZSUyZnBpZXRlcit2YW4rZ2VsZGVyJTJmZGlnanZoLXZnK2l2Kzg2LTc1MC5qcGcmd2lkdGg9MTIwMA" alt="Vader en zoons" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Prent</span><h3>Vader en zoons</h3><p class="inst">Frans Hals Museum</p><p class="year">ca. 1780</p></div></article>
+<article class="card" data-inst="wfm" data-type="schilderij" data-period="1600-1800" data-title="Vrouw met doek voor de mond, ten halve lijve naar rechts" data-inst-name="Westfries Museum" data-type-label="Schilderij"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC9iOWIyOTJiMi1jZjZiLTI5NjMtYTRmNy1mZjMyM2VjMTk2OTguanBn" alt="Vrouw met doek voor de mond, ten halve lijve naar rechts" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Schilderij</span><h3>Vrouw met doek voor de mond, ten halve lijve naar rechts</h3><p class="inst">Westfries Museum</p><p class="year">ca. 1660</p></div></article>
+<article class="card" data-inst="wfm" data-type="foto" data-period="1800-1950" data-title="Poort met bovenin een medaillon met wapen" data-inst-name="Westfries Museum" data-type-label="Foto"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC82ODIzNDdmNi1mMzRiLTRiMzAtMGYxMC1iMmExN2MzYmQ0MDkuanBn" alt="Poort met bovenin een medaillon met wapen" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Foto</span><h3>Poort met bovenin een medaillon met wapen</h3><p class="inst">Westfries Museum</p><p class="year">ca. 1925</p></div></article>
+<article class="card" data-inst="wfm" data-type="prent" data-period="pre1600" data-title="Prent, kopergravure" data-inst-name="Westfries Museum" data-type-label="Prent"><div class="thumb"><img src="http://localhost:8000/iiif/image/aHR0cHM6Ly9pbWFnZXMubWVtb3JpeC5ubC93Zm0vdGh1bWIvNjQweDQ4MC84NjdhMGQzNy1mNmRiLWJkMTktZTEyZC1iNDJhYmRiNDNiNDEuanBn" alt="Prent, kopergravure" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="type">Prent</span><h3>Prent, kopergravure</h3><p class="inst">Westfries Museum</p><p class="year">ca. 1560</p></div></article></div>
+      <div class="empty" id="empty" data-i18n="empty">Geen resultaten.</div>
+    </main>
+  </div>
+  </div>
+</section>
+
+<footer data-i18n="footer">Collectie NH · mockup</footer>
+<script>const INST_KEYS=[teylers,nha,fhm,hvh,rbhc,rma,wfm];
+const TYPE_KEYS=[schilderij,prent,foto,vondst,object];
+const PERIOD_KEYS=[pre1600,1600-1800,1800-1950,post1950];
+const INST_NAMES={"teylers": "Teylers Museum", "nha": "Noord-Hollands Archief", "fhm": "Frans Hals Museum", "hvh": "Huis van Hilde", "rbhc": "Rijksmuseum Boerhaave", "rma": "Rijksmuseum", "wfm": "Westfries Museum"};
+const TYPE_NAMES={"schilderij": "Schilderij", "prent": "Prent", "foto": "Foto", "vondst": "Vondst", "object": "Object"};
+const PERIOD_NAMES={"pre1600": "Voor 1600", "1600-1800": "1600 – 1800", "1800-1950": "1800 – 1950", "post1950": "Na 1950"};
+
+const STRINGS={
+ nl:{tagline:"Cultureel Erfgoed collecties Noord-Holland",navBrowse:"Blader",navAbout:"Over",navContact:"Contact",
+  heroTitle:"Ontdek het erfgoed van Noord-Holland",
+  heroSub:"Zoek in de collecties van 7 erfgoedinstellingen \u2013 van prenten en schilderijen tot foto's en archeologische vondsten.",
+  btnSearch:"Zoeken",searchPh:"Zoek op trefwoord, titel of maker \u2026",
+  instHeading:"Aangesloten instellingen",hlHeading:"Uitgelicht",
+  resultsHeading:"Zoekresultaten",filterHeading:"Verfijn resultaten",
+  fgInst:"Instelling",fgType:"Type",fgPeriod:"Periode",fgAll:"Alle periodes",
+  sortLabel:"Sorteer op",sortRel:"Relevantie",sortAZ:"Titel A\u2013Z",sortNew:"Nieuwste eerst",
+  btnReset:"Wis filters",resultsCount:"__N__ resultaten",
+  empty:"Geen resultaten binnen deze selectie. Probeer een andere combinatie.",
+  footer:"Collectie NH \u00b7 mockup \u00b7 afbeeldingen uit de lokale demodataset (backend :8000)"},
+ en:{tagline:"Cultural Heritage collections North Holland",navBrowse:"Browse",navAbout:"About",navContact:"Contact",
+  heroTitle:"Discover the heritage of North Holland",
+  heroSub:"Search the collections of 7 heritage institutions \u2013 from prints and paintings to photographs and archaeological finds.",
+  btnSearch:"Search",searchPh:"Search by keyword, title or maker \u2026",
+  instHeading:"Partner institutions",hlHeading:"Highlights",
+  resultsHeading:"Search results",filterHeading:"Refine results",
+  fgInst:"Institution",fgType:"Type",fgPeriod:"Period",fgAll:"All periods",
+  sortLabel:"Sort by",sortRel:"Relevance",sortAZ:"Title A\u2013Z",sortNew:"Newest first",
+  btnReset:"Clear filters",resultsCount:"__N__ results",
+  empty:"No results in this selection. Try another combination.",
+  footer:"Collectie NH \u00b7 mockup \u00b7 images from the local demo dataset (backend :8000)"}
+};
+let lang="nl";
+function t(k){return STRINGS[lang][k];}
+const state={q:"",insts:new Set(INST_KEYS),types:new Set(TYPE_KEYS),period:""};
+function applyLang(next){
+ lang=next;document.documentElement.lang=lang;
+ document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n);});
+ document.querySelectorAll(".search input").forEach(i=>i.placeholder=t("searchPh"));
+ const lb=document.getElementById("langBtn");lb.textContent=lang==="nl"?"NL":"EN";lb.classList.toggle("on",lang==="en");
+ const sel=document.getElementById("sort");sel.options[0].text=t("sortRel");sel.options[1].text=t("sortAZ");sel.options[2].text=t("sortNew");
+ document.querySelector('label[for="sort"]').childNodes[0].nodeValue=t("sortLabel")+" ";
+ document.getElementById("pAll").textContent=t("fgAll");
+ update();
+}
+function update(){
+ const cards=[...document.querySelectorAll("#cards .card")];
+ let n=0;
+ cards.forEach(c=>{
+   const hay=(c.dataset.title+" "+c.dataset.instName+" "+c.dataset.typeLabel).toLowerCase();
+   const show=(!state.q||hay.includes(state.q.toLowerCase()))
+     &&state.insts.has(c.dataset.inst)
+     &&state.types.has(c.dataset.type)
+     &&(!state.period||c.dataset.period===state.period);
+   c.style.display=show?"":"none";if(show)n++;
+ });
+ document.getElementById("count").textContent=t("resultsCount").replace("__N__",n);
+ document.getElementById("empty").style.display=n?"none":"block";
+ const ac=document.getElementById("activeChips");ac.innerHTML="";
+ const chip=(txt,fn)=>{const s=document.createElement("span");s.className="f";
+   s.appendChild(document.createTextNode(txt));
+   const b=document.createElement("button");b.textContent="\u00d7";b.onclick=fn;
+   s.appendChild(b);ac.appendChild(s);};
+ INST_KEYS.forEach(k=>{if(!state.insts.has(k))chip(INST_NAMES[k],()=>{const cb=document.getElementById("f-inst-"+k);cb.checked=true;state.insts.add(k);update();});});
+ TYPE_KEYS.forEach(k=>{if(!state.types.has(k))chip(TYPE_NAMES[k],()=>{const cb=document.getElementById("f-type-"+k);cb.checked=true;state.types.add(k);update();});});
+ PERIOD_KEYS.forEach(k=>{if(state.period===k)chip(PERIOD_NAMES[k],()=>{state.period="";document.querySelectorAll("[name=period]").forEach(r=>r.checked=r.value==="");update();});});
+ if(state.q)chip('"'+state.q+'"',()=>{state.q="";document.querySelectorAll(".search input").forEach(i=>i.value="");update();});
+}
+function resetAll(){state.q="";state.insts=new Set(INST_KEYS);state.types=new Set(TYPE_KEYS);state.period="";
+ document.querySelectorAll(".search input").forEach(i=>i.value="");
+ document.querySelectorAll("[name=period]").forEach(r=>r.checked=r.value==="");
+ document.querySelectorAll("[data-facet]").forEach(c=>c.checked=true);
+ update();}
+document.getElementById("langBtn").onclick=()=>applyLang(lang==="nl"?"en":"nl");
+document.querySelectorAll(".search").forEach(f=>{
+ const input=f.querySelector("input"),btn=f.querySelector("button");
+ input.addEventListener("input",()=>doSearch(input.value));
+ input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();goResults(input.value);}});
+ btn.onclick=()=>goResults(input.value);
+});
+function doSearch(v){state.q=v.trim();
+ const other=[...document.querySelectorAll(".search input")].filter(i=>i.value.trim()!==state.q);
+ other.forEach(i=>i.value=state.q);
+ update();}
+function goResults(v){doSearch(v);document.getElementById("results").scrollIntoView();}
+document.querySelectorAll("[data-facet]").forEach(cb=>cb.addEventListener("change",()=>{
+ const set=cb.dataset.facet==="inst"?state.insts:state.types;
+ if(cb.checked)set.add(cb.dataset.key);else set.delete(cb.dataset.key);update();
+}));
+document.querySelectorAll("[name=period]").forEach(r=>r.addEventListener("change",()=>{state.period=r.value;update();}));
+document.querySelectorAll(".quick .q").forEach(q=>q.onclick=()=>goResults(q.dataset.q));
+applyLang("nl");
+</script>
+</body>
+</html>
