@@ -48,10 +48,10 @@ Copy `docs/sample_config/wfm.json` into your runtime `config/config_cache/` alon
 cd data-pipeline
 
 ./harvest-wfm.sh
-uv run python manage-data.py --load --wfm
-uv run python run-reconcile.py 0 1 --wfm
-uv run python run-merge.py 0 1 --wfm
-uv run python run-export.py 0 1 --wfm --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --wfm
+uv run --python 3.12 --with-requirements requirements.txt python run-reconcile.py 0 1 --wfm
+uv run --python 3.12 --with-requirements requirements.txt python run-merge.py 0 1 --wfm
+uv run --python 3.12 --with-requirements requirements.txt python run-export.py 0 1 --wfm --export-entities
 ```
 
 For a small harvest smoke test:
@@ -65,3 +65,30 @@ For the full local rebuild and Docker API reload:
 ```bash
 ./re-harvest-wfm.sh
 ```
+
+## Carousel
+
+The wfm source has a named carousel collection
+(`caroussel/config/default.json`):
+
+- URL: `http://localhost:8089/?collection=wfm`
+- Label: Westfries Museum
+- URI prefix: `https://westfriesmuseum.com/detail/`
+- Credit line: Westfries Museum, Hoorn
+
+Re-running `./harvest-wfm.sh` re-fetches and rewrites existing files (no
+skip-if-exists). Export slice files are overwritten in `"w"` mode and
+`manage-data.py --load --wfm` clears the wfm datacache first, so
+downstream cleanup is never needed.
+
+Load records with images and titles under the URI prefix into the backend
+DB (upserts by URI, no reset needed):
+
+```bash
+cd backend
+uv run --python 3.12 --with-requirements requirements.txt \
+    python scripts/load_data.py ../data-pipeline/data/output/latest/
+```
+
+Until its records are loaded, `?collection=wfm` returns a "no objects yet"
+message naming the collection.

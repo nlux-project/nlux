@@ -45,6 +45,57 @@ Copy `docs/sample_config/hvh.json` into your runtime `config/config_cache/` alon
 
 ```bash
 cd data-pipeline
+
 ./harvest-hvh.sh
-uv run python manage-data.py --load --hvh
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --hvh
+uv run --python 3.12 --with-requirements requirements.txt python run-reconcile.py 0 1 --hvh
+uv run --python 3.12 --with-requirements requirements.txt python run-merge.py 0 1 --hvh
+uv run --python 3.12 --with-requirements requirements.txt python run-export.py 0 1 --hvh
 ```
+
+The last three steps need PostgreSQL + Redis (`docker compose --profile pipeline up`)
+and the AAT reconciliation index built once
+(`uv run --python 3.12 --with-requirements requirements.txt python run-harvest.py --aat` + `uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load-index --aat`).
+
+## Re-harvesting
+
+The harvester is skip-if-exists: re-running `./harvest-hvh.sh` only fetches
+identifiers whose `data/input/hvh/{identifier}.json` does not exist yet —
+records that changed upstream stay stale. To refresh changed records too,
+move the old harvest aside first (the harvester recreates the directory):
+
+```bash
+mv data/input/hvh data/input/hvh-old-$(date +%Y%m%d)
+./harvest-hvh.sh
+```
+
+Downstream cleanup is never needed:
+
+- `manage-data.py --load --hvh` clears the hvh datacache before loading
+  (idempotent)
+- `run-export.py` opens `export_hvh_0.jsonl` in `"w"` mode, so each export
+  run overwrites it
+- after a re-harvest, re-run reconcile + merge so the idmap merge decisions
+  pick up the new records
+
+## Carousel
+
+The hvh source has a named carousel collection
+(`caroussel/config/default.json`):
+
+- URL: `http://localhost:8089/?collection=hvh`
+- Label: Huis van Hilde
+- URI prefix: `https://collectie.huisvanhilde.nl/resource/`
+- Credit line: Huis van Hilde, Castricum
+
+Records with images and titles under that URI namespace are displayed once
+they are loaded into the backend DB (upserts by URI, no reset needed):
+
+```bash
+cd backend
+uv run --python 3.12 --with-requirements requirements.txt \
+    python scripts/load_data.py ../data-pipeline/data/output/latest/
+```
+
+Until its records are loaded, `?collection=hvh` returns a "no objects yet"
+message naming the collection.

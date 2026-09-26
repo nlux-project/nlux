@@ -45,10 +45,10 @@ Copy `docs/sample_config/rbhc.json` into your runtime `config/config_cache/` alo
 cd data-pipeline
 
 ./harvest-rbhc.sh
-uv run python manage-data.py --load --rbhc
-uv run python run-reconcile.py 0 1 --rbhc
-uv run python run-merge.py 0 1 --rbhc
-uv run python run-export.py 0 1 --rbhc --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --rbhc
+uv run --python 3.12 --with-requirements requirements.txt python run-reconcile.py 0 1 --rbhc
+uv run --python 3.12 --with-requirements requirements.txt python run-merge.py 0 1 --rbhc
+uv run --python 3.12 --with-requirements requirements.txt python run-export.py 0 1 --rbhc --export-entities
 ```
 
 Validate a loaded test record from bash:
@@ -60,5 +60,32 @@ Validate a loaded test record from bash:
 `harvest-rbhc.sh` runs both the bulk harvest and the required per-record enrichment. For a quick single-record test, enrich only the test record before loading:
 
 ```bash
-uv run python enrich-rbhc.py data/input/rbhc 2
+uv run --python 3.12 --with-requirements requirements.txt python enrich-rbhc.py data/input/rbhc 2
 ```
+
+## Carousel
+
+The rbhc source has a named carousel collection
+(`caroussel/config/default.json`):
+
+- URL: `http://localhost:8089/?collection=rbhc`
+- Label: Rijksmuseum Boerhaave
+- URI prefix: `https://mmb-web.adlibhosting.com/ais6/Details/collect/`
+- Credit line: Rijksmuseum Boerhaave, Leiden
+
+Re-running `./harvest-rbhc.sh` re-fetches and rewrites existing files (no
+skip-if-exists). Export slice files are overwritten in `"w"` mode and
+`manage-data.py --load --rbhc` clears the rbhc datacache first, so
+downstream cleanup is never needed.
+
+Load records with images and titles under the URI prefix into the backend
+DB (upserts by URI, no reset needed):
+
+```bash
+cd backend
+uv run --python 3.12 --with-requirements requirements.txt \
+    python scripts/load_data.py ../data-pipeline/data/output/latest/
+```
+
+Until its records are loaded, `?collection=rbhc` returns a "no objects yet"
+message naming the collection.

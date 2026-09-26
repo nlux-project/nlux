@@ -50,10 +50,10 @@ Copy `docs/sample_config/fhm.json` into your runtime `config/config_cache/` alon
 cd data-pipeline
 
 ./harvest-fhm.sh
-uv run python manage-data.py --load --fhm
-uv run python run-reconcile.py --fhm
-uv run python run-merge.py --fhm
-uv run python run-export.py 0 1 --fhm --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --fhm
+uv run --python 3.12 --with-requirements requirements.txt python run-reconcile.py 0 1 --fhm
+uv run --python 3.12 --with-requirements requirements.txt python run-merge.py 0 1 --fhm
+uv run --python 3.12 --with-requirements requirements.txt python run-export.py 0 1 --fhm --export-entities
 ```
 
 For a small harvest smoke test:
@@ -67,3 +67,30 @@ Validate a loaded test record from bash:
 ```bash
 ./tests/test_fhm-record.sh 3
 ```
+
+## Carousel
+
+The fhm source has a named carousel collection
+(`caroussel/config/default.json`):
+
+- URL: `http://localhost:8089/?collection=fhm`
+- Label: Frans Hals Museum
+- URI prefix: `http://collectie.franshalsmuseum.nl/`
+- Credit line: Frans Hals Museum, Haarlem
+
+Unlike hvh/teylers, re-running `./harvest-fhm.sh` re-fetches and rewrites
+existing files (no skip-if-exists). Export slice files are overwritten in
+`"w"` mode and `manage-data.py --load --fhm` clears the fhm datacache
+first, so downstream cleanup is never needed.
+
+Load records with images and titles under the URI prefix into the backend
+DB (upserts by URI, no reset needed):
+
+```bash
+cd backend
+uv run --python 3.12 --with-requirements requirements.txt \
+    python scripts/load_data.py ../data-pipeline/data/output/latest/
+```
+
+Until its records are loaded, `?collection=fhm` returns a "no objects yet"
+message naming the collection.

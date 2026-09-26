@@ -126,7 +126,7 @@ Writes `data/input/teylers/{priref}.json` — one file per record. Re-running is
 **Important:** The bulk harvest uses `search=all` which omits `Dimension`, `Material`, `Technique`, and `Content_subject`. Run the enrichment step to fill these in:
 
 ```bash
-uv run python enrich-teylers.py
+uv run --python 3.12 --with-requirements requirements.txt python enrich-teylers.py
 ```
 
 This re-fetches each record individually (10 concurrent threads, ~20 min for 100k records) and merges the missing fields into the existing files.
@@ -135,20 +135,21 @@ This re-fetches each record individually (10 concurrent threads, ~20 min for 100
 
 ```bash
 # Load harvested files into the PostgreSQL datacache
-python ./manage-data.py --load --teylers
+uv run --python 3.12 --with-requirements requirements.txt python ./manage-data.py --load --teylers
 
 # Reconcile against external authority sources
-python ./run-reconcile.py 0 1 --teylers
+uv run --python 3.12 --with-requirements requirements.txt python ./run-reconcile.py 0 1 --teylers
 
 # Merge
-python ./run-merge.py 0 1 --teylers
+uv run --python 3.12 --with-requirements requirements.txt python ./run-merge.py 0 1 --teylers
 
-# Export to LUX-formatted JSONL
-python ./run-export.py 0 1
+# Export to LUX-formatted JSONL; slice files are overwritten in "w" mode,
+# and --load clears the teylers datacache first, so no cleanup is needed
+uv run --python 3.12 --with-requirements requirements.txt python ./run-export.py 0 1 --teylers
 
 # Export generated searchable entity records referenced by objects,
 # including biography enrichment for generated Person records
-python ./run-export.py 0 1 --teylers --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python ./run-export.py 0 1 --teylers --export-entities
 ```
 
 Output lands in `data/output/latest/` as collection-specific JSONL files,
@@ -173,13 +174,13 @@ Without AAT the pipeline still works, but type URIs will not be enriched. "Faile
 
 ```bash
 # Harvest AAT records from Getty's API
-uv run python ./run-harvest.py --aat
+uv run --python 3.12 --with-requirements requirements.txt python ./run-harvest.py --aat
 
 # Build the reconciliation index (label → AAT id lookup)
-uv run python ./manage-data.py --load-index --aat
+uv run --python 3.12 --with-requirements requirements.txt python ./manage-data.py --load-index --aat
 
 # Re-reconcile teylers now that AAT is available
-uv run python ./run-reconcile.py 0 1 --teylers
+uv run --python 3.12 --with-requirements requirements.txt python ./run-reconcile.py 0 1 --teylers
 ```
 
 ### Wikidata (optional)
@@ -192,7 +193,7 @@ curl -L https://dumps.wikimedia.org/wikidatawiki/entities/latest-all.json.gz \
     -o data/input/wikidata/latest-all.json.gz
 
 ./load_parallel.sh --wikidata
-uv run python ./manage-data.py --load-index --wikidata
+uv run --python 3.12 --with-requirements requirements.txt python ./manage-data.py --load-index --wikidata
 ```
 
 **Recommendation:** Start with AAT only. It is fast, covers all the type classifications Teylers records reference, and requires no large download.
@@ -215,7 +216,7 @@ Python `unittest` modules in `tests/` validate source parsing and single-record 
 Run individually:
 
 ```bash
-TEST_PRIREF=41634 uv run python -m unittest \
+TEST_PRIREF=41634 uv run --python 3.12 --with-requirements requirements.txt python -m unittest \
   tests.test_teylers_pipeline.TeylersPipelineIntegrationTest.test_harvest_file
 ```
 
@@ -231,3 +232,26 @@ Or use `test-record.sh` to run all steps at once without re-running the pipeline
 - Requires PostgreSQL and Redis to be running before any pipeline phase (`manage-data`, `run-reconcile`, `run-merge`, `run-export`).
 - The harvest script (`harvest-teylers.sh`) only requires network access — no database needed.
 - The Adlib `search=all` bulk endpoint returns a reduced field set; `enrich-teylers.py` compensates by re-fetching individually.
+
+## Carousel
+
+The teylers source is the default carousel collection
+(`caroussel/config/default.json`):
+
+- URL: `http://localhost:8089/` (default) or `?collection=teylers`
+- Label: Teylers Museum
+- URI prefix: `https://teylers.adlibhosting.com/nlux/`
+- Credit line: Teylers Museum, Haarlem
+
+Two load routes into the carousel backend DB (both upsert by URI, no
+reset needed):
+
+```bash
+# from raw harvest files via the mapper (recommended for the carousel)
+make carousel-load                 # 200 image+title objects
+
+# or from pipeline exports
+cd backend
+uv run --python 3.12 --with-requirements requirements.txt \
+    python scripts/load_data.py ../data-pipeline/data/output/latest/
+```

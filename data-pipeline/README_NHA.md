@@ -53,10 +53,10 @@ Copy `docs/sample_config/nha-c587.json` into your runtime `config/config_cache/`
 cd data-pipeline
 
 ./harvest-nha.sh nha-c587
-uv run python manage-data.py --load --nha-c587
-uv run python run-reconcile.py 0 1 --nha-c587
-uv run python run-merge.py 0 1 --nha-c587
-uv run python run-export.py 0 1 --nha-c587 --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --nha-c587
+uv run --python 3.12 --with-requirements requirements.txt python run-reconcile.py 0 1 --nha-c587
+uv run --python 3.12 --with-requirements requirements.txt python run-merge.py 0 1 --nha-c587
+uv run --python 3.12 --with-requirements requirements.txt python run-export.py 0 1 --nha-c587 --export-entities
 ```
 
 For a small harvest smoke test:
@@ -116,10 +116,10 @@ Copy `docs/sample_config/nha-c480.json` into your runtime `config/config_cache/`
 cd data-pipeline
 
 ./harvest-nha.sh nha-c480
-uv run python manage-data.py --load --nha-c480
-uv run python run-reconcile.py 0 1 --nha-c480
-uv run python run-merge.py 0 1 --nha-c480
-uv run python run-export.py 0 1 --nha-c480 --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --nha-c480
+uv run --python 3.12 --with-requirements requirements.txt python run-reconcile.py 0 1 --nha-c480
+uv run --python 3.12 --with-requirements requirements.txt python run-merge.py 0 1 --nha-c480
+uv run --python 3.12 --with-requirements requirements.txt python run-export.py 0 1 --nha-c480 --export-entities
 ```
 
 Bare `./harvest-nha.sh` harvests `nha-c587`, `nha-c480`, and `nha-c1477`.
@@ -174,10 +174,10 @@ Copy `docs/sample_config/nha-c1477.json` into your runtime `config/config_cache/
 cd data-pipeline
 
 ./harvest-nha.sh nha-c1477
-uv run python manage-data.py --load --nha-c1477
-uv run python run-reconcile.py 0 1 --nha-c1477
-uv run python run-merge.py 0 1 --nha-c1477
-uv run python run-export.py 0 1 --nha-c1477 --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --nha-c1477
+uv run --python 3.12 --with-requirements requirements.txt python run-reconcile.py 0 1 --nha-c1477
+uv run --python 3.12 --with-requirements requirements.txt python run-merge.py 0 1 --nha-c1477
+uv run --python 3.12 --with-requirements requirements.txt python run-export.py 0 1 --nha-c1477 --export-entities
 ```
 
 Bare `./harvest-nha.sh` harvests `nha-c587`, `nha-c480`, and `nha-c1477`.
@@ -187,3 +187,25 @@ For a small harvest smoke test:
 ```bash
 ./harvest-nha.sh nha-c1477 data/input/nha/c1477 10
 ```
+
+## Carousel
+
+All three NHA subcollections share one named carousel collection
+(`caroussel/config/default.json`):
+
+- URL: `http://localhost:8089/?collection=nha`
+- Label: Noord-Hollands Archief
+- URI prefix: `https://hdl.handle.net/21.12102/`
+- Credit line: Noord-Hollands Archief, Haarlem
+
+Records with images and titles under that URI namespace are displayed
+once loaded into the backend DB. The dedicated raw-harvest loader keeps
+only image+title records so every carousel object is displayable:
+
+```bash
+make carousel-load-nha             # default: 400 records, seed 42
+make carousel-load-nha CAROUSEL_NHA_COUNT=200 CAROUSEL_NHA_SEED=7
+```
+
+`scripts/load_data.py` on pipeline exports works too (upserts by URI, no
+reset needed).

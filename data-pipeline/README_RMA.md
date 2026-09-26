@@ -40,10 +40,10 @@ Copy `docs/sample_config/rma.json` into your runtime `config/config_cache/` alon
 cd data-pipeline
 
 ./harvest-rma.sh
-uv run python manage-data.py --load --rma
-uv run python run-reconcile.py 0 1 --rma
-uv run python run-merge.py 0 1 --rma
-uv run python run-export.py 0 1 --rma --export-entities
+uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --rma
+uv run --python 3.12 --with-requirements requirements.txt python run-reconcile.py 0 1 --rma
+uv run --python 3.12 --with-requirements requirements.txt python run-merge.py 0 1 --rma
+uv run --python 3.12 --with-requirements requirements.txt python run-export.py 0 1 --rma --export-entities
 ```
 
 For a small harvest smoke test:
@@ -51,3 +51,31 @@ For a small harvest smoke test:
 ```bash
 ./harvest-rma.sh data/input/rma 10
 ```
+
+## Carousel
+
+The rma source has a named carousel collection
+(`caroussel/config/default.json`):
+
+- URL: `http://localhost:8089/?collection=rma`
+- Label: Rijksmuseum
+- URI prefix: `https://id.rijksmuseum.nl/`
+- Credit line: Rijksmuseum, Amsterdam
+
+Re-running `./harvest-rma.sh` re-fetches and rewrites existing files (no
+skip-if-exists). Export slice files are overwritten in `"w"` mode and
+`manage-data.py --load --rma` clears the rma datacache first, so
+downstream cleanup is never needed. Note: the full export is very large
+(~14 GB for ~835k records); consider loading a sample.
+
+Load records with images and titles under the URI prefix into the backend
+DB (upserts by URI, no reset needed):
+
+```bash
+cd backend
+uv run --python 3.12 --with-requirements requirements.txt \
+    python scripts/load_data.py ../data-pipeline/data/output/latest/
+```
+
+Until its records are loaded, `?collection=rma` returns a "no objects yet"
+message naming the collection.
