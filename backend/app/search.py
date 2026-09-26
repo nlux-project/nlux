@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import threading
 from typing import Optional, Tuple, List, Dict, Any
 from sqlalchemy import text
 from sqlalchemy.orm import Session
@@ -95,6 +96,51 @@ def _criteria_id(criteria: Any) -> Optional[str]:
     return None
 
 
+# In-process cache of parsed Linked Art documents, so structured queries
+# (e.g. hasDigitalImage) do not re-parse the full JSON of every record on
+# every request. A hit is only reused while the raw document is unchanged,
+# so reloading records stays correct.
+_DOC_CACHE_MAX = 20_000
+_doc_cache: Dict[str, Tuple[str, dict]] = {}
+_doc_cache_lock = threading.Lock()
+
+
+def _load_doc(record: Record) -> Optional[dict]:
+    """Parse record.data with caching; None on invalid JSON."""
+    raw = record.data
+    with _doc_cache_lock:
+        hit = _doc_cache.get(record.uri)
+        if hit is not None and hit[0] == raw:
+            return hit[1]
+    try:
+        doc = json.loads(raw)
+    except (json.JSONDecodeError, TypeError):
+        return None
+    with _doc_cache_lock:
+        if len(_doc_cache) >= _DOC_CACHE_MAX:
+            _doc_cache.clear()
+        _doc_cache[record.uri] = (raw, doc)
+    return doc
+
+
+# Structured-query results are cached per (scope, criteria) with a cheap
+# database fingerprint (row count + total blob lengths for the scope).
+# Any insert/update/delete changes the fingerprint, so reloading records
+# invalidates the cache; unchanged fingerprints skip the full scan.
+_json_result_cache: Dict[str, Tuple[Tuple, List[Tuple[str, str]]]] = {}
+_json_result_lock = threading.Lock()
+
+
+def _scope_fingerprint(db: Session, types: List[str]) -> Tuple:
+    clause, params = _type_placeholders(types) if types else ("", {})
+    where = f" WHERE type IN ({clause})" if types else ""
+    sql = text(
+        "SELECT COUNT(*), COALESCE(TOTAL(LENGTH(data)), 0), "
+        "COALESCE(TOTAL(LENGTH(search_text)), 0) FROM records" + where)
+    row = db.execute(sql, params).first()
+    return tuple(row) if row else ()
+
+
 def _matches_structured_query(data: dict, criteria: Any) -> bool:
     if not isinstance(criteria, dict):
         return False
@@ -177,18 +223,33 @@ def _type_placeholders(types: List[str]) -> Tuple[str, Dict]:
 
 def _json_search(db: Session, criteria: dict, scope: str, offset: int, limit: int):
     types = SCOPE_TYPES.get(scope, [])
-    query = db.query(Record)
-    if types:
-        query = query.filter(Record.type.in_(types))
 
-    matches: List[Tuple[str, str]] = []
-    for record in query.all():
-        try:
-            data = json.loads(record.data)
-        except json.JSONDecodeError:
-            continue
-        if _matches_structured_query(data, criteria):
-            matches.append((record.uri, record.type))
+    key = f"{scope}|{json.dumps(criteria, sort_keys=True, default=str)}"
+    fingerprint = _scope_fingerprint(db, types)
+    with _json_result_lock:
+        hit = _json_result_cache.get(key)
+        if hit is not None and hit[0] == fingerprint:
+            matches = hit[1]
+        else:
+            matches = None
+
+    if matches is None:
+        query = db.query(Record)
+        if types:
+            query = query.filter(Record.type.in_(types))
+
+        matches = []
+        for record in query.all():
+            data = _load_doc(record)
+            if data is None:
+                continue
+            if _matches_structured_query(data, criteria):
+                matches.append((record.uri, record.type))
+
+        with _json_result_lock:
+            if len(_json_result_cache) >= 256:
+                _json_result_cache.pop(next(iter(_json_result_cache)))
+            _json_result_cache[key] = (fingerprint, matches)
 
     total = len(matches)
     rows = matches[offset : offset + limit] if limit > 0 else []
