@@ -1,0 +1,240 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10408",
+  "type": "HumanMadeObject",
+  "_label": "Reflectiecirkel op statief, een zogenoemde Mendozacirkel",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Reflectiecirkel op statief"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Reflectiecirkel op statief, een zogenoemde Mendozacirkel",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V08250",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Kleman en Zoon, J.M. Koninkl: Instr: Makers"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1809-01-01T00:00:00",
+      "end_of_the_begin": "1809-12-31T23:59:59",
+      "begin_of_the_end": "1825-01-01T00:00:00",
+      "end_of_the_end": "1825-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1809 - 1825",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 46.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 31.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 32.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Dit is een zogenoemde Mendozacirkel\r\nOude kaart: Bijbehorende kist is genummerd v19513.\r\n(uitgebreide omschrijving, opschrift, herkomst\")\r\n9/12/2009 GD. Voorwerp door Hans in kist v19513 opgeborgen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "In 1968 is door toenmalige Technische Dienst geconstateerd dat de omgebogen messing buis (voor het plaatsen op het statief) stuk was, de kleine spiegel ontbrak, de kijker of vizier ontbrak.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "J.M. Kleman & Zoon. / Amsterdam. \r\nKoninklijke / Instrumentmakers\""
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "MSchateiland G1"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "02.3.0 Cirkel"
+    },
+    {
+      "type": "Type",
+      "_label": "Amsterdam; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10408",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVxWb29yd2VycGVuIEFkbGliXDAtOTAwMFxWMDgyNTAuanBnJmZvbGRlcklkPTImd2lkdGg9ODAwJmhlaWdodD04MDAmaW1hZ2Vmb3JtYXQ9anBn?label=Reflectiecirkel%20op%20statief%2C%20een%20zogenoemde%20Mendozacirkel",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=\\Voorwerpen Adlib\\0-9000\\V08250.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

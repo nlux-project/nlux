@@ -1,0 +1,225 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10788",
+  "type": "HumanMadeObject",
+  "_label": "Bank bij luchtpomp",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Bank bij luchtpomp"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Identifier",
+      "content": "V09623.b",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Volder, Burchard de"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1800-01-01T00:00:00",
+      "end_of_the_begin": "1800-12-31T23:59:59",
+      "begin_of_the_end": "1900-01-01T00:00:00",
+      "end_of_the_end": "1900-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1800 - 1900",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 14.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 39.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 21.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Houten bankje (h 14, b 39, d 21.5 cm.) gemaakt om valbuishouder (zie oud invnr. L2 eveneens met regnr. 9623) met rechtstandig in te zetten onmogelijk te dateren maar lijkt eerder 20e dan 18e eeuws.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De bouw- en gebruiksgeschiedenis staat afdoende beschreven in bovengenoemde publicaties. Het instrument is na 1675 meermalen gewijzigd. De verticale cilinder van ca. 2 voet lengte, in messingen bak voor vloeistofafdichting, is origineel; de blaker - oorspronkelijk in een houten bak op gelijk niveau met de uitvoer - is nu gemonteerd op een houten tafeltje van laat 18e eeuwse makelij.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "'Samuel van Muschenbroek Fecit 1675' staat gegraveerd in het werkplaatsteken van de Oosterse Lamp, dat op de messingen bak rond the cilinder is vastgeschroefd."
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN3KD15"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.03.0 Pompen"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10788",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVxWb29yd2VycGVuIEFkbGliXDAtOTAwMFxWMDk2MjMuYi5qcGcmZm9sZGVySWQ9MiZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Bank%20bij%20luchtpomp",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=\\Voorwerpen Adlib\\0-9000\\V09623.b.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

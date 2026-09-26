@@ -1,0 +1,244 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10358",
+  "type": "HumanMadeObject",
+  "_label": "Spiegeltelescoop op driepoot statief met kist, Lubbertus van der Bilt, 1770-1780",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Spiegeltelescoop met kist"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Spiegeltelescoop op driepoot statief met kist, Lubbertus van der Bilt, 1770-1780",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V08153",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Bildt, Lubbertus van der"
+      },
+      {
+        "type": "Person",
+        "_label": "Gregory"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1770-01-01T00:00:00",
+      "end_of_the_begin": "1770-12-31T23:59:59",
+      "begin_of_the_end": "1780-01-01T00:00:00",
+      "end_of_the_end": "1780-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1770 - 1780",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 39.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 35.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 23.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Messing kijkerbuis (35 cm lang, 7,5 cm doorsnee) met afsluitdop op messing driepoot statief (azimutaal). Hoofdspiegel (6,5 cm doorsnee) en secundaire spiegel (20 mm). Samengestelde oculair. Mahoniehouten opbergkist (47 x 18 x 10 cm).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De oude kaart geeft een gedetailleerde beschrijving.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Achterzijde kijkerbuis: L. VAN DER BILDT FRANEKER"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN2KE2"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "01.1.0 Telescoop"
+    },
+    {
+      "type": "Type",
+      "_label": "Franeker; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10358",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVdlYnNpdGVcVm9vcndlcnBlblwwLTk5OTlcODE1My1hLkpQRyZmb2xkZXJJZD0yJndpZHRoPTgwMCZoZWlnaHQ9ODAwJmltYWdlZm9ybWF0PWpwZw?label=Spiegeltelescoop%20op%20driepoot%20statief%20met%20kist%2C%20Lubbertus%20van%20der%20Bilt%2C%201770-1780",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Website\\Voorwerpen\\0-9999\\8153-a.JPG&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10353",
+  "type": "HumanMadeObject",
+  "_label": "Gregoriaanse spiegeltelescoop met kist, George Sterrop Londen, 1747-1748",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Spiegeltelescoop met kist"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Gregoriaanse spiegeltelescoop met kist, George Sterrop Londen, 1747-1748",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V08150",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Gregory"
+      },
+      {
+        "type": "Person",
+        "_label": "Sterrop, George"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1747-01-01T00:00:00",
+      "end_of_the_begin": "1747-12-31T23:59:59",
+      "begin_of_the_end": "1748-01-01T00:00:00",
+      "end_of_the_end": "1748-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1747 - 1748",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 38.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 34.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 22.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Messing kijkerbuis (34 cm lang, 7 cm doorsnee) met afsluitdop op messing driepoot statief (azimutaal). Hoofdspiegel (6 cm doorsnee) en secundaire spiegel (16 mm). Samengestelde oculair met afschroefbare zonnefilter. Houten opbergkist (44 x 17 x 10 cm).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De oude kaart geeft een gedetailleerde beschrijving.  De binnenkant van de deksel van de opbergkist bevat een Engels/Franse gebruikershandleiding met tekening getiteld:    DIRECTIONS for Using the RE-FLECTING TELESCOPE, Made and  Sold by GEORGE STERROP,   Optician, in St. Paul's Church-Yard,   London.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Achterzijde kijkerbuis: George Sterrop MAKER\r\nop kist: A en B"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN2KE2"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "01.1.0 Telescoop"
+    },
+    {
+      "type": "Type",
+      "_label": "London; United Kingdom"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10353",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVdlYnNpdGVcVm9vcndlcnBlblwwLTk5OTlcODE1MC5KUEcmZm9sZGVySWQ9MiZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Gregoriaanse%20spiegeltelescoop%20met%20kist%2C%20George%20Sterrop%20Londen%2C%201747-1748",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Website\\Voorwerpen\\0-9999\\8150.JPG&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

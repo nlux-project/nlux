@@ -1,0 +1,244 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10623",
+  "type": "HumanMadeObject",
+  "_label": "Dubbelwerkende Watt-balanceermachine, J. Newman 1825-1850",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Model balanceerstoommachine"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Dubbelwerkende Watt-balanceermachine, J. Newman 1825-1850",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V08997",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Newman, John"
+      },
+      {
+        "type": "Person",
+        "_label": "Watt, James"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1825-01-01T00:00:00",
+      "end_of_the_begin": "1825-12-31T23:59:59",
+      "begin_of_the_end": "1850-01-01T00:00:00",
+      "end_of_the_end": "1850-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1825 - 1850",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 41.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 49.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 25.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Mahoniehouten opbouw met zwaluwstaartverbindingen, waarin half- verzonken de messingen machine; een uitneembaar luikje geeft toegang tot de pomp; overbrenging energie via balansarm op vliegwiel (diameter 20 cm.) d.m.v. krukas; parallellogram-koppeling op de balansarm aan de zuigerstang van de cilinder en aan de pomp; centrifugaal-governor voor regulatie stoomtoevoer",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Dit is een van twee modellen van dubbelwerkende Watt-balanceermachines uit het Kamerlingh Onnes Laboratorium; de andere is inv.nr. 24443. Beide incorporeren de verbeteringen die Watt in de periode 1775-1800 doorvoerde. Beide stammen van na 1807, want in dat jaar meldt de hoogleraar Speijert van der Eyk dat in het Physisch Kabinet onder meer ontbrak 'eene model der vuurmachine ... double effet, door Watt en Boulton uitgevonden'.*  Volgens Turner werkte Newman in Regent Street van 1827-1860; op grond van het uiterlijk dateer ik dit model eerder in de vroege dan in de latere periode van zijn werkzaamheid aldaar; onderzoek in Archief Curatoren na 1815 zou tot precisering kunnen leiden. NB: dubbelwerkend wil zeggen dat de stoom in de cilinder zowel onder als boven de zuiger wordt ingelaten.\r\n*Speijert van der Eyk gaat in zijn rapport m.n. in op de door Duyster verbeterde machine in Hellevoetsluis, maar dat was een dubbelwerkende niet-roterende machine, zie Van der Pols en Verbruggen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "'I. Newman / Regent Street / London'"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN2KE11"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "11.0 Ingenieurswetenschappen en techniek"
+    },
+    {
+      "type": "Type",
+      "_label": "London; United Kingdom"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10623",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVxWb29yd2VycGVuIEFkbGliXDAtOTAwMFxWMDg5OTcuanBnJmZvbGRlcklkPTImd2lkdGg9ODAwJmhlaWdodD04MDAmaW1hZ2Vmb3JtYXQ9anBn?label=Dubbelwerkende%20Watt-balanceermachine%2C%20J.%20Newman%201825-1850",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=\\Voorwerpen Adlib\\0-9000\\V08997.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

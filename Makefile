@@ -51,6 +51,8 @@ CAROUSEL_WFM_COUNT ?= 400
 CAROUSEL_WFM_SEED ?= 42
 CAROUSEL_RMA_COUNT ?= 400
 CAROUSEL_RMA_SEED ?= 42
+CAROUSEL_RBHC_COUNT ?= 400
+CAROUSEL_RBHC_SEED ?= 42
 
 # Run from repo root; requirements path relative to root.
 BACKEND_PY := uv run --python $(PYTHON_VERSION) --with-requirements backend/requirements.txt python
@@ -129,7 +131,9 @@ help:
 	@printf '  carousel-load-wfm       map Westfries Museum objects into the API DB\n'
 	@printf '                          (CAROUSEL_WFM_COUNT=400 CAROUSEL_WFM_SEED=42)\n'
 	@printf '  carousel-load-rma       map Rijksmuseum objects into the API DB\n'
-	@printf '                          (CAROUSEL_RMA_COUNT=400 CAROUSEL_RMA_SEED=42)\n\n'
+	@printf '                          (CAROUSEL_RMA_COUNT=400 CAROUSEL_RMA_SEED=42)\n'
+	@printf '  carousel-load-rbhc       map Rijksmuseum Boerhaave objects into the API DB\n'
+	@printf '                          (CAROUSEL_RBHC_COUNT=400 CAROUSEL_RBHC_SEED=42)\n\n'
 	@printf 'Docs =======================================================================\n'
 	@printf '  docs-serve              mkdocs local preview on :8001\n'
 	@printf '  docs-deploy             deploy docs to GitHub Pages\n\n'
@@ -370,6 +374,13 @@ carousel-load-rma:
 	cd backend && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt \
 		python scripts/load_rma_from_raw.py \
 		--count $(CAROUSEL_RMA_COUNT) --seed $(CAROUSEL_RMA_SEED)
+
+.PHONY: carousel-load-rbhc
+carousel-load-rbhc:
+	cd backend && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt \
+		--with-requirements ../data-pipeline/requirements.txt \
+		python scripts/load_rbhc_from_raw.py \
+		--count $(CAROUSEL_RBHC_COUNT) --seed $(CAROUSEL_RBHC_SEED)
 
 # --- Docs -----------------------------------------------------------------------
 

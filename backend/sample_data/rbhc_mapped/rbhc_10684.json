@@ -1,0 +1,244 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10684",
+  "type": "HumanMadeObject",
+  "_label": "Takel, Jan van Musschenbroek, c. 1725-1740?",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Takel"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Takel, Jan van Musschenbroek, c. 1725-1740?",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09259",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Gravesande, Willem Jacob 's"
+      },
+      {
+        "type": "Person",
+        "_label": "Musschenbroek, Jan van"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1725-01-01T00:00:00",
+      "end_of_the_begin": "1725-12-31T23:59:59",
+      "begin_of_the_end": "1740-01-01T00:00:00",
+      "end_of_the_end": "1740-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1725 - 1740",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 26.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 5.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 2.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Twee messingen katrolblokken, elk van drie wielen van afnemende diameter op één as, die boven elkaar gehangen dienen te worden. Houten statief (50.5 x 10.5 x 14)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Het kan zijn dat dit uit 's Gravesandes kabinet is aangekocht als 'Een gestel van 6 katrollen, waarvan 3 telkens op één en dezelfde as rond drayen' (f 12); die beschrijving gaat echter ook op voor 9251 (zie aldaar). Deze samenstelling van katrollen is niet opgenomen in de eerdere edities van 's Gravesandes leerboek. Het kàn ook uit de leverantie zijn van Jan Paauw jr. in 1759: '4 zware koperen takels ieder van 6 schijven à f 18-10 [per stuk]' (AC I 51). Het statief is bijgemaakt in ca. 1840; voor argumentatie zie 9256.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN3KD11"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.01.0 Statica"
+    },
+    {
+      "type": "Type",
+      "_label": "Leiden; the Netherlands"
+    },
+    {
+      "type": "Type",
+      "_label": "Leiden; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10684",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVZvb3J3ZXJwZW4gYWRsaWJcMC05MDAwXFYwOTI1OS1hLmpwZyZmb2xkZXJJZD0yJndpZHRoPTgwMCZoZWlnaHQ9ODAwJmltYWdlZm9ybWF0PWpwZw?label=Takel%2C%20Jan%20van%20Musschenbroek%2C%20c.%201725-1740%3F",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Voorwerpen adlib\\0-9000\\V09259-a.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

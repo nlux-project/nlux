@@ -1,0 +1,206 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10595",
+  "type": "HumanMadeObject",
+  "_label": "Amputatie- en resectie-instrumenten in doos",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Amputatie- en resectie-instrumenten in doos"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Identifier",
+      "content": "V08969",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Bonneels"
+      },
+      {
+        "type": "Person",
+        "_label": "Charriere"
+      },
+      {
+        "type": "Person",
+        "_label": "Favre"
+      },
+      {
+        "type": "Person",
+        "_label": "Glitschka"
+      },
+      {
+        "type": "Person",
+        "_label": "Luer"
+      },
+      {
+        "type": "Person",
+        "_label": "Mathieu"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1850-01-01T00:00:00",
+      "end_of_the_begin": "1850-12-31T23:59:59",
+      "begin_of_the_end": "1900-01-01T00:00:00",
+      "end_of_the_end": "1900-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1850 - 1900",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Kist met daarin: 4 messen; 1 zaagblad; 1 boor; 1 trephine; 1 beitel; 1 lenticulairmes; 1 pincet; 1 handzaag; 2 stompe haken; 1 katheter; 1 arterieklem; 1 centimeter; 4 inklapbare lancetten; 1 draadspoeltje(?); 1 inklapbare haak; 1 schroef van Luer; 1 gipstang en 1 naaldvoerder.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De bijbehorende gouden aderlaatlancet heeft nieuw nummer 1955 gekregen. De handvaten voor de messen ontbreken.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Op de deksel: \" Boite à opérations du Dr. Dechange\" op diverse instrumenten: \"GLITSCHKA GAND\" op arterieklem: \"CHARRIERE\"\r\nop haak: \"FAVRE\" op tang: \"MARTIN\" op mesje: \"MATHIEU\" op haakjes: BONNEELS\""
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN1LK52"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "10.5.1 Topografische chirurgie"
+    },
+    {
+      "type": "Type",
+      "_label": "; France"
+    },
+    {
+      "type": "Type",
+      "_label": "Gent; Belgium"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10595",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPXZvb3J3ZXJwZW4gYWRsaWJcMC05MDAwXFYwODk2OS1hLmpwZyZmb2xkZXJJZD0yJndpZHRoPTgwMCZoZWlnaHQ9ODAwJmltYWdlZm9ybWF0PWpwZw?label=Amputatie-%20en%20resectie-instrumenten%20in%20doos",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=voorwerpen adlib\\0-9000\\V08969-a.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

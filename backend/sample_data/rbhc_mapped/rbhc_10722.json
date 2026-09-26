@@ -1,0 +1,260 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10722",
+  "type": "HumanMadeObject",
+  "_label": "Muntgewichtdoos met balans en gewichten, Abram Jans van Beijck, Emden, 1648-1659",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Muntgewichtdoos met balans en gewichten"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Muntgewichtdoos met balans en gewichten, Abram Jans van Beijck, Emden, 1648-1659",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09370",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Beijck, Abram Jans van"
+      },
+      {
+        "type": "Person",
+        "_label": "Fonck, Hans"
+      },
+      {
+        "type": "Person",
+        "_label": "Herck (II), Peter"
+      },
+      {
+        "type": "Person",
+        "_label": "Koenen, Wouter"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1648-01-01T00:00:00",
+      "end_of_the_begin": "1648-12-31T23:59:59",
+      "begin_of_the_end": "1659-01-01T00:00:00",
+      "end_of_the_end": "1659-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1648 - 1659",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 3.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 16.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 9.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Doosje met deksel voor 'aaslade', 1 lade in doos voor gewichten, 5 muntgewichten, 1 balans, 4 aasgewichten en 1 los pennetje.\r\nDoosje is eerder gemaakt; stamt van voor 1799.\r\nZie voor uitgebreide voorwerps omschrijving (UVO) door expert bij veld digitale documentatie",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Muntgewichtdoos, middenformaat, muntgewichten in 1 dek en onderlade.\r\nDoel: het nawegen van gouden munten.\r\nMateriaal: vruchtbomenhout.\r\nZijkant: geprofileerde rand rondom, met ingebrande versieringen.\r\nDeksel met 2 messing draadscharnieren aan doos bevestigd.\r\nTwee messing sluithaakjes op het deksel.\r\nBovenzijde van het deksel voorzien van ingebrande versieringen.\r\nBinnenzijde van het deksel door een schoonschrijver in inkt voorzien van de initialen (in ligatuur) van de verkoper, een tekst die wijst op de verkoper, en een later aangebrachte en deels weer uitgewiste tekst die wijst op een eigenaar.\r\nEr zijn nog slechts 5 muntgewichten aanwezig; slechts 1 hoort bij de doos. 2 gewichten van Wouter Koenen, Amsterdam, 1 gewicht van Peter Herck (II), Antwerpen, 1 gewicht van Hans Fonck, Antwerpen, \r\n\r\nIn het dek links van het balansvak een ingebrande versiering (bloemmotief), rechts het schrijnwerkersmerk met de initialen CCVS en een rijksappel in bekroond schild: dit schrijnwerkersmerk is te dateren tussen 1648-1659. En hiermee is dus ook een datering voor de samensteller van deze doos te bepalen.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Op deksel: 'AB'  'Gemaeckt tot Embden bij mij Abram Jans van Beijck woont ant nije marckt int nije geldtgewicht'\r\nen daaronder:  'Groningen den 10 den Juli 1799' [van een latere eigenaar]"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN1LA78"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.01.2.0 Wegen"
+    },
+    {
+      "type": "Type",
+      "_label": "11.3 Handel, telecommunicatie, verkeer"
+    },
+    {
+      "type": "Type",
+      "_label": "Groningen; the Netherlands"
+    },
+    {
+      "type": "Type",
+      "_label": "Emden; Germany"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10722",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPXZvb3J3ZXJwZW4gYWRsaWJcMC05MDAwXFYwOTM3MC1hLmpwZyZmb2xkZXJJZD0yJndpZHRoPTgwMCZoZWlnaHQ9ODAwJmltYWdlZm9ybWF0PWpwZw?label=Muntgewichtdoos%20met%20balans%20en%20gewichten%2C%20Abram%20Jans%20van%20Beijck%2C%20Emden%2C%201648-1659",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=voorwerpen adlib\\0-9000\\V09370-a.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10682",
+  "type": "HumanMadeObject",
+  "_label": "Takel, Jan Paauw Leiden, c. 1760-1800",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Takel"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Takel, Jan Paauw Leiden, c. 1760-1800",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09252",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Paauw, Jan"
+      },
+      {
+        "type": "Person",
+        "_label": "Smeaton, John"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1760-01-01T00:00:00",
+      "end_of_the_begin": "1760-12-31T23:59:59",
+      "begin_of_the_end": "1800-01-01T00:00:00",
+      "end_of_the_end": "1800-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1760 - 1800",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 51.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 11.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 14.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Twee messingen katrolblokken elk aan een stalen ring (elk 9 x 3 x 2) De eerste telt boven drie en onder, 900 gedraaid, 4 wieltjes. De tweede telt boven drie en onder, 900 gedraaid, 5 wieltjes. Samen dus 15 katrollen. Houten statief (waarvan maten beneden gegeven) Loden bolgewicht",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Crommelin identificeerde dit samenstel als wat afgebeeld werd in W.J. 's Gravesande, Physices Elementa Mathematica (Leiden 17423), tab. IX, fig. 6. Dat is echter onbevredigend, omdat het er anders uitziet en omdat die identificatie ook geldt voor 9251. Als het object uit 's Gravesandes privékabinet zou stammen valt te denken aan identificatie met 'Een blok met 4 kopere katrollen' (f 12) en 'Een blok op een andere manier met 5 katrollen' (f 10). \r\n\r\nEen betere verklaring lijkt me evenwel dat dit object niet uit 's Gravesandes collectie stamt maar pas na 1752 is aangeschaft. Het lijkt namelijk sterk op de takelblokken M55 en M56 in het Utrechts Universiteitsmuseum, die Bos (zie literatuur) p. 16, beschreef als takels volgens een verbeterde constructie, door Smeaton in 1752 in de Phil. Trans. of the Royal Society beschreven. \r\nIn de in 1797 opgestelde Catalogus van het Cabinet van Phijsische Instrumenten van 's Lands Universiteit te Leijden (in AC I 70) komt voor op p. 4: 'Een takel van 15 schijven met een ring aan ijder blok, door Paauw', met verwijzing naar de veilingcatalogus van Ebeling, p. 15, nr. 44. \r\nIn de rekeningen vind ik echter alleen een leverantie van D. Klinkenberg in 1785: 'twee blokkatrollen met veertien schijven' (f 21) (quittantie bewaard in AC I 61). Het gaat echter om 15 schijven! Het statief is bijgemaakt omstreeks 1840; voor argumentatie zie 9256. Problematisch is echter dat de grote ringen van deze katrolblokken niet passen om het kleine haakje aan het statief.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN3KD11"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.01.0 Statica"
+    },
+    {
+      "type": "Type",
+      "_label": "Leiden; the Netherlands"
+    },
+    {
+      "type": "Type",
+      "_label": "London; United Kingdom"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10682",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVZvb3J3ZXJwZW4gYWRsaWJcMC05MDAwXFYwOTI1Mi1hLmpwZyZmb2xkZXJJZD0yJndpZHRoPTgwMCZoZWlnaHQ9ODAwJmltYWdlZm9ybWF0PWpwZw?label=Takel%2C%20Jan%20Paauw%20Leiden%2C%20c.%201760-1800",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Voorwerpen adlib\\0-9000\\V09252-a.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10702",
+  "type": "HumanMadeObject",
+  "_label": "Muntgewichtdoos met balans en gewichten, Jan Schaak, Amsterdam, ca. 1742",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Muntgewichtdoos met balans en gewichten"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Muntgewichtdoos met balans en gewichten, Jan Schaak, Amsterdam, ca. 1742",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09319",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Admiral, Jacob L'"
+      },
+      {
+        "type": "Person",
+        "_label": "Koenen, Wouter"
+      },
+      {
+        "type": "Person",
+        "_label": "Schaak, Jan"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1740-01-01T00:00:00",
+      "end_of_the_begin": "1740-12-31T23:59:59",
+      "begin_of_the_end": "1745-01-01T00:00:00",
+      "end_of_the_end": "1745-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1740 - 1745",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 4.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 14.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 7.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "23 muntgewichten, 12 in doosje & 11 in deksel, 7 azen en balans\r\nZie voor Uitgebreide Voorwerps Omschrijving (UVO) door expert bij veld digitale documentatie.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Muntgewichtdoos, klein formaat, muntgewichten in dek en onderlade.\r\nDoel: het nawegen van gouden munten.\r\nMateriaal: vruchtbomenhout met eiken voetplank\r\nZijkant: profiellijst rondom. De zijkant is onversierd.\r\nDeksel met 2 messing draadscharnieren aan doos bevestigd.\r\nEén vlak messing sluithaakje op het deksel.\r\nBuitenzijde deksel voorzien van ingestempelde versieringen.\r\nDe binnenzijde van het deksel is onversierd; hier zat oorspronkelijk een etiket (ets) van Jan Schaak.\r\nIn het dek is ruimte voor een evenaar (in het balansvak), 7 vakjes voor muntgewichten en een azenvakje met azendeksel.\r\nLinks en rechts van het balansvak 3 rozetjes als versiering.\r\nDe afdichting van de onderlade aan de linkerkant lijkt te zijn gerestaureerd, met een afwijkende houtsoort.\r\nHet balansvak (breedte 113 mm) is belegd met een donkere wijnrode stof. Hierop een ijzeren evenaar met zwanehalsuiteinden. Lengte evenaar: 109 mm. De naald heeft een knopje op het uiteinde, aan de basis een klavertje vier.\r\nTwee vertinde messing schalen: een ondiepe ronde en een driehoekige; beide ongemerkt.\r\nDe vakjes in het dek zijn voorzien van bijschriften in zwarte inkt.\r\n\r\nDe meeste muntgewichten zijn van J. Schaak, Amsterdam, 1 Hollandse Dukaat is van J. l'Admiral, Amsterdam, 1/2 Ecu - Frankrijk is van W. Koenen, Amsterdam\r\nHet is opvallend dat een deel van de slagstempels voor de blokbeeldenaars (de voorzijdes van de muntgewichten) in 1656 is gesneden door de stempelsnijder Adolphi te Amsterdam, voor de muntgewichtverkoper Jacobus Listingh te Amsterdam.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN1LA79"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.01.2.0 Wegen"
+    },
+    {
+      "type": "Type",
+      "_label": "11.3 Handel, telecommunicatie, verkeer"
+    },
+    {
+      "type": "Type",
+      "_label": "Amsterdam; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10702",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPXZvb3J3ZXJwZW4gYWRsaWJcMC05MDAwXFYwOTMxOS1hLmpwZyZmb2xkZXJJZD0yJndpZHRoPTgwMCZoZWlnaHQ9ODAwJmltYWdlZm9ybWF0PWpwZw?label=Muntgewichtdoos%20met%20balans%20en%20gewichten%2C%20Jan%20Schaak%2C%20Amsterdam%2C%20ca.%201742",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=voorwerpen adlib\\0-9000\\V09319-a.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

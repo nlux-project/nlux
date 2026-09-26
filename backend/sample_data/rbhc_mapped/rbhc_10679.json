@@ -1,0 +1,240 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10679",
+  "type": "HumanMadeObject",
+  "_label": "Rolende kegel, ontwerp 's Gravesande, c. 1750-1790",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Rollende dubbele kegel"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Rolende kegel, ontwerp 's Gravesande, c. 1750-1790",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09246",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Gravesande, Willem Jacob 's"
+      },
+      {
+        "type": "Person",
+        "_label": "Whiston, William"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1750-01-01T00:00:00",
+      "end_of_the_begin": "1750-12-31T23:59:59",
+      "begin_of_the_end": "1790-01-01T00:00:00",
+      "end_of_the_end": "1790-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1750 - 1790",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 10.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 45.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 16.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Mahoniehouten onderstel (6 x 45 x 16) Licht (palm?)houten dubbele kegel (16, diameter 8)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De vormgeving van dit toestel (en van inv.nr. 13989 = GM 4, zie aldaar) wijkt af van die in 's Gravesande is afgebeeld en lijkt veel meer op dat in Whiston's A Course of Mathematical Lectures and Experiments (1714), Plate I, fig. 5.  Tot ver in de 18e eeuw is geen exemplaar van dit toestel in het Leids Fysisch Kabinet bekend, en het kwam vreemd genoeg ook niet voor in 's Gravesandes privékabinet zoals aangekocht in 1742.  Waarschijnlijk is dit - of 13989 - in 1790 aangekocht uit bezit van Paets van Troostwijk: 'De dubbele kegel tegen eene helling oploopende', samen met andere stukken 'Alles volgens 's Gravesande'.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN1LD162"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.01.0 Statica"
+    },
+    {
+      "type": "Type",
+      "_label": "Leiden; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10679",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVZvb3J3ZXJwZW5cOTIwMFx2MDkyNDYuanBnJmZvbGRlcklkPTImd2lkdGg9ODAwJmhlaWdodD04MDAmaW1hZ2Vmb3JtYXQ9anBn?label=Rolende%20kegel%2C%20ontwerp%20%27s%20Gravesande%2C%20c.%201750-1790",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Voorwerpen\\9200\\v09246.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

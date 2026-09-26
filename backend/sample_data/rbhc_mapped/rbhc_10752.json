@@ -1,0 +1,256 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10752",
+  "type": "HumanMadeObject",
+  "_label": "Toestel voor passieve adductie en abductie van de handen met onderdelen",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Toestel voor passieve adductie en abductie van de handen"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Toestel voor passieve adductie en abductie van de handen met onderdelen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09530",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Göransson's Mekaniska Verksted"
+      },
+      {
+        "type": "Person",
+        "_label": "Zander, Jonas Gustaf Vilhelm"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1900-01-01T00:00:00",
+      "end_of_the_begin": "1900-12-31T23:59:59",
+      "begin_of_the_end": "1900-01-01T00:00:00",
+      "end_of_the_end": "1900-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1900 - 1900",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 83.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 75.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 92.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Tafel met twee armsteunen en twee handgrepen, die er voor dienden om de polsen in een horizontaal vlak heen en weer te bewegen. Geheel werd aangedreven een (haakse wrijvings-)overbrenging op een aparte steun. Losse onderdelen: 4 leren hoesjes (5,5x5x1,7) voor de armsteunen",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De maten zijn opgenomen met het toestel in een opstelling waarin het gebruikt zou kunnen worden.  Het toestel werd aangedreven via een drijfriem aangedreven door een drijfwiel met een diameter van 11 cm en een draaisnelheid van ca. 2 omwentelingen per seconde (zie standaardbeschrijving van 9522). De poelie van het toestel heeft een diameter van 15 cm. De haakse overbrenging is 1 op 1. Bij gevolg duurde één cyclus van het toestel ongeveer 0,35 seconde (althans in de laatste opstelling in het Physio-Therapeutisch Instituut in Rotterdam).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"G. ZANDER\" volledig weggesleten uit een messing plaatje\r\n\"E.3\" op glazen nummerplaatje\r\nschaalverdeling 0-8 op beide handgrepen\r\n2x schaalverdeling 1-10 op de dwarsstang van de aandrijving"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RD4KB6"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "10.3.2.1.0 Fysiotherapie"
+    },
+    {
+      "type": "Type",
+      "_label": "10.3.2.4 Mechanische therapie"
+    },
+    {
+      "type": "Type",
+      "_label": "Stockholm; Sweden"
+    },
+    {
+      "type": "Type",
+      "_label": "Rotterdam; the Netherlands"
+    },
+    {
+      "type": "Type",
+      "_label": "Rotterdam; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10752",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVZvb3J3ZXJwZW5cOTUwMFxWMDk1MzAtYS5qcGcmZm9sZGVySWQ9MiZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Toestel%20voor%20passieve%20adductie%20en%20abductie%20van%20de%20handen%20met%20onderdelen",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Voorwerpen\\9500\\V09530-a.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

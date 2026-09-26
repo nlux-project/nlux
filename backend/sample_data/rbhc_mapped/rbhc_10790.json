@@ -1,0 +1,229 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10790",
+  "type": "HumanMadeObject",
+  "_label": "GM38A Messing cilinder op drie pootjes (h 16, doorsnede 10 cm); aan de zuiger is een ketting bevestigd, waarop geschroefd een cilindrische pijp (hoogte 95, doorsnede 9.5 cm).",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Toestel om waterdruk te meten"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "GM38A Messing cilinder op drie pootjes (h 16, doorsnede 10 cm); aan de zuiger is een ketting bevestigd, waarop geschroefd een cilindrische pijp (hoogte 95, doorsnede 9.5 cm).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09633.a",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Gravesande, Willem Jacob 's"
+      },
+      {
+        "type": "Person",
+        "_label": "Musschenbroek, Jan van"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1720-01-01T00:00:00",
+      "end_of_the_begin": "1720-12-31T23:59:59",
+      "begin_of_the_end": "1740-01-01T00:00:00",
+      "end_of_the_end": "1740-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1720 - 1740",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 95.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 9.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "GM38A Messing cilinder op drie pootjes (h 16, doorsnede 10 cm); aan de zuiger is een ketting bevestigd, waarop geschroefd een cilindrische pijp (hoogte 95, doorsnede 9.5 cm).",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De opgegeven maten zijn die, wanneer dit toestel is bevestigd in de daartoe bestemde grote bok (=9632, oud GM 39); als balans kan worden gebruikt 9646, oud GM 99. De hydrostatische paradox die hiermee kan worden gedemonstreerd is een natuurkundige klassieker en 's Gravesande noemt Archimedes, Stevin, Pascal en vooral Boyle als inspiratiebron. Al rond 1694 bezat de Leidse universiteit zo'n toestel, en maakte de Musschenbroek werkplaats ze; zie het genoemde artikel in Tractrix. 's Gravesandes rol als ontwerper is dus beperkt. Het geheel is in 1742 overgenomen uit 's Gravesandes privékabinet voor f 56,- als 'Een gestel om in de waterweegkunde te toonen, dat de vloystoffen maar drukken naarmate van hunnen hoogte, met alle toestel'. De ketting en de schaal voor de gewichten zijn in de museumwerkplaats bijgemaakt (1990) Ook van Marums vrijwel identieke, maar latere, apparaat is in Teylers Museum bewaard gebleven.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RD4SO3"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.02 Mechanica van vloeistoffen, hydraulica"
+    },
+    {
+      "type": "Type",
+      "_label": "Leiden; the Netherlands"
+    },
+    {
+      "type": "Type",
+      "_label": "Leiden; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10790",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVdlYnNpdGVcVm9vcndlcnBlblwwLTk5OTlcOTYzMy1jLkpQRyZmb2xkZXJJZD0yJndpZHRoPTgwMCZoZWlnaHQ9ODAwJmltYWdlZm9ybWF0PWpwZw?label=GM38A%20Messing%20cilinder%20op%20drie%20pootjes%20%28h%2016%2C%20doorsnede%2010%20cm%29%3B%20aan%20de%20zuiger%20is%20een%20ketting%20bevestigd%2C%20waarop%20geschroefd%20een%20cilindrische%20pijp%20%28hoogte%2095%2C%20doorsnede%209.5%20cm%29.",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Website\\Voorwerpen\\0-9999\\9633-c.JPG&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

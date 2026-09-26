@@ -1,0 +1,248 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10644",
+  "type": "HumanMadeObject",
+  "_label": "Hygrometer (Staand of hangend aan de wand), Dumotiez Paris, c. 1780-1815",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Haarhygrometer in kast"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Hygrometer (Staand of hangend aan de wand), Dumotiez Paris, c. 1780-1815",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09156",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Dumotiez"
+      },
+      {
+        "type": "Person",
+        "_label": "Saussure, H.B. De"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1780-01-01T00:00:00",
+      "end_of_the_begin": "1780-12-31T23:59:59",
+      "begin_of_the_end": "1815-01-01T00:00:00",
+      "end_of_the_end": "1815-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1780 - 1815",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 32.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 9.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 2.5,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Messingen rechthoekig buisframe waarop links zijn bevestigd de in hoogte verstelbare draagconstructie voor het haar, de draaibare naald en een losse vergrendeling (voor transport), en rechts een haargeleider en de verzilverde afleesschaal; het geheel opgehangen in een ophangbaar eikenhouten kastje (36 x 14 x 7,5) met deurtje, rondom met ruiten (achterste ontbreekt)",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Een haak bovenin het frame wijst erop dat een thermometer kon worden ingehangen. Als het ingespannen haar, dat is verzwaard met een gewichtje, door vocht uitzet, draait de naald langs de schaal, die is verdeeld van 0 tot 100, tussen 'Sécherèsse ext[rème]' en 'Humidité ext[trème]'. De Saussure ontwikkelde zijn haarhygrometer tussen 1776 en 1782. Het Musée d'Histoire des Sciences in Genève bezit tenminste vijf hierop sterk gelijkende haarhygrometers, afgebeeld in A. Turner, alle gesigneerd door de Geneefse instrumentmaker Paul. Dit exemplaar stamt uit de fabriek van de gebroeders Dumotiez, in Parijs werkzaam tussen ca. 1780 en 1815. In de administratie van het Leids Fysisch Kabinet tot 1811 vond ik geen informatie over deze aanwinst.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "'H'Igromètre Selon Saussure' / 'Dumotiez à Paris'"
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN1LD188"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "02.5 Meteorologie"
+    },
+    {
+      "type": "Type",
+      "_label": "Paris; France"
+    },
+    {
+      "type": "Type",
+      "_label": "Leiden; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10644",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVZvb3J3ZXJwZW4gQWRsaWJcVjA5MTU2LWEuanBnJmZvbGRlcklkPTImd2lkdGg9ODAwJmhlaWdodD04MDAmaW1hZ2Vmb3JtYXQ9anBn?label=Hygrometer%20%28Staand%20of%20hangend%20aan%20de%20wand%29%2C%20Dumotiez%20Paris%2C%20c.%201780-1815",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Voorwerpen Adlib\\V09156-a.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10668",
+  "type": "HumanMadeObject",
+  "_label": "Objectief lens voor een grote astronomische telescoop van c. 50 voet, Nicolaas Hartsoeker, 1688",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Objectief-lens"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Objectief lens voor een grote astronomische telescoop van c. 50 voet, Nicolaas Hartsoeker, 1688",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V09197",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Hartsoeker, Nicolaas"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1688-01-01T00:00:00",
+      "end_of_the_begin": "1688-12-31T23:59:59",
+      "begin_of_the_end": "1688-01-01T00:00:00",
+      "end_of_the_end": "1688-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1688 - 1688",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 0.9,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 16.7,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055624",
+          "type": "Type",
+          "_label": "Diameter"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Ronde biconvexe lens van groenig glas met metalen schaal",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "De kromtestralen van de beide zijden bedragen: 3477 cm, 1164 cm De brekingsindex van het glas is: 1,520 De brandpuntafstand is: 1684 cm  Gezien het opschrift is de lens steeds bezit geweest van de Sterrewacht van de Leidse Universiteit. In de inventaris van 1706 (zie Molhuizen) wordt een lens van Hartsoeker genoemd van 50 voet. Dat klopt aardig met de ruim 53 voet die gemeten is.  De metalen bak is later in de Sterrewacht bijgemaakt.\r\n9/10/2006 GD. In boekwerk bruikleenarchief: 'Christiaan Huygens heeft deze lens gekend en haar oppervlakkig onderzocht; zie zijn brief van 22 maart 1689 aan zijn broeder Constantijn.'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Op de lens: \"Nicolaas Hartsoeker fecit pro academia lugd. Batav lutet parisiorum 1688\"\r\nOp de schaal: \"18\""
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "HM02V07"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.06.3 Lens"
+    },
+    {
+      "type": "Type",
+      "_label": "Leiden; the Netherlands"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10668",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVdlYnNpdGVcVm9vcndlcnBlblwwLTk5OTlcOTE5Ny5KUEcmZm9sZGVySWQ9MiZ3aWR0aD04MDAmaGVpZ2h0PTgwMCZpbWFnZWZvcm1hdD1qcGc?label=Objectief%20lens%20voor%20een%20grote%20astronomische%20telescoop%20van%20c.%2050%20voet%2C%20Nicolaas%20Hartsoeker%2C%201688",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Website\\Voorwerpen\\0-9999\\9197.JPG&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

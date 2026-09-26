@@ -83,14 +83,21 @@ skip-if-exists). Export slice files are overwritten in `"w"` mode and
 `manage-data.py --load --rbhc` clears the rbhc datacache first, so
 downstream cleanup is never needed.
 
-Load records with images and titles under the URI prefix into the backend
-DB (upserts by URI, no reset needed):
+Load route into the carousel backend DB (upserts by URI, no reset
+needed) — from raw harvest files via the RbhcMapper, which mints URIs
+under the namespace above (pipeline exports use different ids and will
+not match the collection's URI prefix):
 
 ```bash
-cd backend
-uv run --python 3.12 --with-requirements requirements.txt \
-    python scripts/load_data.py ../data-pipeline/data/output/latest/
+make carousel-load-rbhc            # 400 image+title objects
+# knobs: CAROUSEL_RBHC_COUNT / CAROUSEL_RBHC_SEED
 ```
+
+The raw directory is a flat ~83k-file directory that is slow to enumerate
+completely on APFS, so the loader streams the directory lazily and stops
+early once enough image+title candidates are found (never a full
+listing). Images are Adlib getcontent URLs served from
+mmb-web.adlibhosting.com, already in the backend's trusted image hosts.
 
 Until its records are loaded, `?collection=rbhc` returns a "no objects yet"
 message naming the collection.

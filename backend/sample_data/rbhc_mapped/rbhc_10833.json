@@ -1,0 +1,244 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10833",
+  "type": "HumanMadeObject",
+  "_label": "Heliostaatuurwerk met zonnewijzer, A. Prazmowski Parijs, 1875-1885",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "Heliostaat"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Heliostaatuurwerk met zonnewijzer, A. Prazmowski Parijs, 1875-1885",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "V10254",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Prazmowski, A."
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1875-01-01T00:00:00",
+      "end_of_the_begin": "1875-12-31T23:59:59",
+      "begin_of_the_end": "1885-01-01T00:00:00",
+      "end_of_the_end": "1885-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1875 - 1885",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 17.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055644",
+          "type": "Type",
+          "_label": "Hoogte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 27.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300055647",
+          "type": "Type",
+          "_label": "Breedte"
+        }
+      ]
+    },
+    {
+      "type": "Dimension",
+      "value": 20.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      },
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300072633",
+          "type": "Type",
+          "_label": "Diepte"
+        }
+      ]
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Heliostaat (r 15; h 17 cm) met uurwerkmechanisme. Wijzerplaat met vizier kan onder een hoek versteld worden. Aantal onderdelen ontbreken waaronder de spiegel.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "Brief Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Volgens HH is dit instrument als eerste beschreven in een artikel van Prazmowski in 1877, dus veel eerder zal het niet op de markt zijn geweest. De firma heette van 1868 tot 1878 'E. Hartnack & A. Prazmowski', en werd na de dood van Prazmowski in 1885 overgenomen door de firma twee oud medewerkers, dus vandaar de datering.\r\nEen aantal onderdelen ontbreken.\r\nDe werking wordt beschreven op een kaart in de kist:\r\nMen zet het vizier op XII en zet de wijzerplaat onder zo'n hoek dat om 12.00 precies de zon door het gaatje in het vizier valt. Dit lichtvlekje valt dan op het andere vizier waar dan de datum is af te lezen. Door nu het vizier mee te draaien zodat de lichtvlek op hetzelfde punt blijft vallen kun je de tijd aflezen.\r\nCommentaar HH: Dit laatste klopt niet, het eerste dient als ijking zodat de (ontbrekende) spiegel de zon kan volgen.\r\nOude kaart: In inventarislijst van Physiologisch Lab.\r\n(verder: beschrijving, herkomst, opschrift, literatuur en foto)\r\nEenzelfde instrument is ook te vinden onder V7640 en V10254",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "_label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "\"A. PRAZMOWSKI. / 1, Rue Bonaparte, Paris.\"\r\nop achterplaat uurwerk \"6141\"\r\nOp voorplaat uurwerk \"41\""
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "_label": "RN4KF2"
+  },
+  "about": [
+    {
+      "type": "Type",
+      "_label": "03.04.0.0 Uurwerk"
+    },
+    {
+      "type": "Type",
+      "_label": "03.04.0.1 Zonnewijzer"
+    },
+    {
+      "type": "Type",
+      "_label": "Paris; France"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q759169",
+      "type": "Group",
+      "_label": "Rijksmuseum Boerhaave"
+    }
+  ],
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Rijksmuseum Boerhaave collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Rijksmuseum Boerhaave",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/Details/collect/10833",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "_label": "IIIF manifest",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "IIIF Presentation 3 manifest",
+          "format": "application/ld+json",
+          "conforms_to": [
+            {
+              "id": "http://iiif.io/api/presentation/3/context.json",
+              "type": "InformationObject",
+              "_label": "IIIF Presentation API 3.0"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://localhost:8000/iiif/manifest/aHR0cHM6Ly9tbWItd2ViLmFkbGliaG9zdGluZy5jb20vYWlzNi93ZWJhcGkvd3d3b3BhYy5hc2h4P2NvbW1hbmQ9Z2V0Y29udGVudCZzZXJ2ZXI9aW1hZ2VzJnZhbHVlPVZvb3J3ZXJwZW5cMTAyMDBcMTAyNTQuanBnJmZvbGRlcklkPTImd2lkdGg9ODAwJmhlaWdodD04MDAmaW1hZ2Vmb3JtYXQ9anBn?label=Heliostaatuurwerk%20met%20zonnewijzer%2C%20A.%20Prazmowski%20Parijs%2C%201875-1885",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://mmb-web.adlibhosting.com/ais6/webapi/wwwopac.ashx?command=getcontent&server=images&value=Voorwerpen\\10200\\10254.jpg&folderId=2&width=800&height=800&imageformat=jpg",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}
