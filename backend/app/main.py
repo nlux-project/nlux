@@ -50,6 +50,7 @@ TRUSTED_IMAGE_HOSTS = {
     "teylers.adlibhosting.com",
     "mmb-web.adlibhosting.com",
     "collectie.huisvanhilde.nl",
+    "collectie.franshalsmuseum.nl",
     "images.memorix.nl",
 }
 

@@ -1,0 +1,141 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=22954",
+  "type": "HumanMadeObject",
+  "_label": "What the Heart Wants",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "video"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "What the Heart Wants",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "mav 2016-16",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Cécile B. Evans"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "2016-01-01T00:00:00",
+      "end_of_the_begin": "2016-12-31T23:59:59",
+      "begin_of_the_end": "2016-01-01T00:00:00",
+      "end_of_the_end": "2016-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "2016",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "Material: HD video with sound, 41:05 Technique: The video is comprised of original, found, and animated footage. Each scanario is a unique constellation of multiple kinds of digital video and animation (CGI, rotoscoped, FX). Different camera types were used to capture original footage yielding different textures and slight variations in temperature between scenes. 1080p HD video; ProRes 422 format,; (not to be encoded otherwise)"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Met dank aan het Mondriaan Fonds|With financial support from the Mondriaan Fund Frans Hals Museum, Haarlem hoge resolutie afbeelding beschikbaar | high resolution image available"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "verworven object"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q574961",
+      "type": "Group",
+      "_label": "Frans Hals Museum"
+    }
+  ],
+  "current_location": {
+    "id": "http://localhost:8000/data/place/68c89848-21ad-5bed-8546-4e249b35924d",
+    "type": "Place",
+    "_label": "Frans Hals Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Frans Hals Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Frans Hals Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=22954&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.franshalsmuseum.nl/cc/imageproxy.ashx?server=mail.franshalsmuseum.nl&port=15414&filename=image%2fdocumentatie+tms%2fdocumentatie_kunstenaars_achternaam%2fevans%2c+c%c3%a9cile+b%2fmav+2016-16%2fstills%2f2016-16.jpg&width=1200",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

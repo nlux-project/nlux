@@ -1,0 +1,130 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=19059",
+  "type": "HumanMadeObject",
+  "_label": "boek",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "boek"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Identifier",
+      "content": "mvar 2006-107",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Hans-Peter Feldmann"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1991-01-01T00:00:00",
+      "end_of_the_begin": "1991-12-31T23:59:59",
+      "begin_of_the_end": "1991-01-01T00:00:00",
+      "end_of_the_end": "1991-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1991",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 24.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "verworven object"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q574961",
+      "type": "Group",
+      "_label": "Frans Hals Museum"
+    }
+  ],
+  "current_location": {
+    "id": "http://localhost:8000/data/place/68c89848-21ad-5bed-8546-4e249b35924d",
+    "type": "Place",
+    "_label": "Frans Hals Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Frans Hals Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Frans Hals Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=19059&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.franshalsmuseum.nl/cc/imageproxy.ashx?server=mail.franshalsmuseum.nl&port=15414&filename=image%2fmk-2006%2fdigjvh-mvar+2006-107.jpg&width=1200",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=9207",
+  "type": "HumanMadeObject",
+  "_label": "Gevelsteen met het wapen van Karel V",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "sculptuur; gevelsteen | sculpture; gable stone"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Gevelsteen met het wapen van Karel V",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "Gable Stone with the Weapon of Charles V",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300264273",
+          "type": "Type",
+          "_label": "Alternate Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "ob II-1796",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Anoniem"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1600-01-01T00:00:00",
+      "end_of_the_begin": "1600-12-31T23:59:59",
+      "begin_of_the_end": "1699-01-01T00:00:00",
+      "end_of_the_end": "1699-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1600/99",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "zandsteen, polychromie | sandstone, polychrome"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 60.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Frans Hals Museum, Haarlem"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "verworven object"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "442 11"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q574961",
+      "type": "Group",
+      "_label": "Frans Hals Museum"
+    }
+  ],
+  "current_location": {
+    "id": "http://localhost:8000/data/place/68c89848-21ad-5bed-8546-4e249b35924d",
+    "type": "Place",
+    "_label": "Frans Hals Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Frans Hals Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Frans Hals Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=9207&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.franshalsmuseum.nl/cc/imageproxy.ashx?server=mail.franshalsmuseum.nl&port=15414&filename=image%2fok+II-1000-1999%2fdigjvh-ob+ii-1796.jpg&width=1200",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

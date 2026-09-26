@@ -1,0 +1,162 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=28714",
+  "type": "HumanMadeObject",
+  "_label": "D.O.N.K.2- Schoonhoven 4 2-1; Uit de serie 'Hollandse Velden'",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "foto; stadsgezicht | photo; cityscape"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "D.O.N.K.2- Schoonhoven 4 2-1; Uit de serie 'Hollandse Velden'",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "D.O.N.K.2 Schoonhoven 4 2-1; From the Series Dutch Fields",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300264273",
+          "type": "Type",
+          "_label": "Alternate Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "mf 2012-34e",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Hans van der Meer"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "2005-01-01T00:00:00",
+      "end_of_the_begin": "2005-12-31T23:59:59",
+      "begin_of_the_end": "2005-01-01T00:00:00",
+      "end_of_the_end": "2005-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "2005",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "foto | photo Inkjetdruk; fine art paper | Ink jet print; fine art paper"
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "value": 30.0,
+      "unit": {
+        "type": "MeasurementUnit",
+        "_label": "cm"
+      }
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Frans Hals Museum, Haarlem"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "verworven object"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q574961",
+      "type": "Group",
+      "_label": "Frans Hals Museum"
+    }
+  ],
+  "current_location": {
+    "id": "http://localhost:8000/data/place/68c89848-21ad-5bed-8546-4e249b35924d",
+    "type": "Place",
+    "_label": "Frans Hals Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Frans Hals Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Frans Hals Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=28714&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.franshalsmuseum.nl/cc/imageproxy.ashx?server=mail.franshalsmuseum.nl&port=15414&filename=image%2fhvdmeerhv55def.jpg&width=1200",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

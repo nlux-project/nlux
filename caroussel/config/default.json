@@ -36,7 +36,7 @@
       "query": {
         "hasDigitalImage": true
       },
-      "uri_prefix": "http://collectie.franshalsmuseum.nl/",
+      "uri_prefix": "http://collectie.franshalsmuseum.nl/?query=search=objectid=",
       "credit": "Frans Hals Museum, Haarlem"
     },
     "hvh": {

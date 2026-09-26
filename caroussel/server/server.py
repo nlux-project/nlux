@@ -21,6 +21,7 @@ import json
 import os
 import random
 import sys
+import urllib.parse
 from pathlib import Path
 from typing import Any, Optional
 
@@ -272,7 +273,11 @@ def search_item_uris(scope: str, query: Optional[dict[str, Any]] = None,
 
 def fetch_record(uri: str) -> Optional[dict]:
     try:
-        resp = api().get(f"/data/{uri}")
+        # URI-quote the whole record URI: fhm ids contain '?' (their
+        # namespace is a search-query URL), which would otherwise be sent
+        # as a real query string and drop the id suffix.
+        quoted = urllib.parse.quote(uri, safe="")
+        resp = api().get(f"/data/{quoted}")
         if resp.status_code != 200:
             return None
         return resp.json()

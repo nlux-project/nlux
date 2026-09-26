@@ -45,6 +45,8 @@ CAROUSEL_NHA_COUNT ?= 400
 CAROUSEL_NHA_SEED ?= 42
 CAROUSEL_HVH_COUNT ?= 400
 CAROUSEL_HVH_SEED ?= 42
+CAROUSEL_FHM_COUNT ?= 400
+CAROUSEL_FHM_SEED ?= 42
 
 # Run from repo root; requirements path relative to root.
 BACKEND_PY := uv run --python $(PYTHON_VERSION) --with-requirements backend/requirements.txt python
@@ -117,7 +119,9 @@ help:
 	@printf '  carousel-load-nha       map Noord-Hollands Archief objects into the API DB\n'
 	@printf '                          (CAROUSEL_NHA_COUNT=400 CAROUSEL_NHA_SEED=42)\n'
 	@printf '  carousel-load-hvh       map Huis van Hilde objects into the API DB\n'
-	@printf '                          (CAROUSEL_HVH_COUNT=400 CAROUSEL_HVH_SEED=42)\n\n'
+	@printf '                          (CAROUSEL_HVH_COUNT=400 CAROUSEL_HVH_SEED=42)\n'
+	@printf '  carousel-load-fhm       map Frans Hals Museum objects into the API DB\n'
+	@printf '                          (CAROUSEL_FHM_COUNT=400 CAROUSEL_FHM_SEED=42)\n\n'
 	@printf 'Docs =======================================================================\n'
 	@printf '  docs-serve              mkdocs local preview on :8001\n'
 	@printf '  docs-deploy             deploy docs to GitHub Pages\n\n'
@@ -338,6 +342,13 @@ carousel-load-hvh:
 		--with-requirements ../data-pipeline/requirements.txt \
 		python scripts/load_hvh_from_raw.py \
 		--count $(CAROUSEL_HVH_COUNT) --seed $(CAROUSEL_HVH_SEED)
+
+.PHONY: carousel-load-fhm
+carousel-load-fhm:
+	cd backend && uv run --python $(PYTHON_VERSION) --with-requirements requirements.txt \
+		--with-requirements ../data-pipeline/requirements.txt \
+		python scripts/load_fhm_from_raw.py \
+		--count $(CAROUSEL_FHM_COUNT) --seed $(CAROUSEL_FHM_SEED)
 
 # --- Docs -----------------------------------------------------------------------
 

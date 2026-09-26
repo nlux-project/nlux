@@ -1,0 +1,156 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=5857",
+  "type": "HumanMadeObject",
+  "_label": "De groene rok",
+  "classified_as": [
+    {
+      "type": "Type",
+      "_label": "schilderij; stilleven"
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "De groene rok",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "_label": "Primary Name"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "The green Skirt",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300264273",
+          "type": "Type",
+          "_label": "Alternate Name"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "msch 51-15",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type",
+          "_label": "Accession Number"
+        }
+      ]
+    }
+  ],
+  "produced_by": {
+    "type": "Production",
+    "carried_out_by": [
+      {
+        "type": "Person",
+        "_label": "Coba Ritsema"
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "begin_of_the_begin": "1900-01-01T00:00:00",
+      "end_of_the_begin": "1900-12-31T23:59:59",
+      "begin_of_the_end": "1910-01-01T00:00:00",
+      "end_of_the_end": "1910-12-31T23:59:59",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "ca. 1900-1910",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300404669",
+              "type": "Type",
+              "_label": "Display Title"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "made_of": [
+    {
+      "type": "Material",
+      "_label": "olieverf op doek"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Frans Hals Museum, Haarlem Graag liet Ritsema zien hoe goed ze verschillende materialen kan schilderen: een glazen fles, een metalen schaal, een lap groene stof en een parelketting over de stoel. Op die stoel ligt een masker, daarachter zien we de kop van een banjo. In 1951 was dit schilderij te zien in het Frans Hals Museum. Het was toen nog in het bezit van een privéverzamelaar. Maar de directeur van het museum – groot fan van het werk – kocht het voor de collectie."
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "verworven object"
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "638 I 898"
+    }
+  ],
+  "current_owner": [
+    {
+      "id": "http://www.wikidata.org/entity/Q574961",
+      "type": "Group",
+      "_label": "Frans Hals Museum"
+    }
+  ],
+  "current_location": {
+    "id": "http://localhost:8000/data/place/68c89848-21ad-5bed-8546-4e249b35924d",
+    "type": "Place",
+    "_label": "Frans Hals Museum"
+  },
+  "member_of": [
+    {
+      "type": "Set",
+      "_label": "Frans Hals Museum collection"
+    }
+  ],
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "_label": "Object page at Frans Hals Museum",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type",
+              "_label": "Web Page"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "http://collectie.franshalsmuseum.nl/?query=search=objectid=5857&showtype=record",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "text/html"
+        }
+      ]
+    }
+  ],
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "access_point": [
+            {
+              "id": "https://collectie.franshalsmuseum.nl/cc/imageproxy.ashx?server=mail.franshalsmuseum.nl&port=15414&filename=image%2fmsch+51-15+(arend+velsink).jpg&width=1200",
+              "type": "DigitalObject"
+            }
+          ],
+          "format": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

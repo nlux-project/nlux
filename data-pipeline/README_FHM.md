@@ -80,7 +80,7 @@ The fhm source has a named carousel collection
 
 - URL: `http://localhost:8089/?collection=fhm`
 - Label: Frans Hals Museum
-- URI prefix: `http://collectie.franshalsmuseum.nl/`
+- URI prefix: `http://collectie.franshalsmuseum.nl/?query=search=objectid=`
 - Credit line: Frans Hals Museum, Haarlem
 
 Unlike hvh/teylers, re-running `./harvest-fhm.sh` re-fetches and rewrites
@@ -88,14 +88,19 @@ existing files (no skip-if-exists). Export slice files are overwritten in
 `"w"` mode and `manage-data.py --load --fhm` clears the fhm datacache
 first, so downstream cleanup is never needed.
 
-Load records with images and titles under the URI prefix into the backend
-DB (upserts by URI, no reset needed):
+Load route into the carousel backend DB (upserts by URI, no reset
+needed) — from raw harvest files via the mapper, which mints URIs under
+the namespace above (pipeline exports use different ids and will not
+match the collection's URI prefix):
 
 ```bash
-cd backend
-uv run --python 3.12 --with-requirements requirements.txt \
-    python scripts/load_data.py ../data-pipeline/data/output/latest/
+make carousel-load-fhm             # 400 image+title objects
+# knobs: CAROUSEL_FHM_COUNT / CAROUSEL_FHM_SEED
 ```
 
+All 10,996 raw fhm records have an image and a title, so larger
+`CAROUSEL_FHM_COUNT` values work fine. The harvester captures deep-zoom
+(DZI) descriptors; the loader rewrites them to plain jpeg URLs
+(`.dzi` → `.jpg&width=1200`), which the FHM image proxy serves directly.
 Until its records are loaded, `?collection=fhm` returns a "no objects yet"
 message naming the collection.
