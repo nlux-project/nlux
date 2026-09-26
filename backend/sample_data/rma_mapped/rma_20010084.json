@@ -1,0 +1,716 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://id.rijksmuseum.nl/20010084",
+  "type": "HumanMadeObject",
+  "produced_by": {
+    "type": "Production",
+    "technique": [
+      {
+        "id": "https://id.rijksmuseum.nl/2202379",
+        "type": "Type",
+        "identified_by": [
+          {
+            "type": "Identifier",
+            "assigned_by": [
+              {
+                "type": "AttributeAssignment",
+                "assigned": [
+                  "https://id.rijksmuseum.nl/20010084"
+                ],
+                "assigned_property": "influenced_by"
+              }
+            ],
+            "content": "1",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300456575",
+                "type": "Type"
+              }
+            ]
+          }
+        ],
+        "notation": [
+          {
+            "@language": "nl",
+            "@value": "slaan"
+          },
+          {
+            "@language": "en",
+            "@value": "striking (metalworking)"
+          }
+        ],
+        "equivalent": [
+          "http://vocab.getty.edu/aat/300206846"
+        ]
+      }
+    ],
+    "timespan": {
+      "type": "TimeSpan",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1587",
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388256",
+              "type": "Language"
+            }
+          ]
+        },
+        {
+          "type": "Name",
+          "content": "1587",
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388277",
+              "type": "Language"
+            }
+          ]
+        }
+      ],
+      "begin_of_the_begin": "1587-01-01T00:00:00Z",
+      "end_of_the_end": "1587-12-31T23:59:59Z"
+    },
+    "referred_to_by": [
+      {
+        "type": "LinguisticObject",
+        "content": "anonymous",
+        "classified_as": [
+          "http://vocab.getty.edu/aat/300435416"
+        ],
+        "language": [
+          {
+            "id": "http://vocab.getty.edu/aat/300388277",
+            "type": "Language"
+          }
+        ]
+      },
+      {
+        "type": "LinguisticObject",
+        "content": "anoniem",
+        "classified_as": [
+          "http://vocab.getty.edu/aat/300435416"
+        ],
+        "language": [
+          {
+            "id": "http://vocab.getty.edu/aat/300388256",
+            "type": "Language"
+          }
+        ]
+      }
+    ],
+    "part": [
+      {
+        "type": "Production",
+        "carried_out_by": [
+          {
+            "id": "https://id.rijksmuseum.nl/210640",
+            "type": "Person",
+            "notation": [
+              {
+                "@language": "nl",
+                "@value": "anoniem"
+              },
+              {
+                "@language": "en",
+                "@value": "anonymous"
+              }
+            ],
+            "equivalent": [
+              "http://vocab.getty.edu/ulan/500397994",
+              "http://www.wikidata.org/entity/Q4233718",
+              "http://viaf.org/viaf/100627125",
+              "https://rkd.nl/artists/1984"
+            ]
+          }
+        ],
+        "identified_by": [
+          {
+            "type": "Identifier",
+            "content": "1",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300456575",
+                "type": "Type"
+              }
+            ]
+          }
+        ],
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300404450",
+            "type": "Type"
+          }
+        ],
+        "referred_to_by": [
+          {
+            "type": "LinguisticObject",
+            "content": "anonymous, Belgium",
+            "classified_as": [
+              "http://vocab.getty.edu/aat/300435416"
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "anonymous",
+            "classified_as": [
+              "http://vocab.getty.edu/aat/300435417"
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "anoniem",
+            "classified_as": [
+              "http://vocab.getty.edu/aat/300435417"
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "anoniem, België",
+            "classified_as": [
+              "http://vocab.getty.edu/aat/300435416"
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          }
+        ],
+        "took_place_at": [
+          {
+            "id": "https://id.rijksmuseum.nl/2308",
+            "type": "Place",
+            "notation": [
+              {
+                "@language": "nl",
+                "@value": "België"
+              },
+              {
+                "@language": "en",
+                "@value": "Belgium"
+              }
+            ],
+            "equivalent": [
+              "http://www.wikidata.org/entity/Q31",
+              "https://sws.geonames.org/2802361/"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435434",
+          "type": "Language"
+        }
+      ],
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "format": "text/html",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://www.rijksmuseum.nl/nl/collectie/object/NG-VG-3-688--8d6868e9d34bdebaeafea1048a9f92cf",
+              "type": "DigitalObject"
+            }
+          ],
+          "_label": "Object page at Rijksmuseum"
+        }
+      ]
+    },
+    {
+      "id": "https://data.rijksmuseum.nl/20010084",
+      "type": "LinguisticObject",
+      "subject_to": [
+        {
+          "type": "Right",
+          "classified_as": [
+            {
+              "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300379475",
+          "type": "Type"
+        }
+      ]
+    }
+  ],
+  "assigned_by": [
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "content": "J.F. Dugniolle, Le jeton historique des dix-sept provinces des Pays-Bas, Brussel 1876-1880, cat.nr. 3151.",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Identifier",
+      "content": "NG-VG-3-688",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/22015218",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "en",
+              "@value": "object number"
+            },
+            {
+              "@language": "nl",
+              "@value": "objectnummer"
+            }
+          ]
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "Filips II, koning van Spanje, graaf van Henegouwen",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300417200",
+          "type": "Type"
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "id": "https://id.rijksmuseum.nl/2202749",
+      "type": "Type",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435443",
+          "type": "Type",
+          "_label": "Type of Work"
+        }
+      ],
+      "notation": [
+        {
+          "@language": "en",
+          "@value": "jeton"
+        },
+        {
+          "@language": "nl",
+          "@value": "rekenpenning"
+        }
+      ],
+      "equivalent": [
+        "http://vocab.getty.edu/aat/300191481"
+      ]
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/220217",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "en",
+              "@value": "weight"
+            },
+            {
+              "@language": "nl",
+              "@value": "gewicht (eigenschap)"
+            }
+          ],
+          "equivalent": [
+            "http://vocab.getty.edu/aat/300056240"
+          ]
+        }
+      ],
+      "value": "67",
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379225",
+        "type": "MeasurementUnit"
+      }
+    },
+    {
+      "type": "Dimension",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/2205120",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "nl",
+              "@value": "diameter"
+            },
+            {
+              "@language": "en",
+              "@value": "diameter"
+            }
+          ],
+          "equivalent": [
+            "http://vocab.getty.edu/aat/300055624"
+          ]
+        }
+      ],
+      "value": "3",
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379098",
+        "type": "MeasurementUnit"
+      }
+    }
+  ],
+  "made_of": [
+    {
+      "id": "https://id.rijksmuseum.nl/22028",
+      "type": "Material",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "assigned_by": [
+            {
+              "type": "AttributeAssignment",
+              "assigned": [
+                "https://id.rijksmuseum.nl/20010084"
+              ],
+              "assigned_property": "influenced_by"
+            }
+          ],
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "notation": [
+        {
+          "@language": "en",
+          "@value": "silver (metal)"
+        },
+        {
+          "@language": "nl",
+          "@value": "zilver"
+        }
+      ],
+      "equivalent": [
+        "http://www.wikidata.org/entity/Q1090",
+        "http://vocab.getty.edu/aat/300011029"
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "id": "https://id.rijksmuseum.nl/20210084",
+      "type": "VisualItem"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Zilveren penning. Voorzijde: borststuk man binnen omschrift. Keerzijde: kasteel met gekroond wapenschild boven poort binnen omschrift",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435452",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Gift of J.M. van Gelder-Nijhoff",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300026687",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "diameter 3 cm x gewicht (eigenschap) 67 g",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Schenking van mevrouw J.M. van Gelder-Nijhoff",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300026687",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "diameter 3 cm x weight 67 g",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    }
+  ],
+  "equivalent": [
+    {
+      "id": "http://hdl.handle.net/10934/RM0001.COLLECT.236709",
+      "type": "HumanMadeObject"
+    }
+  ],
+  "member_of": [
+    {
+      "id": "https://id.rijksmuseum.nl/260251",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/261106",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/261217",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260241",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260239",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260238",
+      "type": "Set"
+    }
+  ],
+  "_label": "Filips II, koning van Spanje, graaf van Henegouwen",
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "format": "image/jpeg",
+          "access_point": [
+            {
+              "id": "https://iiif.micr.io/PImUZ/full/800,/0/default.jpg",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Rijksmuseum"
+    }
+  ]
+}

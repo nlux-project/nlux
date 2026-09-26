@@ -1,0 +1,667 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://id.rijksmuseum.nl/200100703",
+  "type": "HumanMadeObject",
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1891",
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388277",
+              "type": "Language"
+            }
+          ]
+        },
+        {
+          "type": "Name",
+          "content": "1891",
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388256",
+              "type": "Language"
+            }
+          ]
+        }
+      ],
+      "begin_of_the_begin": "1891-01-01T00:00:00Z",
+      "end_of_the_end": "1891-12-31T23:59:59Z"
+    },
+    "referred_to_by": [
+      {
+        "type": "LinguisticObject",
+        "content": "anoniem",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300435416",
+            "type": "Type"
+          }
+        ],
+        "language": [
+          {
+            "id": "http://vocab.getty.edu/aat/300388256",
+            "type": "Language"
+          }
+        ]
+      },
+      {
+        "type": "LinguisticObject",
+        "content": "anonymous",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300435416",
+            "type": "Type"
+          }
+        ],
+        "language": [
+          {
+            "id": "http://vocab.getty.edu/aat/300388277",
+            "type": "Language"
+          }
+        ]
+      }
+    ],
+    "part": [
+      {
+        "type": "Production",
+        "carried_out_by": [
+          {
+            "id": "https://id.rijksmuseum.nl/210640",
+            "type": "Person",
+            "notation": [
+              {
+                "@language": "en",
+                "@value": "anonymous"
+              },
+              {
+                "@language": "nl",
+                "@value": "anoniem"
+              }
+            ],
+            "equivalent": [
+              "http://viaf.org/viaf/100627125",
+              "http://vocab.getty.edu/ulan/500397994",
+              "https://rkd.nl/artists/1984",
+              "http://www.wikidata.org/entity/Q4233718"
+            ]
+          }
+        ],
+        "identified_by": [
+          {
+            "type": "Identifier",
+            "content": "1",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300456575",
+                "type": "Type"
+              }
+            ]
+          }
+        ],
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300404450",
+            "type": "Type"
+          }
+        ],
+        "technique": [
+          {
+            "id": "https://id.rijksmuseum.nl/2205597",
+            "type": "Type",
+            "notation": [
+              {
+                "@language": "en",
+                "@value": "maker"
+              },
+              {
+                "@language": "nl",
+                "@value": "vervaardiger"
+              }
+            ]
+          }
+        ],
+        "referred_to_by": [
+          {
+            "type": "LinguisticObject",
+            "content": "vervaardiger: anoniem, Zutphen (stad)",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300435416",
+                "type": "Type"
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "anonymous",
+            "classified_as": [
+              "http://vocab.getty.edu/aat/300435417"
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "anoniem",
+            "classified_as": [
+              "http://vocab.getty.edu/aat/300435417"
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "maker: anonymous, Zutphen (stad)",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300435416",
+                "type": "Type"
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          }
+        ],
+        "took_place_at": [
+          {
+            "id": "https://id.rijksmuseum.nl/230201",
+            "type": "Place",
+            "notation": {
+              "@language": "nl",
+              "@value": "Zutphen (stad)"
+            },
+            "equivalent": [
+              "http://www.wikidata.org/entity/Q109535",
+              "https://sws.geonames.org/2743608/"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435434",
+          "type": "Language"
+        }
+      ],
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "format": "text/html",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://www.rijksmuseum.nl/nl/collectie/object/KOG-S-MP-113--f896a654b3d07b13a479d341d81c6ff2",
+              "type": "DigitalObject"
+            }
+          ],
+          "_label": "Object page at Rijksmuseum"
+        }
+      ]
+    },
+    {
+      "id": "https://data.rijksmuseum.nl/200100703",
+      "type": "LinguisticObject",
+      "subject_to": [
+        {
+          "type": "Right",
+          "classified_as": [
+            {
+              "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300379475",
+          "type": "Type"
+        }
+      ]
+    }
+  ],
+  "assigned_by": [
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "part_of": [
+            {
+              "id": "https://id.rijksmuseum.nl/301188583",
+              "type": "LinguisticObject"
+            }
+          ],
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "part": [
+                {
+                  "type": "Identifier",
+                  "content": "113",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300404620",
+                      "type": "Type"
+                    }
+                  ]
+                },
+                {
+                  "type": "Identifier",
+                  "content": "p. 68-69",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300445022",
+                      "type": "Type"
+                    }
+                  ]
+                }
+              ],
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ],
+      "referred_to_by": [
+        {
+          "type": "LinguisticObject",
+          "content": "Jochems: Regimentsorder no 4 dd 25 januari 1891",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300435416",
+              "type": "Type"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Prijspenning van de Scherpschutters Vereeniging Gelria te Zutphen, 1891, tweede prijs voor schieten met flobert-patronen",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300417200",
+          "type": "Type"
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "KOG-S-MP-113",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/22015218",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "nl",
+              "@value": "objectnummer"
+            },
+            {
+              "@language": "en",
+              "@value": "object number"
+            }
+          ]
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "id": "https://id.rijksmuseum.nl/220105",
+      "type": "Type",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435443",
+          "type": "Type",
+          "_label": "Type of Work"
+        }
+      ],
+      "notation": [
+        {
+          "@language": "en",
+          "@value": "medal"
+        },
+        {
+          "@language": "nl",
+          "@value": "penning"
+        }
+      ],
+      "equivalent": [
+        "http://vocab.getty.edu/aat/300046025"
+      ]
+    }
+  ],
+  "made_of": [
+    {
+      "id": "https://id.rijksmuseum.nl/22028",
+      "type": "Material",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "assigned_by": [
+            {
+              "type": "AttributeAssignment",
+              "assigned": [
+                "https://id.rijksmuseum.nl/200100703"
+              ],
+              "assigned_property": "influenced_by"
+            }
+          ],
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "notation": [
+        {
+          "@language": "en",
+          "@value": "silver (metal)"
+        },
+        {
+          "@language": "nl",
+          "@value": "zilver"
+        }
+      ],
+      "equivalent": [
+        "http://www.wikidata.org/entity/Q1090",
+        "http://vocab.getty.edu/aat/300011029"
+      ]
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/22011907",
+      "type": "Material",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "assigned_by": [
+            {
+              "type": "AttributeAssignment",
+              "assigned": [
+                "https://id.rijksmuseum.nl/200100703"
+              ],
+              "assigned_property": "influenced_by"
+            }
+          ],
+          "content": "2",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "notation": [
+        {
+          "@language": "nl",
+          "@value": "textiel"
+        },
+        {
+          "@language": "en",
+          "@value": "textile materials"
+        }
+      ],
+      "equivalent": [
+        "http://vocab.getty.edu/aat/300231565"
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "id": "https://id.rijksmuseum.nl/202100703",
+      "type": "VisualItem"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "On loan from the Koninklijk Oudheidkundig Genootschap",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300026687",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Bruikleen van het Koninklijk Oudheidkundig Genootschap",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300026687",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "Zilveren penning met geel-zwart lint uitgeloofd door de Scherpschutters Vereeniging Gelria te Zutphen, behaald door de afdeling Zutphen van de Nederlandsche Schutterij Kader-Bond, 1891. Tweede prijs voor het schieten met flobert-patronen. Voorzijde: het wapen van Zutphen, gedekt door een kroon, waaronder GEMEENTE ZUTPHEN. Keerzijde: in het veld: 2e PRIJS / AANGEBODEN / DOOR DE SSVG GELRIA / TE / ZUTPHEN. Omschrift: NEDERLANDSCHE SCHUTTERIJKADER-BOND AFD. ZUTPHEN. FLOBERT-WEDSTRIJD 1891. Om het geheel een Griekse meander-rand en een rand van palmetten.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435452",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ],
+      "created_by": {
+        "type": "Creation",
+        "timespan": {
+          "type": "TimeSpan",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "2019-07-18",
+              "language": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300388256",
+                  "type": "Language"
+                }
+              ]
+            },
+            {
+              "type": "Name",
+              "content": "2019-07-18",
+              "language": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300388277",
+                  "type": "Language"
+                }
+              ]
+            }
+          ],
+          "begin_of_the_begin": "2019-07-18T00:00:00Z",
+          "end_of_the_end": "2019-07-18T23:59:59Z"
+        }
+      }
+    }
+  ],
+  "equivalent": [
+    {
+      "id": "http://hdl.handle.net/10934/RM0001.COLLECT.819563",
+      "type": "HumanMadeObject"
+    }
+  ],
+  "member_of": [
+    {
+      "id": "https://id.rijksmuseum.nl/261106",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260239",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/2601",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260251",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/261219",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260238",
+      "type": "Set"
+    }
+  ],
+  "_label": "Prijspenning van de Scherpschutters Vereeniging Gelria te Zutphen, 1891, tweede prijs voor schieten met flobert-patronen",
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "format": "image/jpeg",
+          "access_point": [
+            {
+              "id": "https://iiif.micr.io/hiNcF/full/800,/0/default.jpg",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Rijksmuseum"
+    }
+  ]
+}

@@ -1,0 +1,1727 @@
+{
+  "@context": "https://linked.art/ns/v1/linked-art.json",
+  "id": "https://id.rijksmuseum.nl/200100963",
+  "type": "HumanMadeObject",
+  "produced_by": {
+    "type": "Production",
+    "timespan": {
+      "type": "TimeSpan",
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "1865",
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388256",
+              "type": "Language"
+            }
+          ]
+        },
+        {
+          "type": "Name",
+          "content": "1865",
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388277",
+              "type": "Language"
+            }
+          ]
+        }
+      ],
+      "begin_of_the_begin": "1865-01-01T00:00:00Z",
+      "end_of_the_end": "1865-12-31T23:59:59Z"
+    },
+    "referred_to_by": [
+      {
+        "type": "LinguisticObject",
+        "content": "anonymous",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300435416",
+            "type": "Type",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300418049",
+                "type": "Type",
+                "_label": "brief text"
+              }
+            ]
+          }
+        ],
+        "language": [
+          {
+            "id": "http://vocab.getty.edu/aat/300388277",
+            "type": "Language"
+          }
+        ]
+      },
+      {
+        "type": "LinguisticObject",
+        "content": "anoniem",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300435416",
+            "type": "Type",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300418049",
+                "type": "Type",
+                "_label": "brief text"
+              }
+            ]
+          }
+        ],
+        "language": [
+          {
+            "id": "http://vocab.getty.edu/aat/300388256",
+            "type": "Language"
+          }
+        ]
+      }
+    ],
+    "part": [
+      {
+        "type": "Production",
+        "carried_out_by": [
+          {
+            "id": "https://id.rijksmuseum.nl/210640",
+            "type": "Person",
+            "notation": [
+              {
+                "@language": "nl",
+                "@value": "anoniem"
+              },
+              {
+                "@language": "en",
+                "@value": "anonymous"
+              }
+            ],
+            "equivalent": [
+              "http://vocab.getty.edu/ulan/500397994",
+              "http://viaf.org/viaf/100627125",
+              "https://rkd.nl/artists/1984",
+              "http://www.wikidata.org/entity/Q4233718"
+            ]
+          }
+        ],
+        "identified_by": [
+          {
+            "type": "Identifier",
+            "content": "1",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300456575",
+                "type": "Type"
+              }
+            ]
+          }
+        ],
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300404450",
+            "type": "Type"
+          }
+        ],
+        "technique": [
+          {
+            "id": "https://id.rijksmuseum.nl/22010450",
+            "type": "Type",
+            "notation": [
+              {
+                "@language": "en",
+                "@value": "gun founder"
+              },
+              {
+                "@language": "nl",
+                "@value": "geschutgieter"
+              }
+            ]
+          }
+        ],
+        "referred_to_by": [
+          {
+            "type": "LinguisticObject",
+            "content": "anonymous",
+            "classified_as": [
+              "http://vocab.getty.edu/aat/300435417"
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "anoniem",
+            "classified_as": [
+              "http://vocab.getty.edu/aat/300435417"
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "gun founder: anonymous, Japan",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300435416",
+                "type": "Type",
+                "classified_as": [
+                  {
+                    "id": "http://vocab.getty.edu/aat/300418049",
+                    "type": "Type",
+                    "_label": "brief text"
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "LinguisticObject",
+            "content": "geschutgieter: anoniem, Japan",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300435416",
+                "type": "Type",
+                "classified_as": [
+                  {
+                    "id": "http://vocab.getty.edu/aat/300418049",
+                    "type": "Type",
+                    "_label": "brief text"
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          }
+        ],
+        "took_place_at": [
+          {
+            "id": "https://id.rijksmuseum.nl/23027",
+            "type": "Place",
+            "notation": [
+              {
+                "@language": "en",
+                "@value": "Japan"
+              },
+              {
+                "@language": "nl",
+                "@value": "Japan"
+              }
+            ],
+            "equivalent": [
+              "http://vocab.getty.edu/tgn/1000120",
+              "http://www.wikidata.org/entity/Q17"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "subject_of": [
+    {
+      "type": "LinguisticObject",
+      "part": [
+        {
+          "type": "LinguisticObject",
+          "part": [
+            {
+              "type": "LinguisticObject",
+              "content": "Japan, 1865, brons, zilver"
+            },
+            {
+              "id": "_:b23",
+              "type": "Name",
+              "content": "Deel van een kanon veroverd bij de Slag bij Shimonoseki",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300417207",
+                  "type": "Type"
+                },
+                {
+                  "id": "http://vocab.getty.edu/aat/300404670",
+                  "type": "Type",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300418049",
+                      "type": "Type",
+                      "_label": "brief text"
+                    }
+                  ]
+                }
+              ],
+              "language": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300388256",
+                  "type": "Language"
+                }
+              ]
+            }
+          ],
+          "classified_as": [
+            "http://vocab.getty.edu/aat/300312075"
+          ]
+        },
+        {
+          "type": "LinguisticObject",
+          "content": "Op dit stuk kanonloop staat het wapen van de prins van Nagato. Deze prins was een van de leiders van de groepering die zich verzette tegen de openstelling van Japan. Zijn troepen blokkeerden daarom de Straat van Shimonoseki tussen de twee hoofdeilanden van Japan. In 1864 maakte een westerse strafexpeditie een eind aan de blokkade. Dit fragment werd door de Nederlandse marine als buit mee teruggevoerd.",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300048722",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        },
+        "http://vocab.getty.edu/aat/300417268"
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435434",
+          "type": "Language"
+        }
+      ],
+      "digitally_carried_by": [
+        {
+          "type": "DigitalObject",
+          "format": "text/html",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300264578",
+              "type": "Type"
+            }
+          ],
+          "access_point": [
+            {
+              "id": "https://www.rijksmuseum.nl/nl/collectie/object/NG-MC-1189--7f8c35981c878d7900f04bbc2bd72a1d",
+              "type": "DigitalObject"
+            }
+          ],
+          "_label": "Object page at Rijksmuseum"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "part": [
+        {
+          "type": "LinguisticObject",
+          "part": [
+            {
+              "id": "_:b24",
+              "type": "Name",
+              "content": "Part of a cannon captured at the Battle of Shimonoseki",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300417207",
+                  "type": "Type"
+                },
+                {
+                  "id": "http://vocab.getty.edu/aat/300404670",
+                  "type": "Type",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300418049",
+                      "type": "Type",
+                      "_label": "brief text"
+                    }
+                  ]
+                }
+              ],
+              "language": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300388277",
+                  "type": "Language"
+                }
+              ]
+            },
+            {
+              "type": "LinguisticObject",
+              "content": "Japan, 1865, bronze, silver"
+            }
+          ],
+          "classified_as": [
+            "http://vocab.getty.edu/aat/300312075"
+          ]
+        },
+        {
+          "type": "LinguisticObject",
+          "content": "The coat of arms of the Prince of Nagato are inlaid on this piece of cannon barrel. The Prince was one of the leaders of the group that opposed the opening up of Japan to the West. His troops therefore blockaded the Strait of Shimonoseki between Japan’s two main islands. In 1864 a punitive Western expedition brought an end to this blockade. This fragment was taken as booty by the Dutch navy.",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300048722",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        "http://vocab.getty.edu/aat/300417268",
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "id": "https://data.rijksmuseum.nl/200100963",
+      "type": "LinguisticObject",
+      "subject_to": [
+        {
+          "type": "Right",
+          "classified_as": [
+            {
+              "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300379475",
+          "type": "Type"
+        }
+      ]
+    }
+  ],
+  "attributed_by": [
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "id": "https://id.rijksmuseum.nl/20066416",
+          "type": "HumanMadeObject"
+        }
+      ],
+      "identified_by": [
+        {
+          "type": "Name",
+          "content": "gerelateerd object",
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388256",
+              "type": "Language"
+            }
+          ]
+        },
+        {
+          "type": "Name",
+          "content": "related object",
+          "language": [
+            {
+              "id": "http://vocab.getty.edu/aat/300388277",
+              "type": "Language"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assigned_by": [
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "content": "Furukawa Kaoru, 'Amsterdam, the last stop, be on the search for canon : a wandering story of japanese canon in Holland', Bungei Shunju (2000), p. 468-481 [Japans].",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "part_of": [
+            {
+              "id": "https://id.rijksmuseum.nl/301196734",
+              "type": "LinguisticObject"
+            }
+          ],
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "part": [
+                {
+                  "type": "Identifier",
+                  "content": "345",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300404620",
+                      "type": "Type"
+                    }
+                  ]
+                }
+              ],
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "content": "Ströhl, H.G, Japanisches Waffenbuch, Wien 1906, p. 140.",
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "2",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "part_of": [
+            {
+              "id": "https://id.rijksmuseum.nl/301211520",
+              "type": "LinguisticObject"
+            }
+          ],
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "part": [
+                {
+                  "type": "Identifier",
+                  "content": "p. 85",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300445022",
+                      "type": "Type"
+                    }
+                  ]
+                }
+              ],
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "part_of": [
+            {
+              "id": "https://id.rijksmuseum.nl/301253770",
+              "type": "LinguisticObject"
+            }
+          ],
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "part": [
+                {
+                  "type": "Identifier",
+                  "content": "p. 162, afb. 6.14",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300445022",
+                      "type": "Type"
+                    }
+                  ]
+                }
+              ],
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "part_of": [
+            {
+              "id": "https://id.rijksmuseum.nl/301207257",
+              "type": "LinguisticObject"
+            }
+          ],
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "part": [
+                {
+                  "type": "Identifier",
+                  "content": "p. 206-209 met afb.",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300445022",
+                      "type": "Type"
+                    }
+                  ]
+                }
+              ],
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "id": "https://id.rijksmuseum.nl/301146630",
+          "type": "http://id.loc.gov/ontologies/bibframe/Instance"
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "type": "LinguisticObject",
+          "part_of": [
+            {
+              "id": "https://id.rijksmuseum.nl/301253771",
+              "type": "LinguisticObject"
+            }
+          ],
+          "identified_by": [
+            {
+              "type": "Identifier",
+              "part": [
+                {
+                  "type": "Identifier",
+                  "content": "p. 162, afb. 6.14",
+                  "classified_as": [
+                    {
+                      "id": "http://vocab.getty.edu/aat/300445022",
+                      "type": "Type"
+                    }
+                  ]
+                }
+              ],
+              "classified_as": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300311705",
+                  "type": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "AttributeAssignment",
+      "assigned": [
+        {
+          "id": "https://id.rijksmuseum.nl/30192301",
+          "type": "http://id.loc.gov/ontologies/bibframe/Instance"
+        }
+      ],
+      "assigned_property": "referred_to_by",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300311954",
+          "type": "Type"
+        }
+      ]
+    }
+  ],
+  "identified_by": [
+    {
+      "type": "Name",
+      "content": "Part of a Gun",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300417200",
+          "type": "Type"
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "id": "_:b23",
+      "type": "Name",
+      "content": "Deel van een kanon veroverd bij de Slag bij Shimonoseki",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300417207",
+          "type": "Type"
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "id": "_:b24",
+      "type": "Name",
+      "content": "Part of a cannon captured at the Battle of Shimonoseki",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300417207",
+          "type": "Type"
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "content": "NG-MC-1189",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/22015218",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "en",
+              "@value": "object number"
+            },
+            {
+              "@language": "nl",
+              "@value": "objectnummer"
+            }
+          ]
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300312355",
+          "type": "Type"
+        }
+      ]
+    },
+    {
+      "type": "Name",
+      "content": "Deel van een kanon veroverd bij de slag bij Shimonoseki",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300417200",
+          "type": "Type"
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    }
+  ],
+  "classified_as": [
+    {
+      "id": "https://id.rijksmuseum.nl/220108",
+      "type": "Type",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435443",
+          "type": "Type",
+          "_label": "Type of Work"
+        }
+      ],
+      "notation": [
+        {
+          "@language": "en",
+          "@value": "cannon"
+        },
+        {
+          "@language": "nl",
+          "@value": "kanon"
+        }
+      ],
+      "equivalent": [
+        "http://vocab.getty.edu/aat/300036936"
+      ]
+    }
+  ],
+  "dimension": [
+    {
+      "type": "Dimension",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/2208572",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "en",
+              "@value": "calibre"
+            },
+            {
+              "@language": "nl",
+              "@value": "kaliber"
+            }
+          ],
+          "equivalent": [
+            "http://www.wikidata.org/entity/Q170417"
+          ]
+        }
+      ],
+      "value": "10",
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379098",
+        "type": "MeasurementUnit"
+      }
+    },
+    {
+      "type": "Dimension",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/220217",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "en",
+              "@value": "weight"
+            },
+            {
+              "@language": "nl",
+              "@value": "gewicht (eigenschap)"
+            }
+          ],
+          "equivalent": [
+            "http://vocab.getty.edu/aat/300056240"
+          ]
+        }
+      ],
+      "value": "69.8",
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379226",
+        "type": "MeasurementUnit"
+      }
+    },
+    {
+      "type": "Dimension",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/2205120",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "en",
+              "@value": "diameter"
+            },
+            {
+              "@language": "nl",
+              "@value": "diameter"
+            }
+          ],
+          "equivalent": [
+            "http://vocab.getty.edu/aat/300055624"
+          ]
+        }
+      ],
+      "value": "22.5",
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379098",
+        "type": "MeasurementUnit"
+      }
+    },
+    {
+      "type": "Dimension",
+      "classified_as": [
+        {
+          "id": "https://id.rijksmuseum.nl/22026",
+          "type": "Type",
+          "notation": [
+            {
+              "@language": "en",
+              "@value": "length"
+            },
+            {
+              "@language": "nl",
+              "@value": "lengte"
+            }
+          ],
+          "equivalent": [
+            "http://vocab.getty.edu/aat/300055645"
+          ]
+        }
+      ],
+      "value": "24.5",
+      "unit": {
+        "id": "http://vocab.getty.edu/aat/300379098",
+        "type": "MeasurementUnit"
+      }
+    }
+  ],
+  "made_of": [
+    {
+      "id": "https://id.rijksmuseum.nl/22028",
+      "type": "Material",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "assigned_by": [
+            {
+              "type": "AttributeAssignment",
+              "assigned": [
+                "https://id.rijksmuseum.nl/200100963"
+              ],
+              "assigned_property": "influenced_by"
+            }
+          ],
+          "content": "2",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "notation": [
+        {
+          "@language": "nl",
+          "@value": "zilver"
+        },
+        {
+          "@language": "en",
+          "@value": "silver (metal)"
+        }
+      ],
+      "equivalent": [
+        "http://www.wikidata.org/entity/Q1090",
+        "http://vocab.getty.edu/aat/300011029"
+      ]
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/22013",
+      "type": "Material",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "assigned_by": [
+            {
+              "type": "AttributeAssignment",
+              "assigned": [
+                "https://id.rijksmuseum.nl/200100963"
+              ],
+              "assigned_property": "influenced_by"
+            }
+          ],
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "notation": [
+        {
+          "@language": "en",
+          "@value": "bronze (metal)"
+        },
+        {
+          "@language": "nl",
+          "@value": "brons"
+        }
+      ],
+      "equivalent": [
+        "http://www.wikidata.org/entity/Q34095",
+        "http://vocab.getty.edu/aat/300010957"
+      ]
+    }
+  ],
+  "current_location": {
+    "type": "Place",
+    "identified_by": [
+      {
+        "type": "Name",
+        "part": [
+          {
+            "type": "Name",
+            "content": "Hoofdgebouw",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300004188",
+                "type": "Type"
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "Name",
+            "content": "Nederland overzee",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300260522",
+                "type": "Type"
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "Name",
+            "content": "19de Eeuw",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300379391",
+                "type": "Type"
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388256",
+                "type": "Language"
+              }
+            ]
+          }
+        ],
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300435449",
+            "type": "Type"
+          },
+          {
+            "id": "http://vocab.getty.edu/aat/300404670",
+            "type": "Type",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300418049",
+                "type": "Type",
+                "_label": "brief text"
+              }
+            ]
+          }
+        ],
+        "language": [
+          {
+            "id": "http://vocab.getty.edu/aat/300388256",
+            "type": "Language"
+          }
+        ]
+      },
+      {
+        "type": "Identifier",
+        "part": [
+          {
+            "type": "Identifier",
+            "content": "01",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300240057",
+                "type": "Type"
+              }
+            ]
+          },
+          {
+            "type": "Identifier",
+            "content": "1.17",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300260522",
+                "type": "Type"
+              }
+            ]
+          },
+          {
+            "type": "Identifier",
+            "content": "HG",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300004188",
+                "type": "Type"
+              }
+            ]
+          }
+        ],
+        "content": "HG-1.17-01",
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300435449",
+            "type": "Type"
+          }
+        ]
+      },
+      {
+        "type": "Name",
+        "part": [
+          {
+            "type": "Name",
+            "content": "Main building",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300004188",
+                "type": "Type"
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "Name",
+            "content": "19th Century",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300379391",
+                "type": "Type"
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          },
+          {
+            "type": "Name",
+            "content": "The Netherlands overseas",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300260522",
+                "type": "Type"
+              }
+            ],
+            "language": [
+              {
+                "id": "http://vocab.getty.edu/aat/300388277",
+                "type": "Language"
+              }
+            ]
+          }
+        ],
+        "classified_as": [
+          {
+            "id": "http://vocab.getty.edu/aat/300404670",
+            "type": "Type",
+            "classified_as": [
+              {
+                "id": "http://vocab.getty.edu/aat/300418049",
+                "type": "Type",
+                "_label": "brief text"
+              }
+            ]
+          },
+          {
+            "id": "http://vocab.getty.edu/aat/300435449",
+            "type": "Type"
+          }
+        ],
+        "language": [
+          {
+            "id": "http://vocab.getty.edu/aat/300388277",
+            "type": "Language"
+          }
+        ]
+      }
+    ]
+  },
+  "shows": [
+    {
+      "id": "https://id.rijksmuseum.nl/202100963",
+      "type": "VisualItem"
+    }
+  ],
+  "referred_to_by": [
+    {
+      "type": "LinguisticObject",
+      "content": "Kort stuk van de loop van een bronzen kanon, waarop een Japans wapen in zilver is ingelegd. Het wapen bestaat uit drie zonnen waarboven het karakter voor cijfer 1. Het wapen (Mon) wordt 'Nagatoboshi' genoemd: ster van Nagato. Het wordt gebruikt als tweede wapen (keamon) van de Daimyo, van de provincie Nagato, de familie Mori, residerend in de stad Hagi. Het wapen werd ook gebruikt door de Mori familietak in Fuchu, ook in de provincie Nagato, en de Mori in Kiyosue, eveneens een plaats in dezelfde provincie.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300404670",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        },
+        {
+          "id": "http://vocab.getty.edu/aat/300435452",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "id": "https://www.rijksmuseum.nl/collection/NG-MC-1189/catalogue-entry",
+      "type": "LinguisticObject",
+      "part_of": [
+        {
+          "id": "https://www.rijksmuseum.nl/en/research/collection-catalogues/navy-models-in-the-rijksmuseum",
+          "type": "LinguisticObject",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300417819",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300027267",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "created_by": {
+        "type": "Creation",
+        "timespan": {
+          "type": "TimeSpan",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "2016",
+              "language": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300388256",
+                  "type": "Language"
+                }
+              ]
+            },
+            {
+              "type": "Name",
+              "content": "2016",
+              "language": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300388277",
+                  "type": "Language"
+                }
+              ]
+            }
+          ],
+          "begin_of_the_begin": "2016-01-01T00:00:00Z",
+          "end_of_the_end": "2016-12-31T23:59:59Z"
+        },
+        "part": [
+          {
+            "type": "AttributeAssignment",
+            "assigned_to": "https://id.rijksmuseum.nl/200100963",
+            "assigned": [
+              {
+                "type": "Name",
+                "content": "Part of a Gun"
+              }
+            ],
+            "assigned_property": "identified_by"
+          }
+        ]
+      }
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "length 24.5 cm x diameter 22.5 cm x calibre 10 cm x weight 69.8 kg",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "brons en zilver",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435429",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "lengte 24,5 cm x diameter 22,5 cm x kaliber 10 cm x gewicht (eigenschap) 69,8 kg",
+      "identified_by": [
+        {
+          "type": "Identifier",
+          "content": "1",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300456575",
+              "type": "Type"
+            }
+          ]
+        }
+      ],
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435430",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "bronze and silver",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435429",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "...; transferred from the Ministerie van Marine (Department of the Navy), The Hague, to the museum, 1883",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300444174",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+        }
+      ]
+    },
+    {
+      "type": "LinguisticObject",
+      "content": "In 1863 sloot de Prins van Nagato de Straat van Shimonoseki in Japan. Hij schoot eerst op een Frans schip en beschadigde daarna de Nederlandse korvet Medusa met vuur uit zijn kustbatterijen. De straat werd in 1864 door een internationaal eskader geforceerd, waarbij dit stuk als trofee van één der kustbatterijen werd meegevoerd. De Prins van Nagato behoorde tot de Mori van Fuchu.",
+      "classified_as": [
+        {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "classified_as": [
+            {
+              "id": "http://vocab.getty.edu/aat/300418049",
+              "type": "Type",
+              "_label": "brief text"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+        }
+      ],
+      "created_by": {
+        "type": "Creation",
+        "timespan": {
+          "type": "TimeSpan",
+          "identified_by": [
+            {
+              "type": "Name",
+              "content": "1995-01-01",
+              "language": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300388277",
+                  "type": "Language"
+                }
+              ]
+            },
+            {
+              "type": "Name",
+              "content": "1995-01-01",
+              "language": [
+                {
+                  "id": "http://vocab.getty.edu/aat/300388256",
+                  "type": "Language"
+                }
+              ]
+            }
+          ],
+          "begin_of_the_begin": "1995-01-01T00:00:00Z",
+          "end_of_the_end": "1995-01-01T23:59:59Z"
+        }
+      }
+    }
+  ],
+  "equivalent": [
+    {
+      "id": "http://hdl.handle.net/10934/RM0001.COLLECT.245002",
+      "type": "HumanMadeObject"
+    }
+  ],
+  "member_of": [
+    {
+      "id": "https://id.rijksmuseum.nl/261189",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260241",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/26137",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260251",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260239",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/2617",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260238",
+      "type": "Set"
+    },
+    {
+      "id": "https://id.rijksmuseum.nl/260212",
+      "type": "Set"
+    }
+  ],
+  "_label": "Part of a Gun",
+  "representation": [
+    {
+      "type": "VisualItem",
+      "digitally_shown_by": [
+        {
+          "type": "DigitalObject",
+          "format": "image/jpeg",
+          "access_point": [
+            {
+              "id": "https://iiif.micr.io/DjuEd/full/800,/0/default.jpg",
+              "type": "DigitalObject"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "current_owner": [
+    {
+      "type": "Group",
+      "_label": "Rijksmuseum"
+    }
+  ]
+}

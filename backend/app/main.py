@@ -52,6 +52,7 @@ TRUSTED_IMAGE_HOSTS = {
     "collectie.huisvanhilde.nl",
     "collectie.franshalsmuseum.nl",
     "images.memorix.nl",
+    "iiif.micr.io",
 }
 
 SCOPE_LABELS = {
@@ -145,7 +146,9 @@ def _trusted_image_url(url: str) -> str:
 
 def _request_safe_url(url: str) -> str:
     parsed = urlsplit(url)
-    path = quote(parsed.path, safe="/%")
+    # Comma stays raw: IIIF size specs (e.g. /full/800,/0/) are rejected
+    # by image servers when the comma is percent-encoded.
+    path = quote(parsed.path, safe="/%,")
     query = quote(parsed.query, safe="=&%/:;+,@?$")
     return urlunsplit((parsed.scheme, parsed.netloc, path, query, parsed.fragment))
 

@@ -82,5 +82,24 @@ uv run --python 3.12 --with-requirements requirements.txt \
     python scripts/load_data.py ../data-pipeline/data/output/latest/
 ```
 
+Load route into the carousel backend DB (upserts by URI, no reset
+needed) — straight from raw harvest files via
+`backend/scripts/load_rma_from_raw.py`, which resolves each record's
+image stubs (`shows` → VisualItem → DigitalObject → access_point, served
+from iiif.micr.io) and embeds them as `representation` records with a
+800px IIIF size variant:
+
+```bash
+make carousel-load-rma             # 400 image+title objects
+# knobs: CAROUSEL_RMA_COUNT / CAROUSEL_RMA_SEED
+```
+
+The raw directory is a flat ~835k-file directory that takes ~16 minutes
+to enumerate completely on APFS, so the loader streams the directory
+lazily and stops early once enough image+title candidates are found
+(never a full listing). Enriching 400 records resolves ~800 resolver
+requests against id.rijksmuseum.nl. Images are served from
+iiif.micr.io, already in the backend's trusted image hosts.
+
 Until its records are loaded, `?collection=rma` returns a "no objects yet"
 message naming the collection.
