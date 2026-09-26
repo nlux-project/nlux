@@ -1,8 +1,9 @@
 # nlux-carousel
 
-A full-screen carousel display for NLUX collections (**Teylers Museum** and
-**Noord-Hollands Archief** so far). It shows a random, changing selection of
-objects with images from the nlux backend API.
+A full-screen carousel display for NLUX collections (Teylers Museum,
+Noord-Hollands Archief, Frans Hals Museum, Huis van Hilde, Rijksmuseum
+Boerhaave, Rijksmuseum and Westfries Museum so far). It shows a random,
+changing selection of objects with images from the nlux backend API.
 
 ```
 nlux backend (:8000)                    carousel server (:8089)
@@ -95,7 +96,12 @@ colors. Adding a second institution is a matter of adding a block:
 `uri_prefix` restricts a collection to one institution's URI namespace, so
 several collections can share a single backend database. `credit` is the
 holding institution shown under each slide (falls back to the collection
-label). NHA records are
+label). The `fhm`, `hvh`, `rbhc`, `rma` and `wfm` collections follow the
+same pattern, keyed to each source's namespace
+(`collectie.franshalsmuseum.nl`, `collectie.huisvanhilde.nl`,
+`mmb-web.adlibhosting.com`, `id.rijksmuseum.nl`, `westfriesmuseum.com`);
+they come online as soon as their records are loaded into the backend DB.
+NHA records are
 loaded with `make carousel-load-nha` (raw Memorix harvests in
 `$LUX_BASEPATH/data/input/nha/{c1477,c359,c480,c587}` through the
 data-pipeline's NhaMapper, images via the `images.memorix.nl` proxy).

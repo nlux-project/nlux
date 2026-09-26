@@ -325,7 +325,9 @@ def get_carousel(
     _total_cache["items"] = len(stubs)
     if not stubs:
         raise HTTPException(status_code=502,
-                            detail=f"No image-bearing objects found for scope '{scope}'")
+                            detail=f"No image-bearing objects found for "
+                                  f"collection '{collection_name}' (scope '{scope}'). "
+                                  f"Has its data been loaded into the backend DB?")
 
     rng = random.Random(seed if seed is not None else None)
     rng.shuffle(stubs)

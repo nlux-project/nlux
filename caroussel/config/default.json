@@ -29,6 +29,51 @@
       },
       "uri_prefix": "https://hdl.handle.net/21.12102/",
       "credit": "Noord-Hollands Archief, Haarlem"
+    },
+    "fhm": {
+      "label": "Frans Hals Museum",
+      "scope": "item",
+      "query": {
+        "hasDigitalImage": true
+      },
+      "uri_prefix": "http://collectie.franshalsmuseum.nl/",
+      "credit": "Frans Hals Museum, Haarlem"
+    },
+    "hvh": {
+      "label": "Huis van Hilde",
+      "scope": "item",
+      "query": {
+        "hasDigitalImage": true
+      },
+      "uri_prefix": "https://collectie.huisvanhilde.nl/resource/",
+      "credit": "Huis van Hilde, Castricum"
+    },
+    "rbhc": {
+      "label": "Rijksmuseum Boerhaave",
+      "scope": "item",
+      "query": {
+        "hasDigitalImage": true
+      },
+      "uri_prefix": "https://mmb-web.adlibhosting.com/ais6/Details/collect/",
+      "credit": "Rijksmuseum Boerhaave, Leiden"
+    },
+    "rma": {
+      "label": "Rijksmuseum",
+      "scope": "item",
+      "query": {
+        "hasDigitalImage": true
+      },
+      "uri_prefix": "https://id.rijksmuseum.nl/",
+      "credit": "Rijksmuseum, Amsterdam"
+    },
+    "wfm": {
+      "label": "Westfries Museum",
+      "scope": "item",
+      "query": {
+        "hasDigitalImage": true
+      },
+      "uri_prefix": "https://westfriesmuseum.com/detail/",
+      "credit": "Westfries Museum, Hoorn"
     }
   },
   "default_collection": "teylers",
