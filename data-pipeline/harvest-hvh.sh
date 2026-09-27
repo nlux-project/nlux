@@ -14,3 +14,7 @@ uv run --python 3.12 --with-requirements requirements.txt python manage-data.py 
 uv run --python 3.12 --with-requirements requirements.txt python ./run-reconcile.py 0 1 --hvh
 uv run --python 3.12 --with-requirements requirements.txt python ./run-merge.py 0 1 --hvh
 uv run --python 3.12 --with-requirements requirements.txt python ./run-export.py 0 1 --hvh
+
+# load into SQLite (DEV only) — fills the API database (backend/nlux.db), run from the repo root:
+# uv run --python 3.12 --with-requirements backend/requirements.txt \
+#     python backend/scripts/load_data.py data-pipeline/output/latest/
