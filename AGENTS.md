@@ -44,7 +44,9 @@ docker compose up
 docker compose --profile pipeline up
 ```
 
-This adds `db` (PostgreSQL on 5432) and `redis` (on 6379) needed by the data-pipeline's reconcile/merge/export phases. Default `docker compose up` (api + frontend only) is unchanged.
+This adds `db` (PostgreSQL on 5432) and `redis` (on 6379) needed by the data-pipeline's reconcile/merge/export phases. Default `docker compose up` (api + frontend only) is unchanged — `db`/`redis` are **profile-gated** and never start otherwise. They are pipeline-ETL infrastructure, **not** the API's database: the API container uses SQLite in the `nlux_data` volume.
+
+Do not start the pipeline profile while Postgres.app runs locally — both claim port 5432 (and the compose `redis` claims 6379, where a local Redis is already serving idmap data). In dev, Postgres.app is the pipeline datacache; the containers are its prod equivalent, with `caches.json` pointing at `db:5432` on the compose network (not localhost).
 
 ### Data Pipeline (`data-pipeline/`)
 
@@ -193,8 +195,17 @@ Record(
 
 ### Database Strategy
 
-- **SQLite** (default dev): FTS5 virtual table, WAL journal mode
-- **PostgreSQL** (production): `tsvector` column with GIN index; switch via `DATABASE_URL` env var
+Three separate stores are in play in dev — the Docker database is dormant by default:
+
+| Store | Role | Used by |
+|-------|------|---------|
+| `backend/nlux.db` (SQLite file) | **API database** — every record the REST API, carousel and frontend read | backend :8000 |
+| Postgres.app (local, socket `/tmp`) | **Pipeline datacache** (`*_data_cache` tables) for reconcile/merge/export phases | data-pipeline only |
+| Compose `db` + `redis` (profile `pipeline`) | Containerized equivalents of the pipeline datacache, for prod ETL | only `docker compose --profile pipeline up` |
+
+- The API never touches the pipeline Postgres. Its SQLite database is filled via the pipeline's JSONL export (`run-export.py` → `backend/scripts/load_data.py`) or directly via the raw sample loaders (`make carousel-load-*`).
+- The pipeline datacache supports PostgreSQL (default), filesystem or Redis backends (`datacacheClass` in `caches.json`); SQLite is **not** a datacache backend — `manage-data.py --load` cannot target the API database.
+- API storage switch: **SQLite** (default dev) — FTS5 virtual table, WAL journal mode; **PostgreSQL** (production) — `tsvector` column with GIN index; switch via `DATABASE_URL` env var.
 
 ### Data Pipeline (`data-pipeline/`)
 

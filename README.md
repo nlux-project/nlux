@@ -79,6 +79,20 @@ docker compose up
 docker compose --profile pipeline up
 ```
 
+## Database-architectuur
+
+In ontwikkeling zijn er drie gescheiden opslagsystemen; de Docker-database staat standaard **uit** en botst dus niet met lokale services:
+
+| Opslag | Rol | Status in dev |
+|--------|-----|---------------|
+| `backend/nlux.db` (SQLite-bestand) | **API-database** — alle records die het REST API, de carousel en de frontend uitlezen; overschakelen naar PostgreSQL via `DATABASE_URL` | ✅ Actief |
+| Postgres.app (lokaal, poort 5432) | **Datacache van de data-pipeline** (`*_data_cache`-tabellen) voor de reconcile/merge/export-fases; de API raakt deze database nooit aan | ✅ Actief |
+| Docker `db` + `redis` (compose) | Gecontaineriseerde tegenhangers van de pipeline-datacache voor productie-ETL; alleen actief met `docker compose --profile pipeline up` | ❌ Sluimerend |
+
+- `docker compose up` start alleen `api` + `frontend`; de API-container gebruikt SQLite in een volume (`nlux_data`). Er start dus nooit een database-container in de normale flow.
+- Start `--profile pipeline` niet zolang Postgres.app draait: beide claimen poort 5432 (en de compose-redis claimt 6379, waar lokaal al een redis voor de idmap draait). In productie verwijst `config_cache/caches.json` naar de service `db:5432` binnen het compose-netwerk.
+- De pipeline-datacache ondersteunt PostgreSQL (standaard), filesystem of Redis als backend (`datacacheClass` in `caches.json`); SQLite is daar geen van. De API-database wordt gevuld via de JSONL-export (`run-export.py` → `backend/scripts/load_data.py`) of rechtstreeks via de raw-loaders (`make carousel-load-*`).
+
 ## API endpoints (selectie)
 
 | Endpoint | Omschrijving |
