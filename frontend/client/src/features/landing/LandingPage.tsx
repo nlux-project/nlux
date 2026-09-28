@@ -26,7 +26,7 @@ import InstitutionsSection from './InstitutionsSection'
 
 const HeroSection = styled.section`
   background: linear-gradient(150deg, #eaf3f8 0%, #f6fbfe 55%, #ffffff 100%);
-  padding: 56px 24px 44px;
+  padding: 24px 24px 16px;
   text-align: center;
 `
 

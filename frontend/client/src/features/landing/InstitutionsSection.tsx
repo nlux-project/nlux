@@ -10,7 +10,7 @@ import theme from '../../styles/theme'
 const Section = styled.section`
   max-width: 1080px;
   margin: 0 auto;
-  padding: 32px 24px 40px;
+  padding: 8px 24px 24px;
 `
 
 const SectionTitle = styled.h2`
