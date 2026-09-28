@@ -18,3 +18,7 @@ numpy
 bs4
 python-dotenv
 pyluach
+sqlalchemy
+fastapi
+pydantic
+pydantic_settings
