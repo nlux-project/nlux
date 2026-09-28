@@ -23,7 +23,7 @@ describe('Landing page', () => {
     it('renders', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const searchBar = screen.getByTestId(
         'landing-page-search-container-simple-search-form',
       )
@@ -33,7 +33,7 @@ describe('Landing page', () => {
     it('renders a disabled search button if text is invalid', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const input = screen.getByTestId(
         'landing-page-search-container-search-submit-input',
       )
@@ -52,7 +52,7 @@ describe('Landing page', () => {
     it('renders a enabled search button if text is valid', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const input = screen.getByTestId(
         'landing-page-search-container-search-submit-input',
       )
@@ -70,7 +70,7 @@ describe('Landing page', () => {
     it('renders an error message if the text input fails translating', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const input = screen.getByTestId(
         'landing-page-search-container-search-submit-input',
       )
@@ -97,7 +97,7 @@ describe('Landing page', () => {
     it('renders the institutions strip with object counts', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const section = screen.getByTestId('institutions-container')
       expect(section).toBeInTheDocument()
       const heading = screen.getByRole('heading', { name: 'Collecties' })
@@ -123,7 +123,7 @@ describe('Landing page', () => {
     it('renders', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const section = screen.getByTestId('what-is-lux')
       expect(section).toBeInTheDocument()
     })
@@ -131,7 +131,7 @@ describe('Landing page', () => {
     it('renders What is LUX section hero image', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const container = screen.getByTestId('hero-image-container')
       expect(container).toBeInTheDocument()
     })
@@ -139,7 +139,7 @@ describe('Landing page', () => {
     it('renders What is LUX section collection link', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const link = screen.getByTestId('hero-image-caption-link')
       expect(link).toBeInTheDocument()
     })
@@ -171,7 +171,7 @@ describe('Landing page', () => {
     it('is removed from the landing page', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const about = screen.queryByTestId('more-about-lux-container')
       expect(about).not.toBeInTheDocument()
     })
@@ -181,7 +181,7 @@ describe('Landing page', () => {
     it('is removed from the landing page', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const section = screen.queryByTestId('whats-in-lux-container')
       expect(section).not.toBeInTheDocument()
     })
@@ -191,7 +191,7 @@ describe('Landing page', () => {
     it('renders', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const descriptor = screen.getByTestId('footer-blocks-section')
       expect(descriptor).toBeInTheDocument()
     })
@@ -199,7 +199,7 @@ describe('Landing page', () => {
     it('renders the footer', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const footer = screen.getByTestId('lux-footer')
       expect(footer).toBeInTheDocument()
     })
@@ -207,7 +207,7 @@ describe('Landing page', () => {
     it('renders the contact link', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      await findAllByText(/Ontdek het Cultureel Erfgoed van Noord-Holland/i)
       const link = screen.getByTestId('feedback-external-link')
       expect(link).toHaveAttribute(
         'href',
