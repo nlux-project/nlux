@@ -101,6 +101,9 @@ python backend/scripts/reset.py
 Convenience Docker loaders:
 ```bash
 bash backend/scripts/load_all_to_docker.sh
+
+# Load one source's export into the running API container (frontend on :8088 reads that DB)
+make docker-load-source SOURCE=wfm
 ```
 
 ### Carousel Display (`caroussel/`)

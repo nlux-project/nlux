@@ -109,7 +109,8 @@ help:
 	@printf '  docker-up               start api + frontend (compose up)\n'
 	@printf '  docker-up-pipeline      also start PostgreSQL + Redis (pipeline profile)\n'
 	@printf '  docker-down             stop all compose services\n'
-	@printf '  docker-load-all         load all Teylers data into the running API container\n\n'
+	@printf '  docker-load-all         load all Teylers data into the running API container\n'
+	@printf '  docker-load-source      load one source export into the running API container (SOURCE=wfm)\n\n'
 	@printf 'Frontend ===================================================================\n'
 	@printf '  frontend-install        npm ci (use after cloning / pulling)\n'
 	@printf '  frontend-dev            vite dev server\n'
@@ -287,6 +288,9 @@ test: test-backend test-pipeline test-frontend carousel-test
 
 # --- Docker --------------------------------------------------------------------
 
+# API container that serves the database used by the frontend on :8088
+API_CONTAINER ?= nlux-api-1
+
 .PHONY: docker-up
 docker-up:
 	docker compose up
@@ -302,6 +306,25 @@ docker-down:
 .PHONY: docker-load-all
 docker-load-all:
 	bash backend/scripts/load_all_to_docker.sh
+
+# Load only the export files of one source (e.g. SOURCE=wfm) into the RUNNING
+# API container's database — the one the frontend on :8088 reads. Mirrors
+# api-load-source for the docker deployment; requires `docker compose up`.
+.PHONY: docker-load-source
+docker-load-source:
+	@files="$(wildcard $(EXPORT_DIR)/export_$(SOURCE)*.jsonl)"; \
+	if [ -z "$$files" ]; then \
+		echo "docker-load-source: no export files for SOURCE=$(SOURCE) in $(EXPORT_DIR)"; \
+		exit 1; \
+	fi; \
+	args=""; \
+	for f in $$files; do \
+		name=$$(basename "$$f"); \
+		echo "  copying $$name -> $(API_CONTAINER):/tmp/"; \
+		docker cp "$$f" "$(API_CONTAINER):/tmp/$$name"; \
+		args="$$args /tmp/$$name"; \
+	done; \
+	docker exec $(API_CONTAINER) python3 scripts/load_data.py $$args
 
 # --- Frontend --------------------------------------------------------------------
 
