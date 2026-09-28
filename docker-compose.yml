@@ -38,7 +38,8 @@ services:
       - USE_LOCAL_CONFIG_JSON=yes
     volumes:
       - ./docker/frontend-config.json:/app/config.json:ro
-      - ./assets/logo_620x620_nlux.png:/app/public/nlux-logo.png:ro
+      - ./assets/nlux-logo-small.png:/app/public/nlux-logo.png:ro
+      - ./assets/nlux-logo-big.png:/app/public/nlux-logo-big.png:ro
     depends_on:
       api:
         condition: service_healthy

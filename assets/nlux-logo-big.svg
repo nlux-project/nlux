@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Collectie NH — "Cultureel Erfgoed van Noord-Holland"
+  Logo lockup (big, stacked): tulip-and-water mark above the wordmark,
+  on a transparent square canvas. Same mark as nlux-logo.svg, scaled.
+  Rasterise with: rasterize-logo.js (Playwright, 2x = 1240px).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="620" viewBox="0 0 620 620">
+  <!-- mark: rounded tile (36-unit mark scaled to 240) -->
+  <g transform="translate(190, 114) scale(6.6667)">
+    <rect x="0" y="0" width="36" height="36" rx="10" fill="#2e7fa8"/>
+    <path fill="#ffffff"
+          d="M10.8 7.9 L14.4 12.5 L18 7.9 L21.6 12.5 L25.2 7.9 L25.2 17.9
+             Q25.2 20.7 22.4 20.7 L13.6 20.7 Q10.8 20.7 10.8 17.9 Z"/>
+    <path fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round"
+          d="M8 26.2 Q11.3 24.1 14.6 26.2 T21.2 26.2 T27.8 26.2"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="310" y="446" text-anchor="middle"
+        font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Roboto, Arial, sans-serif"
+        font-size="58" font-weight="700" fill="#22303e">Collectie NH</text>
+  <text x="310" y="498" text-anchor="middle"
+        font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Roboto, Arial, sans-serif"
+        font-size="26" font-weight="400" letter-spacing="0.8"
+        fill="#5c7080">Cultureel Erfgoed van Noord-Holland</text>
+</svg>

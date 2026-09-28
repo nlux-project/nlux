@@ -17,7 +17,7 @@ De frontend leest onderstaande waarden uit `config.json` in Docker, of uit envir
 
 De standaard lokale configuratie staat in `docker/frontend-config.json`. Bij `docker compose up` wordt die in de frontend-container gemount als runtime-configuratie.
 
-Daarnaast mount NLUX het standaardlogo vanuit de repo naar `/nlux-logo.png`, zodat de configuratie direct werkt zonder extra handmatige stappen.
+Daarnaast mount NLUX de logo's vanuit de repo: de kleine lockup (`assets/nlux-logo-small.png`, gebaseerd op "Cultureel Erfgoed van Noord-Holland" — tulp-en-watermerk naast de woordmerktekst) naar `/nlux-logo.png`, en de grote variant (`assets/nlux-logo-big.png`) naar `/nlux-logo-big.png`. De SVG-bronnen staan in `assets/nlux-logo.svg` en `assets/nlux-logo-big.svg`.
 
 ## Losse frontend
 

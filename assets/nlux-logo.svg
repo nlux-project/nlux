@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Collectie NH — "Cultureel Erfgoed van Noord-Holland"
+  Logo lockup (small): tulip crown above a water ripple, on a rounded
+  tile in the Collectie NH primary blue, next to the wordmark.
+
+  Mark: the tulip is the cultural-heritage flower of Noord-Holland
+  (bollenvelden, tulpenmanie, 17th-eeuwse bloemstillevens in de
+  collectie); the ripple is the sea, dunes and polder-water of the
+  province — matching the "Water & Lucht" design language.
+  Rasterise with: rasterize-logo.js (Playwright, 4x for the header).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="212" height="36" viewBox="0 0 212 36">
+  <!-- mark: rounded tile -->
+  <rect x="0" y="0" width="36" height="36" rx="10" fill="#2e7fa8"/>
+  <!-- mark: tulip crown (three petals) -->
+  <path fill="#ffffff"
+        d="M10.8 7.9 L14.4 12.5 L18 7.9 L21.6 12.5 L25.2 7.9 L25.2 17.9
+           Q25.2 20.7 22.4 20.7 L13.6 20.7 Q10.8 20.7 10.8 17.9 Z"/>
+  <!-- mark: water ripple -->
+  <path fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round"
+        d="M8 26.2 Q11.3 24.1 14.6 26.2 T21.2 26.2 T27.8 26.2"/>
+
+  <!-- wordmark -->
+  <text x="46" y="22"
+        font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Roboto, Arial, sans-serif"
+        font-size="16.5" font-weight="700" fill="#22303e">Collectie NH</text>
+  <text x="46.2" y="32.6"
+        font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Roboto, Arial, sans-serif"
+        font-size="8.6" font-weight="400" letter-spacing="0.25"
+        fill="#5c7080">Cultureel Erfgoed van Noord-Holland</text>
+</svg>
