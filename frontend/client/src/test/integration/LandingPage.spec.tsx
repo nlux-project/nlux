@@ -5,7 +5,6 @@ import config from '../../config/config'
 
 import AppRender from './utils/AppRender'
 import cmsMockApi from './utils/cmsMockApi'
-import statsMockApi from './utils/statsMockApi'
 import highlightsMockApi from './utils/highlightsMockApi'
 import eventTrackingMock from './utils/eventTrackingMock'
 
@@ -14,7 +13,6 @@ describe('Landing page', () => {
 
   beforeEach(async () => {
     cmsMockApi()
-    statsMockApi()
     highlightsMockApi()
     eventTrackingMock()
   })
