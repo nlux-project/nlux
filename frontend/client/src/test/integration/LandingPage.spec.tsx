@@ -6,6 +6,7 @@ import config from '../../config/config'
 import AppRender from './utils/AppRender'
 import cmsMockApi from './utils/cmsMockApi'
 import highlightsMockApi from './utils/highlightsMockApi'
+import institutionsMockApi from './utils/institutionsMockApi'
 import eventTrackingMock from './utils/eventTrackingMock'
 
 describe('Landing page', () => {
@@ -14,6 +15,7 @@ describe('Landing page', () => {
   beforeEach(async () => {
     cmsMockApi()
     highlightsMockApi()
+    institutionsMockApi()
     eventTrackingMock()
   })
 
@@ -92,18 +94,28 @@ describe('Landing page', () => {
       expect(alert).toBeInTheDocument()
     })
 
-    it('renders the institutions strip', async () => {
+    it('renders the institutions strip with object counts', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
       const section = screen.getByTestId('institutions-container')
       expect(section).toBeInTheDocument()
+      const heading = screen.getByRole('heading', { name: 'Collecties' })
+      expect(heading).toBeInTheDocument()
       const card = screen.getByTestId('institution-card-Teylers Museum')
       expect(card).toBeInTheDocument()
       expect(card).toHaveAttribute(
         'href',
         expect.stringContaining('/view/results/objects'),
       )
+      // Each card shows the number of objects held by the institution
+      await screen.findByText('200 objecten')
+      expect(
+        screen.getByTestId('institution-count-Noord-Hollands Archief'),
+      ).toHaveTextContent('408 objecten')
+      expect(
+        screen.getByTestId('institution-count-Rijksmuseum'),
+      ).toHaveTextContent('0 objecten')
     })
   })
 

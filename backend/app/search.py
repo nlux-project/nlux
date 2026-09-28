@@ -364,6 +364,22 @@ def _type_placeholders(types: List[str]) -> Tuple[str, Dict]:
     return clause, params
 
 
+def fts_match_expr(query_text: str) -> str:
+    """
+    Build an FTS5 MATCH expression from free text.
+
+    Every whitespace-separated token is double-quoted so that punctuation
+    inside a term (e.g. the hyphen in "Noord-Hollands") is not interpreted
+    as an FTS5 query operator: an unquoted expression like that is parsed as
+    a column filter and raises "no such column". Quoted tokens joined by a
+    space keep the default implicit-AND semantics of multi-word searches.
+    """
+    tokens = [t for t in query_text.split() if t]
+    if not tokens:
+        return '""'
+    return " ".join('"' + t.replace('"', '""') + '"' for t in tokens)
+
+
 def _collect_text_terms(node: Any, acc: List[str]) -> None:
     """Recursively collect all "text" terms from a structured query tree."""
     if isinstance(node, dict):
@@ -390,7 +406,7 @@ def _fts_uris_for_text(db: Session, q: str) -> Set[str]:
                 "JOIN records_fts fts ON fts.rowid = r.rowid "
                 "WHERE records_fts MATCH :q"
             ),
-            {"q": q},
+            {"q": fts_match_expr(q)},
         ).fetchall()
     except Exception:
         rows = (
@@ -505,6 +521,10 @@ def _sqlite_search(
     types = SCOPE_TYPES.get(scope, [])
     type_clause, type_params = _type_placeholders(types) if types else ("", {})
     order_clause = _sqlite_order_clause(parsed_sort)
+    # Quote tokens so punctuation (e.g. hyphens in "Noord-Hollands") is not
+    # parsed as an FTS5 column filter; unquoted it raises "no such column"
+    # and the query silently degrades to the LIKE fallback.
+    match_expr = fts_match_expr(q)
 
     try:
         if types:
@@ -513,7 +533,7 @@ def _sqlite_search(
                 f"JOIN records_fts fts ON fts.rowid = r.rowid "
                 f"WHERE records_fts MATCH :q AND r.type IN ({type_clause})"
             )
-            total = db.execute(count_sql, {"q": q, **type_params}).scalar() or 0
+            total = db.execute(count_sql, {"q": match_expr, **type_params}).scalar() or 0
 
             rows_sql = text(
                 f"SELECT r.uri, r.type, r.label FROM records r "
@@ -522,17 +542,17 @@ def _sqlite_search(
                 f"{order_clause} "
                 f"LIMIT :limit OFFSET :offset"
             )
-            rows = db.execute(rows_sql, {"q": q, **type_params, "limit": limit, "offset": offset}).fetchall()
+            rows = db.execute(rows_sql, {"q": match_expr, **type_params, "limit": limit, "offset": offset}).fetchall()
         else:
             count_sql = text("SELECT COUNT(*) FROM records_fts WHERE records_fts MATCH :q")
-            total = db.execute(count_sql, {"q": q}).scalar() or 0
+            total = db.execute(count_sql, {"q": match_expr}).scalar() or 0
             rows_sql = text(
                 "SELECT r.uri, r.type, r.label FROM records r "
                 "JOIN records_fts fts ON fts.rowid = r.rowid "
                 f"WHERE records_fts MATCH :q {order_clause} "
                 "LIMIT :limit OFFSET :offset"
             )
-            rows = db.execute(rows_sql, {"q": q, "limit": limit, "offset": offset}).fetchall()
+            rows = db.execute(rows_sql, {"q": match_expr, "limit": limit, "offset": offset}).fetchall()
     except Exception:
         # Fallback to LIKE if FTS table not yet populated
         like = f"%{q}%"

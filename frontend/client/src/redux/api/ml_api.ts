@@ -201,6 +201,18 @@ export const mlApi: any = createApi({
         method: 'GET',
       }),
     }),
+    // Total result count for a full-text query — used on the landing page to
+    // show how many objects each connected institution holds. The count is
+    // the totalItems of an OrderedCollection, e.g. { totalItems: 408 }
+    getSearchEstimate: builder.query<number, { scope: string; q: string }>({
+      query: ({ scope, q }) => ({
+        url: `api/search-estimate/${scope}?q=${encodeURIComponent(q)}`,
+        method: 'GET',
+      }),
+      transformResponse: (response: { totalItems?: number }) =>
+        response.totalItems ?? 0,
+      providesTags: ['Estimates'],
+    }),
     getRelatedLists: builder.query<
       IRelatedListEntryTransformed | null,
       { url: string }
@@ -480,6 +492,7 @@ export const {
   useGetNameQuery,
   useGetRelatedListsQuery,
   useGetSearchRelationshipQuery,
+  useGetSearchEstimateQuery,
   useGetStatsQuery,
   useGetTimelineQuery,
   useSearchQuery,

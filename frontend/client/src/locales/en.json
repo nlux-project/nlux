@@ -225,7 +225,9 @@
   "landing": {
     "heroTitle": "Discover the heritage of North Holland",
     "heroSub": "Search the collections of North Holland heritage institutions – from prints and paintings to photographs and archaeological finds.",
-    "institutionsTitle": "Partner institutions",
+    "institutionsTitle": "Collections",
+    "institutionObjects_one": "{{count}} object",
+    "institutionObjects_other": "{{count}} objects",
     "objectCount": "objects",
     "highlightsTitle": "Highlights"
   },

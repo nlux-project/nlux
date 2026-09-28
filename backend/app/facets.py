@@ -20,6 +20,7 @@ from .search import (
     _matches_structured_query,
     _parse_query,
     _type_placeholders,
+    fts_match_expr,
 )
 
 FacetValue = Union[str, int]
@@ -255,6 +256,9 @@ def _text_query_records(db: Session, scope: str, query_text: str) -> Iterator[Re
     type_clause, type_params = _type_placeholders(types) if types else ("", {})
     if _is_sqlite(db):
         try:
+            # Quote tokens (hyphens in e.g. "Noord-Hollands" otherwise raise
+            # an FTS5 column-filter error and fall back to LIKE)
+            match_expr = fts_match_expr(query_text)
             if types:
                 sql = text(
                     f"SELECT r.uri, r.type, r.label, r.search_text, r.data FROM records r "
@@ -263,7 +267,7 @@ def _text_query_records(db: Session, scope: str, query_text: str) -> Iterator[Re
                     f"LIMIT :limit"
                 )
                 rows = db.execute(
-                    sql, {"q": query_text, **type_params, "limit": FACET_MATCH_LIMIT}
+                    sql, {"q": match_expr, **type_params, "limit": FACET_MATCH_LIMIT}
                 ).fetchall()
             else:
                 sql = text(
@@ -271,7 +275,7 @@ def _text_query_records(db: Session, scope: str, query_text: str) -> Iterator[Re
                     "JOIN records_fts fts ON fts.rowid = r.rowid "
                     "WHERE records_fts MATCH :q LIMIT :limit"
                 )
-                rows = db.execute(sql, {"q": query_text, "limit": FACET_MATCH_LIMIT}).fetchall()
+                rows = db.execute(sql, {"q": match_expr, "limit": FACET_MATCH_LIMIT}).fetchall()
             for row in rows:
                 values = row._mapping
                 yield SimpleNamespace(

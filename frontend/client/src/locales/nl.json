@@ -59,7 +59,9 @@
   "landing": {
     "heroTitle": "Ontdek het erfgoed van Noord-Holland",
     "heroSub": "Zoek in de collecties van Noord-Hollandse erfgoedinstellingen – van prenten en schilderijen tot foto's en archeologische vondsten.",
-    "institutionsTitle": "Aangesloten instellingen",
+    "institutionsTitle": "Collecties",
+    "institutionObjects_one": "{{count}} object",
+    "institutionObjects_other": "{{count}} objecten",
     "objectCount": "objecten",
     "highlightsTitle": "Uitgelicht"
   },

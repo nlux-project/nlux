@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { institutions, institutionSearchUrl } from '../../config/institutions'
+import { useGetSearchEstimateQuery } from '../../redux/api/ml_api'
 import i18n from '../../i18n'
 import theme from '../../styles/theme'
 
@@ -42,18 +43,57 @@ const InstitutionCard = styled(Link)`
   }
 `
 
+const InstitutionName = styled.span`
+  display: block;
+`
+
+const InstitutionCount = styled.span`
+  display: block;
+  color: ${theme.color.gray};
+  font-size: 12.5px;
+  font-weight: ${theme.font.weight.light};
+  margin-top: 2px;
+`
+
+interface IInstitutionCardProps {
+  name: string
+  searchTerm: string
+}
+
+const InstitutionCardItem: React.FC<IInstitutionCardProps> = ({
+  name,
+  searchTerm,
+}) => {
+  const { data: totalItems } = useGetSearchEstimateQuery({
+    scope: 'item',
+    q: searchTerm,
+  })
+
+  return (
+    <InstitutionCard
+      to={institutionSearchUrl(searchTerm)}
+      data-testid={`institution-card-${name}`}
+    >
+      <InstitutionName>{name}</InstitutionName>
+      {totalItems !== undefined && (
+        <InstitutionCount data-testid={`institution-count-${name}`}>
+          {i18n.t('landing.institutionObjects', { count: totalItems })}
+        </InstitutionCount>
+      )}
+    </InstitutionCard>
+  )
+}
+
 const InstitutionsSection: React.FC = () => (
   <Section data-testid="institutions-container">
     <SectionTitle>{i18n.t('landing.institutionsTitle')}</SectionTitle>
     <Grid>
       {institutions.map((institution) => (
-        <InstitutionCard
+        <InstitutionCardItem
           key={institution.name}
-          to={institutionSearchUrl(institution.searchTerm)}
-          data-testid={`institution-card-${institution.name}`}
-        >
-          {institution.name}
-        </InstitutionCard>
+          name={institution.name}
+          searchTerm={institution.searchTerm}
+        />
       ))}
     </Grid>
   </Section>

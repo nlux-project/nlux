@@ -12,7 +12,7 @@ from sqlalchemy.orm import sessionmaker
 from app.database import Base
 from app.facets import facet_page
 from app.models import Record
-from app.search import search_records
+from app.search import fts_match_expr, search_records
 
 
 def _record(uri, linked_art_type, label, data):
@@ -339,6 +339,71 @@ class RefineFacetsTest(unittest.TestCase):
         items, _ = search_records(self.db, "prent", "item", sort="unknownField:asc")
         # Results are returned even though the sort is unsupported
         self.assertEqual(len(items), 2)
+
+    # -- FTS query quoting -------------------------------------------------
+
+    def test_fts_match_expr_quotes_tokens(self):
+        # Hyphens must be neutralised so FTS5 does not parse them as
+        # column filters ("no such column"), quotes doubled inside terms
+        self.assertEqual(
+            fts_match_expr("Noord-Hollands Archief"),
+            '"Noord-Hollands" "Archief"',
+        )
+        self.assertEqual(fts_match_expr('foo"bar'), '"foo""bar"')
+        self.assertEqual(fts_match_expr(""), '""')
+
+    def test_hyphenated_full_text_search_uses_fts(self):
+        # The hyphen in "Noord-Hollands" used to raise an FTS5 syntax error
+        # ("no such column: Hollands") and silently degrade to the LIKE
+        # fallback. Reordered tokens still match via FTS implicit AND —
+        # the contiguous LIKE fallback would find nothing.
+        items, total = search_records(
+            self.db, "Archief Noord-Hollands", "item", page=1, page_length=20
+        )
+        self.assertEqual(total, 1)
+        self.assertEqual(_ids((items, total)), ["http://localhost:8000/data/object/b"])
+
+    def test_estimate_of_hyphenated_term(self):
+        # The landing page counts institutions via the search-estimate flow
+        # (page_length=0: no rows, only the total)
+        items, total = search_records(
+            self.db, "Noord-Hollands Archief", "item", page=1, page_length=0
+        )
+        self.assertEqual(items, [])
+        self.assertEqual(total, 1)
+
+    def test_hyphenated_text_in_structured_query_uses_fts(self):
+        # Mixed text+facet queries pre-filter via FTS (search._fts_uris_for_text)
+        query = json.dumps(
+            {
+                "text": "Archief Noord-Hollands",
+                "_lang": "en",
+                "currentOwnerLabel": "Noord-Hollands Archief",
+            }
+        )
+        items, total = search_records(self.db, query, "item", page=1, page_length=20)
+        self.assertEqual(total, 1)
+        self.assertEqual(_ids((items, total)), ["http://localhost:8000/data/object/b"])
+
+    def test_hyphenated_text_in_facet_counts(self):
+        # Facet counting pre-filters via FTS (facets._text_query_records);
+        # hyphenated terms must not break the query
+        query = json.dumps(
+            {"text": "Noord-Hollands Archief", "_lang": "en"}
+        )
+        page = facet_page(
+            self.db,
+            "item",
+            "itemCurrentOwnerLabel",
+            q=query,
+            page=1,
+            page_length=20,
+            base_url="http://localhost:8000",
+            context_url="https://example.org/",
+        )
+        self.assertEqual(
+            _values(page), {"Noord-Hollands Archief": 1}
+        )
 
 
 if __name__ == "__main__":
