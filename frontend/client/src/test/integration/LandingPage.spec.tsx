@@ -6,6 +6,7 @@ import config from '../../config/config'
 import AppRender from './utils/AppRender'
 import cmsMockApi from './utils/cmsMockApi'
 import statsMockApi from './utils/statsMockApi'
+import highlightsMockApi from './utils/highlightsMockApi'
 import eventTrackingMock from './utils/eventTrackingMock'
 
 describe('Landing page', () => {
@@ -14,6 +15,7 @@ describe('Landing page', () => {
   beforeEach(async () => {
     cmsMockApi()
     statsMockApi()
+    highlightsMockApi()
     eventTrackingMock()
   })
 
@@ -143,23 +145,35 @@ describe('Landing page', () => {
     })
   })
 
+  describe('Highlights', () => {
+    it('renders the highlights section with a card', async () => {
+      render(<AppRender route={page} />)
+
+      const section = await screen.findByTestId('highlights-container')
+      expect(section).toBeInTheDocument()
+      expect(section).toHaveTextContent(/Uitgelicht/i)
+      const card = await screen.findByTestId('highlights-card')
+      expect(card).toHaveTextContent('Mock Highlight')
+    })
+  })
+
   describe('More About LUX', () => {
-    it('renders', async () => {
+    it('is removed from the landing page', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
-      const about = screen.getByTestId('more-about-lux-container')
-      expect(about).toBeInTheDocument()
+      const about = screen.queryByTestId('more-about-lux-container')
+      expect(about).not.toBeInTheDocument()
     })
   })
 
   describe('Whats in LUX', () => {
-    it('renders', async () => {
+    it('is removed from the landing page', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/What's in LUX/i)
-      const section = screen.getByTestId('whats-in-lux-container')
-      expect(section).toBeInTheDocument()
+      await findAllByText(/Ontdek het erfgoed van Noord-Holland/i)
+      const section = screen.queryByTestId('whats-in-lux-container')
+      expect(section).not.toBeInTheDocument()
     })
   })
 

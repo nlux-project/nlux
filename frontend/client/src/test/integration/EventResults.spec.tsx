@@ -22,17 +22,16 @@ describe('Event results page', () => {
 
   describe('Results header', () => {
     it('renders the correct title', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/Events results/i)
-      const title = screen.getByTestId('results-header-title')
-      expect(title).toHaveTextContent('6 Events results')
+      const title = await screen.findByTestId('results-header-title')
+      expect(title).toHaveTextContent('6 resultaten')
     })
 
     it('renders the correct results descriptor', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/Events results/i)
+      await screen.findByTestId('results-header-title')
       await screen.findByText(/Description of the events results\./)
       const descriptor = screen.getByTestId('results-page-cms-descriptor')
       expect(descriptor).toHaveTextContent('Description of the events results.')

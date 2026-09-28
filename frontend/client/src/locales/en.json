@@ -145,6 +145,30 @@
     "heroTitle": "Discover the heritage of North Holland",
     "heroSub": "Search the collections of North Holland heritage institutions – from prints and paintings to photographs and archaeological finds.",
     "institutionsTitle": "Partner institutions",
-    "objectCount": "objects"
+    "objectCount": "objects",
+    "highlightsTitle": "Highlights"
+  },
+  "results": {
+    "title": "Search results",
+    "resultsCount": "{{total}} results",
+    "sortLabel": "Sort by",
+    "sortRelevance": "Relevance",
+    "sortNameAZ": "Title A–Z",
+    "sortNewestFirst": "Newest first",
+    "gridView": "Grid view",
+    "listView": "List view",
+    "newSearchAlert": "Please enter a new search to search for {{scope}} results."
+  },
+  "refine": {
+    "title": "Refine results",
+    "institution": "Institution",
+    "type": "Type",
+    "period": "Period",
+    "allPeriods": "All periods",
+    "before1600": "Before 1600",
+    "period1600to1800": "1600–1800",
+    "period1800to1950": "1800–1950",
+    "after1950": "After 1950",
+    "clear": "Clear filters"
   }
 }

@@ -13,7 +13,7 @@ import { ISearchResponse } from '../../types/ISearchResponse'
 import { getParamPrefix } from '../../lib/util/params'
 import { ResultsTab } from '../../types/ResultsTab'
 import StyledEntityPageSection from '../../styles/shared/EntityPageSection'
-import { advancedSearchTitles } from '../../config/searchTypes'
+import i18n from '../../i18n'
 import theme from '../../styles/theme'
 import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 // import config from '../../config/config'
@@ -75,7 +75,17 @@ const getScopedResultsComponent: any = (
   return null
 }
 
-const title = 'Results Page'
+const title = i18n.t('results.title')
+
+const tabLabelKeys: Record<string, string> = {
+  objects: 'search.objects',
+  works: 'search.works',
+  collections: 'search.collections',
+  people: 'search.peopleOrGroups',
+  places: 'search.places',
+  concepts: 'search.concepts',
+  events: 'search.events',
+}
 
 const ResultsPage: React.FC = () => {
   const auth = useAuth()
@@ -228,8 +238,9 @@ const ResultsPage: React.FC = () => {
               className="mt-3"
               data-testid="results-info-alert"
             >
-              Please enter a new search to begin searching for{' '}
-              {advancedSearchTitles[tab]} results.
+              {i18n.t('results.newSearchAlert', {
+                scope: i18n.t(tabLabelKeys[tab] ?? 'search.objects'),
+              })}
             </Alert>
           </Col>
         ) : (

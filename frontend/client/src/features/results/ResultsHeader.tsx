@@ -7,6 +7,7 @@ import { useAuth } from 'react-oidc-context'
 import { useDispatch } from 'react-redux'
 
 import theme from '../../styles/theme'
+import i18n from '../../i18n'
 import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 import StyledResultsHeader from '../../styles/features/results/ResultsHeader'
 import StyledHr from '../../styles/shared/Hr'
@@ -15,7 +16,6 @@ import { OverlayKey } from '../../config/cms'
 import { getParamPrefix } from '../../lib/util/params'
 import EntityResultsDescription from '../cms/EntityResultsDescription'
 import { ResultsTab } from '../../types/ResultsTab'
-import LuxOverlay from '../common/LuxOverlay'
 import MobileSelectedFacets from '../facets/MobileSelectedFacets'
 import { searchScope } from '../../config/searchTypes'
 import { useWindowWidth } from '../../lib/hooks/useWindowWidth'
@@ -36,6 +36,7 @@ import SelectAll from '../common/SelectAll'
 import { useGetUserResultsQuery } from '../../redux/api/ml_api'
 
 import Sort from './Sort'
+import SortDropdown from './ResultsSortDropdown'
 
 const StyledCol = styled(Col)`
   margin-bottom: 12px;
@@ -60,14 +61,13 @@ const StyledDiv = styled.div`
 
 interface IResultsHeader {
   total: number
-  label: string
+  label?: string
   overlay: OverlayKey
   resultsData?: ISearchResults
 }
 
 const ResultsHeader: React.FC<IResultsHeader> = ({
   total,
-  label,
   overlay,
   resultsData,
 }) => {
@@ -277,10 +277,7 @@ const ResultsHeader: React.FC<IResultsHeader> = ({
             className="mb-0 resultsHeaderTitle"
             data-testid="results-header-title"
           >
-            <StyledDiv>
-              {total} {label} results
-            </StyledDiv>
-            {(tab === 'objects' || tab === 'works') && <LuxOverlay />}
+            <StyledDiv>{i18n.t('results.resultsCount', { total })}</StyledDiv>
           </StyledResultsHeader>
         </Col>
       </Row>
@@ -350,7 +347,7 @@ const ResultsHeader: React.FC<IResultsHeader> = ({
                         className="bi bi-grid-3x3-gap-fill mx-2 d-inline-block"
                         style={{ color: theme.color.link }}
                       />
-                      Grid View
+                      {i18n.t('results.gridView')}
                     </React.Fragment>
                   ) : (
                     <React.Fragment>
@@ -358,12 +355,12 @@ const ResultsHeader: React.FC<IResultsHeader> = ({
                         className="bi bi-list-ul mx-2 d-inline-block"
                         style={{ color: theme.color.link }}
                       />
-                      List View
+                      {i18n.t('results.listView')}
                     </React.Fragment>
                   )}
                 </Button>
               </div>
-              <Sort />
+              {tab === 'objects' ? <SortDropdown /> : <Sort />}
             </Col>
             {userIsAuthenticated && (
               <Col

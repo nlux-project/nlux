@@ -24,17 +24,16 @@ describe('Place results page', () => {
 
   describe('Results header', () => {
     it('renders the correct title', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/Places results/i)
-      const title = screen.getByTestId('results-header-title')
-      expect(title).toHaveTextContent('10 Places results')
+      const title = await screen.findByTestId('results-header-title')
+      expect(title).toHaveTextContent('10 resultaten')
     })
 
     it('renders the correct results descriptor', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/Places results/i)
+      await screen.findByTestId('results-header-title')
       await screen.findByText(/Description of the places results\./)
       const descriptor = screen.getByTestId('results-page-cms-descriptor')
       expect(descriptor).toHaveTextContent('Description of the places results.')

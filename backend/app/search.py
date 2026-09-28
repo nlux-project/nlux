@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import threading
-from typing import Optional, Tuple, List, Dict, Any
+from typing import Optional, Tuple, List, Dict, Any, Set
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from .config import settings
@@ -49,6 +49,79 @@ def _walk_json(value: Any):
     elif isinstance(value, list):
         for child in value:
             yield from _walk_json(child)
+
+
+def _as_list(value: Any) -> list[Any]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    return [value]
+
+
+def _labels_at_paths(data: dict, paths: List[str]) -> list[str]:
+    """Collect distinct _label strings at the given top-level paths."""
+    labels: list[str] = []
+    seen: set[str] = set()
+    for path in paths:
+        for node in _walk_json(data.get(path)):
+            label = node.get("_label") if isinstance(node, dict) else None
+            if isinstance(label, str) and label and label not in seen:
+                seen.add(label)
+                labels.append(label)
+    return labels
+
+
+def _has_label_at_paths(data: dict, paths: List[str], label: str) -> bool:
+    wanted = label.strip().lower()
+    return any(
+        value.strip().lower() == wanted for value in _labels_at_paths(data, paths)
+    )
+
+
+_TIMESPAN_YEAR_KEYS = (
+    "begin_of_the_begin",
+    "begin_of_the_end",
+    "end_of_the_begin",
+    "end_of_the_end",
+)
+
+
+def _production_years(data: dict) -> list[int]:
+    """Years appearing in produced_by timespans (used for period filtering)."""
+    years: list[int] = []
+    for produced_by in _as_list(data.get("produced_by")):
+        if not isinstance(produced_by, dict):
+            continue
+        for timespan in _as_list(produced_by.get("timespan")):
+            if not isinstance(timespan, dict):
+                continue
+            for key in _TIMESPAN_YEAR_KEYS:
+                value = timespan.get(key)
+                if isinstance(value, str) and value[:4].isdigit():
+                    year = int(value[:4])
+                    if year not in years:
+                        years.append(year)
+    return years
+
+
+def _production_year_in_range(data: dict, value: Any) -> bool:
+    """True when any production year falls in [begin, end) — begin inclusive, end exclusive."""
+    if not isinstance(value, dict):
+        return False
+    begin = value.get("begin")
+    end = value.get("end")
+    try:
+        begin_year = int(begin) if begin is not None else None
+        end_year = int(end) if end is not None else None
+    except (TypeError, ValueError):
+        return False
+    for year in _production_years(data):
+        if (begin_year is None or year >= begin_year) and (
+            end_year is None or year < end_year
+        ):
+            return True
+    return False
 
 
 def _has_nested_id(value: Any, uri: str) -> bool:
@@ -141,44 +214,110 @@ def _scope_fingerprint(db: Session, types: List[str]) -> Tuple:
     return tuple(row) if row else ()
 
 
-def _matches_structured_query(data: dict, criteria: Any) -> bool:
+def _matches_structured_query(
+    data: dict, criteria: Any, text_uris: Optional[Dict[str, Set[str]]] = None
+) -> bool:
     if not isinstance(criteria, dict):
         return False
     if "AND" in criteria:
         parts = criteria["AND"]
         return isinstance(parts, list) and all(
-            _matches_structured_query(data, part) for part in parts
+            _matches_structured_query(data, part, text_uris) for part in parts
         )
     if "OR" in criteria:
         parts = criteria["OR"]
         return isinstance(parts, list) and any(
-            _matches_structured_query(data, part) for part in parts
+            _matches_structured_query(data, part, text_uris) for part in parts
         )
 
+    # A flat object is the AND of all of its fields.
     for field, value in criteria.items():
         if field in {"_lang", "_scope"}:
             continue
-        if field == "text":
-            return isinstance(value, str) and _text_matches(data, value)
-        if field == "recordType":
-            return data.get("type") == value
-        if field == "hasDigitalImage":
-            return _has_digital_image(data) == bool(value)
-        uri = _criteria_id(value)
-        paths = FIELD_PATHS.get(field)
-        if uri is None or paths is None:
-            continue
-        if any(_has_nested_id(data.get(path), uri) for path in paths):
-            return True
-    return False
+        if not _matches_single_criterion(data, field, value, text_uris):
+            return False
+    return True
+
+
+def _matches_single_criterion(
+    data: dict,
+    field: str,
+    value: Any,
+    text_uris: Optional[Dict[str, Set[str]]] = None,
+) -> bool:
+    if field == "text":
+        if not isinstance(value, str):
+            return False
+        if text_uris is not None:
+            uris = text_uris.get(value.lower())
+            return uris is not None and data.get("id") in uris
+        return _text_matches(data, value)
+    if field == "recordType":
+        return data.get("type") == value
+    if field == "hasDigitalImage":
+        return _has_digital_image(data) == bool(value)
+    if field == "currentOwnerLabel":
+        return isinstance(value, str) and _has_label_at_paths(
+            data, ["current_owner", "current_custodian"], value
+        )
+    if field == "classificationLabel":
+        return isinstance(value, str) and _has_label_at_paths(
+            data, ["classified_as"], value
+        )
+    if field == "productionDateRange":
+        return _production_year_in_range(data, value)
+    uri = _criteria_id(value)
+    paths = FIELD_PATHS.get(field)
+    if uri is None or paths is None:
+        # Unknown field: ignore (treated as satisfied)
+        return True
+    return any(_has_nested_id(data.get(path), uri) for path in paths)
+
+
+_STRUCTURED_QUERY_FIELDS = {
+    "recordType",
+    "hasDigitalImage",
+    "currentOwnerLabel",
+    "classificationLabel",
+    "productionDateRange",
+}
 
 
 def _is_structured_query(parsed: Any) -> bool:
-    if not isinstance(parsed, dict) or "text" in parsed:
+    if not isinstance(parsed, dict):
         return False
     if "AND" in parsed or "OR" in parsed:
         return True
-    return any(key in FIELD_PATHS or key in {"recordType", "hasDigitalImage"} for key in parsed)
+    has_structured = any(
+        key in FIELD_PATHS or key in _STRUCTURED_QUERY_FIELDS
+        for key in parsed
+        if key not in {"text", "_lang", "_scope"}
+    )
+    # A text-only query goes down the full-text search path
+    return has_structured
+
+
+SORT_FIELDS = {"anySortName", "itemProductionDate"}
+
+
+def _parse_sort(sort: Optional[str]) -> Optional[Tuple[str, str]]:
+    """Parse a 'field:direction' sort parameter into a supported pair."""
+    if not sort:
+        return None
+    field, _, direction = sort.partition(":")
+    if field not in SORT_FIELDS:
+        return None
+    if direction not in {"asc", "desc"}:
+        direction = "asc" if field == "anySortName" else "desc"
+    return field, direction
+
+
+def _sort_key_for(field: str, label: str, data: dict) -> str:
+    """Sort key for Python-side sorting of structured-query results."""
+    if field == "itemProductionDate":
+        years = _production_years(data)
+        return str(min(years)) if years else ""
+    return (label or "").lower()
 
 
 def search_records(
@@ -187,6 +326,7 @@ def search_records(
     scope: str,
     page: int = 1,
     page_length: Optional[int] = None,
+    sort: Optional[str] = None,
 ) -> Tuple[List[Dict[str, Any]], int]:
     """
     Returns (items, total_count).
@@ -198,14 +338,17 @@ def search_records(
         page_length = settings.page_length_default
     page_length = min(page_length, settings.page_length_max)
     offset = max(page - 1, 0) * page_length
+    parsed_sort = _parse_sort(sort)
 
     if _is_structured_query(parsed):
-        return _json_search(db, parsed, scope, offset, page_length)
+        return _json_search(
+            db, parsed, scope, offset, page_length, parsed_sort
+        )
 
     q = _extract_query_text(q)
     if _is_sqlite(db):
-        return _sqlite_search(db, q, scope, offset, page_length)
-    return _pg_search(db, q, scope, offset, page_length)
+        return _sqlite_search(db, q, scope, offset, page_length, parsed_sort)
+    return _pg_search(db, q, scope, offset, page_length, parsed_sort)
 
 
 def count_records(db: Session, q: str, scope: str) -> int:
@@ -221,10 +364,72 @@ def _type_placeholders(types: List[str]) -> Tuple[str, Dict]:
     return clause, params
 
 
-def _json_search(db: Session, criteria: dict, scope: str, offset: int, limit: int):
+def _collect_text_terms(node: Any, acc: List[str]) -> None:
+    """Recursively collect all "text" terms from a structured query tree."""
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if key == "text" and isinstance(value, str):
+                acc.append(value)
+            elif key in {"AND", "OR"} and isinstance(value, list):
+                for part in value:
+                    _collect_text_terms(part, acc)
+    elif isinstance(node, list):
+        for part in node:
+            _collect_text_terms(part, acc)
+
+
+def _fts_uris_for_text(db: Session, q: str) -> Set[str]:
+    """
+    URIs whose full-text index matches the given text query.
+    Falls back to a LIKE query over search_text when FTS is unavailable.
+    """
+    try:
+        rows = db.execute(
+            text(
+                "SELECT r.uri FROM records r "
+                "JOIN records_fts fts ON fts.rowid = r.rowid "
+                "WHERE records_fts MATCH :q"
+            ),
+            {"q": q},
+        ).fetchall()
+    except Exception:
+        rows = (
+            db.query(Record.uri)
+            .filter(Record.search_text.like(f"%{q}%"))
+            .all()
+        )
+    return {row[0] for row in rows}
+
+
+def _text_uri_sets(
+    db: Session, criteria: dict
+) -> Optional[Dict[str, Set[str]]]:
+    """
+    Precompute the FTS result set for every text term in the query tree so
+    that mixed text/facet queries intersect with the exact full-text search
+    instead of using substring matching over the document.
+    """
+    terms: List[str] = []
+    _collect_text_terms(criteria, terms)
+    if not terms:
+        return None
+    return {
+        term.lower(): _fts_uris_for_text(db, term) for term in terms
+    }
+
+
+def _json_search(
+    db: Session,
+    criteria: dict,
+    scope: str,
+    offset: int,
+    limit: int,
+    parsed_sort: Optional[Tuple[str, str]] = None,
+):
     types = SCOPE_TYPES.get(scope, [])
 
-    key = f"{scope}|{json.dumps(criteria, sort_keys=True, default=str)}"
+    sort_key_part = json.dumps(parsed_sort) if parsed_sort is not None else ""
+    key = f"{scope}|{json.dumps(criteria, sort_keys=True, default=str)}|{sort_key_part}"
     fingerprint = _scope_fingerprint(db, types)
     with _json_result_lock:
         hit = _json_result_cache.get(key)
@@ -234,6 +439,7 @@ def _json_search(db: Session, criteria: dict, scope: str, offset: int, limit: in
             matches = None
 
     if matches is None:
+        text_uris = _text_uri_sets(db, criteria)
         query = db.query(Record)
         if types:
             query = query.filter(Record.type.in_(types))
@@ -243,8 +449,22 @@ def _json_search(db: Session, criteria: dict, scope: str, offset: int, limit: in
             data = _load_doc(record)
             if data is None:
                 continue
-            if _matches_structured_query(data, criteria):
-                matches.append((record.uri, record.type))
+            if _matches_structured_query(data, criteria, text_uris):
+                label = record.label or ""
+                sort_value = (
+                    _sort_key_for(parsed_sort[0], label, data)
+                    if parsed_sort is not None
+                    else ""
+                )
+                matches.append((record.uri, record.type, label, sort_value))
+
+        if parsed_sort is not None:
+            matches.sort(key=lambda match: match[3], reverse=(parsed_sort[1] == "desc"))
+
+        matches = [
+            (uri, linked_art_type, label)
+            for uri, linked_art_type, label, _ in matches
+        ]
 
         with _json_result_lock:
             if len(_json_result_cache) >= 256:
@@ -253,12 +473,38 @@ def _json_search(db: Session, criteria: dict, scope: str, offset: int, limit: in
 
     total = len(matches)
     rows = matches[offset : offset + limit] if limit > 0 else []
-    return [{"id": uri, "type": linked_art_type} for uri, linked_art_type in rows], total
+    return [
+        {"id": uri, "type": linked_art_type, "label": label}
+        for uri, linked_art_type, label in rows
+    ], total
 
 
-def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):
+def _sqlite_order_clause(parsed_sort: Optional[Tuple[str, str]]) -> str:
+    """ORDER BY clause for the SQLite FTS path; empty when sorting by relevance."""
+    if parsed_sort is None:
+        return ""
+    field, direction = parsed_sort
+    if field == "itemProductionDate":
+        date_expr = "json_extract(r.data, '$.produced_by.timespan.end_of_the_end')"
+        # NULLS LAST in both directions, then by label for determinism
+        return (
+            f" ORDER BY ({date_expr} IS NULL), {date_expr} {direction}, "
+            f"r.label COLLATE NOCASE"
+        )
+    return f" ORDER BY r.label COLLATE NOCASE {direction}"
+
+
+def _sqlite_search(
+    db: Session,
+    q: str,
+    scope: str,
+    offset: int,
+    limit: int,
+    parsed_sort: Optional[Tuple[str, str]] = None,
+):
     types = SCOPE_TYPES.get(scope, [])
     type_clause, type_params = _type_placeholders(types) if types else ("", {})
+    order_clause = _sqlite_order_clause(parsed_sort)
 
     try:
         if types:
@@ -270,9 +516,10 @@ def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):
             total = db.execute(count_sql, {"q": q, **type_params}).scalar() or 0
 
             rows_sql = text(
-                f"SELECT r.uri, r.type FROM records r "
+                f"SELECT r.uri, r.type, r.label FROM records r "
                 f"JOIN records_fts fts ON fts.rowid = r.rowid "
                 f"WHERE records_fts MATCH :q AND r.type IN ({type_clause}) "
+                f"{order_clause} "
                 f"LIMIT :limit OFFSET :offset"
             )
             rows = db.execute(rows_sql, {"q": q, **type_params, "limit": limit, "offset": offset}).fetchall()
@@ -280,9 +527,10 @@ def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):
             count_sql = text("SELECT COUNT(*) FROM records_fts WHERE records_fts MATCH :q")
             total = db.execute(count_sql, {"q": q}).scalar() or 0
             rows_sql = text(
-                "SELECT r.uri, r.type FROM records r "
+                "SELECT r.uri, r.type, r.label FROM records r "
                 "JOIN records_fts fts ON fts.rowid = r.rowid "
-                "WHERE records_fts MATCH :q LIMIT :limit OFFSET :offset"
+                f"WHERE records_fts MATCH :q {order_clause} "
+                "LIMIT :limit OFFSET :offset"
             )
             rows = db.execute(rows_sql, {"q": q, "limit": limit, "offset": offset}).fetchall()
     except Exception:
@@ -292,15 +540,42 @@ def _sqlite_search(db: Session, q: str, scope: str, offset: int, limit: int):
         if types:
             query = query.filter(Record.type.in_(types))
         total = query.count()
-        rows = [(r.uri, r.type) for r in query.offset(offset).limit(limit).all()]
+        # The LIKE fallback cannot sort on the production date (stored in
+        # JSON); fall back to label ordering whenever a sort is requested.
+        if parsed_sort is not None:
+            query = (
+                query.order_by(Record.label.desc())
+                if parsed_sort[1] == "desc"
+                else query.order_by(Record.label)
+            )
+        rows = [(r.uri, r.type, r.label) for r in query.offset(offset).limit(limit).all()]
 
-    items = [{"id": row[0], "type": row[1]} for row in rows]
+    items = [{"id": row[0], "type": row[1], "label": row[2]} for row in rows]
     return items, total
 
 
-def _pg_search(db: Session, q: str, scope: str, offset: int, limit: int):
+def _pg_order_clause(parsed_sort: Optional[Tuple[str, str]]) -> str:
+    """ORDER BY clause for the PostgreSQL tsvector path; empty when sorting by relevance."""
+    if parsed_sort is None:
+        return ""
+    field, direction = parsed_sort
+    if field == "itemProductionDate":
+        date_expr = "(data::jsonb #>> '{produced_by,timespan,end_of_the_end}')"
+        return f" ORDER BY ({date_expr} IS NULL), {date_expr} {direction}, label"
+    return f" ORDER BY lower(label) {direction}"
+
+
+def _pg_search(
+    db: Session,
+    q: str,
+    scope: str,
+    offset: int,
+    limit: int,
+    parsed_sort: Optional[Tuple[str, str]] = None,
+):
     types = SCOPE_TYPES.get(scope, [])
     type_clause, type_params = _type_placeholders(types) if types else ("", {})
+    order_clause = _pg_order_clause(parsed_sort)
 
     if types:
         sql_count = text(
@@ -311,9 +586,10 @@ def _pg_search(db: Session, q: str, scope: str, offset: int, limit: int):
         total = db.execute(sql_count, {"q": q, **type_params}).scalar() or 0
 
         sql_rows = text(
-            f"SELECT uri, type FROM records "
+            f"SELECT uri, type, label FROM records "
             f"WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q) "
             f"AND type IN ({type_clause}) "
+            f"{order_clause} "
             f"LIMIT :limit OFFSET :offset"
         )
         rows = db.execute(sql_rows, {"q": q, **type_params, "limit": limit, "offset": offset}).fetchall()
@@ -324,11 +600,12 @@ def _pg_search(db: Session, q: str, scope: str, offset: int, limit: int):
         )
         total = db.execute(sql_count, {"q": q}).scalar() or 0
         sql_rows = text(
-            "SELECT uri, type FROM records "
+            "SELECT uri, type, label FROM records "
             "WHERE to_tsvector('simple', search_text) @@ plainto_tsquery('simple', :q) "
+            f"{order_clause} "
             "LIMIT :limit OFFSET :offset"
         )
         rows = db.execute(sql_rows, {"q": q, "limit": limit, "offset": offset}).fetchall()
 
-    items = [{"id": row[0], "type": row[1]} for row in rows]
+    items = [{"id": row[0], "type": row[1], "label": row[2]} for row in rows]
     return items, total

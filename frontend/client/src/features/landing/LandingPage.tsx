@@ -13,7 +13,6 @@ import {
   useGetLandingPageQuery,
   useGetLandingPageImagesQuery,
 } from '../../redux/api/cmsApi'
-import { useGetStatsQuery } from '../../redux/api/ml_api'
 import { StyledLandingPage } from '../../styles/features/landing/LandingPage'
 import theme from '../../styles/theme'
 import i18n from '../../i18n'
@@ -22,9 +21,8 @@ import SearchContainer from '../search/SearchContainer'
 import FeaturedCollectionsSection from './FeaturedCollectionsSection'
 import FooterBlocks from './FooterBlocksSection'
 import HeroImageSection from './HeroImageSection'
+import HighlightsSection from './HighlightsSection'
 import InstitutionsSection from './InstitutionsSection'
-import Infographics from './InfographicsSection'
-import MoreAboutLux from './MoreAboutLuxSection'
 
 const HeroSection = styled.section`
   background: linear-gradient(150deg, #eaf3f8 0%, #f6fbfe 55%, #ffffff 100%);
@@ -79,7 +77,6 @@ const Landing: React.FC = () => {
   const landingPageResult = useGetLandingPageQuery()
   const imagesResult = useGetLandingPageImagesQuery()
   const featuredResult = useGetFeaturedCollectionsQuery()
-  const statsResult = useGetStatsQuery()
 
   if (
     imagesResult.isSuccess &&
@@ -135,24 +132,9 @@ const Landing: React.FC = () => {
           </Row>
         )}
         <InstitutionsSection />
-        {landingPageResult.isSuccess && landingPageResult.data && (
-          <Row className="mx-0">
-            <Col xs={12}>
-              <ErrorBoundary FallbackComponent={ErrorFallback}>
-                <MoreAboutLux data={landingPageResult.data} />
-              </ErrorBoundary>
-            </Col>
-          </Row>
-        )}
-        {statsResult.isSuccess && statsResult.data && (
-          <Row className="mx-0">
-            <Col xs={12}>
-              <ErrorBoundary FallbackComponent={ErrorFallback}>
-                <Infographics data={statsResult.data} />
-              </ErrorBoundary>
-            </Col>
-          </Row>
-        )}
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <HighlightsSection />
+        </ErrorBoundary>
         {landingPageResult.isSuccess && landingPageResult.data && (
           <Row className="mx-0">
             <Col xs={12}>

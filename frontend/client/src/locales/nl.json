@@ -41,7 +41,7 @@
     "open": "Zoeken openen",
     "close": "Zoeken sluiten",
     "inputLabel": "Zoekveld",
-    "placeholder": "Zoek op trefwoord, titel of maker \u2026",
+    "placeholder": "Zoek op trefwoord, titel of maker …",
     "submit": "Zoeken",
     "advanced": "Uitgebreid zoeken",
     "tips": "Zoektips",
@@ -56,9 +56,10 @@
   },
   "landing": {
     "heroTitle": "Ontdek het erfgoed van Noord-Holland",
-    "heroSub": "Zoek in de collecties van Noord-Hollandse erfgoedinstellingen \u2013 van prenten en schilderijen tot foto's en archeologische vondsten.",
+    "heroSub": "Zoek in de collecties van Noord-Hollandse erfgoedinstellingen – van prenten en schilderijen tot foto's en archeologische vondsten.",
     "institutionsTitle": "Aangesloten instellingen",
-    "objectCount": "objecten"
+    "objectCount": "objecten",
+    "highlightsTitle": "Uitgelicht"
   },
   "labels": {
     "About": "Gegevens",
@@ -146,5 +147,28 @@
   },
   "object": {
     "technique": "Techniek"
+  },
+  "results": {
+    "title": "Zoekresultaten",
+    "resultsCount": "{{total}} resultaten",
+    "sortLabel": "Sorteer op",
+    "sortRelevance": "Relevantie",
+    "sortNameAZ": "Titel A–Z",
+    "sortNewestFirst": "Nieuwste eerst",
+    "gridView": "Rasterweergave",
+    "listView": "Lijstweergave",
+    "newSearchAlert": "Voer een nieuwe zoekopdracht in om te zoeken naar {{scope}}-resultaten."
+  },
+  "refine": {
+    "title": "Verfijn resultaten",
+    "institution": "Instelling",
+    "type": "Type",
+    "period": "Periode",
+    "allPeriods": "Alle periodes",
+    "before1600": "Voor 1600",
+    "period1600to1800": "1600 – 1800",
+    "period1800to1950": "1800 – 1950",
+    "after1950": "Na 1950",
+    "clear": "Wis filters"
   }
 }

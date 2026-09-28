@@ -138,6 +138,31 @@ def _classified_as(record: Record, data: dict[str, Any]) -> list[str]:
     return _ids_at_paths(data, ["classified_as"])
 
 
+def _classification_labels(record: Record, data: dict[str, Any]) -> list[str]:
+    """Distinct _label values of classified_as nodes (the 'Type' facet)."""
+    labels: list[str] = []
+    seen: set[str] = set()
+    for node in _walk_json(data.get("classified_as")):
+        label = node.get("_label") if isinstance(node, dict) else None
+        if isinstance(label, str) and label and label not in seen:
+            seen.add(label)
+            labels.append(label)
+    return labels
+
+
+def _current_owner_labels(record: Record, data: dict[str, Any]) -> list[str]:
+    """Distinct _label values of current_owner / current_custodian (the 'Instelling' facet)."""
+    labels: list[str] = []
+    seen: set[str] = set()
+    for path in ("current_owner", "current_custodian"):
+        for node in _walk_json(data.get(path)):
+            label = node.get("_label") if isinstance(node, dict) else None
+            if isinstance(label, str) and label and label not in seen:
+                seen.add(label)
+                labels.append(label)
+    return labels
+
+
 def _materials(record: Record, data: dict[str, Any]) -> list[str]:
     return _ids_at_paths(data, ["made_of"])
 
@@ -196,6 +221,8 @@ FACETS: dict[str, FacetDefinition] = {
     "itemEncounteredDate": FacetDefinition("item", _encountered_dates),
     "responsibleCollections": FacetDefinition("item", _member_of),
     "responsibleUnits": FacetDefinition("item", _responsible_units),
+    "itemCurrentOwnerLabel": FacetDefinition("item", _current_owner_labels),
+    "itemClassificationLabel": FacetDefinition("item", _classification_labels),
 }
 
 

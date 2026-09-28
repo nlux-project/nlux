@@ -550,20 +550,21 @@ def get_record(
         }
 
     if profile == "results":
+        # The results profile returns the full record document — the frontend
+        # results snippets and highlights need representation (images),
+        # classified_as, produced_by, current_owner, member_of and
+        # identified_by to render cards.
         with SessionLocal() as db:
-            row = db.query(Record.uri, Record.type, Record.label).filter(uri_filter).first()
-        if not row:
+            record = (
+                db.query(Record)
+                .filter(uri_filter)
+                .first()
+            )
+        if not record:
             raise HTTPException(status_code=404, detail="Record not found")
-        return {
-            "@context": CONTEXT_LINKED_ART,
-            "id": row.uri,
-            "type": row.type,
-            "_label": row.label,
-            "identified_by": [{
-                "type": "Name",
-                "content": row.label,
-            }] if row.label else [],
-        }
+        data = json.loads(record.data)
+        _append_generated_iiif_manifest(data)
+        return data
 
     with SessionLocal() as db:
         record = db.query(Record).filter(
@@ -619,7 +620,7 @@ def search(
         pageLength or settings.page_length_default,
         settings.page_length_max,
     )
-    items, total = search_records(db, q, scope, page, page_length)
+    items, total = search_records(db, q, scope, page, page_length, sort)
 
     total_pages = max((total + page_length - 1) // page_length, 1)
     collection_url = _estimate_url(scope, q)
@@ -829,6 +830,8 @@ def search_info():
         "facetBy": [],
         "sortBy": [
             {"name": "relevance", "type": "nonSemantic"},
+            {"name": "anySortName", "type": "nonSemantic"},
+            {"name": "itemProductionDate", "type": "nonSemantic"},
         ],
     }
 

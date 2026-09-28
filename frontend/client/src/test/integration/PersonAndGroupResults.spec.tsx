@@ -22,17 +22,16 @@ describe('Person and Group results page', () => {
 
   describe('Results header', () => {
     it('renders the correct title', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/People & Groups results/i)
-      const title = screen.getByTestId('results-header-title')
-      expect(title).toHaveTextContent('64 People & Groups results')
+      const title = await screen.findByTestId('results-header-title')
+      expect(title).toHaveTextContent('64 resultaten')
     })
 
     it('renders the correct results descriptor', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/People & Groups results/i)
+      await screen.findByTestId('results-header-title')
       await screen.findByText(/Description of the people and groups results\./)
       const descriptor = screen.getByTestId('results-page-cms-descriptor')
       expect(descriptor).toHaveTextContent(
@@ -41,9 +40,9 @@ describe('Person and Group results page', () => {
     })
 
     it('renders the grid view button', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/People & Groups results/i)
+      await screen.findByTestId('results-header-title')
       const icon = screen.getByTestId('switch-to-grid-view-button')
       expect(icon).toBeInTheDocument()
     })
@@ -54,9 +53,9 @@ describe('Person and Group results page', () => {
       '/view/results/people?q=%7B"AND"%3A%5B%7B"text"%3A"andy"%2C"_lang"%3A"en"%7D%2C%7B"text"%3A"warhol"%2C"_lang"%3A"en"%7D%5D%7D&sq=andy+warhol&view=grid'
 
     it('renders the list view button', async () => {
-      const { findAllByText } = render(<AppRender route={gridViewPage} />)
+      render(<AppRender route={gridViewPage} />)
 
-      await findAllByText(/People & Groups results/i)
+      await screen.findByTestId('results-header-title')
       const icon = screen.getByTestId('switch-to-list-view-button')
       expect(icon).toBeInTheDocument()
     })

@@ -1,8 +1,6 @@
-import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
 import React from 'react'
 import { vi } from 'vitest'
-
-import { sortBy } from '../../config/sortingOptions'
 
 import objectMockApi from './utils/objectResultsMockAPI'
 import AppRender from './utils/AppRender'
@@ -34,17 +32,16 @@ describe('Object results page', () => {
 
   describe('Results header', () => {
     it('renders the correct title', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/Objects results/i)
-      const title = screen.getByTestId('results-header-title')
-      expect(title).toHaveTextContent('801 Objects results')
+      const title = await screen.findByTestId('results-header-title')
+      expect(title).toHaveTextContent('801 resultaten')
     })
 
     it('renders the correct results descriptor', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/Objects results/i)
+      await screen.findByTestId('results-header-title')
       await screen.findByText(/Description of the objects results\./)
       const descriptor = screen.getByTestId('results-page-cms-descriptor')
       expect(descriptor).toHaveTextContent(
@@ -53,9 +50,9 @@ describe('Object results page', () => {
     })
 
     it('renders the grid view button', async () => {
-      const { findAllByText } = render(<AppRender route={page} />)
+      render(<AppRender route={page} />)
 
-      await findAllByText(/Objects results/i)
+      await screen.findByTestId('results-header-title')
       const button = screen.getByTestId('switch-to-grid-view-button')
       expect(button).toBeInTheDocument()
     })
@@ -66,9 +63,9 @@ describe('Object results page', () => {
       '/view/results/objects?q=%7B"AND"%3A%5B%7B"text"%3A"andy"%2C"_lang"%3A"en"%7D%2C%7B"text"%3A"warhol"%2C"_lang"%3A"en"%7D%5D%7D&sq=andy+warhol&view=grid'
 
     it('renders the list view button', async () => {
-      const { findAllByText } = render(<AppRender route={gridViewPage} />)
+      render(<AppRender route={gridViewPage} />)
 
-      await findAllByText(/Objects results/i)
+      await screen.findByTestId('results-header-title')
       const button = screen.getByTestId('switch-to-list-view-button')
       expect(button).toBeInTheDocument()
     })
@@ -110,14 +107,13 @@ describe('Object results page', () => {
 
       await findAllByText(/Mock Object/i)
 
-      // Click on the sorting dropdown
-      const sortDropdownButton = screen.getByTestId('sorting-dropdown-button')
-      await act(async () => {
-        fireEvent.click(sortDropdownButton)
-      })
-      const options = screen.getAllByTestId('search-results-sorting-option')
-      const objectSortingOptions = Object.keys(sortBy.objects)
-      expect(options.length).toBe(objectSortingOptions.length)
+      const sortDropdown = screen.getByTestId('results-sort-dropdown')
+      expect(sortDropdown).toBeInTheDocument()
+      const options = screen.getAllByTestId('results-sort-option')
+      expect(options.length).toBe(3)
+      expect(options[0]).toHaveTextContent('Relevantie')
+      expect(options[1]).toHaveTextContent('Titel A–Z')
+      expect(options[2]).toHaveTextContent('Nieuwste eerst')
     })
   })
 

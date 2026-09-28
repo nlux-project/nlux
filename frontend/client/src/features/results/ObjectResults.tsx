@@ -4,7 +4,6 @@ import { useLocation, useParams } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
 
 import { IOrderedItems } from '../../types/ISearchResults'
-import FacetContainer from '../facets/FacetContainer'
 import { ISearchResponse } from '../../types/ISearchResponse'
 import { getParamPrefix } from '../../lib/util/params'
 import PageLoading from '../common/PageLoading'
@@ -13,6 +12,7 @@ import { ResultsTab } from '../../types/ResultsTab'
 import StyledResultsCol from '../../styles/features/results/ResultsCol'
 import StyledEntityResultsRow from '../../styles/features/results/EntityResultsRow'
 
+import RefinePanel from './RefinePanel'
 import ObjectSnippet from './ObjectSnippet'
 import Paginate from './Paginate'
 import ResultsHeader from './ResultsHeader'
@@ -78,7 +78,6 @@ const ObjectResults: React.FC<IProps> = ({ searchResponse, isMobile }) => {
           <ResultsHeader
             key={sort}
             total={data ? estimate : 0}
-            label="Objects"
             overlay="objects"
             resultsData={data}
           />
@@ -94,10 +93,15 @@ const ObjectResults: React.FC<IProps> = ({ searchResponse, isMobile }) => {
               lg={3}
               className="desktop-facets-col"
             >
-              <FacetContainer />
+              <RefinePanel />
             </StyledResultsCol>
           )}
           <Col xs={12} sm={12} md={9} lg={9}>
+            {isMobile && (
+              <div className="mb-3">
+                <RefinePanel />
+              </div>
+            )}
             {!isFetching && isSuccess && data && (
               <React.Fragment>
                 {view === 'list' && resultsList(data.orderedItems)}
