@@ -3,6 +3,7 @@ import React from 'react'
 import { pushClientEvent } from '../../lib/pushClientEvent'
 import { StyledTabButton } from '../../styles/features/common/TabButton'
 import { transformStringForTestId } from '../../lib/parse/data/helper'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 
 interface ITabButton {
   title: string
@@ -40,7 +41,7 @@ const TabButton: React.FC<ITabButton> = ({
         }}
         data-testid={`${testId}-button`}
       >
-        {title}
+        {translateLabel(title)}
         <div className="arrow" />
       </StyledTabButton>
     </li>

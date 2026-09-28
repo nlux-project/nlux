@@ -10,6 +10,7 @@ import StyledDisplaySwitchButton from '../../styles/shared/DisplaySwitchButton'
 import { ITimelinesTransformed } from '../../types/ITimelines'
 import TimelineParser from '../../lib/parse/timeline/TimelineParser'
 import theme from '../../styles/theme'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import Hr from '../../styles/shared/Hr'
 
 import TimelineData from './TimelineData'
@@ -101,7 +102,7 @@ const TimelineContainer: React.FC<{
         >
           <Row>
             <Col xs={12} sm={8} md={8} lg={8} xl={8}>
-              <h2>Timeline of Related Objects/Works</h2>
+              <h2>{translateLabel('Timeline of Related Objects/Works')}</h2>
             </Col>
             <StyledButtonCol
               xs={12}

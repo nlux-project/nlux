@@ -41,7 +41,7 @@ describe('RelatedObjectsWorksAndCollections', () => {
 
     const message = screen.getByTestId('no-related-objects-works')
     expect(message).toHaveTextContent(
-      'We do not have any objects or works directly related to this event.',
+      'We hebben geen objecten of werken die direct gerelateerd zijn aan deze gebeurtenis.',
     )
   })
 })

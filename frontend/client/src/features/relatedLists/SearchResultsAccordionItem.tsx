@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import i18n from '../../i18n'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import { useGetSearchRelationshipQuery } from '../../redux/api/ml_api'
 import { IHalLink } from '../../types/IHalLink'
 import StyledHr from '../../styles/shared/Hr'
@@ -76,7 +78,7 @@ const SearchResultsAccordionItem: React.FC<IProps> = ({
             }}
             data-testid={`search-accordion-item-${searchTerm}-button`}
           >
-            {isLoading ? 'Loading...' : title}
+            {isLoading ? i18n.t('status.loading') : translateLabel(title)}
           </StyledAccordionButton>
         </h2>
         <div

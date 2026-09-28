@@ -10,6 +10,7 @@ import {
 import { getColumnWidth } from '../../lib/util/ui'
 import { transformStringForTestId } from '../../lib/parse/data/helper'
 import { isObjectOrWork } from '../../lib/util/uri'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 import theme from '../../styles/theme'
 
@@ -63,7 +64,7 @@ const NamesContainer: React.FC<INames> = ({
 
   return (
     <React.Fragment>
-      {showHeader && <h3>Names</h3>}
+      {showHeader && <h3>{translateLabel('Names')}</h3>}
       {Object.keys(names).map((nameLabel) => {
         if (names[nameLabel].length === 0) {
           return null

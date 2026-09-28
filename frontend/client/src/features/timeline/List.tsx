@@ -9,6 +9,7 @@ import StyledDt from '../../styles/shared/DescriptionTerm'
 import StyledResponsiveCol from '../../styles/shared/ResponsiveCol'
 import { ITimelinesTransformed } from '../../types/ITimelines'
 import { IHalLinks } from '../../types/IHalLinks'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 
 import ListRow from './ListRow'
 
@@ -77,7 +78,7 @@ const List: React.FC<IProps> = ({
               </Col>
               <StyledResponsiveCol xs={12} sm={12} md={6} lg={12} xl={6}>
                 <StyledDd data-testid={`${year}-total`}>
-                  Total: {transformedData[year].total}
+                  {translateLabel('Total')}: {transformedData[year].total}
                 </StyledDd>
               </StyledResponsiveCol>
             </HoverableRow>

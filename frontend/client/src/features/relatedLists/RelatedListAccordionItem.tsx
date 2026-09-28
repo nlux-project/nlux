@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { isNull } from 'lodash'
 
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import i18n from '../../i18n'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import { useGetRelatedListsQuery } from '../../redux/api/ml_api'
 import { IHalLink } from '../../types/IHalLink'
 import StyledHr from '../../styles/shared/Hr'
@@ -81,7 +83,7 @@ const RelatedListAccordionItem: React.FC<IProps> = ({
             }}
             data-testid={`related-list-accordion-item-${searchTerm}-button`}
           >
-            {isLoading ? 'Loading...' : title}
+            {isLoading ? i18n.t('status.loading') : translateLabel(title)}
           </StyledAccordionButton>
         </h2>
         <div

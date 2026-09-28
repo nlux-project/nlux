@@ -1,5 +1,6 @@
 import React from 'react'
 
+import i18n from '../../i18n'
 import LinkContainer from '../common/LinkContainer'
 import NotesContainer from '../common/NotesContainer'
 import NamesContainer from '../common/NamesContainer'
@@ -30,7 +31,9 @@ const About: React.FC<IProps> = ({ entity }) => {
 
   return (
     <div data-testid="about-place">
-      <StyledH2 data-testid="place-page-about-header">About {name}</StyledH2>
+      <StyledH2 data-testid="place-page-about-header">
+        {i18n.t('sections.aboutEntity', { name })}
+      </StyledH2>
       <dl>
         {names !== null && (
           <NamesContainer

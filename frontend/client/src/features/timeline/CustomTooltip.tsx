@@ -5,6 +5,8 @@ import { Col, Row } from 'react-bootstrap'
 
 import { ITimelineCriteria } from '../../types/ITimelines'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import i18n from '../../i18n'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import { IHalLinks } from '../../types/IHalLinks'
 import theme from '../../styles/theme'
 
@@ -43,7 +45,10 @@ const TooltipLink: React.FC<ILinkProps> = ({ obj, tab, searchQ }) => {
       }}
       data-testid="graph-tooltip-search-link"
     >
-      Show all {obj.value} {obj.name}
+      {i18n.t('related.showAllName', {
+        count: obj.value,
+        name: translateLabel(obj.name),
+      })}
     </Link>
   )
 }

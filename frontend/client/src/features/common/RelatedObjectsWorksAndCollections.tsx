@@ -8,6 +8,8 @@ import { transformStringForTestId } from '../../lib/parse/data/helper'
 import theme from '../../styles/theme'
 import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 import { useGetUserResultsQuery } from '../../redux/api/ml_api'
+import i18n from '../../i18n'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import { ISearchResults } from '../../types/ISearchResults'
 import { getOrderedItemsIds } from '../../lib/parse/search/searchResultParser'
 
@@ -100,7 +102,7 @@ const RelatedObjectsWorksAndCollections: React.FC<IRelated> = ({
   return (
     <StyledEntityPageSection>
       <p className="mb-0 fs-3 p-2" data-testid="no-related-objects-works">
-        {`We do not have any objects or works directly related to this ${type}.`}
+        {i18n.t('related.noObjectsOrWorks', { type: translateLabel(type) })}
       </p>
     </StyledEntityPageSection>
   )

@@ -70,7 +70,7 @@ describe('RelatedListSearchLink', () => {
     )
 
     const link = screen.getByTestId(`related-list-search-link-${mockId}`)
-    expect(link).toHaveTextContent('Show all 10 item results')
+    expect(link).toHaveTextContent('Bekijk alle 10 item resultaten')
   })
 
   it('renders with correct text if totat and label are not provided', async () => {
@@ -86,6 +86,6 @@ describe('RelatedListSearchLink', () => {
     )
 
     const link = screen.getByTestId(`related-list-search-link-${mockId}`)
-    expect(link).toHaveTextContent('Show all results')
+    expect(link).toHaveTextContent('Bekijk alle resultaten')
   })
 })

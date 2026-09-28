@@ -4,6 +4,8 @@ import { HashLink as Link } from 'react-router-hash-link'
 import { scopeToTabTranslation } from '../../config/searchTypes'
 import { IAdvancedSearchState } from '../../redux/slices/advancedSearchSlice'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import i18n from '../../i18n'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import { convertToANDQuery } from '../../lib/parse/search/queryParser'
 
 interface ILinkParams {
@@ -25,9 +27,13 @@ const RelatedListSearchLink: React.FC<ILinkParams> = ({
 }) => {
   const tab = scopeToTabTranslation[scope]
 
-  const linkLabel = `Show all ${total || ''} ${label || ''} result${
-    total !== 1 ? 's' : ''
-  }`
+  const linkLabel =
+    total !== undefined
+      ? i18n.t('related.showAllLabelResults', {
+          count: total,
+          label: translateLabel(label),
+        })
+      : i18n.t('related.showAll')
 
   const searchQ = convertToANDQuery(JSON.stringify(criteria))
   return (

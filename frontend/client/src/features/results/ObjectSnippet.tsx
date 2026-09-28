@@ -22,6 +22,7 @@ import {
 import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 import theme from '../../styles/theme'
 import config from '../../config/config'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 
 import ProductionSnippet from './ProductionSnippet'
 import SnippetHeader from './SnippetHeader'
@@ -142,7 +143,7 @@ const ObjectSnippet: React.FC<ISearchData> = ({
           {identifiers.length > 0 && (
             <Row>
               <Col>
-                <StyledDt>Identifiers</StyledDt>
+                <StyledDt>{translateLabel('Identifiers')}</StyledDt>
                 <StyledDd data-testid="object-snippet-identifiers">
                   {callNumber !== null ? callNumber : null}
                   {callNumber === null &&

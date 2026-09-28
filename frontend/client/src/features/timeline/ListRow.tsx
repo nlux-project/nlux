@@ -8,6 +8,8 @@ import {
   ITimelinesTransformed,
 } from '../../types/ITimelines'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import i18n from '../../i18n'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import { IHalLinks } from '../../types/IHalLinks'
 import theme from '../../styles/theme'
 import StyledDd from '../../styles/shared/DescriptionDetail'
@@ -47,7 +49,7 @@ const ListRow: React.FC<{
     <HoverableRow key={`${searchTag}-${year}`}>
       <Col xs={12} sm={12} md={6} lg={12} xl={6}>
         <StyledDt data-testid={`${year}-${searchTag}-relationship`}>
-          {facetNameMap.get(searchTag)}
+          {translateLabel(facetNameMap.get(searchTag) ?? '')}
         </StyledDt>
       </Col>
       <StyledResponsiveCol xs={12} sm={12} md={6} lg={12} xl={6}>
@@ -62,8 +64,7 @@ const ListRow: React.FC<{
             }
             data-testid={`${year}-${searchTag}-search-link`}
           >
-            Show all {totalItems} result
-            {totalItems !== 1 && `s`}
+            {i18n.t('related.showAllResults', { count: totalItems })}
           </Link>
         </StyledDd>
       </StyledResponsiveCol>

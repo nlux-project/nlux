@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 
+import i18n from '../../i18n'
 import NamesContainer from '../common/NamesContainer'
 import ProductionEvent from '../common/ProductionEvent'
 import IEntity from '../../types/data/IEntity'
@@ -27,7 +28,9 @@ const AboutCollection: React.FC<IObject> = ({ data }) => {
 
   return (
     <div data-testid="about-collection">
-      <StyledH2 data-testid="collection-name-header">About {name}</StyledH2>
+      <StyledH2 data-testid="collection-name-header">
+        {i18n.t('sections.aboutEntity', { name })}
+      </StyledH2>
       <dl>
         {names !== null && (
           <div className="row">

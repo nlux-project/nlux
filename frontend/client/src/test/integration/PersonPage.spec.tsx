@@ -98,9 +98,9 @@ describe('Person page', () => {
     it('renders the professional activity dates', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Professional Activities/i)
+      await findAllByText(/Professionele activiteiten/i)
       const dates = screen.getByTestId('professional-activity-dates')
-      expect(dates).toHaveTextContent('during 2000-2010')
+      expect(dates).toHaveTextContent('gedurende 2000-2010')
     })
 
     it('renders the web pages', async () => {

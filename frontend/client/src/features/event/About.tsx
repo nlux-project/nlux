@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 
+import i18n from '../../i18n'
 import ExpandableList from '../common/ExpandableList'
 import LinkContainer from '../common/LinkContainer'
 import TextValue from '../common/TextValue'
@@ -47,7 +48,9 @@ const About: React.FC<IProps> = ({ entity }) => {
 
   return (
     <div data-testid="about-event">
-      <StyledH2 data-testid="event-about-header">About {name}</StyledH2>
+      <StyledH2 data-testid="event-about-header">
+        {i18n.t('sections.aboutEntity', { name })}
+      </StyledH2>
       <dl>
         {names !== null && (
           <NamesContainer

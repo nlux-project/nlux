@@ -6,7 +6,6 @@ import config from '../../config/config'
 // import { getTimelines } from '../../lib/util/fetchTimeline'
 import { timelineResults as mockTimeline } from '../data/timelineResults'
 import * as eventTracking from '../../lib/pushClientEvent'
-import { relatedObjectsAndWorks } from '../../config/personAndGroupSearchTags'
 
 import AppRender from './utils/AppRender'
 import entityMockApi from './utils/entityMockApi'
@@ -38,7 +37,9 @@ describe('Entity pages relationship components', () => {
     it('renders the related objects tab', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(relatedObjectsAndWorks.objectsCreated.title as string)
+      await findAllByText(
+        /Objecten vervaardigd, aangetroffen of beïnvloed door/i,
+      )
       const names = screen.getByTestId('names-container')
       expect(names).toBeInTheDocument()
     })
@@ -65,7 +66,7 @@ describe('Entity pages relationship components', () => {
     it('renders the related works tab', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(relatedObjectsAndWorks.worksCreated.title as string)
+      await findAllByText(/Werken vervaardigd, gepubliceerd of beïnvloed door/i)
       const worksTab = screen.getByTestId(
         'works-created,-published,-or-influenced-by-button',
       )
@@ -75,7 +76,7 @@ describe('Entity pages relationship components', () => {
     it('renders the related works snippet', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(relatedObjectsAndWorks.worksCreated.title as string)
+      await findAllByText(/Werken vervaardigd, gepubliceerd of beïnvloed door/i)
       const worksTab = screen.getByTestId(
         'works-created,-published,-or-influenced-by-button',
       )
@@ -91,7 +92,7 @@ describe('Entity pages relationship components', () => {
     it('renders the timeline', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Timeline of Related/i)
+      await findAllByText(/Tijdlijn van gerelateerde/i)
       const timeline = screen.getByTestId('timeline-container')
       expect(timeline).toBeInTheDocument()
     })
@@ -99,7 +100,7 @@ describe('Entity pages relationship components', () => {
     it('renders the year', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Timeline of Related/i)
+      await findAllByText(/Tijdlijn van gerelateerde/i)
       // switch to the list display (graph is the default)
       fireEvent.click(screen.getByTestId('view-list-button'))
       const year = screen.getByTestId('1983-label')
@@ -109,39 +110,39 @@ describe('Entity pages relationship components', () => {
     it('renders the corresponding year total', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Timeline of Related/i)
+      await findAllByText(/Tijdlijn van gerelateerde/i)
       // switch to the list display (graph is the default)
       fireEvent.click(screen.getByTestId('view-list-button'))
       const total = screen.getByTestId('1983-total')
-      expect(total).toHaveTextContent('Total: 27')
+      expect(total).toHaveTextContent('Totaal: 27')
     })
 
     it('renders the corresponding relationship', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Timeline of Related/i)
+      await findAllByText(/Tijdlijn van gerelateerde/i)
       // switch to the list display (graph is the default)
       fireEvent.click(screen.getByTestId('view-list-button'))
       const relation = screen.getByTestId(
         '1983-itemProductionDate-relationship',
       )
-      expect(relation).toHaveTextContent('Objects Produced')
+      expect(relation).toHaveTextContent('Vervaardigde objecten')
     })
 
     it('renders the year search link', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Timeline of Related/i)
+      await findAllByText(/Tijdlijn van gerelateerde/i)
       // switch to the list display (graph is the default)
       fireEvent.click(screen.getByTestId('view-list-button'))
       const link = screen.getByTestId('1983-itemProductionDate-search-link')
-      expect(link).toHaveTextContent('Show all 22 results')
+      expect(link).toHaveTextContent('Bekijk alle 22 resultaten')
     })
 
     it('renders the year search link with correct href', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Timeline of Related/i)
+      await findAllByText(/Tijdlijn van gerelateerde/i)
       // switch to the list display (graph is the default)
       fireEvent.click(screen.getByTestId('view-list-button'))
       const link = screen.getByTestId('1983-itemProductionDate-search-link')
@@ -156,7 +157,7 @@ describe('Entity pages relationship components', () => {
     it('renders the accordion container', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Concepts Influenced/i)
+      await findAllByText(/Beïnvloede concepten/i)
       const accordion = screen.getByTestId('accordion-container')
       expect(accordion).toBeInTheDocument()
     })
@@ -170,7 +171,7 @@ describe('Entity pages relationship components', () => {
     it('renders the faceted lists accordion container', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Object Types/i)
+      await findAllByText(/Objecttypes/i)
       const header = screen.getByTestId(
         'faceted-list-accordion-item-agentRelatedItemTypes',
       )
@@ -181,7 +182,7 @@ describe('Entity pages relationship components', () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       // select the accordion
-      await findAllByText(/Object Types/i)
+      await findAllByText(/Objecttypes/i)
       const accordionButton = screen.getByTestId(
         'faceted-list-accordion-item-agentRelatedItemTypes-button',
       )
@@ -200,7 +201,7 @@ describe('Entity pages relationship components', () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       // select the accordion
-      await findAllByText(/Object Types/i)
+      await findAllByText(/Objecttypes/i)
       const accordionButton = screen.getByTestId(
         'faceted-list-accordion-item-agentRelatedItemTypes-button',
       )
@@ -216,7 +217,7 @@ describe('Entity pages relationship components', () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       // select the accordion
-      await findAllByText(/Object Types/i)
+      await findAllByText(/Objecttypes/i)
       const accordionButton = screen.getByTestId(
         'faceted-list-accordion-item-agentRelatedItemTypes-button',
       )
@@ -242,7 +243,7 @@ describe('Entity pages relationship components', () => {
     it('renders the search results accordion container', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Concepts Influenced/i)
+      await findAllByText(/Beïnvloede concepten/i)
       const header = screen.getByTestId(
         'search-results-accordion-item-agentInfluencedConcepts',
       )
@@ -253,7 +254,7 @@ describe('Entity pages relationship components', () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       // find the accordion
-      await findAllByText(/Concepts Influenced/i)
+      await findAllByText(/Beïnvloede concepten/i)
       const accordionButton = screen.getByTestId(
         'search-accordion-item-agentInfluencedConcepts-button',
       )
@@ -268,7 +269,7 @@ describe('Entity pages relationship components', () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
       // find the accordion
-      await findAllByText(/Concepts Influenced/i)
+      await findAllByText(/Beïnvloede concepten/i)
       const accordionButton = screen.getByTestId(
         'search-accordion-item-agentInfluencedConcepts-button',
       )
@@ -292,7 +293,7 @@ describe('Entity pages relationship components', () => {
     it('renders the semantic accordion item', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Related People and Groups/i)
+      await findAllByText(/Gerelateerde personen en groepen/i)
       const accordion = screen.getByTestId(
         'related-list-accordion-item-agentRelatedAgents',
       )
@@ -302,7 +303,7 @@ describe('Entity pages relationship components', () => {
     it('renders the related list related entity name', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Related People and Groups/i)
+      await findAllByText(/Gerelateerde personen en groepen/i)
       // click the accordion
       const button = screen.getByTestId(
         'related-list-accordion-item-agentRelatedAgents-button',
@@ -317,7 +318,7 @@ describe('Entity pages relationship components', () => {
     it('renders the show all works link with correct href', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Related People and Groups/i)
+      await findAllByText(/Gerelateerde personen en groepen/i)
       // click the accordion
       const button = screen.getByTestId(
         'related-list-accordion-item-agentRelatedAgents-button',
@@ -335,7 +336,7 @@ describe('Entity pages relationship components', () => {
     it('renders the show all objects link with correct href', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Related People and Groups/i)
+      await findAllByText(/Gerelateerde personen en groepen/i)
       // click the accordion
       const button = screen.getByTestId(
         'related-list-accordion-item-agentRelatedAgents-button',
@@ -353,7 +354,7 @@ describe('Entity pages relationship components', () => {
     it('renders the related entity relationship label', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Related People and Groups/i)
+      await findAllByText(/Gerelateerde personen en groepen/i)
       // click the accordion
       const button = screen.getByTestId(
         'related-list-accordion-item-agentRelatedAgents-button',
@@ -367,7 +368,7 @@ describe('Entity pages relationship components', () => {
     it('renders the pagination previous and next buttons', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Related People and Groups/i)
+      await findAllByText(/Gerelateerde personen en groepen/i)
       // click the accordion
       const button = screen.getByTestId(
         'related-list-accordion-item-agentRelatedAgents-button',

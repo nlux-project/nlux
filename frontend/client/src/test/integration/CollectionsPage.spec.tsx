@@ -21,7 +21,7 @@ describe('Collection page', () => {
 
       await findAllByText(/Mock Collection/i)
       const name = screen.getByTestId('collection-name-header')
-      expect(name).toHaveTextContent('About Mock Collection')
+      expect(name).toHaveTextContent('Over Mock Collection')
     })
 
     it('renders the names', async () => {

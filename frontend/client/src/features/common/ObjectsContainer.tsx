@@ -15,6 +15,7 @@ import {
 } from '../../lib/parse/search/searchResultParser'
 import { searchScope } from '../../config/searchTypes'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import i18n from '../../i18n'
 import config from '../../config/config'
 import StyledHr from '../../styles/shared/Hr'
 import {
@@ -151,18 +152,17 @@ const ObjectsContainer: React.FC<IObjectsBy> = ({ uri, tab, title, user }) => {
                 }
                 data-testid="objects-container-show-all-button"
               >
-                Show all {estimate} result
-                {estimate !== 1 && `s`}
+                {i18n.t('related.showAllResults', { count: estimate })}
               </PrimaryButton>
             </Col>
           </StyledObjectsContainerLinkRow>
         </React.Fragment>
       )
     }
-    return <p>There are no related entities to be displayed.</p>
+    return <p>{i18n.t('related.noRelatedEntities')}</p>
   }
 
-  return <p>No results were returned with this entity.</p>
+  return <p>{i18n.t('related.noResults')}</p>
 }
 
 export default ObjectsContainer

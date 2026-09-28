@@ -1,5 +1,6 @@
 import React from 'react'
 
+import i18n from '../../i18n'
 import NamesContainer from '../common/NamesContainer'
 import NotesContainer from '../common/NotesContainer'
 import ConceptParser from '../../lib/parse/data/ConceptParser'
@@ -32,7 +33,9 @@ const About: React.FC<IProps> = ({ entity }) => {
 
   return (
     <div data-testid="about-concept">
-      <StyledH2 data-testid="concept-about-header">About {name}</StyledH2>
+      <StyledH2 data-testid="concept-about-header">
+        {i18n.t('sections.aboutEntity', { name })}
+      </StyledH2>
       <dl>
         {names !== null && (
           <NamesContainer

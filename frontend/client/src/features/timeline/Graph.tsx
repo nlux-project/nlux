@@ -22,6 +22,7 @@ import { IHalLinks } from '../../types/IHalLinks'
 import TimelineParser from '../../lib/parse/timeline/TimelineParser'
 import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 import { facetNameMap } from '../../config/timeline'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 
 import CustomTooltip from './CustomTooltip'
 import CustomLegend from './CustomLegend'
@@ -188,7 +189,7 @@ const Graph: React.FC<IProps> = ({
                     facetKey as keyof typeof theme.color.graphs
                   ][defaultLegend as 'focused' | 'unFocused']
                 }
-                name={facetLabel || facetKey}
+                name={translateLabel(facetLabel || facetKey)}
                 yAxisId="total"
                 shape={(p: any) => getShape(p)}
               />

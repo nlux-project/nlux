@@ -6,6 +6,7 @@ import theme from '../../styles/theme'
 import SecondaryDropdown from '../../styles/shared/SecondaryDropdown'
 import { getIcon } from '../../lib/advancedSearch/searchHelper'
 import { searchScope } from '../../config/searchTypes'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 
 interface IProps {
   title: string
@@ -46,7 +47,7 @@ const MobileTabButton: React.FC<IProps> = ({
       <Col xs={8} className="d-flex align-items-center">
         <Row className="d-flex float-start">
           <Col xs={12} className="linkTitle d-flex float-start">
-            <h5>{title}</h5>
+            <h5>{translateLabel(title)}</h5>
           </Col>
         </Row>
       </Col>

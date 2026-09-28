@@ -7,6 +7,8 @@ import { getEstimates } from '../../lib/parse/search/searchResultParser'
 import { searchScope } from '../../config/searchTypes'
 import { getAllParamsFromHalLink } from '../../lib/parse/search/halLinkHelper'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import i18n from '../../i18n'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 
 interface IProps {
   data: ISearchResults
@@ -30,9 +32,10 @@ const SearchResultsLink: React.FC<IProps> = ({
   const params = getAllParamsFromHalLink(url, 'search')
   const sort = new URLSearchParams(params).get('sort')
 
-  const linkLabel = `Show all ${estimate} ${additionalLinkText} result${
-    estimate !== 1 ? 's' : ''
-  }`
+  const linkLabel = i18n.t('related.showAllLabelResults', {
+    count: estimate,
+    label: translateLabel(additionalLinkText),
+  })
   const searchQ = formatHalLink(url, searchScope[newScope])
   const searchString = `${searchQ}&searchLink=true${
     sort !== null ? `&${resultsEndpoint[0]}s=${sort}` : ''

@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 
 import RecordLink from '../common/RecordLink'
 import StyledDataRow from '../../styles/shared/DataRow'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import { ErrorFallback } from '../error/ErrorFallback'
 
 interface IEntity {
@@ -20,7 +21,7 @@ const ActivityColumn: React.FC<{
       {type !== '' && <RecordLink url={type} />}
       {dates !== '' && (
         <div className="my-0" data-testid="professional-activity-dates">
-          during {dates}
+          {translateLabel('during')} {dates}
         </div>
       )}
       {location !== '' && (
@@ -39,7 +40,7 @@ const Activity: React.FC<IEntity> = ({ data }) => (
     data-testid="agent-activity-container"
   >
     <Col xs={12}>
-      <dt>Professional Activities</dt>
+      <dt>{translateLabel('Professional Activities')}</dt>
     </Col>
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {data.map((activity, ind) => {

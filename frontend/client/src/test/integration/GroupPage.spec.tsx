@@ -99,7 +99,7 @@ describe('Group page', () => {
     it('renders the professional activity', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Professional Activities/i)
+      await findAllByText(/Professionele activiteiten/i)
       const map = screen.getByTestId('agent-activity-container')
       expect(map).toBeInTheDocument()
     })

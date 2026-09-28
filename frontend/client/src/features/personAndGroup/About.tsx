@@ -2,6 +2,8 @@
 import React from 'react'
 
 import PersonAndGroupParser from '../../lib/parse/data/PersonAndGroupParser'
+import i18n from '../../i18n'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import LinkContainer from '../common/LinkContainer'
 import NotesContainer from '../common/NotesContainer'
 import IEntity from '../../types/data/IEntity'
@@ -54,7 +56,9 @@ const About: React.FC<IProps> = ({ data }) => {
 
   return (
     <div data-testid="about-person-group">
-      <StyledH2 data-testid="person-page-about-header">About {name}</StyledH2>
+      <StyledH2 data-testid="person-page-about-header">
+        {i18n.t('sections.aboutEntity', { name })}
+      </StyledH2>
       <dl className="about-person-and-group-dl">
         {names !== null && (
           <NamesContainer
@@ -73,7 +77,11 @@ const About: React.FC<IProps> = ({ data }) => {
           hrClassName="hideOnAboutSectionSidePanels"
         />
         <StyledHr width="100%" className="personOrGroupBackgroundHr" />
-        <h3>{entityClass === 'Person' ? 'Biography' : 'Background'}</h3>
+        <h3>
+          {translateLabel(
+            entityClass === 'Person' ? 'Biography' : 'Background',
+          )}
+        </h3>
         <Dates
           date={birthDate}
           place={birthPlace}
@@ -158,7 +166,7 @@ const About: React.FC<IProps> = ({ data }) => {
         {notes !== null && (
           <React.Fragment>
             <StyledHr width="100%" className="personOrGroupNotesHr" />
-            <h3>Notes</h3>
+            <h3>{translateLabel('Notes')}</h3>
             <NotesContainer
               notes={notes}
               expandColumns

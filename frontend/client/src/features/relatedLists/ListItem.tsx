@@ -12,6 +12,7 @@ import theme from '../../styles/theme'
 import RecordLink from '../common/RecordLink'
 import { formatFacetedSearchJson } from '../../lib/parse/search/halLinkHelper'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import i18n from '../../i18n'
 import { useGetItemQuery } from '../../redux/api/ml_api'
 import { stripYaleIdPrefix } from '../../lib/parse/data/helper'
 import EntityParser from '../../lib/parse/data/EntityParser'
@@ -75,7 +76,7 @@ const ListItem: React.FC<IProps> = ({
     }
   }
 
-  const linkLabel = `Show all ${count} result${count !== 1 ? 's' : ''}`
+  const linkLabel = i18n.t('related.showAllResults', { count })
   const searchQ = formatFacetedSearchJson(criteria, searchTerm, uri)
 
   return (
