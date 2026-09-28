@@ -35,7 +35,8 @@
     "learnMoreAboutLuxData": "Lees meer over NLUX-gegevens",
     "rightsInfo": "Ga voor meer informatie over rechten en gebruik naar de veelgestelde vragen van NLUX.",
     "rightsMayBeAvailable": "Rechteninformatie is mogelijk beschikbaar op de pagina van het bijbehorende werk.",
-    "underCertainCircumstances": "Onder bepaalde voorwaarden"
+    "underCertainCircumstances": "Onder bepaalde voorwaarden",
+    "details": "Details"
   },
   "search": {
     "open": "Zoeken openen",
@@ -143,7 +144,24 @@
     "Web Pages": "Webpagina's",
     "When": "Datering",
     "Where": "Waar",
-    "Work Class": "Werkklasse"
+    "Work Class": "Werkklasse",
+    "Person": "Persoon",
+    "Group": "Groep",
+    "Physical Object": "Fysiek object",
+    "Digital Object": "Digitaal object",
+    "Visual Item": "Visueel object",
+    "Textual Work": "Tekstwerk",
+    "Currency": "Valuta",
+    "Material": "Materiaal",
+    "Measurement Unit": "Maateenheid",
+    "General Concept": "Algemeen concept",
+    "Period": "Periode",
+    "Activity": "Activiteit",
+    "Height": "Hoogte",
+    "Width": "Breedte",
+    "Depth": "Diepte",
+    "Diameter": "Diameter",
+    "additional": "aanvullend"
   },
   "object": {
     "technique": "Techniek"
@@ -170,5 +188,9 @@
     "period1800to1950": "1800 – 1950",
     "after1950": "Na 1950",
     "clear": "Wis filters"
+  },
+  "entityHeader": {
+    "showFullName": "Volledige titel tonen",
+    "shortenName": "Titel inkorten"
   }
 }

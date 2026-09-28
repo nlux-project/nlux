@@ -8,6 +8,7 @@ import NamesContainer from '../common/NamesContainer'
 import SetParser from '../../lib/parse/data/SetParser'
 import ProductionEvent from '../common/ProductionEvent'
 import IEntity from '../../types/data/IEntity'
+import i18n from '../../i18n'
 import StyledEntityPageSection from '../../styles/shared/EntityPageSection'
 import { IEventInfo } from '../../types/derived-data/events'
 import IdentifiersContainer from '../common/IdentifiersContainer'
@@ -45,7 +46,7 @@ const About: React.FC<IObject> = ({ data }) => {
   return (
     <StyledEntityPageSection className="row" data-testid="about-set">
       <Col xs={12}>
-        <StyledH2>About</StyledH2>
+        <StyledH2>{i18n.t('sections.details')}</StyledH2>
       </Col>
       <Col xs={12}>
         <dl>

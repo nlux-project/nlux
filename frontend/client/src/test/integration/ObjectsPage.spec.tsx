@@ -153,7 +153,7 @@ describe('Objects page', () => {
       it('renders the production agent', async () => {
         const { findAllByText } = render(<AppRender route={page} />)
 
-        await findAllByText(/Creation/i)
+        await findAllByText(/Vervaardiging/i)
         const agents = screen.getByTestId(
           'object-production-agent-link-container',
         )
@@ -191,7 +191,7 @@ describe('Objects page', () => {
       it('renders the production time period', async () => {
         const { findAllByText } = render(<AppRender route={page} />)
 
-        await findAllByText(/Time Period/i)
+        await findAllByText(/Tijdsperiode/i)
         const timePeriod = screen.getByTestId(
           'object-production-event-time-period',
         )
@@ -204,7 +204,7 @@ describe('Objects page', () => {
       it('renders the encounter event', async () => {
         const { findAllByText } = render(<AppRender route={page} />)
 
-        await findAllByText(/Encountered/i)
+        await findAllByText(/Aangetroffen/i)
         const agents = screen.getByTestId('object-encounter-container')
         expect(agents).toBeInTheDocument()
       })

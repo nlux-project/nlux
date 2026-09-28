@@ -134,7 +134,7 @@ describe('Set page', () => {
     it('renders the source object creation event', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Creation of Archival Objects/i)
+      await findAllByText(/Vervaardiging van archiefobjecten/i)
       const event = screen.getByTestId('set-source-object-creation-container')
       expect(event).toBeInTheDocument()
     })
@@ -142,7 +142,7 @@ describe('Set page', () => {
     it('renders the set creation event', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Creation of Archive/i)
+      await findAllByText(/Vervaardiging van archief/i)
       const event = screen.getByTestId('set-creation-container')
       expect(event).toBeInTheDocument()
     })

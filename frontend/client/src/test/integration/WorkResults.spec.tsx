@@ -77,7 +77,7 @@ describe('Work results page', () => {
       render(<AppRender route={gridViewPage} />)
 
       const dates = screen.getByTestId('production-snippet-agent-data')
-      expect(dates).toHaveTextContent('2009-01-01')
+      expect(dates).toHaveTextContent('2009')
     })
 
     it('renders the icon if no image is available in grid view', async () => {
@@ -120,9 +120,7 @@ describe('Work results page', () => {
 
       await findAllByText(/Mock Work/i)
       const creation = screen.getByTestId('production-snippet-agent-data')
-      expect(creation).toHaveTextContent(
-        'Mock Person, Mock Person 2 in 2009-01-01',
-      )
+      expect(creation).toHaveTextContent('Mock Person, Mock Person 2 in 2009')
     })
 
     it('renders work types', async () => {

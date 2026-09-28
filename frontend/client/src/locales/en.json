@@ -35,7 +35,8 @@
     "learnMoreAboutLuxData": "Learn more about LUX Data",
     "rightsInfo": "For more information about Rights and Usage, visit the LUX Frequently Asked Questions.",
     "rightsMayBeAvailable": "Rights information may be available on the associated Works page.",
-    "underCertainCircumstances": "Under Certain Circumstances"
+    "underCertainCircumstances": "Under Certain Circumstances",
+    "details": "Details"
   },
   "search": {
     "open": "Open Search",
@@ -136,7 +137,24 @@
     "Web Pages": "Web Pages",
     "When": "When",
     "Where": "Where",
-    "Work Class": "Work Class"
+    "Work Class": "Work Class",
+    "Person": "Person",
+    "Group": "Group",
+    "Physical Object": "Physical Object",
+    "Digital Object": "Digital Object",
+    "Visual Item": "Visual Item",
+    "Textual Work": "Textual Work",
+    "Currency": "Currency",
+    "Material": "Material",
+    "Measurement Unit": "Measurement Unit",
+    "General Concept": "General Concept",
+    "Period": "Period",
+    "Activity": "Activity",
+    "Height": "Height",
+    "Width": "Width",
+    "Depth": "Depth",
+    "Diameter": "Diameter",
+    "additional": "additional"
   },
   "object": {
     "technique": "Technique"
@@ -170,5 +188,9 @@
     "period1800to1950": "1800–1950",
     "after1950": "After 1950",
     "clear": "Clear filters"
+  },
+  "entityHeader": {
+    "showFullName": "Show Full Name",
+    "shortenName": "Shorten Name"
   }
 }

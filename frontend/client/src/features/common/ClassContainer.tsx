@@ -33,7 +33,10 @@ const ClassContainer: React.FC<IProps> = ({
       label={isUndefined(headerTitle) ? label : undefined}
       textLabelClassName={textLabelClassName}
     >
-      <TextValue values={[entityClass]} className={textValueClassName} />
+      <TextValue
+        values={[translateLabel(entityClass)]}
+        className={textValueClassName}
+      />
       <Col xs={12}>
         <StyledHr
           className={hrClassName}

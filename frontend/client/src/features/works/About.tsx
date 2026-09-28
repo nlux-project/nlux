@@ -8,6 +8,7 @@ import LinkContainer from '../common/LinkContainer'
 import ProductionEvent from '../common/ProductionEvent'
 import WorkParser from '../../lib/parse/data/WorkParser'
 import IEntity from '../../types/data/IEntity'
+import i18n from '../../i18n'
 import StyledEntityPageSection from '../../styles/shared/EntityPageSection'
 import IdentifiersContainer from '../common/IdentifiersContainer'
 import { IEventInfo } from '../../types/derived-data/events'
@@ -69,7 +70,7 @@ const About: React.FC<IObject> = ({ entity }) => {
   return (
     <StyledEntityPageSection className="row" data-testid="about-work">
       <Col xs={12}>
-        <StyledH2>About</StyledH2>
+        <StyledH2>{i18n.t('sections.details')}</StyledH2>
       </Col>
       <Col xs={12}>
         <dl>

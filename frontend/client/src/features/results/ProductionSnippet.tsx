@@ -4,6 +4,7 @@ import { Col, Row } from 'react-bootstrap'
 import StyledDt from '../../styles/shared/DescriptionTerm'
 import StyledDd from '../../styles/shared/DescriptionDetail'
 import { translateLabel } from '../../lib/i18n/translateLabel'
+import { displayYear } from '../../lib/util/displayYear'
 import RecordLink from '../common/RecordLink'
 
 interface IProducedBy {
@@ -44,7 +45,7 @@ const ProductionSnippet: React.FC<IProducedBy> = ({
                 [],
               )}
             {agents.length > 3 ? '... ' : ' '}
-            {date !== null && ` ${translateLabel('in')} ${date}`}
+            {date !== null && ` ${translateLabel('in')} ${displayYear(date)}`}
           </StyledDd>
         </Col>
       </Row>

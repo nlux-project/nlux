@@ -6,6 +6,8 @@ import { Row } from 'react-bootstrap'
 import useApiText from '../../lib/hooks/useApiText'
 import i18n from '../../i18n'
 import { capitalizeLabels } from '../../lib/parse/data/helper'
+import { translateLabel } from '../../lib/i18n/translateLabel'
+import { displayYear } from '../../lib/util/displayYear'
 import StyledAgents from '../../styles/features/common/Agents'
 import theme from '../../styles/theme'
 import {
@@ -51,7 +53,7 @@ const AgentsRow: React.FC<{
         <dt>
           {agentLabelIsReady &&
             agentLabel !== null &&
-            capitalizeLabels(agentLabel)}
+            capitalizeLabels(translateLabel(agentLabel))}
         </dt>
       </div>
       <div className={changeColumnWidths ? rightPanelValueClass : valueClass}>
@@ -127,7 +129,9 @@ const referenceRow = (
     return (
       <Row key={content}>
         <div className={keyClass}>
-          <dt>{refLabel !== null && capitalizeLabels(refLabel)}</dt>
+          <dt>
+            {refLabel !== null && capitalizeLabels(translateLabel(refLabel))}
+          </dt>
         </div>
         <div className={valueClass}>
           <dd>{content}</dd>
@@ -153,17 +157,17 @@ const ProductionEventBody: React.FC<IProps> = ({
       {dates.length > 0 && (
         <Row>
           <div className={keyClassName}>
-            <dt>When</dt>
+            <dt>{translateLabel('When')}</dt>
           </div>
           <div className={valueClassName}>
-            <dd data-testid={`${id}-event-dates`}>{dates[0]}</dd>
+            <dd data-testid={`${id}-event-dates`}>{displayYear(dates[0])}</dd>
           </div>
         </Row>
       )}
       {locations.length > 0 && (
         <Row>
           <div className={keyClassName}>
-            <dt>Where</dt>
+            <dt>{translateLabel('Where')}</dt>
           </div>
           <div className={valueClassName}>
             {locations.map((location, ind) => (
@@ -189,7 +193,7 @@ const ProductionEventBody: React.FC<IProps> = ({
       {timePeriods.length > 0 && (
         <Row>
           <div className={keyClassName}>
-            <dt>Time Period</dt>
+            <dt>{translateLabel('Time Period')}</dt>
           </div>
           <div className={valueClassName}>
             <dd data-testid={`${id}-event-time-period`}>

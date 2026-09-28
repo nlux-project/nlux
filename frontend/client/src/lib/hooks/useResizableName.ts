@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { displayTitle } from '../util/displayTitle'
+
 const MAX_SHORT_LENGTH = 100
 
 export function shortenIfNeeded(name: string): string {
@@ -17,7 +19,10 @@ export function useResizableName(name: string): {
 } {
   const isNameLong = name.length > MAX_SHORT_LENGTH
   const [showLongName, setShowLongName] = useState(false)
-  const displayName = showLongName ? name : shortenIfNeeded(name)
+  // The collapsed display cuts very long names at the first sentence
+  // ("Schuur in de duinen."); names without a sentence boundary keep the
+  // hard cut at MAX_SHORT_LENGTH as a safety net.
+  const displayName = showLongName ? name : displayTitle(name, MAX_SHORT_LENGTH)
 
   return { displayName, isNameLong, showLongName, setShowLongName }
 }

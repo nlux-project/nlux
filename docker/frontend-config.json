@@ -16,7 +16,7 @@
   {"key": "OIDC_REDIRECT_URI",           "value": ""},
   {"key": "FEATURE_MY_COLLECTIONS",      "value": "false"}
   ,{"key": "NLUX_LOGO",                  "value": "/nlux-logo.png"}
-  ,{"key": "NLUX_PRIMARY_COLOR",         "value": "#1F2937"}
-  ,{"key": "NLUX_SECONDARY_COLOR",       "value": "#D1D5DB"}
-  ,{"key": "NLUX_FONT_COLOR",            "value": "#F9FAFB"}
+  ,{"key": "NLUX_PRIMARY_COLOR",         "value": "#FFFFFF"}
+  ,{"key": "NLUX_SECONDARY_COLOR",       "value": "#D3E3EC"}
+  ,{"key": "NLUX_FONT_COLOR",            "value": "#22303E"}
 ]

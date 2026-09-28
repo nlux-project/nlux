@@ -1,8 +1,8 @@
 import i18n from '../../i18n'
 
-export function translateLabel(label?: string): string | undefined {
+export function translateLabel(label?: string): string {
   if (label === undefined || label === '') {
-    return label
+    return label ?? ''
   }
 
   return i18n.t(`labels.${label}`, { defaultValue: label })

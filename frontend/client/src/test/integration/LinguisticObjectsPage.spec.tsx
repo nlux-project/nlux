@@ -87,7 +87,7 @@ describe('Linguistic Object page', () => {
     it('renders the linguistic object publication event', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Publication/i)
+      await findAllByText(/Vervaardiging/i)
       const statement = screen.getByTestId('works-publication-container')
       expect(statement).toBeInTheDocument()
     })
@@ -95,7 +95,7 @@ describe('Linguistic Object page', () => {
     it('renders the creation event', async () => {
       const { findAllByText } = render(<AppRender route={page} />)
 
-      await findAllByText(/Creation/i)
+      await findAllByText(/Vervaardiging/i)
       const notes = screen.getByTestId('works-creation-container')
       expect(notes).toBeInTheDocument()
     })

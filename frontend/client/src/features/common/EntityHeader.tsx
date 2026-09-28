@@ -11,6 +11,7 @@ import {
   shortenIfNeeded,
 } from '../../lib/hooks/useResizableName'
 import useTitle from '../../lib/hooks/useTitle'
+import i18n from '../../i18n'
 import IEntity from '../../types/data/IEntity'
 import EntityParser from '../../lib/parse/data/EntityParser'
 import config from '../../config/config'
@@ -189,7 +190,7 @@ const EntityHeader: React.FC<IEntityHeader> = ({
                         className="btn btn-link show-more"
                         onClick={() => setShowLongName(false)}
                       >
-                        Shorten Name
+                        {i18n.t('entityHeader.shortenName')}
                       </button>
                     ) : (
                       <button
@@ -197,7 +198,7 @@ const EntityHeader: React.FC<IEntityHeader> = ({
                         className="btn btn-link show-more"
                         onClick={() => setShowLongName(true)}
                       >
-                        Show Full Name
+                        {i18n.t('entityHeader.showFullName')}
                       </button>
                     ))}
                 </span>

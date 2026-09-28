@@ -6,7 +6,7 @@ const Header = styled.div`
   width: 100%;
   .navbar {
     background-color: var(--nlux-primary, ${theme.color.white}) !important;
-    border-bottom: 1px solid ${theme.color.black10};
+    border-bottom: 1px solid var(--nlux-secondary, ${theme.color.black10});
     padding: 1.25 auto;
 
     .container {

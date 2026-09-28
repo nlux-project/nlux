@@ -5,6 +5,7 @@ import { useAuth } from 'react-oidc-context'
 
 import useApiText from '../../lib/hooks/useApiText'
 import { capitalizeLabels } from '../../lib/parse/data/helper'
+import { translateLabel } from '../../lib/i18n/translateLabel'
 import { getColumnWidth } from '../../lib/util/ui'
 import StyledEntityEvent from '../../styles/shared/EntityEvent'
 import StyledDataRow from '../../styles/shared/DataRow'
@@ -49,9 +50,12 @@ const ProductionEvent: React.FC<IProps> = ({
       <StyledDataRow className="row">
         <div className={textLabelWidth}>
           <dt data-testid={`${id}-event-label`}>
-            {labelNameIsReady && labelName !== null && labelName !== ''
+            {labelNameIsReady &&
+            labelName !== null &&
+            labelName !== '' &&
+            labelName !== label
               ? capitalizeLabels(labelName)
-              : label}
+              : capitalizeLabels(translateLabel(label))}
           </dt>
         </div>
         <div className={`${textValueWidth} ${isMobile ? 'mt-2' : ''}`}>

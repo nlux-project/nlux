@@ -14,6 +14,8 @@ import StyledSnippetTitle from '../../styles/features/results/SnippetTitle'
 import PreviewImageOrIcon from '../common/PreviewImageOrIcon'
 import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 import theme from '../../styles/theme'
+import { translateLabel } from '../../lib/i18n/translateLabel'
+import { displayYear } from '../../lib/util/displayYear'
 
 import SnippetHeader from './SnippetHeader'
 
@@ -68,8 +70,10 @@ const EventSnippet: React.FC<IProps> = ({
         {dates.length > 0 && (
           <Row>
             <Col>
-              <StyledDt>Dates</StyledDt>
-              <StyledDd data-testid="event-snippet-dates">{dates[0]}</StyledDd>
+              <StyledDt>{translateLabel('Dates')}</StyledDt>
+              <StyledDd data-testid="event-snippet-dates">
+                {displayYear(dates[0])}
+              </StyledDd>
             </Col>
           </Row>
         )}
