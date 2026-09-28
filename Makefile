@@ -84,6 +84,7 @@ help:
 	@printf '  backend-reset           drop and recreate the API database\n'
 	@printf '  api-load                load exported Linked Art JSONL into the API DB\n'
 	@printf '                          (EXPORT_DIR=$$(LUX_BASEPATH)/data/output/latest)\n'
+	@printf '  api-load-source         load one source export into the API DB (SOURCE=rma)\n'
 	@printf '  api-generate-agents     generate Person/Group records from object data\n'
 	@printf '  api-generate-concepts   generate concept records from object data\n\n'
 	@printf 'Data pipeline ==============================================================\n'
@@ -178,6 +179,20 @@ backend-reset:
 .PHONY: api-load
 api-load:
 	$(BACKEND_PY) backend/scripts/load_data.py "$(EXPORT_DIR)"
+
+# Load only the export files of one source (e.g. SOURCE=rma) into the API dev
+# database — a fast iteration loop over a full api-load when re-exporting a
+# single source. SOURCE=nha matches all nha-c* sub-collection exports.
+# Note: paths must not contain spaces (files are passed as separate arguments).
+.PHONY: api-load-source
+api-load-source:
+	@files="$(wildcard $(EXPORT_DIR)/export_$(SOURCE)*.jsonl)"; \
+	if [ -z "$$files" ]; then \
+		echo "api-load-source: no export files for SOURCE=$(SOURCE) in $(EXPORT_DIR)"; \
+		exit 1; \
+	fi; \
+	echo "==> api-load-source SOURCE=$(SOURCE): $$files"; \
+	$(BACKEND_PY) backend/scripts/load_data.py $$files
 
 .PHONY: api-generate-agents
 api-generate-agents:

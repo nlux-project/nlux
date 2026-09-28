@@ -3,7 +3,9 @@
 Load Linked Art JSON files into the nlux-backend database.
 
 Usage:
-    python scripts/load_data.py <path/to/lux_metadata_or_file>
+    python scripts/load_data.py <path/to/lux_metadata_or_file> [...]
+
+Multiple paths are loaded with a single FTS index rebuild.
 """
 import json
 import sys
@@ -61,7 +63,7 @@ def load_directory(data_dir: Path):
     load_path(data_dir)
 
 
-def load_path(data_path: Path):
+def _prepare_database():
     Base.metadata.create_all(bind=engine)
 
     # Ensure FTS5 table exists for SQLite
@@ -75,6 +77,17 @@ def load_path(data_path: Path):
             ))
             conn.commit()
 
+
+def _rebuild_fts_index():
+    if settings.database_url.startswith("sqlite"):
+        with engine.connect() as conn:
+            conn.execute(
+                text("INSERT INTO records_fts(records_fts) VALUES('rebuild')")
+            )
+            conn.commit()
+
+
+def _load_records(data_path: Path):
     if data_path.is_file():
         if data_path.suffix == ".json":
             json_files = [data_path]
@@ -169,20 +182,25 @@ def load_path(data_path: Path):
 
         db.commit()
 
-        # Rebuild FTS index for SQLite
-        if settings.database_url.startswith("sqlite"):
-            with engine.connect() as conn:
-                conn.execute(text("INSERT INTO records_fts(records_fts) VALUES('rebuild')"))
-                conn.commit()
-
     finally:
         db.close()
 
     print(f"Done: {inserted} inserted, {updated} updated, {errors} errors")
 
 
+def load_path(data_path: Path):
+    """Load one JSON(L) file or directory and rebuild the full-text index."""
+    _prepare_database()
+    _load_records(data_path)
+    _rebuild_fts_index()
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python scripts/load_data.py <data_directory_or_file>")
+        print("Usage: python scripts/load_data.py <data_directory_or_file> [...]")
         sys.exit(1)
-    load_path(Path(sys.argv[1]))
+    # Load every path, then rebuild the (expensive) FTS index only once
+    _prepare_database()
+    for arg in sys.argv[1:]:
+        _load_records(Path(arg))
+    _rebuild_fts_index()

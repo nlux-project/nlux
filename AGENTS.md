@@ -87,6 +87,9 @@ After the pipeline exports JSONL to `$LUX_BASEPATH/data/output/latest/`:
 # Load exported records into the nlux API database
 python backend/scripts/load_data.py $LUX_BASEPATH/data/output/latest/
 
+# Load a single source's export files (fast iteration, one FTS rebuild)
+make api-load-source SOURCE=rma
+
 # Generate synthetic entity records
 python backend/scripts/generate_agents.py     # persons + groups referenced by objects
 python backend/scripts/generate_concepts.py   # concepts referenced by objects
