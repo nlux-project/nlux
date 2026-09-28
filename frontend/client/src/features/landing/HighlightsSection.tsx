@@ -10,6 +10,7 @@ import { forceArray, stripYaleIdPrefix } from '../../lib/parse/data/helper'
 import EntityParser from '../../lib/parse/data/EntityParser'
 import ObjectParser from '../../lib/parse/data/ObjectParser'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import { displayTitle } from '../../lib/util/displayTitle'
 import { IOrderedItems } from '../../types/ISearchResults'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -170,6 +171,7 @@ const HighlightsCard: React.FC<IHighlightsCardProps> = ({ uri }) => {
 
   const primaryName =
     entity.getPrimaryName(config.aat.langen) || data._label || ''
+  const title = displayTitle(primaryName)
   const typeLabel = getTypeLabel(raw)
   const institution = forceArray(raw.current_owner)[0]?._label ?? ''
   const year = formatYear(new ObjectParser(raw).getDateFromProductionEvent())
@@ -194,7 +196,7 @@ const HighlightsCard: React.FC<IHighlightsCardProps> = ({ uri }) => {
       </Thumb>
       <CardBody>
         {typeLabel !== '' && <TypeBadge>{typeLabel}</TypeBadge>}
-        <CardTitle>{primaryName}</CardTitle>
+        <CardTitle>{title}</CardTitle>
         {institution !== '' && <Institution>{institution}</Institution>}
         {year !== '' && <Year>{year}</Year>}
       </CardBody>

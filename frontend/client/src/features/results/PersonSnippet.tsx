@@ -15,6 +15,7 @@ import { stripYaleIdPrefix } from '../../lib/parse/data/helper'
 import { useGetItemQuery } from '../../redux/api/ml_api'
 import PreviewImageOrIcon from '../common/PreviewImageOrIcon'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import { displayTitle } from '../../lib/util/displayTitle'
 import useResizeableWindow from '../../lib/hooks/useResizeableWindow'
 import theme from '../../styles/theme'
 
@@ -165,9 +166,7 @@ const PersonSnippet: React.FC<ISearchData> = ({
                     )
                   }
                 >
-                  {primaryName.length > 200
-                    ? `${primaryName.slice(0, 200)}...`
-                    : primaryName}
+                  {displayTitle(primaryName)}
                   {dates}
                 </Link>
               </StyledSnippetTitle>

@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 
 import StyledSnippetTitle from '../../styles/features/results/SnippetTitle'
 import { stripYaleIdPrefix } from '../../lib/parse/data/helper'
+import { displayTitle } from '../../lib/util/displayTitle'
 import PreviewImageOrIcon from '../common/PreviewImageOrIcon'
 import { pushClientEvent } from '../../lib/pushClientEvent'
 import EntityParser from '../../lib/parse/data/EntityParser'
@@ -90,10 +91,9 @@ const SnippetHeader: React.FC<IProps> = ({
             style={{
               width: 'inherit',
             }}
+            title={primaryName}
           >
-            {primaryName.length > 200
-              ? `${primaryName.slice(0, 200)}...`
-              : primaryName}
+            {displayTitle(primaryName)}
             {children}
           </Link>
           {userIsAuthenticate && (

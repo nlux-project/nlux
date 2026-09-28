@@ -7,6 +7,7 @@ import { stripYaleIdPrefix } from '../../lib/parse/data/helper'
 import EntityParser from '../../lib/parse/data/EntityParser'
 import config from '../../config/config'
 import { pushClientEvent } from '../../lib/pushClientEvent'
+import { displayTitle } from '../../lib/util/displayTitle'
 import theme from '../../styles/theme'
 
 interface ISearchData {
@@ -80,9 +81,7 @@ const RecordLink: React.FC<ISearchData> = ({
         style={style}
         data-testid={`${strippedUrl}-record-link`}
       >
-        {entityName.length > 200
-          ? `${entityName.slice(0, 200)}...`
-          : entityName}
+        {displayTitle(entityName)}
       </StyledLink>
     )
   }
