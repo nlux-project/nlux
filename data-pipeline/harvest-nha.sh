@@ -46,14 +46,3 @@ if [[ "$SOURCE" == "all" ]]; then
 else
     run_source "$SOURCE" "$OUTPUT_DIR" "$LIMIT"
 fi
-
-#uv run --python 3.12 --with-requirements requirements.txt python enrich-nha.py "$OUTPUT_DIR"
-
-uv run --python 3.12 --with-requirements requirements.txt python manage-data.py --load --nha
-uv run --python 3.12 --with-requirements requirements.txt python ./run-reconcile.py 0 1 --nha
-uv run --python 3.12 --with-requirements requirements.txt python ./run-merge.py 0 1 --nha
-uv run --python 3.12 --with-requirements requirements.txt python ./run-export.py 0 1 --nha
-
-# load into SQLite (DEV only) — fills the API database (backend/nlux.db), run from the repo root:
-# uv run --python 3.12 --with-requirements backend/requirements.txt \
-#     python backend/scripts/load_data.py data-pipeline/output/latest/
