@@ -28,46 +28,41 @@ const HeroImageSection: React.FC<IProps> = ({ data, unit }) => {
     setImageData(landingPageImageParser.getHeroImage(unit))
   }, [data, unit])
 
+  // The styled section has a 440px min-height: without an image (e.g. no CMS
+  // configured) render nothing at all instead of a large empty white block.
+  if (!imageData) {
+    return null
+  }
+
   return (
     <StyledHeroImageSection className="hero">
-      {imageData && (
-        <React.Fragment>
-          <WhatIsLux />
-          <div
-            className="hero-image-container"
-            data-testid="hero-image-container"
-          >
+      <WhatIsLux />
+      <div className="hero-image-container" data-testid="hero-image-container">
+        <Link
+          to={imageData.recordUrl}
+          onClick={() =>
+            pushClientEvent('Entity Link', 'Selected', 'Hero Image Link')
+          }
+        >
+          <img alt={imageData.altText} src={imageData.url} />
+        </Link>
+      </div>
+      {imageData.caption && (
+        <div className="captionDiv">
+          <div className="caption">
             <Link
               to={imageData.recordUrl}
               onClick={() =>
                 pushClientEvent('Entity Link', 'Selected', 'Hero Image Link')
               }
+              data-testid="hero-image-caption-link"
             >
-              <img alt={imageData.altText} src={imageData.url} />
+              {imageData.caption.length > 30
+                ? `${imageData.caption.slice(0, 30)}...`
+                : imageData.caption}
             </Link>
           </div>
-          {imageData.caption && (
-            <div className="captionDiv">
-              <div className="caption">
-                <Link
-                  to={imageData.recordUrl}
-                  onClick={() =>
-                    pushClientEvent(
-                      'Entity Link',
-                      'Selected',
-                      'Hero Image Link',
-                    )
-                  }
-                  data-testid="hero-image-caption-link"
-                >
-                  {imageData.caption.length > 30
-                    ? `${imageData.caption.slice(0, 30)}...`
-                    : imageData.caption}
-                </Link>
-              </div>
-            </div>
-          )}
-        </React.Fragment>
+        </div>
       )}
     </StyledHeroImageSection>
   )
