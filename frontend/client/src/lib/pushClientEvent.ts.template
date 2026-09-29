@@ -1,14 +1,31 @@
-// This is a template to add custom site tracking for analytics.
-// The pushClientEvent function is implemented on most actionable features within LUX
-// and can be configured with any site analytics services.
+// Template for site analytics tracking.
+//
+// This file is gitignored: copy it to src/lib/pushClientEvent.ts and wire the
+// functions below to your analytics service of choice (Matomo, GA4, Plausible,
+// Seznam, ...). Both functions are called throughout the UI and must exist —
+// the no-op implementations below keep the app working when no analytics
+// service is configured.
 
+// Fired when the user interacts with an actionable feature.
 export const pushClientEvent = (
   category: string,
   action: string,
   label?: string,
 ): void => {
-  const args = label
-    ? ['event', category, action, label]
-    : ['event', category, action]
-  window._sz.push(args)
+  // no-op — push the event to your analytics service here
+  void category
+  void action
+  void label
+}
+
+// Fired on every page (route) change.
+export const pushClientPageEvent = (
+  currentUrl: string,
+  prevUrl: string,
+  targetName: string,
+): void => {
+  // no-op — push the page view to your analytics service here
+  void currentUrl
+  void prevUrl
+  void targetName
 }

@@ -331,6 +331,9 @@ docker-load-source:
 .PHONY: frontend-install
 frontend-install:
 	cd frontend/client && npm ci --legacy-peer-deps
+	# src/lib/pushClientEvent.ts is gitignored site-analytics config —
+	# create it from the template if not present (cp -n keeps custom versions)
+	cd frontend/client && cp -n src/lib/pushClientEvent.ts.template src/lib/pushClientEvent.ts
 
 .PHONY: frontend-dev
 frontend-dev:

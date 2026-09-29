@@ -9,6 +9,7 @@ RUN apt-get update && \
     cd /src/client/ && \
     npm ci --legacy-peer-deps && \
     cp index.html.template index.html && \
+    cp src/lib/pushClientEvent.ts.template src/lib/pushClientEvent.ts && \
     npm run typescript && \
     npx vite build && \
     cd /src/server/ && \
