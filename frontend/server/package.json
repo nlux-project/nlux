@@ -5,10 +5,10 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "dev-prep": "yarn clean && mkdir -p build && cp .env* build/ && yarn copy-client && yarn compile",
+    "dev-prep": "rm -rf build && mkdir -p build && cp .env* build/ && cp -r ../client/dist build/public && npm run compile",
     "dev": "concurrently --kill-others npm:compile-watch npm:nodemon",
-    "build": "yarn clean && yarn compile && yarn copy-client",
-    "start": "cd build && node -r source-map-support/register index.js",
+    "build": "rm -rf build && npm run compile && cp -r ../client/dist build/public",
+    "start": "node -r source-map-support/register index.js",
     "lint": "eslint . --ext .ts",
     "clean": "rm -rf build",
     "compile": "tsc -sourcemap",
