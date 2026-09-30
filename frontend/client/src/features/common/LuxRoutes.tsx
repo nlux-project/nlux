@@ -76,8 +76,8 @@ const LuxRoutes: React.FC = () => {
     )
 
     // Push a tracking event for a page change
-    pushClientPageEvent(currentUrl, prevUrl, targetName)
-    setPrevUrl(currentUrl)
+    pushClientPageEvent(results?.page)
+    setPrevUrl(`${currentUrl}&page=${results?.page}`)
   }, [data, isNotAnEntityPage, isSuccess, pathname, prevUrl, routes, search])
 
   return (

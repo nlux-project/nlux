@@ -83,7 +83,7 @@ const extractSelection = (facetCriteria: any): IRefineSelection => {
  * Builds the facet criteria (`if` URL parameter) for the given selection.
  */
 const buildFacetQuery = (selection: IRefineSelection): string | null => {
-  const groups: Array<Record<string, any>> = []
+  const groups: any[] = []
   if (selection.owners.length > 0) {
     groups.push(
       selection.owners.length === 1
@@ -93,6 +93,8 @@ const buildFacetQuery = (selection: IRefineSelection): string | null => {
           },
     )
   }
+
+  // Build the filter groups from the selection
   if (selection.types.length > 0) {
     groups.push(
       selection.types.length === 1
@@ -104,9 +106,11 @@ const buildFacetQuery = (selection: IRefineSelection): string | null => {
           },
     )
   }
+
   if (selection.period !== '') {
     groups.push({ productionDateRange: PERIOD_RANGES[selection.period] })
   }
+
   if (groups.length === 0) {
     return null
   }
@@ -210,6 +214,17 @@ const FacetCheckboxGroup: React.FC<IRefinePanelProps> = ({
   const { orderedItems } = data
   const values: Array<IOrderedItems> = (orderedItems ?? [])
     .filter((item: IOrderedItems) => item.value !== null)
+    // Filter to only show main types
+    .filter((item: IOrderedItems) => {
+      const value = String(item.value)
+      const mainTypes = [
+        'Prenten',
+        'Tekeningen', 
+        'Schilderijen',
+        'Foto\'s',
+      ]
+      return mainTypes.includes(value)
+    })
     .sort((a: IOrderedItems, b: IOrderedItems) => {
       if ((b.totalItems ?? 0) !== (a.totalItems ?? 0)) {
         return (b.totalItems ?? 0) - (a.totalItems ?? 0)
@@ -225,9 +240,10 @@ const FacetCheckboxGroup: React.FC<IRefinePanelProps> = ({
     <div data-testid={`refine-group-${facetName}`}>
       <GroupTitle>{i18n.t(labelKey)}</GroupTitle>
       <OptionList>
-        {values.map((item: IOrderedItems) => {
+        {displayValues.map((item: IOrderedItems) => {
           const value = String(item.value)
           const checked = selectedValues.includes(value)
+          
           return (
             <OptionLabel
               key={value}

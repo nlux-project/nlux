@@ -3,9 +3,8 @@ import React, { type JSX } from 'react'
 import { ICriteria, IOrderedItems } from '../../types/ISearchResults'
 import { IFacetsPagination } from '../../types/IFacets'
 import { useAppDispatch } from '../../app/hooks'
-import { addLastSelectedFacet } from '../../redux/slices/facetsSlice'
-
-import Checkbox from './Checkbox'
+import { pushClientEvent } from '../../lib/pushClientEvent'
+import { AllowedTypeLabels } from '../../redux/slices/facetsSlice'
 
 interface IFacets {
   criteria: ICriteria
@@ -18,6 +17,25 @@ interface IFacets {
   lastPage: number
   setPage: (x: number) => void
   setFacets: (x: IFacetsPagination) => void
+}
+
+const FACET_TYPE_LIMIT = 5
+
+/**
+ * Validates and filters selected type facets to only allow predefined labels.
+ * @param selectedTypes - Array of selected type values
+ * @returns Filtered array of selected types
+ */
+export const filterSelectedTypes = (selectedTypes: string[]): string[] => {
+  const result: string[] = []
+  
+  for (const type of selectedTypes) {
+    if ((typeof AllowedTypeLabels !== 'undefined' && AllowedTypeLabels.includes(type)) || type === 'less...') {
+      result.push(type)
+    }
+  }
+  
+  return result
 }
 
 const Checklist: React.FC<IFacets> = ({
@@ -60,6 +78,46 @@ const Checklist: React.FC<IFacets> = ({
       })
       return null
     })
+
+    // Filter types to only show predefined labels + 'less...'
+    if (facetSection === 'Type' || facetSection === 'itemClassificationLabel') {
+      let allowedSet = AllowedTypeLabels
+      
+      const filteredList: Array<IOrderedItems> = []
+      const allowedKeys: Set<string> = new Set()
+      
+      for (const facet of facetListCombined) {
+        const value = String(facet.value)
+        if (allowedSet.includes(value)) {
+          filteredList.push(facet)
+          allowedKeys.add(value)
+        }
+      }
+      
+      const hasLess = allowedKeys.size === AllowedTypeLabels.length - 1
+      if (hasLess && filteredList.length > 0) {
+        const lessItem: IOrderedItems = {
+          value: 'less...',
+          id: '' as IOrderedItems['id'],
+          type: 'NonMutable' as IOrderedItems['type'],
+          totalItems: facetListCombined.length - filteredList.length,
+        }
+        filteredList.push(lessItem)
+      }
+
+      return filteredList.map((facet) => (
+        <React.Fragment key={facet.value}>
+          <Checkbox
+            criteria={criteria}
+            facet={facet}
+            facetSection={facetSection}
+            selectedFacets={selectedFacets}
+            facetQuery={facetQuery}
+            scope={scope}
+          />
+        </React.Fragment>
+      ))
+    }
 
     return facetListCombined.map((facet) => (
       <React.Fragment key={facet.value}>

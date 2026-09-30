@@ -6,9 +6,11 @@ import { isUndefined } from 'lodash'
 import theme from '../../styles/theme'
 import { getFacetData } from '../../lib/facets/helper'
 import { ICriteria } from '../../types/ISearchResults'
+import { filterSelectedTypes } from './Checklist'
 
 import SelectedFacet from './SelectedFacet'
 import MobileSortSelection from './MobileSortSelection'
+import { AllowedTypeLabels } from './facetsSlice'
 
 const StyledSelectionContainer = styled(Col)`
   background: ${theme.color.lightBabyBlue};
@@ -38,10 +40,24 @@ const MobileSelectedFacets: React.FC<IProps> = ({
     facetQuery: ICriteria,
   ): JSX.Element[] | null => {
     const selectedFacetComponents = [] as JSX.Element[]
-    selectedFacets.forEach((entityIds, searchTag) =>
-      entityIds.forEach((entityId) => {
-        // If the entityId is of type number, it should be rendered as we need to accept string and numerical values
-        if (entityId || typeof entityId === 'number') {
+    selectedFacets.forEach((entityIds, searchTag) => {
+      // Check if this is the Type facet and filter accordingly
+      if (searchTag === 'Type' || searchTag === 'itemClassificationLabel') {
+        const filteredTypes = []
+        const allowedSet = AllowedTypeLabels
+        
+        for (const entityId of entityIds) {
+          // If the entityId is of type number, it should be rendered as we need to accept string and numerical values
+          if (entityId || typeof entityId === 'number') {
+            const label = String(entityId)
+            if (allowedSet.includes(label)) {
+              filteredTypes.push(entityId)
+            }
+          }
+        }
+        
+        // Only render the allowed types
+        filteredTypes.forEach((entityId) => {
           selectedFacetComponents.push(
             <SelectedFacet
               key={`${searchTag}_${entityId}`}
@@ -49,11 +65,27 @@ const MobileSelectedFacets: React.FC<IProps> = ({
               option={entityId}
               facetQuery={facetQuery}
               scope={scope}
-            />,
+            />,  
           )
-        }
-      }),
-    )
+        })
+      } else {
+        // For non-Type facets, render all options
+        entityIds.forEach((entityId) => {
+          // If the entityId is of type number, it should be rendered as we need to accept string and numerical values
+          if (entityId || typeof entityId === 'number') {
+            selectedFacetComponents.push(
+              <SelectedFacet
+                key={`${searchTag}_${entityId}`}
+                searchTag={searchTag}
+                option={entityId}
+                facetQuery={facetQuery}
+                scope={scope}
+              />,  
+            )
+          }
+        })
+      }
+    })
     return selectedFacetComponents
   }
 

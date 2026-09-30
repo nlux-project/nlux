@@ -6,6 +6,10 @@ export interface IFacetsSelected {
   lastSelectedFacetUri: string
 }
 
+export { AllowedTypeLabels } from '../lib/pushClientEvent'
+
+export type AllowedTypeLabelsType = (typeof AllowedTypeLabels)[number]
+
 const initialState: IFacetsSelected = {
   lastSelectedFacetName: '',
   lastSelectedFacetUri: '',

@@ -22,6 +22,7 @@ export interface IOrderedItems {
   totalItems?: number
   first?: IBase
   name?: string
+  label?: string
 }
 
 export interface IPartOf {

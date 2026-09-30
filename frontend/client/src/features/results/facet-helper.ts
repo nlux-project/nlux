@@ -1,0 +1,1 @@
+export type AllowedTypeLabelsType = (typeof AllowedTypeLabels)[number]

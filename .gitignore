@@ -11,3 +11,6 @@ track_load_db.sh
 site
 backend/*/__pycache__/
 backend/backend.log
+node_modules/
+package-lock.json
+package.json
