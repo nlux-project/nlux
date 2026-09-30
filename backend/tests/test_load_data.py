@@ -1,6 +1,25 @@
+import tempfile
 import unittest
+from pathlib import Path
 
-from scripts.load_data import extract_search_text, text_value
+from scripts.load_data import _jsonl_lines, extract_search_text, text_value
+
+
+class JsonlLinesTest(unittest.TestCase):
+    def _write(self, content):
+        tmp = tempfile.NamedTemporaryFile("w", suffix=".jsonl", delete=False)
+        tmp.write(content)
+        tmp.close()
+        self.addCleanup(Path(tmp.name).unlink)
+        return Path(tmp.name)
+
+    def test_limit_caps_records_per_file(self):
+        path = self._write('{"id": "a"}\n\n{"id": "b"}\n{"id": "c"}\n')
+        self.assertEqual([line for _, line in _jsonl_lines(path, limit=2)], ['{"id": "a"}', '{"id": "b"}'])
+
+    def test_no_limit_yields_all_non_empty_lines(self):
+        path = self._write('{"id": "a"}\n\n{"id": "b"}\n')
+        self.assertEqual([line for _, line in _jsonl_lines(path)], ['{"id": "a"}', '{"id": "b"}'])
 
 
 class LoadDataTest(unittest.TestCase):

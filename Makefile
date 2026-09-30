@@ -69,6 +69,10 @@ SLICE ?= 0
 MAXSLICE ?= 1
 # Pipeline export location used by api-load
 EXPORT_DIR ?= $(LUX_BASEPATH)/data/output/latest
+# Dev cap: api-load / api-load-source load at most this many records per collection
+# export file. Set empty for a full load.
+API_LOAD_LIMIT ?= 1000
+API_LOAD_LIMIT_ARG := $(if $(API_LOAD_LIMIT),--limit $(API_LOAD_LIMIT))
 
 # --- Meta ------------------------------------------------------------------
 
@@ -83,8 +87,10 @@ help:
 	@printf '  backend-run             run the API dev server on :8000 (uvicorn --reload)\n'
 	@printf '  backend-reset           drop and recreate the API database\n'
 	@printf '  api-load                load exported Linked Art JSONL into the API DB\n'
-	@printf '                          (EXPORT_DIR=$$(LUX_BASEPATH)/data/output/latest)\n'
+	@printf '                          (EXPORT_DIR=$$(LUX_BASEPATH)/data/output/latest;\n'
+	@printf '                           API_LOAD_LIMIT=$(API_LOAD_LIMIT) records per file)\n'
 	@printf '  api-load-source         load one source export into the API DB (SOURCE=rma)\n'
+	@printf '                          (API_LOAD_LIMIT=$(API_LOAD_LIMIT) records per file)\n'
 	@printf '  api-generate-agents     generate Person/Group records from object data\n'
 	@printf '  api-generate-concepts   generate concept records from object data\n\n'
 	@printf 'Data pipeline ==============================================================\n'
@@ -145,6 +151,8 @@ help:
 	@printf '  SOURCE=<source>          pipeline collection  (default: $(SOURCE))\n'
 	@printf '  SLICE=<n> MAXSLICE=<n>   parallel slice control (default: $(SLICE) / $(MAXSLICE))\n'
 	@printf '  EXPORT_DIR=<path>       export location for api-load (default: $(EXPORT_DIR))\n'
+	@printf '  API_LOAD_LIMIT=<n>      dev cap: records per export file for api-load/api-load-source\n'
+	@printf '                          (default: $(API_LOAD_LIMIT); set empty for a full load)\n'
 	@printf '  CAROUSEL_COUNT=<n>      objects to map for the carousel (default: $(CAROUSEL_COUNT))\n'
 	@printf '  CAROUSEL_SEED=<n>       sampling seed for carousel-load (default: $(CAROUSEL_SEED))\n\n'
 
@@ -179,7 +187,7 @@ backend-reset:
 
 .PHONY: api-load
 api-load:
-	$(BACKEND_PY) backend/scripts/load_data.py "$(EXPORT_DIR)"
+	$(BACKEND_PY) backend/scripts/load_data.py $(API_LOAD_LIMIT_ARG) "$(EXPORT_DIR)"
 
 # Load only the export files of one source (e.g. SOURCE=rma) into the API dev
 # database — a fast iteration loop over a full api-load when re-exporting a
@@ -193,7 +201,7 @@ api-load-source:
 		exit 1; \
 	fi; \
 	echo "==> api-load-source SOURCE=$(SOURCE): $$files"; \
-	$(BACKEND_PY) backend/scripts/load_data.py $$files
+	$(BACKEND_PY) backend/scripts/load_data.py $(API_LOAD_LIMIT_ARG) $$files
 
 .PHONY: api-generate-agents
 api-generate-agents:

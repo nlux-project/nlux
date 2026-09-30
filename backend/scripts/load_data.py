@@ -7,6 +7,7 @@ Usage:
 
 Multiple paths are loaded with a single FTS index rebuild.
 """
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -78,6 +79,20 @@ def _prepare_database():
             conn.commit()
 
 
+def _jsonl_lines(path: Path, limit: int | None = None):
+    """Yield (lineno, line) for each non-empty JSONL line, at most `limit`."""
+    count = 0
+    with path.open(encoding="utf-8") as fh:
+        for lineno, line in enumerate(fh, 1):
+            line = line.strip()
+            if not line:
+                continue
+            if limit is not None and count >= limit:
+                return
+            count += 1
+            yield lineno, line
+
+
 def _rebuild_fts_index():
     if settings.database_url.startswith("sqlite"):
         with engine.connect() as conn:
@@ -87,7 +102,7 @@ def _rebuild_fts_index():
             conn.commit()
 
 
-def _load_records(data_path: Path):
+def _load_records(data_path: Path, limit: int | None = None):
     if data_path.is_file():
         if data_path.suffix == ".json":
             json_files = [data_path]
@@ -165,20 +180,18 @@ def _load_records(data_path: Path):
 
         for path in jsonl_files:
             print(f"Loading {path.name} ...")
-            with path.open(encoding="utf-8") as fh:
-                for lineno, line in enumerate(fh, 1):
-                    line = line.strip()
-                    if not line:
-                        continue
-                    try:
-                        doc = json.loads(line)
-                        _load_doc(doc, f"{path.name}:{lineno}")
-                    except Exception as e:
-                        print(f"  ERROR {path.name}:{lineno}: {e}")
-                        errors += 1
-                    if (inserted + updated) % 1000 == 0 and (inserted + updated) > 0:
-                        db.commit()
-                        print(f"  {inserted} inserted, {updated} updated so far ...")
+            for lineno, line in _jsonl_lines(path, limit):
+                try:
+                    doc = json.loads(line)
+                    _load_doc(doc, f"{path.name}:{lineno}")
+                except Exception as e:
+                    print(f"  ERROR {path.name}:{lineno}: {e}")
+                    errors += 1
+                if (inserted + updated) % 1000 == 0 and (inserted + updated) > 0:
+                    db.commit()
+                    print(f"  {inserted} inserted, {updated} updated so far ...")
+            if limit is not None:
+                print(f"  {path.name}: limited to {limit} records")
 
         db.commit()
 
@@ -196,11 +209,15 @@ def load_path(data_path: Path):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python scripts/load_data.py <data_directory_or_file> [...]")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("paths", nargs="+", help="JSON(L) file or directory")
+    parser.add_argument(
+        "--limit", type=int, default=None,
+        help="load at most N records per JSONL file (dev: keep the DB small)",
+    )
+    args = parser.parse_args()
     # Load every path, then rebuild the (expensive) FTS index only once
     _prepare_database()
-    for arg in sys.argv[1:]:
-        _load_records(Path(arg))
+    for arg in args.paths:
+        _load_records(Path(arg), limit=args.limit)
     _rebuild_fts_index()
