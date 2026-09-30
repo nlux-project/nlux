@@ -21,6 +21,12 @@ class JsonlLinesTest(unittest.TestCase):
         path = self._write('{"id": "a"}\n\n{"id": "b"}\n')
         self.assertEqual([line for _, line in _jsonl_lines(path)], ['{"id": "a"}', '{"id": "b"}'])
 
+    def test_limit_is_per_file(self):
+        first = self._write('{"id": "a"}\n{"id": "b"}\n{"id": "c"}\n')
+        second = self._write('{"id": "d"}\n{"id": "e"}\n{"id": "f"}\n{"id": "g"}\n')
+        self.assertEqual(len(list(_jsonl_lines(first, limit=2))), 2)
+        self.assertEqual(len(list(_jsonl_lines(second, limit=2))), 2)
+
 
 class LoadDataTest(unittest.TestCase):
     def test_text_value_flattens_list_labels(self):

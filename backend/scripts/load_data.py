@@ -2,9 +2,6 @@
 """
 Load Linked Art JSON files into the nlux-backend database.
 
-Usage:
-    python scripts/load_data.py <path/to/lux_metadata_or_file> [...]
-
 Multiple paths are loaded with a single FTS index rebuild.
 """
 import argparse
@@ -105,6 +102,7 @@ def _rebuild_fts_index():
 def _load_records(data_path: Path, limit: int | None = None):
     if data_path.is_file():
         if data_path.suffix == ".json":
+            # .json holds a single record; --limit applies to JSONL batches only.
             json_files = [data_path]
             jsonl_files = []
         elif data_path.suffix == ".jsonl":
@@ -179,7 +177,8 @@ def _load_records(data_path: Path, limit: int | None = None):
                 errors += 1
 
         for path in jsonl_files:
-            print(f"Loading {path.name} ...")
+            limit_note = f" (limit {limit})" if limit is not None else ""
+            print(f"Loading {path.name}{limit_note} ...")
             for lineno, line in _jsonl_lines(path, limit):
                 try:
                     doc = json.loads(line)
@@ -190,8 +189,6 @@ def _load_records(data_path: Path, limit: int | None = None):
                 if (inserted + updated) % 1000 == 0 and (inserted + updated) > 0:
                     db.commit()
                     print(f"  {inserted} inserted, {updated} updated so far ...")
-            if limit is not None:
-                print(f"  {path.name}: limited to {limit} records")
 
         db.commit()
 
@@ -208,12 +205,20 @@ def load_path(data_path: Path):
     _rebuild_fts_index()
 
 
+def _positive_int(value: str) -> int:
+    number = int(value)
+    if number < 1:
+        raise argparse.ArgumentTypeError("must be a positive integer")
+    return number
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("paths", nargs="+", help="JSON(L) file or directory")
     parser.add_argument(
-        "--limit", type=int, default=None,
-        help="load at most N records per JSONL file (dev: keep the DB small)",
+        "--limit", type=_positive_int, default=None,
+        help="load at most N records per JSONL file (dev: keep the DB small; "
+             "omit for a full load)",
     )
     args = parser.parse_args()
     # Load every path, then rebuild the (expensive) FTS index only once
